@@ -2,7 +2,6 @@
 // @name         Kick Stream Tweaks — Quality & Volume Persistence + Control Panel
 // @name:en      Kick Stream Tweaks — Quality & Volume Persistence + Control Panel
 // @name:ru      Kick Stream Tweaks — Фиксация качества, громкости и панель настроек
-// @name:uk      Kick Stream Tweaks — Фіксація якості, гучності та панель налаштувань
 // @name:de      Kick Stream Tweaks — Qualität & Lautstärke merken + Kontrollpanel
 // @name:fr      Kick Stream Tweaks — Mémorisation qualité & volume + Panneau F2
 // @name:es      Kick Stream Tweaks — Fijar calidad y volumen + Panel de control F2
@@ -11,18 +10,17 @@
 // @name:tr      Kick Stream Tweaks — Kalite & Ses Sabitleme + F2 Kontrol Paneli
 // @name:vi      Kick Stream Tweaks — Lưu chất lượng & Âm lượng + Bảng điều khiển F2
 // @name:ko      Kick Stream Tweaks — 화질 및 음량 고정 + F2 제어판
-// @name:ja      Kick Stream Tweaks — 画質と音量を 자동 고정 + F2 コントロールパネル
+// @name:ja      Kick Stream Tweaks — 画質と音量を自動固定 + F2 コントロールパネル
 // @name:zh-CN   Kick Stream Tweaks — 自动锁定画质与音量 + F2 控制面板
 // @name:zh-HK   Kick Stream Tweaks — 自動鎖定畫質與音量 + F2 控制面板
 // @name:zh-TW   Kick Stream Tweaks — 自動鎖定畫質與音量 + F2 控制面板
 // @namespace    https://github.com/ebayybe
 // @homepageURL  https://github.com/ebayybe/kick-stream-tweaks
 // @supportURL   https://github.com/ebayybe/kick-stream-tweaks/issues
-// @version      1.1.0
+// @version      1.3.1
 // @description        Remembers video quality and volume on Kick.com, applies them automatically on new streams, and adds an F2 control panel.
 // @description:en     Remembers video quality and volume on Kick.com, applies them automatically on new streams, and adds an F2 control panel.
 // @description:ru     Запоминает качество и громкость на Kick.com, автоматически применяет их на новых стримах и добавляет панель настроек по F2.
-// @description:uk     Запам'ятовує якість та гучність на Kick.com, автоматично застосовує їх на нових стрімах та додає панель налаштувань за F2.
 // @description:de     Merkt sich Videoqualität und Lautstärke auf Kick.com, wendet sie automatisch an und bietet ein F2-Kontrollpanel.
 // @description:fr     Mémorise la qualité vidéo et le volume sur Kick.com, les applique automatiquement et ajoute un panneau de contrôle F2.
 // @description:es     Recuerda la calidad y el volumen en Kick.com, los aplica automáticamente en nuevos directos y añade un panel F2.
@@ -35,8 +33,8 @@
 // @description:zh-CN  记住 Kick.com 的画质和音量设置，在切换直播时自动应用，并提供 F2 控制面板。
 // @description:zh-HK  記住 Kick.com 的畫質和音量設定，在切換直播時自動應用，並提供 F2 控制面板。
 // @description:zh-TW  記住 Kick.com 的畫質和音量設定，在切換直播時自動套用，並提供 F2 控制面板。
-// @run-at       document-idle
-// @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAJjklEQVR4nO3ZIW5cZxiG0d/VhUYF1SArGyjvPqbZQYIDuoZuINg7aGYBgaWhKa9UNCo2HMklBgaR0oCZb5znHOnqp+9lj/TdrCu0P+0epzfAM+8O2/H99Aj+v/1p92qt9ff0Dnjm9WE7fpge8dwP0wMAgMsTAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCtukBwJz9afdqesOZ/DQ9AK6dAIC2P9dad9MjgMtzAgCAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIGibHgAvwM/70+7X6RFn8uP0AGCGAICve/P0AXw3nAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAgSAAAQJAAAIEgAAECQAACAIAEAAEECAACCBAAABAkAAAjapgcAwDP/TA84k6v7LwEAwLW4P2zHt9MjKpwAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAI2qYHAPDN7qcHnMnH6QElAgDgZXk4bMe30yN4+ZwAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIupke8CX70+5xegPAFbufHnAmHw/b8cP0iIptegAA3+zN0/uw1rr9jt611hIAF+IEAPBy3X5nLxckAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAE3UwP+JL9afc4vQGAi3tYa/01PeJM3h2246fpEc9t0wMA4MntWuuX6RFncrfWuqoAcAIAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBomx4AL8D9Wuvz9Igz+X2tdTs9Arg8AQBf9/mwHd9PjziH/Wn32xIAkOQEAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABA0DY9ABj1enrAmdyttf6YHgHXTABA2GE7fprecA770+7f6Q1w7ZwAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAIEgAAECQAACBIAABAkAAAgCABAABBAgAAggQAAAQJAAAI+g9uolMnGmWPUQAAAABJRU5ErkJggg==
+// @run-at      document-start
+// @icon         https://i.postimg.cc/Z5ZDGJtH/kick-streaming-platform-logo-icon.png
 // @author       ebayybe
 // @license      MIT
 // @grant        none
@@ -49,1552 +47,2480 @@
   'use strict';
 
   /* ============================================================
+   *  DATA — translations (38 languages), flags, diagnostics
+   * ========================================================== */
+  const LANG_NAMES = {"en":"English","ar":"العربية","be":"Беларуская","bg":"Български","cs":"Čeština","da":"Dansk","de":"Deutsch","el":"Ελληνικά","es":"Español","fi":"Suomi","fr":"Français","hi":"हिन्दी","en-in":"English (India)","hr":"Hrvatski","hu":"Magyar","id":"Bahasa Indonesia","it":"Italiano","ja":"日本語","ko":"한국어","lt":"Lietuvių","lv":"Latviešu","mk":"Македонски","mn":"Монгол","ms":"Melayu","nl":"Nederlands","no":"Norsk","pl":"Polski","pt":"Português","ro":"Română","ru":"Русский","sk":"Slovenčina","sr":"Srpski","sv":"Svenska","th":"ไทย","tr":"Türkçe","vi":"Tiếng Việt","zh-cn":"简体中文","zh-tw":"繁體中文"};
+  const TR = {"en":{"accentColorLabel":"Accent color","actionHotkeysLabel":"Action shortcuts","animFade":"Fade","animGlow":"Glow","animLift":"Lift","animNone":"None","animPop":"Pop","animScale":"Scale","animSlide":"Slide","animationFull":"Full","animationLabel":"Panel animations","animationOff":"Off","animationPreviewLabel":"Preview","animationReduced":"Reduced","animationSpeedLabel":"Animation speed","autoClaimHelp":"Opens the rewards window, claims what is available and closes it again. Off by default.","autoClaimLabel":"Auto-claim rewards","autoQualityLabel":"Auto-apply saved quality","autoVolumeLabel":"Auto-apply saved volume","bindShortcut":"Set shortcut","blurLabel":"Menu background blur","centerPanel":"Center panel","channelBackupExport":"Back up all channels","channelBackupImport":"Restore backup","channelCurrent":"Current","channelDoneLabel":"Done","channelEditLabel":"Edit","channelExcludedStatus":"Automation excluded","channelExport":"Export","channelExported":"Channel settings exported.","channelFavoritesOnly":"Pinned only","channelGroupAll":"All groups","channelGroupLabel":"Group","channelGroupPlaceholder":"Group name","channelHowTitle":"How saved channels work","channelImport":"Import profile","channelImportError":"Could not import this channel profile.","channelImportSuccess":"Channel profile imported.","channelMuted":"muted","channelNoteLabel":"Note","channelNotePlaceholder":"Add a note…","channelNudge":"Want separate settings just for this channel?","channelOpenStreamHint":"Open a stream to save settings for its channel.","channelPin":"Pin","channelPinned":"Pinned","channelProfileSummary":"Saved for this channel","channelQualitySummary":"Quality: {live} live · {vod} VOD","channelRemoveConfirm":"Remove saved settings for {name}?","channelSavedToast":"Saved settings for {name}.","channelSearchPlaceholder":"Search saved channels…","channelSortName":"Name","channelSortRecent":"Recently changed","channelSortUsed":"Recently used","channelSoundOn":"sound on","channelSpeedSummary":"Speed: {speed}×","channelStep1":"Open a channel's stream.","channelStep2":"Press “Save this channel”. The current quality, volume, speed and sound settings are stored for it.","channelStep3":"Fine-tune them below. They are applied automatically every time you open that channel.","channelUnpin":"Unpin","channelUseSaved":"Apply the saved settings on this channel","channelVolumeSummary":"Volume: {volume}% · {mute}","claimDelayLabel":"Wait before claiming","claimIntervalLabel":"Check every","claimModeInterval":"On a schedule","claimModeLabel":"Claim rewards","claimModeNotify":"As soon as Kick shows the reward notification","claimNowLabel":"Claim now","claimWidgetHelp":"Shows a small button you can drag anywhere on the stream. Click it to claim your reward in one click. Its position is remembered.","claimWidgetLabel":"Quick-claim button on the page","clearLog":"Clear log","clearNotificationHistory":"Clear notification history","collapseSidebarLabel":"Collapse left menu","compactLabel":"Compact layout","confirmNo":"Cancel","confirmYes":"Confirm","conflictCheckLabel":"Check setting conflicts","conflictsFound":"Potential conflicts: {items}","conflictsNone":"No conflicts detected.","contrastLabel":"High contrast","copyDiagnostics":"Copy diagnostics","currentChannelLabel":"Current channel","diagAvailableQualities":"Detected qualities","diagCurrentQuality":"Current quality","diagUnknown":"Not detected","diagVideoResolution":"Video resolution","diagnosticsCopied":"Diagnostics copied.","diagnosticsLogEmpty":"No diagnostic events yet.","diagnosticsLogLabel":"Action log","diagnosticsRefreshed":"Diagnostics refreshed.","doNotDisturbLabel":"Do not disturb","dragPanelHint":"Drag the panel by its header. Its position is saved.","excludeChannelLabel":"Skip automation on this channel","exportSettings":"Export","fallbackAuto":"Switch to Auto","fallbackLower":"Use nearest lower quality","focusUnavailable":"Fullscreen mode is not available for this player.","focusViewLabel":"Focus view (fullscreen)","footerClose":"Close","footerHint":"Press {key} to toggle this menu","freezeAlertLabel":"Alert when the player freezes","freezeRecovered":"Playback resumed.","freezeSoundLabel":"Play an alarm sound","freezeThresholdLabel":"Freeze detection time","groupFeedback":"Alerts","groupInterface":"Interface","groupPlayer":"Player","groupSystem":"System","helpAccentColor":"Choose a custom highlight color.","helpAutoQuality":"Applies saved quality when the player opens. Auto uses the last quality chosen in Kick.","helpAutoVolume":"Restores saved volume and mute state when the player starts or reconnects.","helpBlur":"Set background blur from 0 to 12 px. Drag the slider or use the mouse wheel while the cursor is over it.","helpButton":"Help","helpChannelExclude":"Stops automatic quality, volume, and latency changes on this channel. Manual player controls still work.","helpChannelSettings":"When enabled, this channel keeps its own quality, volume, mute, and playback speed. Change those values in the player while this option is on.","helpCompact":"Reduces spacing and control height.","helpFallback":"Choose what to do when this stream lacks your preferred quality.","helpHotkey":"Choose a key or Ctrl/Alt/Shift/Meta combination to toggle the panel. Escape cancels.","helpLanguage":"Changes this panel’s language.","helpLiveQuality":"Preferred quality for live streams. Auto remembers the last player choice.","helpNotificationDuration":"Choose how long quality notifications stay visible.","helpNotificationSize":"Adjust the size of quality notification text.","helpNotifications":"Show or hide quality result notifications. Drag a notification to move it; its position is saved.","helpPanelStyle":"Choose the visual style of the panel.","helpSleepTimer":"Starts a countdown and pauses the current video at zero. Closing this menu does not cancel it.","helpSoundVolume":"Adjust extension sound volume. Preview buttons play a sample.","helpSounds":"Turn all extension sounds on or off. Choose individual events in Configure sounds.","helpTheme":"Changes this panel’s appearance.","helpVodQuality":"Preferred quality for recordings; independent from live streams.","helpVolume":"Volume is 0–100%. Drag the slider or use the mouse wheel while the cursor is over it.","hideChatLabel":"Hide chat","highVolumeWarning":"Player volume is above {threshold}%.","hotkeyCancel":"Press Escape to cancel","hotkeyWaiting":"Press any key…","hoverAnimationLabel":"Hover effect","iconAnimationsLabel":"Icon animations","importSettings":"Import","indicatorBreathe":"Soft breathing","indicatorGlow":"Glow","indicatorOff":"Off","indicatorPulse":"Pulse","indicatorTitle":"Indicator","languageLabel":"Language","lastResultLabel":"Last result","layoutTitle":"Page layout","layoutUnavailable":"Not available on this page.","logCleared":"Log cleared.","loudThresholdLabel":"Warning threshold","loudWarningLabel":"Warn at high volume","minutesUnit":"min","muteLabel":"Mute player","noPlayerForReset":"No video player was found.","noSavedChannels":"No channel settings have been saved yet.","notificationApplied":"Applied quality: {q}.","notificationDurationLabel":"Notification duration","notificationFailed":"Could not apply {q}; player controls or quality option were not found.","notificationHistoryEmpty":"No notifications yet.","notificationHistoryEnabledLabel":"Enable notification history","notificationHistoryLabel":"Notification history","notificationIconLabel":"Show notification icon","notificationOpacityLabel":"Notification opacity","notificationSizeLabel":"Notification text size","notificationVolumeLabel":"Volume restored","notificationsLabel":"Quality notifications","openAnimationLabel":"Opening animation","openReleases":"Open releases","panelStyleKick":"Kick","panelStyleLabel":"Panel style","panelStyleMinimal":"Minimal","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Playback speed","playerFrozenNotice":"The player seems frozen. Try reloading the stream.","preferredVolumeLabel":"Preferred volume","presetApplied":"Preset applied: {name}","presetsLabel":"Quick presets","previewNotification":"Preview notification","qualityAuto":"Auto (use last manually selected)","qualityAvailable":"Selected quality is available.","qualityCheckLabel":"Check selected quality","qualityFallbackLabel":"If unavailable","qualityLiveLabel":"Live stream quality","qualityUnavailable":"Selected quality is not available.","qualityVodLabel":"VOD quality","quickActionsLabel":"Quick actions","quietFullscreenLabel":"Quiet mode in fullscreen","recoveryLabel":"Try to recover a stalled player","refreshDiagnostics":"Refresh diagnostics","removeChannelSettings":"Remove","reportIssue":"Report an issue","resetNotificationPosition":"Reset notification position","resetPlayerLabel":"Reapply saved player settings","resetQuality":"Reset quality","resetSection":"Reset section","resetSettings":"Reset","restoreReset":"Restore pre-reset backup","restoreVolume":"Restore volume","rewardClaimed":"Reward claimed.","rewardNone":"No rewards to claim right now.","rewardsTitle":"Rewards","safeModeHelp":"Temporarily disables automatic player changes while keeping the panel available.","safeModeLabel":"Safe mode","saveChannelButton":"Save this channel","savedChannelsLabel":"Saved channels","secondsUnit":"s","sectionAbout":"About the extension","sectionAppearance":"Appearance","sectionData":"Data & about","sectionDiagnostics":"Player diagnostics","sectionHotkey":"Menu Hotkey","sectionMotion":"Animations","sectionNotifications":"Notifications","sectionPlayback":"Playback","sectionShortcuts":"Shortcuts","sectionSounds":"Sounds","sectionTools":"Tools","settingsImportError":"Could not import settings. Check that this is a valid settings file.","settingsImportPrompt":"Import these settings and replace the current configuration?","settingsImported":"Settings imported.","settingsReset":"Reset","settingsResetPrompt":"Reset all Kick Stream Tweaks settings to defaults?","clearSearch":"Clear search","settingsSearch":"Search settings…","shortcutChat":"Toggle chat","shortcutFocus":"Distraction-free view","shortcutNotifications":"Toggle notifications","shortcutQuality":"Reset quality","shortcutSidebar":"Toggle left menu","shortcutVolume":"Restore volume","silentHelp":"Silences the stream without muting the player, so it keeps playing when you switch tabs. Can be set per channel.","silentLabel":"Play without sound (keeps playing in the background)","silentTag":"Silent","silentUnavailable":"Silent playback is not available for this player.","situationBandwidth":"Save bandwidth","situationQuality":"Best quality","situationQuiet":"Quiet viewing","situationVod":"VOD","sleepCancelLabel":"Cancel timer","sleepClock12":"AM/PM","sleepClock24":"24-hour","sleepEndsAt":"Ends at","sleepExpired":"Sleep timer paused playback.","sleepHoursLabel":"Hours","sleepMinutesLabel":"Minutes","sleepStartLabel":"Start timer","sleepStarted":"Playback will pause in {minutes} minutes.","sleepTimerLabel":"Sleep timer","soundConfigureLabel":"Sound event settings","soundEffectsLabel":"Sound effects","soundEventVolumeLabel":"Event volume","soundMenuLabel":"Panel open and close","soundModalHint":"Each switch controls only that event. The main Sound effects switch must also be on.","soundPreviewButton":"Preview","soundQualityFailure":"Quality could not be applied","soundQualitySuccess":"Quality applied","soundSettingsLabel":"Settings changed","soundVolumeLabel":"Sound effect volume","soundVolumeRestored":"Volume restored","speedFast":"Fast","speedNormal":"Normal","speedSlow":"Slow","statusLabel":"Status","textScaleLabel":"Text scale","textScaleLarge":"110%","textScaleSmall":"90%","textScaleXLarge":"130%","themeDark":"Dark","themeLabel":"Theme","themeLight":"Light","titleQuality":"Quality","titleVolume":"Volume","undoChange":"Undo last change","versionLabel":"Version","widgetAutoHideLabel":"Show only when a reward is available","widgetDesignLabel":"Button style","widgetDragHint":"Drag to move · click to claim","widgetIconBolt":"Bolt","widgetIconCoin":"Coin","widgetIconCrown":"Crown","widgetIconCustom":"Your own icon","widgetIconGift":"Gift","widgetIconLabel":"Icon","widgetIconStar":"Star","widgetImageError":"Could not use this file. Choose a PNG, JPG, WebP, GIF or SVG image up to 2 MB.","widgetImageFill":"Fill the whole button with the image","widgetImageSaved":"Custom icon saved.","widgetImageTip":"Square images with a transparent background look best. The image stays in your browser only.","widgetOpacityLabel":"Button opacity","widgetRemoveCustom":"Remove your icon","widgetResetPos":"Reset button position","widgetSizeLabel":"Button size","widgetStyleFlat":"Flat","widgetStyleGlass":"Glass","widgetStyleOrb":"Orb","widgetStylePill":"Pill","widgetUpload":"Upload your own icon"},"ar":{"accentColorLabel":"لون التمييز","actionHotkeysLabel":"اختصار القائمة","animFade":"تلاشي","animGlow":"توهج","animLift":"رفع","animNone":"بدون","animPop":"قفزة","animScale":"تكبير","animSlide":"انزلاق","animationFull":"داكن","animationLabel":"تخطيط مضغوط","animationOff":"فاتح","animationPreviewLabel":"معاينة","animationReduced":"تخطيط مضغوط","animationSpeedLabel":"سرعة الحركة","autoClaimHelp":"يفتح نافذة المكافآت ويجمع المتاح ثم يغلقها. معطّل افتراضياً.","autoClaimLabel":"جمع المكافآت تلقائياً","autoQualityLabel":"تطبيق الجودة المحفوظة تلقائيًا","autoVolumeLabel":"تطبيق مستوى الصوت المحفوظ تلقائيًا","bindShortcut":"انقر للتغيير","blurLabel":"تمويه خلفية القائمة","centerPanel":"إعادة ضبط موضع الإشعار","channelBackupExport":"نسخ احتياطي لكل القنوات","channelBackupImport":"استعادة النسخة الاحتياطية","channelCurrent":"الحالي","channelDoneLabel":"تم","channelEditLabel":"تعديل","channelExcludedStatus":"الأتمتة مستثناة","channelExport":"تصدير","channelExported":"تم تصدير إعدادات القناة.","channelFavoritesOnly":"المثبتة فقط","channelGroupAll":"كل المجموعات","channelGroupLabel":"المجموعة","channelGroupPlaceholder":"اسم المجموعة","channelHowTitle":"كيف تعمل القنوات المحفوظة","channelImport":"استيراد ملف تعريف","channelImportError":"تعذر استيراد إعدادات القناة.","channelImportSuccess":"تم استيراد إعدادات القناة.","channelMuted":"مكتوم","channelNoteLabel":"ملاحظة","channelNotePlaceholder":"أضف ملاحظة…","channelNudge":"هل تريد إعدادات منفصلة لهذه القناة فقط؟","channelOpenStreamHint":"افتح بثاً لحفظ إعدادات قناته.","channelPin":"تثبيت","channelPinned":"مثبّت","channelProfileSummary":"تذكّر إعدادات هذه القناة","channelQualitySummary":"الجودة: مباشر {live} · VOD {vod}","channelRemoveConfirm":"حذف إعدادات {name}؟","channelSavedToast":"تم حفظ إعدادات {name}.","channelSearchPlaceholder":"البحث في القنوات المحفوظة…","channelSortName":"الاسم","channelSortRecent":"آخر تعديل","channelSortUsed":"آخر استخدام","channelSoundOn":"الصوت يعمل","channelSpeedSummary":"السرعة: {speed}×","channelStep1":"افتح بث القناة.","channelStep2":"اضغط «حفظ هذه القناة». تُحفظ لها الجودة ومستوى الصوت والسرعة وإعدادات الصوت الحالية.","channelStep3":"عدّلها بدقة أدناه. تُطبَّق تلقائياً في كل مرة تفتح فيها هذه القناة.","channelUnpin":"إلغاء التثبيت","channelUseSaved":"تطبيق الإعدادات المحفوظة على هذه القناة","channelVolumeSummary":"الصوت: {volume}% · {mute}","claimDelayLabel":"الانتظار قبل الجمع","claimIntervalLabel":"التحقق كل","claimModeInterval":"وفق جدول زمني","claimModeLabel":"جمع المكافآت","claimModeNotify":"فور ظهور إشعار المكافأة من Kick","claimNowLabel":"اجمع الآن","claimWidgetHelp":"يعرض زراً صغيراً يمكنك سحبه إلى أي مكان في البث. انقر عليه لجمع المكافأة بنقرة واحدة. يتم تذكّر موضعه.","claimWidgetLabel":"زر الجمع السريع في الصفحة","clearLog":"مسح السجل","clearNotificationHistory":"إعادة ضبط","collapseSidebarLabel":"طيّ القائمة اليسرى","compactLabel":"تخطيط مضغوط","confirmNo":"إلغاء","confirmYes":"تأكيد","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"تم تحديث التشخيص.","contrastLabel":"السمة","copyDiagnostics":"تصدير","currentChannelLabel":"الحالي","diagAvailableQualities":"الجودات المكتشفة","diagCurrentQuality":"الجودة الحالية","diagUnknown":"غير مكتشف","diagVideoResolution":"دقة الفيديو","diagnosticsCopied":"تم استيراد الإعدادات.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"تم تحديث التشخيص.","doNotDisturbLabel":"عدم الإزعاج","dragPanelHint":"اسحب اللوحة من شريط العنوان؛ سيتم حفظ موضعها.","excludeChannelLabel":"تخطي الأتمتة لهذه القناة","exportSettings":"تصدير","fallbackAuto":"التبديل إلى تلقائي","fallbackLower":"استخدم أقرب جودة أقل","focusUnavailable":"وضع ملء الشاشة غير متاح لهذا المشغّل.","focusViewLabel":"عرض ملء الشاشة","footerClose":"إغلاق","footerHint":"اضغط {key} لفتح/إغلاق هذه القائمة","freezeAlertLabel":"تنبيه عند تجمّد المشغّل","freezeRecovered":"استؤنف التشغيل.","freezeSoundLabel":"تشغيل صوت إنذار","freezeThresholdLabel":"وقت اكتشاف التجمّد","groupFeedback":"التنبيهات","groupInterface":"الواجهة","groupPlayer":"المشغّل","groupSystem":"النظام","helpAccentColor":"اختر لون تمييز مخصصًا.","helpAutoQuality":"تطبّق الجودة المحفوظة عند فتح المشغل. يستخدم الوضع التلقائي آخر جودة اخترتها في Kick.","helpAutoVolume":"يستعيد مستوى الصوت وحالة الكتم المحفوظين عند بدء المشغل أو إعادة الاتصال.","helpBlur":"اضبط التمويه من 0 إلى 12 بكسل. اسحب شريط التمرير أو استخدم عجلة الفأرة والمؤشر فوقه.","helpButton":"مساعدة","helpChannelExclude":"يوقف تغيير الجودة والصوت وزمن الاستجابة تلقائيًا لهذه القناة. تظل عناصر التحكم اليدوية متاحة.","helpChannelSettings":"عند التفعيل، تُحفظ جودة القناة ومستوى الصوت والكتم والسرعة بشكل مستقل. غيّرها من المشغّل أثناء تفعيل الخيار.","helpCompact":"يقلل المسافات وارتفاع عناصر التحكم.","helpFallback":"اختر الإجراء عند عدم توفر الجودة المفضلة في هذا البث.","helpHotkey":"اختر مفتاحًا أو مجموعة مع Ctrl أو Alt أو Shift أو Meta لفتح اللوحة وإغلاقها. يلغي Escape العملية.","helpLanguage":"يغيّر لغة هذه اللوحة.","helpLiveQuality":"الجودة المفضلة للبث المباشر. يتذكر الوضع التلقائي آخر اختيار في المشغل.","helpNotificationDuration":"اختر مدة ظهور إشعارات الجودة.","helpNotificationSize":"اضبط حجم نص إشعارات الجودة.","helpNotifications":"إظهار إشعارات نتيجة الجودة أو إخفاؤها. اسحب الإشعار لنقله وسيُحفظ موضعه.","helpPanelStyle":"اختر المظهر المرئي للوحة.","helpSleepTimer":"يبدأ العد التنازلي ويوقف الفيديو الحالي عند انتهائه. إغلاق القائمة لا يلغي المؤقت.","helpSoundVolume":"اضبط صوت المؤثرات. تشغّل أزرار المعاينة عينة صوتية.","helpSounds":"تشغيل أصوات الإضافة أو إيقافها. اختر الأحداث بشكل فردي من إعدادات الأصوات.","helpTheme":"يغيّر مظهر هذه اللوحة.","helpVodQuality":"الجودة المفضلة للتسجيلات، وهي مستقلة عن البث المباشر.","helpVolume":"مستوى الصوت من 0 إلى 100٪. اسحب شريط التمرير أو استخدم عجلة الفأرة والمؤشر فوقه.","hideChatLabel":"إخفاء الدردشة","highVolumeWarning":"مستوى صوت المشغّل أعلى من {threshold}٪.","hotkeyCancel":"اضغط Escape للإلغاء","hotkeyWaiting":"اضغط أي مفتاح…","hoverAnimationLabel":"تأثير التمرير","iconAnimationsLabel":"حركات الأيقونات","importSettings":"استيراد","indicatorBreathe":"تنفس هادئ","indicatorGlow":"توهج","indicatorOff":"إيقاف","indicatorPulse":"نبض","indicatorTitle":"المؤشر","languageLabel":"اللغة","lastResultLabel":"النتيجة الأخيرة","layoutTitle":"تخطيط الصفحة","layoutUnavailable":"غير متاح في هذه الصفحة.","logCleared":"تم مسح السجل.","loudThresholdLabel":"حد التحذير","loudWarningLabel":"تحذير عند ارتفاع الصوت","minutesUnit":"د","muteLabel":"كتم المشغّل","noPlayerForReset":"لم يتم العثور على مشغّل فيديو.","noSavedChannels":"لا توجد إعدادات قنوات محفوظة بعد.","notificationApplied":"تم تطبيق الجودة: {q}.","notificationDurationLabel":"مدة الإشعار","notificationFailed":"تعذر تطبيق {q}؛ لم يتم العثور على عناصر التحكم أو خيار الجودة.","notificationHistoryEmpty":"لا توجد إشعارات بعد.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"سجل الإشعارات","notificationIconLabel":"إظهار رمز الإشعار","notificationOpacityLabel":"شفافية الإشعار","notificationSizeLabel":"حجم نص الإشعار","notificationVolumeLabel":"تمت استعادة مستوى الصوت","notificationsLabel":"إشعارات الجودة","openAnimationLabel":"حركة الفتح","openReleases":"فتح سجل الإصدارات","panelStyleKick":"Kick","panelStyleLabel":"نمط اللوحة","panelStyleMinimal":"بسيط","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"سرعة التشغيل","playerFrozenNotice":"يبدو أن المشغّل متجمّد. جرّب إعادة تحميل البث.","preferredVolumeLabel":"مستوى الصوت المفضل","presetApplied":"تم تطبيق الإعداد: {name}","presetsLabel":"إعدادات سريعة","previewNotification":"معاينة الإشعار","qualityAuto":"تلقائي (آخر اختيار يدوي)","qualityAvailable":"Status","qualityCheckLabel":"جودة البث المباشر","qualityFallbackLabel":"إذا لم تكن متاحة","qualityLiveLabel":"جودة البث المباشر","qualityUnavailable":"Status","qualityVodLabel":"جودة التسجيل (VOD)","quickActionsLabel":"التشغيل","quietFullscreenLabel":"الوضع الهادئ في ملء الشاشة","recoveryLabel":"محاولة استعادة التشغيل عند التوقف","refreshDiagnostics":"تم تحديث التشخيص.","removeChannelSettings":"حذف","reportIssue":"الإبلاغ عن مشكلة","resetNotificationPosition":"إعادة ضبط موضع الإشعار","resetPlayerLabel":"إعادة تطبيق إعدادات المشغّل","resetQuality":"إعادة تطبيق إعدادات المشغّل","resetSection":"إعادة ضبط القسم","resetSettings":"إعادة ضبط","restoreReset":"إعادة ضبط","restoreVolume":"تطبيق مستوى الصوت المحفوظ تلقائيًا","rewardClaimed":"تم جمع المكافأة.","rewardNone":"لا توجد مكافآت متاحة الآن.","rewardsTitle":"المكافآت","safeModeHelp":"تطبّق الجودة المحفوظة عند فتح المشغل. يستخدم الوضع التلقائي آخر جودة اخترتها في Kick.","safeModeLabel":"تخطيط مضغوط","saveChannelButton":"حفظ هذه القناة","savedChannelsLabel":"القنوات المحفوظة","secondsUnit":"ث","sectionAbout":"حول الإضافة","sectionAppearance":"المظهر","sectionData":"البيانات وحول الإضافة","sectionDiagnostics":"تشخيص المشغل","sectionHotkey":"اختصار القائمة","sectionMotion":"الحركات","sectionNotifications":"الإشعارات","sectionPlayback":"التشغيل","sectionShortcuts":"الاختصارات","sectionSounds":"الأصوات","sectionTools":"الأدوات","settingsImportError":"تعذر استيراد الإعدادات. تحقق من صلاحية الملف.","settingsImportPrompt":"هل تريد استيراد هذه الإعدادات واستبدال الإعدادات الحالية؟","settingsImported":"تم استيراد الإعدادات.","settingsReset":"إعادة ضبط","settingsResetPrompt":"هل تريد إعادة ضبط جميع إعدادات Kick Stream Tweaks؟","clearSearch":"مسح البحث","settingsSearch":"بحث في الإعدادات…","shortcutChat":"تبديل الدردشة","shortcutFocus":"عرض ملء الشاشة","shortcutNotifications":"Quality notifications","shortcutQuality":"جودة البث المباشر","shortcutSidebar":"تبديل القائمة اليسرى","shortcutVolume":"مستوى الصوت المفضل","silentHelp":"يكتم البث دون كتم المشغّل، فيستمر التشغيل عند تبديل علامة التبويب. يمكن ضبطه لكل قناة.","silentLabel":"تشغيل بدون صوت (يستمر البث في الخلفية)","silentTag":"صامت","silentUnavailable":"التشغيل الصامت غير متاح لهذا المشغّل.","situationBandwidth":"إذا لم تكن متاحة","situationQuality":"الجودة المفضلة","situationQuiet":"كتم المشغّل","situationVod":"تسجيل (VOD)","sleepCancelLabel":"إلغاء المؤقت","sleepClock12":"صباحًا/مساءً","sleepClock24":"24 ساعة","sleepEndsAt":"ينتهي في","sleepExpired":"أوقف مؤقت النوم التشغيل.","sleepHoursLabel":"الساعات","sleepMinutesLabel":"الدقائق","sleepStartLabel":"بدء المؤقت","sleepStarted":"سيتوقف التشغيل بعد {minutes} دقيقة.","sleepTimerLabel":"مؤقت النوم","soundConfigureLabel":"إعدادات أحداث الصوت","soundEffectsLabel":"المؤثرات الصوتية","soundEventVolumeLabel":"مستوى صوت الحدث","soundMenuLabel":"فتح اللوحة وإغلاقها","soundModalHint":"يتحكم كل مفتاح في حدثه فقط. يجب أيضًا تشغيل مفتاح المؤثرات الصوتية الرئيسي.","soundPreviewButton":"معاينة","soundQualityFailure":"تعذر تطبيق الجودة","soundQualitySuccess":"تطبيق الجودة","soundSettingsLabel":"تغيير الإعدادات","soundVolumeLabel":"مستوى صوت المؤثرات","soundVolumeRestored":"استعادة مستوى الصوت","speedFast":"سريع","speedNormal":"عادي","speedSlow":"بطيء","statusLabel":"الحالة","textScaleLabel":"تخطيط مضغوط","textScaleLarge":"تخطيط مضغوط","textScaleSmall":"تخطيط مضغوط","textScaleXLarge":"تخطيط مضغوط","themeDark":"داكن","themeLabel":"السمة","themeLight":"فاتح","titleQuality":"الجودة","titleVolume":"مستوى الصوت","undoChange":"إعادة ضبط","versionLabel":"الإصدار","widgetAutoHideLabel":"إظهاره فقط عند توفّر مكافأة","widgetDesignLabel":"نمط الزر","widgetDragHint":"اسحب للتحريك · انقر للجمع","widgetIconBolt":"برق","widgetIconCoin":"عملة","widgetIconCrown":"تاج","widgetIconCustom":"أيقونتك الخاصة","widgetIconGift":"هدية","widgetIconLabel":"الأيقونة","widgetIconStar":"نجمة","widgetImageError":"تعذّر استخدام هذا الملف. اختر صورة PNG أو JPG أو WebP أو GIF أو SVG بحجم يصل إلى 2 ميغابايت.","widgetImageFill":"ملء الزر بالكامل بالصورة","widgetImageSaved":"تم حفظ الأيقونة المخصصة.","widgetImageTip":"الصور المربعة ذات الخلفية الشفافة تبدو الأفضل. تبقى الصورة في متصفحك فقط.","widgetOpacityLabel":"شفافية الزر","widgetRemoveCustom":"إزالة أيقونتك","widgetResetPos":"إعادة ضبط موضع الزر","widgetSizeLabel":"حجم الزر","widgetStyleFlat":"مسطّح","widgetStyleGlass":"زجاجي","widgetStyleOrb":"كرة","widgetStylePill":"كبسولة","widgetUpload":"رفع أيقونتك الخاصة"},"be":{"accentColorLabel":"Колер акцэнту","actionHotkeysLabel":"Гарачая клавіша меню","animFade":"Згасанне","animGlow":"Свячэнне","animLift":"Падняцце","animNone":"Няма","animPop":"Скачок","animScale":"Маштабаванне","animSlide":"Зрух","animationFull":"Цёмная","animationLabel":"Кампактны выгляд","animationOff":"Светлая","animationPreviewLabel":"Папярэдні прагляд","animationReduced":"Кампактны выгляд","animationSpeedLabel":"Хуткасць анімацыі","autoClaimHelp":"Адкрывае акно ўзнагарод, забірае даступнае і закрывае яго. Па змаўчанні выключана.","autoClaimLabel":"Аўтазбор узнагарод","autoQualityLabel":"Аўтаматычна ўжываць захаваную якасць","autoVolumeLabel":"Аўтаматычна ўжываць захаваную гучнасць","bindShortcut":"Націсніце, каб змяніць","blurLabel":"Размыццё фону меню","centerPanel":"Скінуць пазіцыю апавяшчэння","channelBackupExport":"Рэзервовая копія ўсіх каналаў","channelBackupImport":"Аднавіць копію","channelCurrent":"Бягучы","channelDoneLabel":"Гатова","channelEditLabel":"Змяніць","channelExcludedStatus":"Аўтаматыка выключана","channelExport":"Экспарт","channelExported":"Налады канала экспартаваны.","channelFavoritesOnly":"Толькі замацаваныя","channelGroupAll":"Усе групы","channelGroupLabel":"Група","channelGroupPlaceholder":"Назва групы","channelHowTitle":"Як працуюць захаваныя каналы","channelImport":"Імпартаваць профіль","channelImportError":"Не ўдалося імпартаваць профіль канала.","channelImportSuccess":"Профіль канала імпартаваны.","channelMuted":"гук выключаны","channelNoteLabel":"Нататка","channelNotePlaceholder":"Дадайце нататку…","channelNudge":"Патрэбны асобныя налады толькі для гэтага канала?","channelOpenStreamHint":"Адкрыйце трансляцыю, каб захаваць налады яе канала.","channelPin":"Замацаваць","channelPinned":"Замацаваны","channelProfileSummary":"Запамінаць налады канала","channelQualitySummary":"Якасць: эфір {live} · VOD {vod}","channelRemoveConfirm":"Выдаліць налады {name}?","channelSavedToast":"Налады для {name} захаваны.","channelSearchPlaceholder":"Пошук захаваных каналаў…","channelSortName":"Назва","channelSortRecent":"Нядаўна змененыя","channelSortUsed":"Нядаўна выкарыстаныя","channelSoundOn":"гук уключаны","channelSpeedSummary":"Хуткасць: {speed}×","channelStep1":"Адкрыйце трансляцыю патрэбнага канала.","channelStep2":"Націсніце «Захаваць гэты канал». Бягучыя якасць, гучнасць, хуткасць і налады гуку запомняцца для яго.","channelStep3":"Удакладніце іх ніжэй. Яны будуць прымяняцца аўтаматычна пры кожным адкрыцці гэтага канала.","channelUnpin":"Адмацаваць","channelUseSaved":"Прымяняць захаваныя налады на гэтым канале","channelVolumeSummary":"Гучнасць: {volume}% · {mute}","claimDelayLabel":"Чакаць перад атрыманнем","claimIntervalLabel":"Правяраць кожныя","claimModeInterval":"Па раскладзе","claimModeLabel":"Забіраць узнагароды","claimModeNotify":"Адразу, як Kick пакажа апавяшчэнне пра ўзнагароду","claimNowLabel":"Забраць зараз","claimWidgetHelp":"Паказвае невялікую кнопку, якую можна перацягнуць у любое месца стрыма. Націсніце на яе, каб забраць узнагароду адным клікам. Месца запамінаецца.","claimWidgetLabel":"Кнопка хуткага атрымання на старонцы","clearLog":"Ачысціць журнал","clearNotificationHistory":"Скінуць","collapseSidebarLabel":"Згарнуць левае меню","compactLabel":"Кампактны выгляд","confirmNo":"Скасаваць","confirmYes":"Пацвердзіць","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Дыягностыка абноўлена.","contrastLabel":"Тэма","copyDiagnostics":"Экспарт","currentChannelLabel":"Бягучы","diagAvailableQualities":"Знойдзеныя варыянты якасці","diagCurrentQuality":"Бягучая якасць","diagUnknown":"Не вызначана","diagVideoResolution":"Раздзяленне відэа","diagnosticsCopied":"Налады імпартаваны.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Дыягностыка абноўлена.","doNotDisturbLabel":"Не турбаваць","dragPanelHint":"Перацягніце панэль за загаловак; яе пазіцыя захаваецца.","excludeChannelLabel":"Не ўжываць аўтаматыку на канале","exportSettings":"Экспарт","fallbackAuto":"Пераключыцца на аўта","fallbackLower":"Выбраць найбліжэйшую ніжэйшую","focusUnavailable":"Для гэтага плэера недаступны поўнаэкранны рэжым.","focusViewLabel":"На ўвесь экран","footerClose":"Закрыць","footerHint":"Націсніце {key}, каб адкрыць або закрыць меню","freezeAlertLabel":"Сігнал пры замярзанні плэера","freezeRecovered":"Прайграванне адноўлена.","freezeSoundLabel":"Гукавая трывога","freezeThresholdLabel":"Час выяўлення замярзання","groupFeedback":"Абвесткі","groupInterface":"Інтэрфейс","groupPlayer":"Плэер","groupSystem":"Сістэма","helpAccentColor":"Выберыце ўласны колер акцэнту.","helpAutoQuality":"Ужывае захаваную якасць пры адкрыцці плэера. Аўтарэжым выкарыстоўвае апошнюю якасць, выбраную ў Kick.","helpAutoVolume":"Аднаўляе захаваную гучнасць і стан гуку пры запуску плэера або паўторным злучэнні.","helpBlur":"Размыццё — ад 0 да 12 пікселяў. Перацягніце паўзунок або пракручвайце кола мышы, навёўшы на яго курсор.","helpButton":"Даведка","helpChannelExclude":"Адключае аўтаматычную змену якасці, гучнасці і затрымкі для канала. Ручное кіраванне працуе.","helpChannelSettings":"Калі ўключана, якасць, гучнасць, гук і хуткасць для гэтага канала захоўваюцца асобна. Змяняйце іх у плэеры.","helpCompact":"Памяншае прамежкі і вышыню элементаў.","helpFallback":"Выберыце дзеянне, калі ў трансляцыі няма пажаданай якасці.","helpHotkey":"Выберыце клавішу або спалучэнне з Ctrl, Alt, Shift ці Meta. Escape скасоўвае дзеянне.","helpLanguage":"Змяняе мову гэтай панэлі.","helpLiveQuality":"Пажаданая якасць прамых эфіраў. Аўтарэжым запамінае апошні выбар у плэеры.","helpNotificationDuration":"Выберыце, як доўга паказваць апавяшчэнні пра якасць.","helpNotificationSize":"Змяніце памер тэксту апавяшчэнняў пра якасць.","helpNotifications":"Паказваць або хаваць апавяшчэнні пра вынік выбару якасці. Перацягніце апавяшчэнне, каб перамясціць яго; месца захаваецца.","helpPanelStyle":"Выберыце выгляд панэлі.","helpSleepTimer":"Запускае адлік і ставіць бягучае відэа на паўзу ў канцы. Закрыццё меню не скасоўвае таймер.","helpSoundVolume":"Наладзьце гучнасць гукаў. Кнопкі прайграваюць прыклад.","helpSounds":"Уключыць або выключыць гукі пашырэння. Асобныя падзеі можна выбраць у наладах гукаў.","helpTheme":"Змяняе выгляд гэтай панэлі.","helpVodQuality":"Пажаданая якасць запісаў; яна не залежыць ад прамога эфіру.","helpVolume":"Гучнасць — ад 0 да 100%. Перацягніце паўзунок або пракручвайце кола мышы, навёўшы на яго курсор.","hideChatLabel":"Схаваць чат","highVolumeWarning":"Гучнасць вышэйшая за {threshold}%.","hotkeyCancel":"Націсніце Escape, каб скасаваць","hotkeyWaiting":"Націсніце любую клавішу…","hoverAnimationLabel":"Эфект пры навядзенні","iconAnimationsLabel":"Анімацыя значкоў","importSettings":"Імпарт","indicatorBreathe":"Плаўнае дыханне","indicatorGlow":"Свячэнне","indicatorOff":"Выключана","indicatorPulse":"Пульсацыя","indicatorTitle":"Індыкатар","languageLabel":"Мова","lastResultLabel":"Апошні вынік","layoutTitle":"Раскладка старонкі","layoutUnavailable":"Недаступна на гэтай старонцы.","logCleared":"Журнал ачышчаны.","loudThresholdLabel":"Парог папярэджання","loudWarningLabel":"Папярэджваць пра высокую гучнасць","minutesUnit":"хв","muteLabel":"Адключыць гук","noPlayerForReset":"Відэаплэер не знойдзены.","noSavedChannels":"Захаваных налад каналаў яшчэ няма.","notificationApplied":"Ужыта якасць: {q}.","notificationDurationLabel":"Працягласць апавяшчэння","notificationFailed":"Не ўдалося ўжыць {q}: не знойдзены элементы кіравання або гэты варыянт якасці.","notificationHistoryEmpty":"Апавяшчэнняў пакуль няма.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Гісторыя апавяшчэнняў","notificationIconLabel":"Паказваць значок апавяшчэння","notificationOpacityLabel":"Празрыстасць апавяшчэння","notificationSizeLabel":"Памер тэксту апавяшчэння","notificationVolumeLabel":"Гучнасць адноўлена","notificationsLabel":"Апавяшчэнні пра якасць","openAnimationLabel":"Анімацыя адкрыцця","openReleases":"Адкрыць спіс версій","panelStyleKick":"Kick","panelStyleLabel":"Стыль панэлі","panelStyleMinimal":"Мінімальны","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Хуткасць прайгравання","playerFrozenNotice":"Плэер завіс. Паспрабуйце перазагрузіць трансляцыю.","preferredVolumeLabel":"Пажаданая гучнасць","presetApplied":"Прэсет ужыты: {name}","presetsLabel":"Хуткія прэсеты","previewNotification":"Папярэдні прагляд апавяшчэння","qualityAuto":"Аўта (апошняя якасць, выбраная ўручную)","qualityAvailable":"Status","qualityCheckLabel":"Якасць прамога эфіру","qualityFallbackLabel":"Калі недаступная","qualityLiveLabel":"Якасць прамога эфіру","qualityUnavailable":"Status","qualityVodLabel":"Якасць запісу (VOD)","quickActionsLabel":"Прайграванне","quietFullscreenLabel":"Ціхі рэжым у поўнаэкранным рэжыме","recoveryLabel":"Аднаўляць прайграванне пасля завісання","refreshDiagnostics":"Дыягностыка абноўлена.","removeChannelSettings":"Выдаліць","reportIssue":"Паведаміць пра праблему","resetNotificationPosition":"Скінуць пазіцыю апавяшчэння","resetPlayerLabel":"Паўторна ўжыць налады","resetQuality":"Паўторна ўжыць налады","resetSection":"Скінуць раздзел","resetSettings":"Скінуць","restoreReset":"Скінуць","restoreVolume":"Аўтаматычна ўжываць захаваную гучнасць","rewardClaimed":"Узнагароду атрымана.","rewardNone":"Зараз няма ўзнагарод.","rewardsTitle":"Узнагароды","safeModeHelp":"Ужывае захаваную якасць пры адкрыцці плэера. Аўтарэжым выкарыстоўвае апошнюю якасць, выбраную ў Kick.","safeModeLabel":"Кампактны выгляд","saveChannelButton":"Захаваць гэты канал","savedChannelsLabel":"Захаваныя каналы","secondsUnit":"с","sectionAbout":"Пра пашырэнне","sectionAppearance":"Выгляд","sectionData":"Даныя і інфармацыя","sectionDiagnostics":"Дыягностыка плэера","sectionHotkey":"Гарачая клавіша меню","sectionMotion":"Анімацыя","sectionNotifications":"Апавяшчэнні","sectionPlayback":"Прайграванне","sectionShortcuts":"Скарачэнні","sectionSounds":"Гукі","sectionTools":"Інструменты","settingsImportError":"Не ўдалося імпартаваць налады. Праверце файл.","settingsImportPrompt":"Імпартаваць гэтыя налады і замяніць бягучыя?","settingsImported":"Налады імпартаваны.","settingsReset":"Скінуць","settingsResetPrompt":"Скінуць усе налады Kick Stream Tweaks?","clearSearch":"Ачысціць пошук","settingsSearch":"Пошук у наладах…","shortcutChat":"Паказаць/схаваць чат","shortcutFocus":"На ўвесь экран","shortcutNotifications":"Quality notifications","shortcutQuality":"Якасць прамога эфіру","shortcutSidebar":"Згарнуць/разгарнуць левае меню","shortcutVolume":"Пажаданая гучнасць","silentHelp":"Заглушае стрым, не адключаючы плэер, таму ён працягвае іграць пры змене ўкладкі. Можна задаць для кожнага канала.","silentLabel":"Прайграванне без гуку (стрым не спыняецца ў фоне)","silentTag":"Без гуку","silentUnavailable":"Рэжым без гуку недаступны для гэтага плэера.","situationBandwidth":"Калі недаступная","situationQuality":"Пажаданая якасць","situationQuiet":"Адключыць гук","situationVod":"Запіс (VOD)","sleepCancelLabel":"Скасаваць таймер","sleepClock12":"AM/PM","sleepClock24":"24-гадзінны фармат","sleepEndsAt":"Спыніцца ў","sleepExpired":"Таймер сну спыніў прайграванне.","sleepHoursLabel":"Гадзіны","sleepMinutesLabel":"Хвіліны","sleepStartLabel":"Запусціць таймер","sleepStarted":"Прайграванне спыніцца праз {minutes} хв.","sleepTimerLabel":"Таймер сну","soundConfigureLabel":"Налады гукавых падзей","soundEffectsLabel":"Гукавыя эфекты","soundEventVolumeLabel":"Гучнасць падзеі","soundMenuLabel":"Адкрыццё і закрыццё панэлі","soundModalHint":"Кожны пераключальнік кіруе толькі сваёй падзеяй. Галоўны пераключальнік гукаў таксама мусіць быць уключаны.","soundPreviewButton":"Папярэдні прагляд","soundQualityFailure":"Не ўдалося ўжыць якасць","soundQualitySuccess":"Якасць ужыта","soundSettingsLabel":"Змена налад","soundVolumeLabel":"Гучнасць гукавых эфектаў","soundVolumeRestored":"Гучнасць адноўлена","speedFast":"Хутка","speedNormal":"Звычайна","speedSlow":"Павольна","statusLabel":"Стан","textScaleLabel":"Кампактны выгляд","textScaleLarge":"Кампактны выгляд","textScaleSmall":"Кампактны выгляд","textScaleXLarge":"Кампактны выгляд","themeDark":"Цёмная","themeLabel":"Тэма","themeLight":"Светлая","titleQuality":"Якасць","titleVolume":"Гучнасць","undoChange":"Скінуць","versionLabel":"Версія","widgetAutoHideLabel":"Паказваць толькі калі ёсць узнагарода","widgetDesignLabel":"Стыль кнопкі","widgetDragHint":"Перацягніце, каб перамясціць · націсніце, каб забраць","widgetIconBolt":"Маланка","widgetIconCoin":"Манета","widgetIconCrown":"Карона","widgetIconCustom":"Ваш значок","widgetIconGift":"Падарунак","widgetIconLabel":"Значок","widgetIconStar":"Зорка","widgetImageError":"Не ўдалося выкарыстаць гэты файл. Выберыце выяву PNG, JPG, WebP, GIF або SVG да 2 МБ.","widgetImageFill":"Запоўніць усю кнопку выявай","widgetImageSaved":"Свой значок захаваны.","widgetImageTip":"Лепш за ўсё падыходзяць квадратныя выявы з празрыстым фонам. Выява захоўваецца толькі ў вашым браўзеры.","widgetOpacityLabel":"Празрыстасць кнопкі","widgetRemoveCustom":"Выдаліць ваш значок","widgetResetPos":"Скінуць месца кнопкі","widgetSizeLabel":"Памер кнопкі","widgetStyleFlat":"Плоскі","widgetStyleGlass":"Шкло","widgetStyleOrb":"Шар","widgetStylePill":"Таблетка","widgetUpload":"Загрузіць свой значок"},"bg":{"accentColorLabel":"Акцентен цвят","actionHotkeysLabel":"Клавишна комбинация","animFade":"Затихване","animGlow":"Сияние","animLift":"Повдигане","animNone":"Без","animPop":"Подскок","animScale":"Мащабиране","animSlide":"Плъзгане","animationFull":"Тъмна","animationLabel":"Компактно оформление","animationOff":"Светла","animationPreviewLabel":"Преглед","animationReduced":"Компактно оформление","animationSpeedLabel":"Скорост на анимацията","autoClaimHelp":"Отваря прозореца с награди, взима наличните и го затваря. По подразбиране е изключено.","autoClaimLabel":"Автоматично взимане на награди","autoQualityLabel":"Автоматично прилагане на запазеното качество","autoVolumeLabel":"Автоматично прилагане на запазената сила на звука","bindShortcut":"Кликнете за промяна","blurLabel":"Замъгляване на фона на менюто","centerPanel":"Нулиране на позицията на известието","channelBackupExport":"Архивирай всички канали","channelBackupImport":"Възстанови архива","channelCurrent":"Текущ","channelDoneLabel":"Готово","channelEditLabel":"Редактирай","channelExcludedStatus":"Автоматизацията е изключена","channelExport":"Експортиране","channelExported":"Настройките на канала са експортирани.","channelFavoritesOnly":"Само фиксираните","channelGroupAll":"Всички групи","channelGroupLabel":"Група","channelGroupPlaceholder":"Име на група","channelHowTitle":"Как работят запазените канали","channelImport":"Импортиране на профил","channelImportError":"Профилът на канала не може да се импортира.","channelImportSuccess":"Профилът на канала е импортиран.","channelMuted":"без звук","channelNoteLabel":"Бележка","channelNotePlaceholder":"Добавете бележка…","channelNudge":"Искате ли отделни настройки само за този канал?","channelOpenStreamHint":"Отворете излъчване, за да запазите настройките на неговия канал.","channelPin":"Фиксиране","channelPinned":"Фиксиран","channelProfileSummary":"Запомни настройките за този канал","channelQualitySummary":"Качество: на живо {live} · VOD {vod}","channelRemoveConfirm":"Да се изтрият ли настройките за {name}?","channelSavedToast":"Настройките за {name} са запазени.","channelSearchPlaceholder":"Търсене в запазени канали…","channelSortName":"Име","channelSortRecent":"Последно променяни","channelSortUsed":"Последно използвани","channelSoundOn":"звукът е включен","channelSpeedSummary":"Скорост: {speed}×","channelStep1":"Отворете излъчването на канала.","channelStep2":"Натиснете „Запази този канал“. Текущото качество, сила на звука, скорост и звукови настройки се запомнят за него.","channelStep3":"Настройте ги по-долу. Ще се прилагат автоматично всеки път, когато отворите този канал.","channelUnpin":"Откачване","channelUseSaved":"Прилагай запазените настройки за този канал","channelVolumeSummary":"Звук: {volume}% · {mute}","claimDelayLabel":"Изчакване преди взимане","claimIntervalLabel":"Проверявай на всеки","claimModeInterval":"По график","claimModeLabel":"Взимане на награди","claimModeNotify":"Веднага щом Kick покаже известие за награда","claimNowLabel":"Вземи сега","claimWidgetHelp":"Показва малък бутон, който можете да премествате навсякъде върху стрийма. Натиснете го, за да вземете наградата с едно кликване. Позицията се запомня.","claimWidgetLabel":"Бутон за бързо взимане на страницата","clearLog":"Изчисти дневника","clearNotificationHistory":"Нулиране","collapseSidebarLabel":"Свий лявото меню","compactLabel":"Компактно оформление","confirmNo":"Отказ","confirmYes":"Потвърди","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Диагностиката е обновена.","contrastLabel":"Тема","copyDiagnostics":"Експортиране","currentChannelLabel":"Текущ","diagAvailableQualities":"Открити качества","diagCurrentQuality":"Текущо качество","diagUnknown":"Не е открито","diagVideoResolution":"Видео резолюция","diagnosticsCopied":"Настройките са импортирани.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Диагностиката е обновена.","doNotDisturbLabel":"Не ме безпокойте","dragPanelHint":"Плъзнете панела за заглавната лента; позицията му ще се запази.","excludeChannelLabel":"Пропусни автоматизацията за канала","exportSettings":"Експортиране","fallbackAuto":"Превключи на автоматично","fallbackLower":"Използвай най-близкото по-ниско","focusUnavailable":"Цял екран не е наличен за този плейър.","focusViewLabel":"На цял екран","footerClose":"Затвори","footerHint":"Натиснете {key}, за да отворите или затворите менюто","freezeAlertLabel":"Сигнал при забиване на плейъра","freezeRecovered":"Възпроизвеждането е възобновено.","freezeSoundLabel":"Звуков аларм","freezeThresholdLabel":"Време за откриване на забиване","groupFeedback":"Известия","groupInterface":"Интерфейс","groupPlayer":"Плейър","groupSystem":"Система","helpAccentColor":"Изберете цвят за акцент.","helpAutoQuality":"Прилага запазеното качество при отваряне на плейъра. Автоматично използва последно избраното в Kick.","helpAutoVolume":"Възстановява запазената сила на звука и заглушаването при стартиране или свързване отново.","helpBlur":"Замъгляването е от 0 до 12 px. Плъзнете плъзгача или използвайте колелцето на мишката, докато курсорът е върху него.","helpButton":"Помощ","helpChannelExclude":"Спира автоматичните промени на качество, звук и забавяне за този канал. Ръчните контроли остават активни.","helpChannelSettings":"Когато е включено, качеството, звукът и скоростта за канала се запазват отделно. Променяйте ги от плейъра.","helpCompact":"Намалява разстоянията и височината на контролите.","helpFallback":"Изберете какво да се прави, ако потокът няма предпочитаното качество.","helpHotkey":"Изберете клавиш или комбинация с Ctrl, Alt, Shift или Meta. Escape отменя.","helpLanguage":"Променя езика на панела.","helpLiveQuality":"Предпочитано качество за живо. Автоматичният режим помни последния избор в плейъра.","helpNotificationDuration":"Изберете колко дълго да се показват известията.","helpNotificationSize":"Променете размера на текста в известията за качество.","helpNotifications":"Показва или скрива известията за резултата от качеството. Плъзнете известие, за да го преместите; позицията му ще се запази.","helpPanelStyle":"Изберете визуалния стил на панела.","helpSleepTimer":"Стартира обратно броене и спира текущото видео при изтичане. Затварянето на менюто не отменя таймера.","helpSoundVolume":"Настройте силата на звука. Бутоните възпроизвеждат пример.","helpSounds":"Включва или изключва всички звуци на разширението. Изберете отделни събития от настройките за звуци.","helpTheme":"Променя изгледа на панела.","helpVodQuality":"Предпочитано качество за записи; настройката е отделна от тази за живо.","helpVolume":"Силата на звука е от 0 до 100%. Плъзнете плъзгача или използвайте колелцето на мишката, докато курсорът е върху него.","hideChatLabel":"Скрий чата","highVolumeWarning":"Силата на звука е над {threshold}%.","hotkeyCancel":"Натиснете Escape за отказ","hotkeyWaiting":"Натиснете произволен клавиш…","hoverAnimationLabel":"Ефект при посочване","iconAnimationsLabel":"Анимация на иконите","importSettings":"Импортиране","indicatorBreathe":"Плавно дишане","indicatorGlow":"Сияние","indicatorOff":"Изключена","indicatorPulse":"Пулсиране","indicatorTitle":"Индикатор","languageLabel":"Език","lastResultLabel":"Последен резултат","layoutTitle":"Оформление на страницата","layoutUnavailable":"Не е налично на тази страница.","logCleared":"Дневникът е изчистен.","loudThresholdLabel":"Праг на предупреждение","loudWarningLabel":"Предупреждение при висока сила","minutesUnit":"мин","muteLabel":"Заглуши плейъра","noPlayerForReset":"Не е открит видеоплейър.","noSavedChannels":"Все още няма запазени настройки.","notificationApplied":"Приложено качество: {q}.","notificationDurationLabel":"Продължителност на известието","notificationFailed":"Не може да се приложи {q}: липсват контролите на плейъра или тази опция за качество.","notificationHistoryEmpty":"Все още няма известия.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"История на известията","notificationIconLabel":"Показване на икона","notificationOpacityLabel":"Прозрачност на известието","notificationSizeLabel":"Размер на текста на известието","notificationVolumeLabel":"Силата на звука е възстановена","notificationsLabel":"Известия за качество","openAnimationLabel":"Анимация при отваряне","openReleases":"Отвори списъка с версии","panelStyleKick":"Kick","panelStyleLabel":"Стил на панела","panelStyleMinimal":"Минимален","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Скорост на възпроизвеждане","playerFrozenNotice":"Плейърът изглежда блокирал. Опитайте да презаредите излъчването.","preferredVolumeLabel":"Предпочитана сила на звука","presetApplied":"Приложен профил: {name}","presetsLabel":"Бързи профили","previewNotification":"Преглед на известие","qualityAuto":"Автоматично (последно избрано ръчно)","qualityAvailable":"Status","qualityCheckLabel":"Качество на живо","qualityFallbackLabel":"Ако не е налично","qualityLiveLabel":"Качество на живо","qualityUnavailable":"Status","qualityVodLabel":"Качество на запис (VOD)","quickActionsLabel":"Възпроизвеждане","quietFullscreenLabel":"Тих режим на цял екран","recoveryLabel":"Опитай възстановяване при забиване","refreshDiagnostics":"Диагностиката е обновена.","removeChannelSettings":"Изтриване","reportIssue":"Съобщи за проблем","resetNotificationPosition":"Нулиране на позицията на известието","resetPlayerLabel":"Приложи отново настройките","resetQuality":"Приложи отново настройките","resetSection":"Нулиране на раздела","resetSettings":"Нулиране","restoreReset":"Нулиране","restoreVolume":"Автоматично прилагане на запазената сила на звука","rewardClaimed":"Наградата е взета.","rewardNone":"В момента няма награди за взимане.","rewardsTitle":"Награди","safeModeHelp":"Прилага запазеното качество при отваряне на плейъра. Автоматично използва последно избраното в Kick.","safeModeLabel":"Компактно оформление","saveChannelButton":"Запази този канал","savedChannelsLabel":"Запазени канали","secondsUnit":"с","sectionAbout":"За разширението","sectionAppearance":"Външен вид","sectionData":"Данни и информация","sectionDiagnostics":"Диагностика на плейъра","sectionHotkey":"Клавишна комбинация","sectionMotion":"Анимации","sectionNotifications":"Известия","sectionPlayback":"Възпроизвеждане","sectionShortcuts":"Клавишни комбинации","sectionSounds":"Звуци","sectionTools":"Инструменти","settingsImportError":"Настройките не могат да се импортират. Проверете файла.","settingsImportPrompt":"Да се импортират ли тези настройки и да се заменят текущите?","settingsImported":"Настройките са импортирани.","settingsReset":"Нулиране","settingsResetPrompt":"Да се нулират ли всички настройки на Kick Stream Tweaks?","clearSearch":"Изчисти търсенето","settingsSearch":"Търсене в настройките…","shortcutChat":"Покажи/скрий чата","shortcutFocus":"На цял екран","shortcutNotifications":"Quality notifications","shortcutQuality":"Качество на живо","shortcutSidebar":"Свий/разгъни лявото меню","shortcutVolume":"Предпочитана сила на звука","silentHelp":"Заглушава потока, без да спира плейъра, затова продължава да върви при смяна на раздела. Може да се задава за всеки канал.","silentLabel":"Възпроизвеждане без звук (потокът продължава на заден план)","silentTag":"Без звук","silentUnavailable":"Тихото възпроизвеждане не е налично за този плейър.","situationBandwidth":"Ако не е налично","situationQuality":"Предпочитано качество","situationQuiet":"Заглуши плейъра","situationVod":"Запис (VOD)","sleepCancelLabel":"Отмени таймера","sleepClock12":"AM/PM","sleepClock24":"24-часов формат","sleepEndsAt":"Ще спре в","sleepExpired":"Таймерът за сън спря възпроизвеждането.","sleepHoursLabel":"Часове","sleepMinutesLabel":"Минути","sleepStartLabel":"Стартирай таймера","sleepStarted":"Възпроизвеждането ще спре след {minutes} мин.","sleepTimerLabel":"Таймер за сън","soundConfigureLabel":"Настройки на звуковите събития","soundEffectsLabel":"Звукови ефекти","soundEventVolumeLabel":"Сила на звука за събитие","soundMenuLabel":"Отваряне и затваряне на панела","soundModalHint":"Всеки превключвател управлява само съответното събитие. Главният превключвател за звуци също трябва да е включен.","soundPreviewButton":"Преглед","soundQualityFailure":"Качеството не е приложено","soundQualitySuccess":"Приложено качество","soundSettingsLabel":"Промяна на настройка","soundVolumeLabel":"Сила на звуковите ефекти","soundVolumeRestored":"Възстановена сила на звука","speedFast":"Бързо","speedNormal":"Нормално","speedSlow":"Бавно","statusLabel":"Състояние","textScaleLabel":"Компактно оформление","textScaleLarge":"Компактно оформление","textScaleSmall":"Компактно оформление","textScaleXLarge":"Компактно оформление","themeDark":"Тъмна","themeLabel":"Тема","themeLight":"Светла","titleQuality":"Качество","titleVolume":"Сила на звука","undoChange":"Нулиране","versionLabel":"Версия","widgetAutoHideLabel":"Показвай само когато има награда","widgetDesignLabel":"Стил на бутона","widgetDragHint":"Плъзнете за преместване · кликнете за взимане","widgetIconBolt":"Мълния","widgetIconCoin":"Монета","widgetIconCrown":"Корона","widgetIconCustom":"Вашата икона","widgetIconGift":"Подарък","widgetIconLabel":"Икона","widgetIconStar":"Звезда","widgetImageError":"Този файл не може да се използва. Изберете изображение PNG, JPG, WebP, GIF или SVG до 2 МБ.","widgetImageFill":"Запълни целия бутон с изображението","widgetImageSaved":"Собствената икона е запазена.","widgetImageTip":"Най-добре изглеждат квадратни изображения с прозрачен фон. Изображението остава само във вашия браузър.","widgetOpacityLabel":"Прозрачност на бутона","widgetRemoveCustom":"Премахни вашата икона","widgetResetPos":"Нулирай позицията на бутона","widgetSizeLabel":"Размер на бутона","widgetStyleFlat":"Плосък","widgetStyleGlass":"Стъкло","widgetStyleOrb":"Сфера","widgetStylePill":"Капсула","widgetUpload":"Качи своя икона"},"cs":{"accentColorLabel":"Barva zvýraznění","actionHotkeysLabel":"Klávesová zkratka nabídky","animFade":"Prolnutí","animGlow":"Záře","animLift":"Zvednutí","animNone":"Žádná","animPop":"Odskok","animScale":"Zvětšení","animSlide":"Posun","animationFull":"Tmavý","animationLabel":"Kompaktní rozvržení","animationOff":"Světlý","animationPreviewLabel":"Náhled","animationReduced":"Kompaktní rozvržení","animationSpeedLabel":"Rychlost animace","autoClaimHelp":"Otevře okno odměn, vyzvedne dostupné a zase ho zavře. Ve výchozím stavu vypnuto.","autoClaimLabel":"Automatické vyzvednutí odměn","autoQualityLabel":"Automaticky použít uloženou kvalitu","autoVolumeLabel":"Automaticky použít uloženou hlasitost","bindShortcut":"Klikněte pro změnu","blurLabel":"Rozostření pozadí nabídky","centerPanel":"Obnovit polohu oznámení","channelBackupExport":"Zálohovat všechny kanály","channelBackupImport":"Obnovit zálohu","channelCurrent":"Aktuální","channelDoneLabel":"Hotovo","channelEditLabel":"Upravit","channelExcludedStatus":"Automatizace vyloučena","channelExport":"Exportovat","channelExported":"Nastavení kanálu byla exportována.","channelFavoritesOnly":"Pouze připnuté","channelGroupAll":"Všechny skupiny","channelGroupLabel":"Skupina","channelGroupPlaceholder":"Název skupiny","channelHowTitle":"Jak fungují uložené kanály","channelImport":"Importovat profil","channelImportError":"Profil kanálu se nepodařilo importovat.","channelImportSuccess":"Profil kanálu byl importován.","channelMuted":"ztlumeno","channelNoteLabel":"Poznámka","channelNotePlaceholder":"Přidat poznámku…","channelNudge":"Chcete samostatné nastavení jen pro tento kanál?","channelOpenStreamHint":"Otevřete vysílání, abyste uložili nastavení jeho kanálu.","channelPin":"Připnout","channelPinned":"Připnuto","channelProfileSummary":"Uložit nastavení tohoto kanálu","channelQualitySummary":"Kvalita: živě {live} · VOD {vod}","channelRemoveConfirm":"Odstranit nastavení pro {name}?","channelSavedToast":"Nastavení pro {name} uložena.","channelSearchPlaceholder":"Hledat uložené kanály…","channelSortName":"Název","channelSortRecent":"Nedávno změněné","channelSortUsed":"Nedávno použité","channelSoundOn":"zvuk zapnut","channelSpeedSummary":"Rychlost: {speed}×","channelStep1":"Otevřete vysílání kanálu.","channelStep2":"Stiskněte „Uložit tento kanál“. Uloží se pro něj aktuální kvalita, hlasitost, rychlost a nastavení zvuku.","channelStep3":"Doladit je můžete níže. Použijí se automaticky při každém otevření tohoto kanálu.","channelUnpin":"Odepnout","channelUseSaved":"Použít uložená nastavení na tomto kanálu","channelVolumeSummary":"Hlasitost: {volume}% · {mute}","claimDelayLabel":"Počkat před vyzvednutím","claimIntervalLabel":"Kontrolovat každých","claimModeInterval":"Podle plánu","claimModeLabel":"Vyzvedávání odměn","claimModeNotify":"Hned, jakmile Kick zobrazí oznámení o odměně","claimNowLabel":"Vyzvednout hned","claimWidgetHelp":"Zobrazí malé tlačítko, které můžete přetáhnout kamkoli na stream. Kliknutím vyzvednete odměnu jedním kliknutím. Poloha se zapamatuje.","claimWidgetLabel":"Tlačítko rychlého vyzvednutí na stránce","clearLog":"Vymazat protokol","clearNotificationHistory":"Obnovit","collapseSidebarLabel":"Sbalit levé menu","compactLabel":"Kompaktní rozvržení","confirmNo":"Zrušit","confirmYes":"Potvrdit","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostika byla obnovena.","contrastLabel":"Motiv","copyDiagnostics":"Exportovat","currentChannelLabel":"Aktuální","diagAvailableQualities":"Rozpoznané kvality","diagCurrentQuality":"Aktuální kvalita","diagUnknown":"Nezjištěno","diagVideoResolution":"Rozlišení videa","diagnosticsCopied":"Nastavení byla importována.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostika byla obnovena.","doNotDisturbLabel":"Nerušit","dragPanelHint":"Přetáhněte panel za záhlaví; jeho poloha se uloží.","excludeChannelLabel":"Vynechat automatizaci pro kanál","exportSettings":"Exportovat","fallbackAuto":"Přepnout na automatickou","fallbackLower":"Použít nejbližší nižší kvalitu","focusUnavailable":"Celá obrazovka není pro tento přehrávač dostupná.","focusViewLabel":"Celá obrazovka","footerClose":"Zavřít","footerHint":"Stisknutím {key} přepnete toto menu","freezeAlertLabel":"Upozornit při zamrznutí přehrávače","freezeRecovered":"Přehrávání bylo obnoveno.","freezeSoundLabel":"Přehrát alarm","freezeThresholdLabel":"Doba detekce zamrznutí","groupFeedback":"Upozornění","groupInterface":"Rozhraní","groupPlayer":"Přehrávač","groupSystem":"Systém","helpAccentColor":"Vyberte vlastní barvu zvýraznění.","helpAutoQuality":"Při otevření přehrávače použije uloženou kvalitu. Auto použije poslední kvalitu zvolenou v Kicku.","helpAutoVolume":"Při spuštění nebo opětovném připojení obnoví uloženou hlasitost a ztlumení.","helpBlur":"Rozostření nastavte od 0 do 12 px. Posuňte jezdec nebo použijte kolečko myši, když je nad ním kurzor.","helpButton":"Nápověda","helpChannelExclude":"Vypne automatické změny kvality, hlasitosti a latence pro tento kanál. Ruční ovládání zůstává funkční.","helpChannelSettings":"Při zapnutí se kvalita, hlasitost, ztlumení a rychlost tohoto kanálu ukládají samostatně. Měňte je v přehrávači.","helpCompact":"Zmenší mezery a výšku ovládacích prvků.","helpFallback":"Zvolte, co dělat, když stream nenabízí preferovanou kvalitu.","helpHotkey":"Zvolte klávesu nebo kombinaci s Ctrl, Alt, Shift či Meta. Escape akci zruší.","helpLanguage":"Mění jazyk panelu.","helpLiveQuality":"Preferovaná kvalita živých přenosů. Auto si pamatuje poslední volbu v přehrávači.","helpNotificationDuration":"Zvolte, jak dlouho se mají oznámení zobrazovat.","helpNotificationSize":"Upravte velikost textu oznámení o kvalitě.","helpNotifications":"Zobrazí nebo skryje oznámení o výsledku nastavení kvality. Přetažením oznámení ho přesunete a jeho poloha se uloží.","helpPanelStyle":"Vyberte vzhled panelu.","helpSleepTimer":"Spustí odpočet a po jeho skončení pozastaví aktuální video. Zavření nabídky časovač nezruší.","helpSoundVolume":"Upravte hlasitost zvuků. Tlačítka přehrají ukázku.","helpSounds":"Zapne nebo vypne všechny zvuky rozšíření. Jednotlivé události vyberte v nastavení zvuků.","helpTheme":"Mění vzhled panelu.","helpVodQuality":"Preferovaná kvalita záznamů; je nezávislá na živých přenosech.","helpVolume":"Hlasitost je 0–100 %. Posuňte jezdec nebo použijte kolečko myši, když je nad ním kurzor.","hideChatLabel":"Skrýt chat","highVolumeWarning":"Hlasitost přehrávače přesahuje {threshold} %.","hotkeyCancel":"Zrušíte stisknutím Escape","hotkeyWaiting":"Stiskněte libovolnou klávesu…","hoverAnimationLabel":"Efekt při najetí","iconAnimationsLabel":"Animace ikon","importSettings":"Importovat","indicatorBreathe":"Jemné dýchání","indicatorGlow":"Záře","indicatorOff":"Vypnuto","indicatorPulse":"Pulzování","indicatorTitle":"Indikátor","languageLabel":"Jazyk","lastResultLabel":"Poslední výsledek","layoutTitle":"Rozložení stránky","layoutUnavailable":"Na této stránce není k dispozici.","logCleared":"Protokol vymazán.","loudThresholdLabel":"Práh upozornění","loudWarningLabel":"Upozornit na vysokou hlasitost","minutesUnit":"min","muteLabel":"Ztlumit přehrávač","noPlayerForReset":"Video přehrávač nebyl nalezen.","noSavedChannels":"Zatím nejsou uložena žádná nastavení kanálů.","notificationApplied":"Použita kvalita: {q}.","notificationDurationLabel":"Doba zobrazení oznámení","notificationFailed":"Nelze použít {q}: ovládací prvky přehrávače nebo tato možnost kvality nebyly nalezeny.","notificationHistoryEmpty":"Zatím žádná oznámení.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Historie oznámení","notificationIconLabel":"Zobrazit ikonu oznámení","notificationOpacityLabel":"Průhlednost oznámení","notificationSizeLabel":"Velikost textu oznámení","notificationVolumeLabel":"Hlasitost obnovena","notificationsLabel":"Oznámení o kvalitě","openAnimationLabel":"Animace otevření","openReleases":"Otevřít seznam verzí","panelStyleKick":"Kick","panelStyleLabel":"Styl panelu","panelStyleMinimal":"Minimalistický","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Rychlost přehrávání","playerFrozenNotice":"Přehrávač se zdá být zamrzlý. Zkuste vysílání znovu načíst.","preferredVolumeLabel":"Preferovaná hlasitost","presetApplied":"Použita předvolba: {name}","presetsLabel":"Rychlé předvolby","previewNotification":"Náhled oznámení","qualityAuto":"Auto (naposledy ručně vybráno)","qualityAvailable":"Status","qualityCheckLabel":"Kvalita živého vysílání","qualityFallbackLabel":"Pokud není dostupná","qualityLiveLabel":"Kvalita živého vysílání","qualityUnavailable":"Status","qualityVodLabel":"Kvalita záznamu (VOD)","quickActionsLabel":"Přehrávání","quietFullscreenLabel":"Tichý režim na celé obrazovce","recoveryLabel":"Zkusit obnovit zaseknuté přehrávání","refreshDiagnostics":"Diagnostika byla obnovena.","removeChannelSettings":"Odstranit","reportIssue":"Nahlásit problém","resetNotificationPosition":"Obnovit polohu oznámení","resetPlayerLabel":"Znovu použít nastavení","resetQuality":"Znovu použít nastavení","resetSection":"Obnovit sekci","resetSettings":"Obnovit","restoreReset":"Obnovit","restoreVolume":"Automaticky použít uloženou hlasitost","rewardClaimed":"Odměna vyzvednuta.","rewardNone":"Právě nejsou k dispozici žádné odměny.","rewardsTitle":"Odměny","safeModeHelp":"Při otevření přehrávače použije uloženou kvalitu. Auto použije poslední kvalitu zvolenou v Kicku.","safeModeLabel":"Kompaktní rozvržení","saveChannelButton":"Uložit tento kanál","savedChannelsLabel":"Uložené kanály","secondsUnit":"s","sectionAbout":"O rozšíření","sectionAppearance":"Vzhled","sectionData":"Data a informace","sectionDiagnostics":"Diagnostika přehrávače","sectionHotkey":"Klávesová zkratka nabídky","sectionMotion":"Animace","sectionNotifications":"Oznámení","sectionPlayback":"Přehrávání","sectionShortcuts":"Zkratky","sectionSounds":"Zvuky","sectionTools":"Nástroje","settingsImportError":"Nastavení nelze importovat. Zkontrolujte soubor.","settingsImportPrompt":"Importovat tato nastavení a nahradit současnou konfiguraci?","settingsImported":"Nastavení byla importována.","settingsReset":"Obnovit","settingsResetPrompt":"Obnovit všechna nastavení Kick Stream Tweaks?","clearSearch":"Vymazat hledání","settingsSearch":"Hledat v nastavení…","shortcutChat":"Přepnout chat","shortcutFocus":"Celá obrazovka","shortcutNotifications":"Quality notifications","shortcutQuality":"Kvalita živého vysílání","shortcutSidebar":"Přepnout levé menu","shortcutVolume":"Preferovaná hlasitost","silentHelp":"Ztlumí stream, aniž by ztlumil přehrávač, takže se po přepnutí karty dál přehrává. Lze nastavit pro každý kanál.","silentLabel":"Přehrávání bez zvuku (stream běží na pozadí)","silentTag":"Bez zvuku","silentUnavailable":"Tiché přehrávání není pro tento přehrávač dostupné.","situationBandwidth":"Pokud není dostupná","situationQuality":"Preferovaná kvalita","situationQuiet":"Ztlumit přehrávač","situationVod":"Záznam (VOD)","sleepCancelLabel":"Zrušit časovač","sleepClock12":"AM/PM","sleepClock24":"24hodinový formát","sleepEndsAt":"Skončí v","sleepExpired":"Časovač vypnutí pozastavil přehrávání.","sleepHoursLabel":"Hodiny","sleepMinutesLabel":"Minuty","sleepStartLabel":"Spustit časovač","sleepStarted":"Přehrávání se pozastaví za {minutes} min.","sleepTimerLabel":"Časovač vypnutí","soundConfigureLabel":"Nastavení zvukových událostí","soundEffectsLabel":"Zvukové efekty","soundEventVolumeLabel":"Hlasitost události","soundMenuLabel":"Otevření a zavření panelu","soundModalHint":"Každý přepínač ovládá jen danou událost. Hlavní přepínač zvuků musí být také zapnutý.","soundPreviewButton":"Přehrát ukázku","soundQualityFailure":"Kvalitu se nepodařilo použít","soundQualitySuccess":"Kvalita použita","soundSettingsLabel":"Změna nastavení","soundVolumeLabel":"Hlasitost zvukových efektů","soundVolumeRestored":"Hlasitost obnovena","speedFast":"Rychlá","speedNormal":"Normální","speedSlow":"Pomalá","statusLabel":"Stav","textScaleLabel":"Kompaktní rozvržení","textScaleLarge":"Kompaktní rozvržení","textScaleSmall":"Kompaktní rozvržení","textScaleXLarge":"Kompaktní rozvržení","themeDark":"Tmavý","themeLabel":"Motiv","themeLight":"Světlý","titleQuality":"Kvalita","titleVolume":"Hlasitost","undoChange":"Obnovit","versionLabel":"Verze","widgetAutoHideLabel":"Zobrazit jen když je k dispozici odměna","widgetDesignLabel":"Styl tlačítka","widgetDragHint":"Přetažením přesunete · kliknutím vyzvednete","widgetIconBolt":"Blesk","widgetIconCoin":"Mince","widgetIconCrown":"Koruna","widgetIconCustom":"Vlastní ikona","widgetIconGift":"Dárek","widgetIconLabel":"Ikona","widgetIconStar":"Hvězda","widgetImageError":"Tento soubor nelze použít. Vyberte obrázek PNG, JPG, WebP, GIF nebo SVG do 2 MB.","widgetImageFill":"Vyplnit celé tlačítko obrázkem","widgetImageSaved":"Vlastní ikona uložena.","widgetImageTip":"Nejlépe vypadají čtvercové obrázky s průhledným pozadím. Obrázek zůstává jen ve vašem prohlížeči.","widgetOpacityLabel":"Průhlednost tlačítka","widgetRemoveCustom":"Odebrat vlastní ikonu","widgetResetPos":"Obnovit polohu tlačítka","widgetSizeLabel":"Velikost tlačítka","widgetStyleFlat":"Plochý","widgetStyleGlass":"Sklo","widgetStyleOrb":"Koule","widgetStylePill":"Kapsle","widgetUpload":"Nahrát vlastní ikonu"},"da":{"accentColorLabel":"Accentfarve","actionHotkeysLabel":"Menugenvej","animFade":"Udtoning","animGlow":"Glød","animLift":"Løft","animNone":"Ingen","animPop":"Hop","animScale":"Skalering","animSlide":"Glid","animationFull":"Mørk","animationLabel":"Kompakt layout","animationOff":"Lys","animationPreviewLabel":"Eksempel","animationReduced":"Kompakt layout","animationSpeedLabel":"Animationshastighed","autoClaimHelp":"Åbner belønningsvinduet, henter det tilgængelige og lukker det igen. Slået fra som standard.","autoClaimLabel":"Hent belønninger automatisk","autoQualityLabel":"Anvend gemt kvalitet automatisk","autoVolumeLabel":"Anvend gemt lydstyrke automatisk","bindShortcut":"Klik for at ændre","blurLabel":"Sløring af menubaggrund","centerPanel":"Nulstil meddelelsesposition","channelBackupExport":"Sikkerhedskopiér alle kanaler","channelBackupImport":"Gendan sikkerhedskopi","channelCurrent":"Aktuel","channelDoneLabel":"Færdig","channelEditLabel":"Rediger","channelExcludedStatus":"Automatisering udelukket","channelExport":"Eksportér","channelExported":"Kanalindstillinger eksporteret.","channelFavoritesOnly":"Kun fastgjorte","channelGroupAll":"Alle grupper","channelGroupLabel":"Gruppe","channelGroupPlaceholder":"Gruppenavn","channelHowTitle":"Sådan virker gemte kanaler","channelImport":"Importér profil","channelImportError":"Kanalprofilen kunne ikke importeres.","channelImportSuccess":"Kanalprofil importeret.","channelMuted":"lydløs","channelNoteLabel":"Bemærkning","channelNotePlaceholder":"Tilføj en bemærkning…","channelNudge":"Vil du have separate indstillinger kun til denne kanal?","channelOpenStreamHint":"Åbn en stream for at gemme indstillinger for dens kanal.","channelPin":"Fastgør","channelPinned":"Fastgjort","channelProfileSummary":"Husk indstillinger for denne kanal","channelQualitySummary":"Kvalitet: live {live} · VOD {vod}","channelRemoveConfirm":"Fjern gemte indstillinger for {name}?","channelSavedToast":"Indstillinger gemt for {name}.","channelSearchPlaceholder":"Søg i gemte kanaler…","channelSortName":"Navn","channelSortRecent":"Senest ændret","channelSortUsed":"Senest brugt","channelSoundOn":"lyd til","channelSpeedSummary":"Hastighed: {speed}×","channelStep1":"Åbn kanalens stream.","channelStep2":"Tryk på “Gem denne kanal”. Den aktuelle kvalitet, lydstyrke, hastighed og lydindstillinger gemmes til den.","channelStep3":"Finjuster dem nedenfor. De anvendes automatisk, hver gang du åbner kanalen.","channelUnpin":"Frigør","channelUseSaved":"Brug de gemte indstillinger på denne kanal","channelVolumeSummary":"Lydstyrke: {volume}% · {mute}","claimDelayLabel":"Vent før hentning","claimIntervalLabel":"Tjek hvert","claimModeInterval":"Efter en tidsplan","claimModeLabel":"Hent belønninger","claimModeNotify":"Så snart Kick viser belønningsbeskeden","claimNowLabel":"Hent nu","claimWidgetHelp":"Viser en lille knap, du kan trække hvor som helst på streamen. Klik på den for at hente din belønning med ét klik. Placeringen huskes.","claimWidgetLabel":"Hurtig-hent-knap på siden","clearLog":"Ryd log","clearNotificationHistory":"Nulstil","collapseSidebarLabel":"Skjul venstre menu","compactLabel":"Kompakt layout","confirmNo":"Annuller","confirmYes":"Bekræft","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostikken er opdateret.","contrastLabel":"Tema","copyDiagnostics":"Eksportér","currentChannelLabel":"Aktuel","diagAvailableQualities":"Registrerede kvaliteter","diagCurrentQuality":"Aktuel kvalitet","diagUnknown":"Ikke registreret","diagVideoResolution":"Videoopløsning","diagnosticsCopied":"Indstillinger importeret.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostikken er opdateret.","doNotDisturbLabel":"Forstyr ikke","dragPanelHint":"Træk panelet i overskriften; placeringen gemmes.","excludeChannelLabel":"Spring automatisering over for kanalen","exportSettings":"Eksportér","fallbackAuto":"Skift til Auto","fallbackLower":"Brug nærmeste lavere kvalitet","focusUnavailable":"Fuldskærm er ikke tilgængelig for denne afspiller.","focusViewLabel":"Fuldskærm","footerClose":"Luk","footerHint":"Tryk på {key} for at åbne/lukke denne menu","freezeAlertLabel":"Advar når afspilleren fryser","freezeRecovered":"Afspilningen er genoptaget.","freezeSoundLabel":"Afspil alarmlyd","freezeThresholdLabel":"Tid til registrering af frysning","groupFeedback":"Advarsler","groupInterface":"Grænseflade","groupPlayer":"Afspiller","groupSystem":"System","helpAccentColor":"Vælg en brugerdefineret accentfarve.","helpAutoQuality":"Anvender gemt kvalitet, når afspilleren åbnes. Auto bruger den seneste kvalitet valgt i Kick.","helpAutoVolume":"Gendanner gemt lydstyrke og mute-status, når afspilleren starter eller genopretter forbindelsen.","helpBlur":"Indstil sløring fra 0 til 12 px. Træk skyderen, eller brug musehjulet, mens markøren er over den.","helpButton":"Hjælp","helpChannelExclude":"Stopper automatiske ændringer af kvalitet, lydstyrke og forsinkelse for kanalen. Manuel styring virker stadig.","helpChannelSettings":"Når funktionen er slået til, gemmes kanalens kvalitet, lydstyrke, lydløs og hastighed separat. Juster dem i afspilleren.","helpCompact":"Reducerer afstande og kontrolhøjder.","helpFallback":"Vælg, hvad der skal ske, hvis streamen ikke tilbyder den foretrukne kvalitet.","helpHotkey":"Vælg en tast eller en kombination med Ctrl, Alt, Shift eller Meta. Escape annullerer.","helpLanguage":"Ændrer panelets sprog.","helpLiveQuality":"Foretrukken kvalitet til livestreams. Auto husker det seneste valg i afspilleren.","helpNotificationDuration":"Vælg hvor længe kvalitetsmeddelelser vises.","helpNotificationSize":"Juster tekststørrelsen for kvalitetsmeddelelser.","helpNotifications":"Vis eller skjul meddelelser om kvalitetsresultater. Træk en meddelelse for at flytte den; placeringen gemmes.","helpPanelStyle":"Vælg panelets visuelle stil.","helpSleepTimer":"Starter en nedtælling og sætter videoen på pause, når tiden udløber. Det annulleres ikke ved at lukke menuen.","helpSoundVolume":"Juster lydeffektens lydstyrke. Knapperne afspiller en prøve.","helpSounds":"Slå alle udvidelsens lyde til eller fra. Vælg enkelte hændelser under lydindstillinger.","helpTheme":"Ændrer panelets udseende.","helpVodQuality":"Foretrukken kvalitet til optagelser; uafhængig af livestreams.","helpVolume":"Lydstyrken går fra 0 til 100 %. Træk skyderen, eller brug musehjulet, mens markøren er over den.","hideChatLabel":"Skjul chat","highVolumeWarning":"Lydstyrken er over {threshold} %.","hotkeyCancel":"Tryk på Escape for at annullere","hotkeyWaiting":"Tryk på en vilkårlig tast…","hoverAnimationLabel":"Markering ved pege","iconAnimationsLabel":"Ikonanimationer","importSettings":"Importér","indicatorBreathe":"Blid vejrtrækning","indicatorGlow":"Glød","indicatorOff":"Fra","indicatorPulse":"Pulsering","indicatorTitle":"Indikator","languageLabel":"Sprog","lastResultLabel":"Seneste resultat","layoutTitle":"Sidelayout","layoutUnavailable":"Ikke tilgængelig på denne side.","logCleared":"Log ryddet.","loudThresholdLabel":"Advarselsgrænse","loudWarningLabel":"Advar ved høj lydstyrke","minutesUnit":"min","muteLabel":"Slå lyden fra","noPlayerForReset":"Ingen videoafspiller blev fundet.","noSavedChannels":"Der er endnu ikke gemt kanalindstillinger.","notificationApplied":"Kvalitet anvendt: {q}.","notificationDurationLabel":"Meddelelsesvarighed","notificationFailed":"Kunne ikke anvende {q}; afspillerens kontrolelementer eller kvalitetsvalget blev ikke fundet.","notificationHistoryEmpty":"Ingen meddelelser endnu.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Meddelelseshistorik","notificationIconLabel":"Vis meddelelsesikon","notificationOpacityLabel":"Meddelelsers gennemsigtighed","notificationSizeLabel":"Tekststørrelse for meddelelser","notificationVolumeLabel":"Lydstyrke gendannet","notificationsLabel":"Kvalitetsmeddelelser","openAnimationLabel":"Åbningsanimation","openReleases":"Åbn versionsoversigten","panelStyleKick":"Kick","panelStyleLabel":"Panelstil","panelStyleMinimal":"Minimalistisk","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Afspilningshastighed","playerFrozenNotice":"Afspilleren ser ud til at være frosset. Prøv at genindlæse streamen.","preferredVolumeLabel":"Foretrukken lydstyrke","presetApplied":"Forudindstilling anvendt: {name}","presetsLabel":"Hurtige forudindstillinger","previewNotification":"Forhåndsvisning af meddelelse","qualityAuto":"Auto (senest valgt manuelt)","qualityAvailable":"Status","qualityCheckLabel":"Kvalitet af livestream","qualityFallbackLabel":"Hvis ikke tilgængelig","qualityLiveLabel":"Kvalitet af livestream","qualityUnavailable":"Status","qualityVodLabel":"Kvalitet af optagelse (VOD)","quickActionsLabel":"Afspilning","quietFullscreenLabel":"Stille tilstand i fuldskærm","recoveryLabel":"Forsøg at genoptage fastlåst afspilning","refreshDiagnostics":"Diagnostikken er opdateret.","removeChannelSettings":"Fjern","reportIssue":"Rapportér et problem","resetNotificationPosition":"Nulstil meddelelsesposition","resetPlayerLabel":"Anvend afspillerindstillinger igen","resetQuality":"Anvend afspillerindstillinger igen","resetSection":"Nulstil sektion","resetSettings":"Nulstil","restoreReset":"Nulstil","restoreVolume":"Anvend gemt lydstyrke automatisk","rewardClaimed":"Belønning hentet.","rewardNone":"Ingen belønninger at hente lige nu.","rewardsTitle":"Belønninger","safeModeHelp":"Anvender gemt kvalitet, når afspilleren åbnes. Auto bruger den seneste kvalitet valgt i Kick.","safeModeLabel":"Kompakt layout","saveChannelButton":"Gem denne kanal","savedChannelsLabel":"Gemte kanaler","secondsUnit":"s","sectionAbout":"Om udvidelsen","sectionAppearance":"Udseende","sectionData":"Data og info","sectionDiagnostics":"Playerdiagnostik","sectionHotkey":"Menugenvej","sectionMotion":"Animationer","sectionNotifications":"Notifikationer","sectionPlayback":"Afspilning","sectionShortcuts":"Genveje","sectionSounds":"Lyde","sectionTools":"Værktøjer","settingsImportError":"Indstillingerne kunne ikke importeres. Kontrollér filen.","settingsImportPrompt":"Importér disse indstillinger og erstat den aktuelle konfiguration?","settingsImported":"Indstillinger importeret.","settingsReset":"Nulstil","settingsResetPrompt":"Nulstil alle Kick Stream Tweaks-indstillinger?","clearSearch":"Ryd søgning","settingsSearch":"Søg i indstillinger…","shortcutChat":"Skift chat","shortcutFocus":"Fuldskærm","shortcutNotifications":"Quality notifications","shortcutQuality":"Kvalitet af livestream","shortcutSidebar":"Skift venstre menu","shortcutVolume":"Foretrukken lydstyrke","silentHelp":"Gør streamen lydløs uden at slå afspilleren fra, så den bliver ved med at spille, når du skifter fane. Kan indstilles pr. kanal.","silentLabel":"Afspil uden lyd (fortsætter i baggrunden)","silentTag":"Lydløs","silentUnavailable":"Lydløs afspilning er ikke tilgængelig for denne afspiller.","situationBandwidth":"Hvis ikke tilgængelig","situationQuality":"Foretrukken kvalitet","situationQuiet":"Slå lyden fra","situationVod":"Optagelse (VOD)","sleepCancelLabel":"Annuller timer","sleepClock12":"AM/PM","sleepClock24":"24-timersformat","sleepEndsAt":"Slutter kl.","sleepExpired":"Sleep-timeren satte afspilningen på pause.","sleepHoursLabel":"Timer","sleepMinutesLabel":"Minutter","sleepStartLabel":"Start timer","sleepStarted":"Afspilningen sættes på pause om {minutes} min.","sleepTimerLabel":"Sleep-timer","soundConfigureLabel":"Indstillinger for lydhændelser","soundEffectsLabel":"Lydeffekter","soundEventVolumeLabel":"Hændelseslydstyrke","soundMenuLabel":"Panelet åbnes og lukkes","soundModalHint":"Hver kontakt styrer kun sin egen hændelse. Hovedkontakten for lyde skal også være slået til.","soundPreviewButton":"Afspil prøve","soundQualityFailure":"Kvalitet kunne ikke anvendes","soundQualitySuccess":"Kvalitet anvendt","soundSettingsLabel":"Indstilling ændret","soundVolumeLabel":"Lydeffektens lydstyrke","soundVolumeRestored":"Lydstyrke gendannet","speedFast":"Hurtig","speedNormal":"Normal","speedSlow":"Langsom","statusLabel":"Status","textScaleLabel":"Kompakt layout","textScaleLarge":"Kompakt layout","textScaleSmall":"Kompakt layout","textScaleXLarge":"Kompakt layout","themeDark":"Mørk","themeLabel":"Tema","themeLight":"Lys","titleQuality":"Kvalitet","titleVolume":"Lydstyrke","undoChange":"Nulstil","versionLabel":"Version","widgetAutoHideLabel":"Vis kun når en belønning er tilgængelig","widgetDesignLabel":"Knapstil","widgetDragHint":"Træk for at flytte · klik for at hente","widgetIconBolt":"Lyn","widgetIconCoin":"Mønt","widgetIconCrown":"Krone","widgetIconCustom":"Dit eget ikon","widgetIconGift":"Gave","widgetIconLabel":"Ikon","widgetIconStar":"Stjerne","widgetImageError":"Filen kunne ikke bruges. Vælg et PNG-, JPG-, WebP-, GIF- eller SVG-billede på op til 2 MB.","widgetImageFill":"Fyld hele knappen med billedet","widgetImageSaved":"Eget ikon gemt.","widgetImageTip":"Kvadratiske billeder med gennemsigtig baggrund ser bedst ud. Billedet bliver kun i din browser.","widgetOpacityLabel":"Knapgennemsigtighed","widgetRemoveCustom":"Fjern dit ikon","widgetResetPos":"Nulstil knappens placering","widgetSizeLabel":"Knapstørrelse","widgetStyleFlat":"Flad","widgetStyleGlass":"Glas","widgetStyleOrb":"Kugle","widgetStylePill":"Pille","widgetUpload":"Upload dit eget ikon"},"de":{"accentColorLabel":"Akzentfarbe","actionHotkeysLabel":"Menü-Tastenkürzel","animFade":"Ausblenden","animGlow":"Leuchten","animLift":"Anheben","animNone":"Keine","animPop":"Aufpoppen","animScale":"Skalieren","animSlide":"Gleiten","animationFull":"Dunkel","animationLabel":"Kompaktes Layout","animationOff":"Hell","animationPreviewLabel":"Vorschau","animationReduced":"Kompaktes Layout","animationSpeedLabel":"Animationsgeschwindigkeit","autoClaimHelp":"Öffnet das Belohnungsfenster, holt Verfügbares ab und schließt es wieder. Standardmäßig aus.","autoClaimLabel":"Belohnungen automatisch abholen","autoQualityLabel":"Gespeicherte Qualität automatisch anwenden","autoVolumeLabel":"Gespeicherte Lautstärke automatisch anwenden","bindShortcut":"Klicken zum Ändern","blurLabel":"Menühintergrund unscharf","centerPanel":"Position der Meldung zurücksetzen","channelBackupExport":"Alle Kanäle sichern","channelBackupImport":"Sicherung wiederherstellen","channelCurrent":"Aktuell","channelDoneLabel":"Fertig","channelEditLabel":"Bearbeiten","channelExcludedStatus":"Automatik ausgeschlossen","channelExport":"Exportieren","channelExported":"Kanaleinstellungen exportiert.","channelFavoritesOnly":"Nur angeheftete","channelGroupAll":"Alle Gruppen","channelGroupLabel":"Gruppe","channelGroupPlaceholder":"Gruppenname","channelHowTitle":"So funktionieren gespeicherte Kanäle","channelImport":"Profil importieren","channelImportError":"Kanalprofil konnte nicht importiert werden.","channelImportSuccess":"Kanalprofil importiert.","channelMuted":"stumm","channelNoteLabel":"Notiz","channelNotePlaceholder":"Notiz hinzufügen…","channelNudge":"Eigene Einstellungen nur für diesen Kanal?","channelOpenStreamHint":"Öffne einen Stream, um die Einstellungen seines Kanals zu speichern.","channelPin":"Anheften","channelPinned":"Angeheftet","channelProfileSummary":"Einstellungen für diesen Kanal merken","channelQualitySummary":"Qualität: live {live} · VOD {vod}","channelRemoveConfirm":"Gespeicherte Einstellungen für {name} entfernen?","channelSavedToast":"Einstellungen für {name} gespeichert.","channelSearchPlaceholder":"Gespeicherte Kanäle suchen…","channelSortName":"Name","channelSortRecent":"Kürzlich geändert","channelSortUsed":"Kürzlich verwendet","channelSoundOn":"Ton an","channelSpeedSummary":"Geschwindigkeit: {speed}×","channelStep1":"Öffne den Stream des Kanals.","channelStep2":"Drücke „Diesen Kanal speichern“. Aktuelle Qualität, Lautstärke, Geschwindigkeit und Toneinstellungen werden dafür gespeichert.","channelStep3":"Passe sie unten an. Sie werden bei jedem Öffnen dieses Kanals automatisch angewendet.","channelUnpin":"Loslösen","channelUseSaved":"Gespeicherte Einstellungen für diesen Kanal anwenden","channelVolumeSummary":"Lautstärke: {volume}% · {mute}","claimDelayLabel":"Vor dem Abholen warten","claimIntervalLabel":"Prüfen alle","claimModeInterval":"Nach Zeitplan","claimModeLabel":"Belohnungen abholen","claimModeNotify":"Sobald Kick den Belohnungshinweis anzeigt","claimNowLabel":"Jetzt abholen","claimWidgetHelp":"Zeigt eine kleine Schaltfläche, die du beliebig über den Stream ziehen kannst. Ein Klick holt deine Belohnung ab. Die Position wird gemerkt.","claimWidgetLabel":"Schnellabhol-Schaltfläche auf der Seite","clearLog":"Protokoll leeren","clearNotificationHistory":"Zurücksetzen","collapseSidebarLabel":"Linkes Menü einklappen","compactLabel":"Kompaktes Layout","confirmNo":"Abbrechen","confirmYes":"Bestätigen","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnose aktualisiert.","contrastLabel":"Design","copyDiagnostics":"Exportieren","currentChannelLabel":"Aktuell","diagAvailableQualities":"Erkannte Qualitätsstufen","diagCurrentQuality":"Aktuelle Qualität","diagUnknown":"Nicht erkannt","diagVideoResolution":"Videoauflösung","diagnosticsCopied":"Einstellungen importiert.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnose aktualisiert.","doNotDisturbLabel":"Nicht stören","dragPanelHint":"Ziehe das Panel an der Kopfzeile; die Position wird gespeichert.","excludeChannelLabel":"Automatik für diesen Kanal überspringen","exportSettings":"Exportieren","fallbackAuto":"Zu Auto wechseln","fallbackLower":"Nächstniedrigere Qualität verwenden","focusUnavailable":"Vollbild ist für diesen Player nicht verfügbar.","focusViewLabel":"Vollbildansicht","footerClose":"Schließen","footerHint":"{key} drücken, um dieses Menü umzuschalten","freezeAlertLabel":"Warnen, wenn der Player einfriert","freezeRecovered":"Wiedergabe fortgesetzt.","freezeSoundLabel":"Alarmton abspielen","freezeThresholdLabel":"Zeit bis zur Erkennung des Einfrierens","groupFeedback":"Hinweise","groupInterface":"Oberfläche","groupPlayer":"Player","groupSystem":"System","helpAccentColor":"Wähle eine eigene Akzentfarbe.","helpAutoQuality":"Wendet die gespeicherte Qualität beim Öffnen des Players an. Auto nutzt die letzte Auswahl in Kick.","helpAutoVolume":"Stellt gespeicherte Lautstärke und Stummschaltung beim Start oder erneuten Verbinden wieder her.","helpBlur":"Unschärfe: 0–12 px. Ziehe den Regler oder nutze das Mausrad, während sich der Zeiger darüber befindet.","helpButton":"Hilfe","helpChannelExclude":"Deaktiviert automatische Qualitäts-, Lautstärke- und Latenzänderungen für diesen Kanal. Manuelle Steuerung bleibt möglich.","helpChannelSettings":"Wenn aktiviert, werden Qualität, Lautstärke, Stummschaltung und Tempo für diesen Kanal separat gespeichert. Ändere sie im Player.","helpCompact":"Verringert Abstände und Höhe der Bedienelemente.","helpFallback":"Lege fest, was passiert, wenn der Stream die bevorzugte Qualität nicht anbietet.","helpHotkey":"Wähle eine Taste oder Kombination mit Strg, Alt, Umschalt oder Meta. Escape bricht ab.","helpLanguage":"Ändert die Sprache des Panels.","helpLiveQuality":"Bevorzugte Qualität für Live-Streams. Auto merkt sich die letzte Player-Auswahl.","helpNotificationDuration":"Lege fest, wie lange Qualitätsmeldungen angezeigt werden.","helpNotificationSize":"Lege die Textgröße der Qualitätsmeldungen fest.","helpNotifications":"Qualitätsmeldungen ein- oder ausblenden. Ziehe eine Meldung an eine andere Position; diese wird gespeichert.","helpPanelStyle":"Wähle den visuellen Stil des Panels.","helpSleepTimer":"Startet einen Countdown und pausiert das aktuelle Video bei null. Das Schließen des Menüs bricht ihn nicht ab.","helpSoundVolume":"Stelle die Lautstärke ein. Die Schaltflächen spielen eine Hörprobe ab.","helpSounds":"Schaltet alle Erweiterungstöne ein oder aus. Einzelne Ereignisse lassen sich in den Toneinstellungen auswählen.","helpTheme":"Ändert das Aussehen des Panels.","helpVodQuality":"Bevorzugte Qualität für Aufnahmen; unabhängig von Live-Streams.","helpVolume":"Lautstärke: 0–100 %. Ziehe den Regler oder nutze das Mausrad, während sich der Zeiger darüber befindet.","hideChatLabel":"Chat ausblenden","highVolumeWarning":"Die Player-Lautstärke liegt über {threshold} %.","hotkeyCancel":"Zum Abbrechen Escape drücken","hotkeyWaiting":"Beliebige Taste drücken…","hoverAnimationLabel":"Hovereffekt","iconAnimationsLabel":"Symbol-Animationen","importSettings":"Importieren","indicatorBreathe":"Sanftes Atmen","indicatorGlow":"Leuchten","indicatorOff":"Aus","indicatorPulse":"Pulsieren","indicatorTitle":"Indikator","languageLabel":"Sprache","lastResultLabel":"Letztes Ergebnis","layoutTitle":"Seitenlayout","layoutUnavailable":"Auf dieser Seite nicht verfügbar.","logCleared":"Protokoll geleert.","loudThresholdLabel":"Warngrenze","loudWarningLabel":"Bei hoher Lautstärke warnen","minutesUnit":"Min.","muteLabel":"Player stummschalten","noPlayerForReset":"Kein Videoplayer gefunden.","noSavedChannels":"Noch keine Kanaleinstellungen gespeichert.","notificationApplied":"Qualität angewendet: {q}.","notificationDurationLabel":"Anzeigedauer der Benachrichtigung","notificationFailed":"{q} konnte nicht angewendet werden; Player-Steuerung oder Qualitätsoption wurde nicht gefunden.","notificationHistoryEmpty":"Noch keine Benachrichtigungen.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Benachrichtigungsverlauf","notificationIconLabel":"Benachrichtigungssymbol anzeigen","notificationOpacityLabel":"Benachrichtigungstransparenz","notificationSizeLabel":"Textgröße der Benachrichtigung","notificationVolumeLabel":"Lautstärke wiederhergestellt","notificationsLabel":"Qualitätsmeldungen","openAnimationLabel":"Öffnungsanimation","openReleases":"Versionsübersicht öffnen","panelStyleKick":"Kick","panelStyleLabel":"Panelstil","panelStyleMinimal":"Minimalistisch","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Wiedergabegeschwindigkeit","playerFrozenNotice":"Der Player scheint eingefroren zu sein. Lade den Stream neu.","preferredVolumeLabel":"Bevorzugte Lautstärke","presetApplied":"Profil angewendet: {name}","presetsLabel":"Schnellprofile","previewNotification":"Benachrichtigungsvorschau","qualityAuto":"Auto (zuletzt manuell gewählt)","qualityAvailable":"Status","qualityCheckLabel":"Live-Stream-Qualität","qualityFallbackLabel":"Falls nicht verfügbar","qualityLiveLabel":"Live-Stream-Qualität","qualityUnavailable":"Status","qualityVodLabel":"Aufnahmequalität (VOD)","quickActionsLabel":"Wiedergabe","quietFullscreenLabel":"Ruhemodus im Vollbild","recoveryLabel":"Hängende Wiedergabe wiederherstellen","refreshDiagnostics":"Diagnose aktualisiert.","removeChannelSettings":"Entfernen","reportIssue":"Problem melden","resetNotificationPosition":"Position der Meldung zurücksetzen","resetPlayerLabel":"Player-Einstellungen erneut anwenden","resetQuality":"Player-Einstellungen erneut anwenden","resetSection":"Abschnitt zurücksetzen","resetSettings":"Zurücksetzen","restoreReset":"Zurücksetzen","restoreVolume":"Gespeicherte Lautstärke automatisch anwenden","rewardClaimed":"Belohnung abgeholt.","rewardNone":"Derzeit keine Belohnungen verfügbar.","rewardsTitle":"Belohnungen","safeModeHelp":"Wendet die gespeicherte Qualität beim Öffnen des Players an. Auto nutzt die letzte Auswahl in Kick.","safeModeLabel":"Kompaktes Layout","saveChannelButton":"Diesen Kanal speichern","savedChannelsLabel":"Gespeicherte Kanäle","secondsUnit":"s","sectionAbout":"Über die Erweiterung","sectionAppearance":"Erscheinungsbild","sectionData":"Daten & Info","sectionDiagnostics":"Playerdiagnose","sectionHotkey":"Menü-Tastenkürzel","sectionMotion":"Animationen","sectionNotifications":"Benachrichtigungen","sectionPlayback":"Wiedergabe","sectionShortcuts":"Tastenkürzel","sectionSounds":"Töne","sectionTools":"Werkzeuge","settingsImportError":"Einstellungen konnten nicht importiert werden. Datei prüfen.","settingsImportPrompt":"Diese Einstellungen importieren und die aktuelle Konfiguration ersetzen?","settingsImported":"Einstellungen importiert.","settingsReset":"Zurücksetzen","settingsResetPrompt":"Alle Kick Stream Tweaks-Einstellungen zurücksetzen?","clearSearch":"Suche löschen","settingsSearch":"Einstellungen durchsuchen…","shortcutChat":"Chat umschalten","shortcutFocus":"Vollbildansicht","shortcutNotifications":"Quality notifications","shortcutQuality":"Live-Stream-Qualität","shortcutSidebar":"Linkes Menü umschalten","shortcutVolume":"Bevorzugte Lautstärke","silentHelp":"Schaltet den Stream stumm, ohne den Player zu muten, sodass er beim Tabwechsel weiterläuft. Pro Kanal einstellbar.","silentLabel":"Ohne Ton abspielen (läuft im Hintergrund weiter)","silentTag":"Ohne Ton","silentUnavailable":"Stilles Abspielen ist für diesen Player nicht verfügbar.","situationBandwidth":"Falls nicht verfügbar","situationQuality":"Bevorzugte Qualität","situationQuiet":"Player stummschalten","situationVod":"Aufnahme (VOD)","sleepCancelLabel":"Timer abbrechen","sleepClock12":"AM/PM","sleepClock24":"24-Stunden-Format","sleepEndsAt":"Endet um","sleepExpired":"Der Schlaftimer hat die Wiedergabe pausiert.","sleepHoursLabel":"Stunden","sleepMinutesLabel":"Minuten","sleepStartLabel":"Timer starten","sleepStarted":"Die Wiedergabe pausiert in {minutes} Min.","sleepTimerLabel":"Schlaftimer","soundConfigureLabel":"Einstellungen für Soundereignisse","soundEffectsLabel":"Soundeffekte","soundEventVolumeLabel":"Ereignislautstärke","soundMenuLabel":"Panel öffnen und schließen","soundModalHint":"Jeder Schalter steuert nur das jeweilige Ereignis. Der Hauptschalter für Soundeffekte muss ebenfalls eingeschaltet sein.","soundPreviewButton":"Probehören","soundQualityFailure":"Qualität konnte nicht angewendet werden","soundQualitySuccess":"Qualität angewendet","soundSettingsLabel":"Einstellung geändert","soundVolumeLabel":"Lautstärke der Soundeffekte","soundVolumeRestored":"Lautstärke wiederhergestellt","speedFast":"Schnell","speedNormal":"Normal","speedSlow":"Langsam","statusLabel":"Status","textScaleLabel":"Kompaktes Layout","textScaleLarge":"Kompaktes Layout","textScaleSmall":"Kompaktes Layout","textScaleXLarge":"Kompaktes Layout","themeDark":"Dunkel","themeLabel":"Design","themeLight":"Hell","titleQuality":"Qualität","titleVolume":"Lautstärke","undoChange":"Zurücksetzen","versionLabel":"Version","widgetAutoHideLabel":"Nur anzeigen, wenn eine Belohnung verfügbar ist","widgetDesignLabel":"Schaltflächenstil","widgetDragHint":"Ziehen zum Verschieben · klicken zum Abholen","widgetIconBolt":"Blitz","widgetIconCoin":"Münze","widgetIconCrown":"Krone","widgetIconCustom":"Eigenes Symbol","widgetIconGift":"Geschenk","widgetIconLabel":"Symbol","widgetIconStar":"Stern","widgetImageError":"Diese Datei kann nicht verwendet werden. Wähle ein PNG-, JPG-, WebP-, GIF- oder SVG-Bild bis 2 MB.","widgetImageFill":"Ganze Schaltfläche mit dem Bild füllen","widgetImageSaved":"Eigenes Symbol gespeichert.","widgetImageTip":"Quadratische Bilder mit transparentem Hintergrund sehen am besten aus. Das Bild bleibt nur in deinem Browser.","widgetOpacityLabel":"Transparenz der Schaltfläche","widgetRemoveCustom":"Eigenes Symbol entfernen","widgetResetPos":"Position der Schaltfläche zurücksetzen","widgetSizeLabel":"Schaltflächengröße","widgetStyleFlat":"Flach","widgetStyleGlass":"Glas","widgetStyleOrb":"Kugel","widgetStylePill":"Kapsel","widgetUpload":"Eigenes Symbol hochladen"},"el":{"accentColorLabel":"Χρώμα έμφασης","actionHotkeysLabel":"Συντόμευση μενού","animFade":"Σταδιακή εμφάνιση","animGlow":"Λάμψη","animLift":"Ανύψωση","animNone":"Καμία","animPop":"Αναπήδηση","animScale":"Κλίμακα","animSlide":"Ολίσθηση","animationFull":"Σκούρο","animationLabel":"Συμπαγής διάταξη","animationOff":"Ανοιχτό","animationPreviewLabel":"Προεπισκόπηση","animationReduced":"Συμπαγής διάταξη","animationSpeedLabel":"Ταχύτητα κίνησης","autoClaimHelp":"Ανοίγει το παράθυρο ανταμοιβών, παίρνει τις διαθέσιμες και το κλείνει. Απενεργοποιημένο από προεπιλογή.","autoClaimLabel":"Αυτόματη συλλογή ανταμοιβών","autoQualityLabel":"Αυτόματη εφαρμογή αποθηκευμένης ποιότητας","autoVolumeLabel":"Αυτόματη εφαρμογή αποθηκευμένης έντασης","bindShortcut":"Κάντε κλικ για αλλαγή","blurLabel":"Θόλωση φόντου μενού","centerPanel":"Επαναφορά θέσης ειδοποίησης","channelBackupExport":"Αντίγραφο ασφαλείας όλων των καναλιών","channelBackupImport":"Επαναφορά αντιγράφου","channelCurrent":"Τρέχον","channelDoneLabel":"Τέλος","channelEditLabel":"Επεξεργασία","channelExcludedStatus":"Εξαίρεση αυτοματισμού","channelExport":"Εξαγωγή","channelExported":"Έγινε εξαγωγή των ρυθμίσεων καναλιού.","channelFavoritesOnly":"Μόνο καρφιτσωμένα","channelGroupAll":"Όλες οι ομάδες","channelGroupLabel":"Ομάδα","channelGroupPlaceholder":"Όνομα ομάδας","channelHowTitle":"Πώς λειτουργούν τα αποθηκευμένα κανάλια","channelImport":"Εισαγωγή προφίλ","channelImportError":"Δεν ήταν δυνατή η εισαγωγή του προφίλ καναλιού.","channelImportSuccess":"Έγινε εισαγωγή του προφίλ καναλιού.","channelMuted":"σίγαση","channelNoteLabel":"Σημείωση","channelNotePlaceholder":"Προσθήκη σημείωσης…","channelNudge":"Θέλετε χωριστές ρυθμίσεις μόνο για αυτό το κανάλι;","channelOpenStreamHint":"Ανοίξτε μια ροή για να αποθηκεύσετε τις ρυθμίσεις του καναλιού της.","channelPin":"Καρφίτσωμα","channelPinned":"Καρφιτσωμένο","channelProfileSummary":"Αποθήκευση ρυθμίσεων καναλιού","channelQualitySummary":"Ποιότητα: ζωντανά {live} · VOD {vod}","channelRemoveConfirm":"Αφαίρεση ρυθμίσεων για {name};","channelSavedToast":"Οι ρυθμίσεις για το {name} αποθηκεύτηκαν.","channelSearchPlaceholder":"Αναζήτηση αποθηκευμένων καναλιών…","channelSortName":"Όνομα","channelSortRecent":"Πρόσφατες αλλαγές","channelSortUsed":"Πρόσφατη χρήση","channelSoundOn":"ήχος ενεργός","channelSpeedSummary":"Ταχύτητα: {speed}×","channelStep1":"Ανοίξτε τη ροή του καναλιού.","channelStep2":"Πατήστε «Αποθήκευση αυτού του καναλιού». Η τρέχουσα ποιότητα, ένταση, ταχύτητα και ρυθμίσεις ήχου αποθηκεύονται γι' αυτό.","channelStep3":"Προσαρμόστε τις παρακάτω. Εφαρμόζονται αυτόματα κάθε φορά που ανοίγετε αυτό το κανάλι.","channelUnpin":"Ξεκαρφίτσωμα","channelUseSaved":"Εφαρμογή των αποθηκευμένων ρυθμίσεων σε αυτό το κανάλι","channelVolumeSummary":"Ένταση: {volume}% · {mute}","claimDelayLabel":"Αναμονή πριν τη συλλογή","claimIntervalLabel":"Έλεγχος κάθε","claimModeInterval":"Με πρόγραμμα","claimModeLabel":"Συλλογή ανταμοιβών","claimModeNotify":"Μόλις το Kick εμφανίσει την ειδοποίηση ανταμοιβής","claimNowLabel":"Συλλογή τώρα","claimWidgetHelp":"Εμφανίζει ένα μικρό κουμπί που μπορείτε να σύρετε οπουδήποτε στη ροή. Πατήστε το για να πάρετε την ανταμοιβή με ένα κλικ. Η θέση θυμάται.","claimWidgetLabel":"Κουμπί γρήγορης συλλογής στη σελίδα","clearLog":"Εκκαθάριση αρχείου","clearNotificationHistory":"Επαναφορά","collapseSidebarLabel":"Σύμπτυξη αριστερού μενού","compactLabel":"Συμπαγής διάταξη","confirmNo":"Ακύρωση","confirmYes":"Επιβεβαίωση","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Τα διαγνωστικά ανανεώθηκαν.","contrastLabel":"Θέμα","copyDiagnostics":"Εξαγωγή","currentChannelLabel":"Τρέχον","diagAvailableQualities":"Εντοπισμένες ποιότητες","diagCurrentQuality":"Τρέχουσα ποιότητα","diagUnknown":"Δεν εντοπίστηκε","diagVideoResolution":"Ανάλυση βίντεο","diagnosticsCopied":"Οι ρυθμίσεις εισήχθησαν.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Τα διαγνωστικά ανανεώθηκαν.","doNotDisturbLabel":"Μην ενοχλείτε","dragPanelHint":"Σύρετε τον πίνακα από την κεφαλίδα· η θέση του θα αποθηκευτεί.","excludeChannelLabel":"Παράλειψη αυτοματισμού για το κανάλι","exportSettings":"Εξαγωγή","fallbackAuto":"Μετάβαση σε Αυτόματο","fallbackLower":"Χρήση της πλησιέστερης χαμηλότερης ποιότητας","focusUnavailable":"Η πλήρης οθόνη δεν είναι διαθέσιμη για αυτό το πρόγραμμα.","focusViewLabel":"Προβολή πλήρους οθόνης","footerClose":"Κλείσιμο","footerHint":"Πατήστε {key} για εναλλαγή αυτού του μενού","freezeAlertLabel":"Ειδοποίηση όταν παγώνει το πρόγραμμα αναπαραγωγής","freezeRecovered":"Η αναπαραγωγή συνεχίστηκε.","freezeSoundLabel":"Αναπαραγωγή ήχου συναγερμού","freezeThresholdLabel":"Χρόνος ανίχνευσης πάγωματος","groupFeedback":"Ειδοποιήσεις","groupInterface":"Διεπαφή","groupPlayer":"Πρόγραμμα αναπαραγωγής","groupSystem":"Σύστημα","helpAccentColor":"Επιλέξτε προσαρμοσμένο χρώμα έμφασης.","helpAutoQuality":"Εφαρμόζει την αποθηκευμένη ποιότητα όταν ανοίγει το πρόγραμμα αναπαραγωγής. Η Αυτόματη χρησιμοποιεί την τελευταία επιλογή στο Kick.","helpAutoVolume":"Επαναφέρει την αποθηκευμένη ένταση και σίγαση κατά την εκκίνηση ή επανασύνδεση.","helpBlur":"Ρυθμίστε το θόλωμα από 0 έως 12 px. Σύρετε το ρυθμιστικό ή χρησιμοποιήστε τη ροδέλα του ποντικιού όταν ο δείκτης βρίσκεται πάνω του.","helpButton":"Βοήθεια","helpChannelExclude":"Απενεργοποιεί τις αυτόματες αλλαγές ποιότητας, έντασης και καθυστέρησης για αυτό το κανάλι. Ο χειροκίνητος έλεγχος παραμένει.","helpChannelSettings":"Όταν ενεργοποιηθεί, η ποιότητα, η ένταση και η ταχύτητα αυτού του καναλιού αποθηκεύονται ξεχωριστά. Άλλαξέ τα στο πρόγραμμα αναπαραγωγής.","helpCompact":"Μειώνει τα κενά και το ύψος των στοιχείων ελέγχου.","helpFallback":"Επιλέξτε τι θα γίνει αν η μετάδοση δεν προσφέρει την προτιμώμενη ποιότητα.","helpHotkey":"Επιλέξτε πλήκτρο ή συνδυασμό με Ctrl, Alt, Shift ή Meta. Το Escape ακυρώνει.","helpLanguage":"Αλλάζει τη γλώσσα του πίνακα.","helpLiveQuality":"Προτιμώμενη ποιότητα για ζωντανές μεταδόσεις. Η Αυτόματη θυμάται την τελευταία επιλογή.","helpNotificationDuration":"Επιλέξτε για πόσο θα εμφανίζονται οι ειδοποιήσεις.","helpNotificationSize":"Ρυθμίστε το μέγεθος του κειμένου ειδοποιήσεων ποιότητας.","helpNotifications":"Εμφανίστε ή αποκρύψτε ειδοποιήσεις για το αποτέλεσμα της ποιότητας. Σύρετε μια ειδοποίηση για να τη μετακινήσετε· η θέση της αποθηκεύεται.","helpPanelStyle":"Επιλέξτε την εμφάνιση του πίνακα.","helpSleepTimer":"Ξεκινά αντίστροφη μέτρηση και σταματά το τρέχον βίντεο όταν μηδενίσει. Το κλείσιμο του μενού δεν την ακυρώνει.","helpSoundVolume":"Ρυθμίστε την ένταση. Τα κουμπιά αναπαράγουν δείγμα.","helpSounds":"Ενεργοποιεί ή απενεργοποιεί όλους τους ήχους της επέκτασης. Επιλέξτε μεμονωμένα συμβάντα στις ρυθμίσεις ήχου.","helpTheme":"Αλλάζει την εμφάνιση του πίνακα.","helpVodQuality":"Προτιμώμενη ποιότητα για εγγραφές· ανεξάρτητη από τις ζωντανές μεταδόσεις.","helpVolume":"Η ένταση είναι 0–100%. Σύρετε το ρυθμιστικό ή χρησιμοποιήστε τη ροδέλα του ποντικιού όταν ο δείκτης βρίσκεται πάνω του.","hideChatLabel":"Απόκρυψη συνομιλίας","highVolumeWarning":"Η ένταση είναι πάνω από {threshold}%.","hotkeyCancel":"Πατήστε Escape για ακύρωση","hotkeyWaiting":"Πατήστε οποιοδήποτε πλήκτρο…","hoverAnimationLabel":"Εφέ αιώρησης","iconAnimationsLabel":"Κινούμενα εικονίδια","importSettings":"Εισαγωγή","indicatorBreathe":"Απαλή αναπνοή","indicatorGlow":"Λάμψη","indicatorOff":"Ανενεργό","indicatorPulse":"Παλμός","indicatorTitle":"Ένδειξη","languageLabel":"Γλώσσα","lastResultLabel":"Τελευταίο αποτέλεσμα","layoutTitle":"Διάταξη σελίδας","layoutUnavailable":"Μη διαθέσιμο σε αυτή τη σελίδα.","logCleared":"Το αρχείο καθαρίστηκε.","loudThresholdLabel":"Όριο προειδοποίησης","loudWarningLabel":"Προειδοποίηση για υψηλή ένταση","minutesUnit":"λεπτ.","muteLabel":"Σίγαση προγράμματος αναπαραγωγής","noPlayerForReset":"Δεν βρέθηκε πρόγραμμα αναπαραγωγής βίντεο.","noSavedChannels":"Δεν έχουν αποθηκευτεί ρυθμίσεις καναλιών.","notificationApplied":"Εφαρμόστηκε ποιότητα: {q}.","notificationDurationLabel":"Διάρκεια ειδοποίησης","notificationFailed":"Δεν ήταν δυνατή η εφαρμογή {q}· δεν βρέθηκαν τα χειριστήρια ή η επιλογή ποιότητας.","notificationHistoryEmpty":"Δεν υπάρχουν ειδοποιήσεις ακόμη.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Ιστορικό ειδοποιήσεων","notificationIconLabel":"Εμφάνιση εικονιδίου ειδοποίησης","notificationOpacityLabel":"Διαφάνεια ειδοποίησης","notificationSizeLabel":"Μέγεθος κειμένου ειδοποίησης","notificationVolumeLabel":"Η ένταση αποκαταστάθηκε","notificationsLabel":"Ειδοποιήσεις ποιότητας","openAnimationLabel":"Κίνηση ανοίγματος","openReleases":"Άνοιγμα λίστας εκδόσεων","panelStyleKick":"Kick","panelStyleLabel":"Στυλ πίνακα","panelStyleMinimal":"Μινιμαλιστικό","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Ταχύτητα αναπαραγωγής","playerFrozenNotice":"Το πρόγραμμα αναπαραγωγής φαίνεται παγωμένο. Δοκιμάστε να φορτώσετε ξανά τη ροή.","preferredVolumeLabel":"Προτιμώμενη ένταση","presetApplied":"Εφαρμόστηκε: {name}","presetsLabel":"Γρήγορες προεπιλογές","previewNotification":"Προεπισκόπηση ειδοποίησης","qualityAuto":"Αυτόματο (τελευταία χειροκίνητη επιλογή)","qualityAvailable":"Status","qualityCheckLabel":"Ποιότητα ζωντανής μετάδοσης","qualityFallbackLabel":"Αν δεν είναι διαθέσιμη","qualityLiveLabel":"Ποιότητα ζωντανής μετάδοσης","qualityUnavailable":"Status","qualityVodLabel":"Ποιότητα εγγραφής (VOD)","quickActionsLabel":"Αναπαραγωγή","quietFullscreenLabel":"Αθόρυβη λειτουργία σε πλήρη οθόνη","recoveryLabel":"Προσπάθεια ανάκτησης αν κολλήσει","refreshDiagnostics":"Τα διαγνωστικά ανανεώθηκαν.","removeChannelSettings":"Αφαίρεση","reportIssue":"Αναφορά προβλήματος","resetNotificationPosition":"Επαναφορά θέσης ειδοποίησης","resetPlayerLabel":"Εφαρμογή ρυθμίσεων ξανά","resetQuality":"Εφαρμογή ρυθμίσεων ξανά","resetSection":"Επαναφορά ενότητας","resetSettings":"Επαναφορά","restoreReset":"Επαναφορά","restoreVolume":"Αυτόματη εφαρμογή αποθηκευμένης έντασης","rewardClaimed":"Η ανταμοιβή παραλήφθηκε.","rewardNone":"Δεν υπάρχουν ανταμοιβές αυτή τη στιγμή.","rewardsTitle":"Ανταμοιβές","safeModeHelp":"Εφαρμόζει την αποθηκευμένη ποιότητα όταν ανοίγει το πρόγραμμα αναπαραγωγής. Η Αυτόματη χρησιμοποιεί την τελευταία επιλογή στο Kick.","safeModeLabel":"Συμπαγής διάταξη","saveChannelButton":"Αποθήκευση αυτού του καναλιού","savedChannelsLabel":"Αποθηκευμένα κανάλια","secondsUnit":"δ","sectionAbout":"Σχετικά με την επέκταση","sectionAppearance":"Εμφάνιση","sectionData":"Δεδομένα & πληροφορίες","sectionDiagnostics":"Διαγνωστικά προγράμματος αναπαραγωγής","sectionHotkey":"Συντόμευση μενού","sectionMotion":"Κινούμενα σχέδια","sectionNotifications":"Ειδοποιήσεις","sectionPlayback":"Αναπαραγωγή","sectionShortcuts":"Συντομεύσεις","sectionSounds":"Ήχοι","sectionTools":"Εργαλεία","settingsImportError":"Δεν ήταν δυνατή η εισαγωγή. Ελέγξτε το αρχείο.","settingsImportPrompt":"Να εισαχθούν αυτές οι ρυθμίσεις και να αντικατασταθούν οι τρέχουσες;","settingsImported":"Οι ρυθμίσεις εισήχθησαν.","settingsReset":"Επαναφορά","settingsResetPrompt":"Να γίνει επαναφορά όλων των ρυθμίσεων Kick Stream Tweaks;","clearSearch":"Καθαρισμός αναζήτησης","settingsSearch":"Αναζήτηση στις ρυθμίσεις…","shortcutChat":"Εναλλαγή συνομιλίας","shortcutFocus":"Προβολή πλήρους οθόνης","shortcutNotifications":"Quality notifications","shortcutQuality":"Ποιότητα ζωντανής μετάδοσης","shortcutSidebar":"Εναλλαγή αριστερού μενού","shortcutVolume":"Προτιμώμενη ένταση","silentHelp":"Σιγάζει τη ροή χωρίς να κάνει σίγαση στο πρόγραμμα αναπαραγωγής, ώστε να συνεχίζει όταν αλλάζετε καρτέλα. Ρυθμίζεται ανά κανάλι.","silentLabel":"Αναπαραγωγή χωρίς ήχο (συνεχίζει στο παρασκήνιο)","silentTag":"Χωρίς ήχο","silentUnavailable":"Η αναπαραγωγή χωρίς ήχο δεν είναι διαθέσιμη για αυτό το πρόγραμμα.","situationBandwidth":"Αν δεν είναι διαθέσιμη","situationQuality":"Προτιμώμενη ποιότητα","situationQuiet":"Σίγαση προγράμματος αναπαραγωγής","situationVod":"Εγγραφή (VOD)","sleepCancelLabel":"Ακύρωση χρονοδιακόπτη","sleepClock12":"π.μ./μ.μ.","sleepClock24":"24ωρη μορφή","sleepEndsAt":"Λήξη στις","sleepExpired":"Ο χρονοδιακόπτης ύπνου σταμάτησε την αναπαραγωγή.","sleepHoursLabel":"Ώρες","sleepMinutesLabel":"Λεπτά","sleepStartLabel":"Έναρξη χρονοδιακόπτη","sleepStarted":"Η αναπαραγωγή θα σταματήσει σε {minutes} λεπτά.","sleepTimerLabel":"Χρονοδιακόπτης ύπνου","soundConfigureLabel":"Ρυθμίσεις ηχητικών συμβάντων","soundEffectsLabel":"Ηχητικά εφέ","soundEventVolumeLabel":"Ένταση συμβάντος","soundMenuLabel":"Άνοιγμα και κλείσιμο πίνακα","soundModalHint":"Κάθε διακόπτης ελέγχει μόνο το αντίστοιχο συμβάν. Πρέπει να είναι ενεργός και ο κύριος διακόπτης ήχων.","soundPreviewButton":"Προεπισκόπηση","soundQualityFailure":"Δεν εφαρμόστηκε η ποιότητα","soundQualitySuccess":"Η ποιότητα εφαρμόστηκε","soundSettingsLabel":"Αλλαγή ρύθμισης","soundVolumeLabel":"Ένταση ηχητικών εφέ","soundVolumeRestored":"Η ένταση επανήλθε","speedFast":"Γρήγορη","speedNormal":"Κανονική","speedSlow":"Αργή","statusLabel":"Κατάσταση","textScaleLabel":"Συμπαγής διάταξη","textScaleLarge":"Συμπαγής διάταξη","textScaleSmall":"Συμπαγής διάταξη","textScaleXLarge":"Συμπαγής διάταξη","themeDark":"Σκούρο","themeLabel":"Θέμα","themeLight":"Ανοιχτό","titleQuality":"Ποιότητα","titleVolume":"Ένταση","undoChange":"Επαναφορά","versionLabel":"Έκδοση","widgetAutoHideLabel":"Εμφάνιση μόνο όταν υπάρχει διαθέσιμη ανταμοιβή","widgetDesignLabel":"Στυλ κουμπιού","widgetDragHint":"Σύρετε για μετακίνηση · πατήστε για συλλογή","widgetIconBolt":"Αστραπή","widgetIconCoin":"Νόμισμα","widgetIconCrown":"Κορώνα","widgetIconCustom":"Δικό σας εικονίδιο","widgetIconGift":"Δώρο","widgetIconLabel":"Εικονίδιο","widgetIconStar":"Αστέρι","widgetImageError":"Δεν ήταν δυνατή η χρήση αυτού του αρχείου. Επιλέξτε εικόνα PNG, JPG, WebP, GIF ή SVG έως 2 MB.","widgetImageFill":"Γέμισμα όλου του κουμπιού με την εικόνα","widgetImageSaved":"Το προσαρμοσμένο εικονίδιο αποθηκεύτηκε.","widgetImageTip":"Οι τετράγωνες εικόνες με διαφανές φόντο φαίνονται καλύτερα. Η εικόνα μένει μόνο στο πρόγραμμα περιήγησής σας.","widgetOpacityLabel":"Διαφάνεια κουμπιού","widgetRemoveCustom":"Αφαίρεση του εικονιδίου σας","widgetResetPos":"Επαναφορά θέσης κουμπιού","widgetSizeLabel":"Μέγεθος κουμπιού","widgetStyleFlat":"Επίπεδο","widgetStyleGlass":"Γυαλί","widgetStyleOrb":"Σφαίρα","widgetStylePill":"Κάψουλα","widgetUpload":"Μεταφόρτωση δικού σας εικονιδίου"},"es":{"accentColorLabel":"Color de acento","actionHotkeysLabel":"Tecla de acceso rápido","animFade":"Desvanecer","animGlow":"Brillo","animLift":"Elevar","animNone":"Ninguna","animPop":"Rebote","animScale":"Escalar","animSlide":"Deslizar","animationFull":"Oscuro","animationLabel":"Diseño compacto","animationOff":"Claro","animationPreviewLabel":"Vista previa","animationReduced":"Diseño compacto","animationSpeedLabel":"Velocidad de animación","autoClaimHelp":"Abre la ventana de recompensas, reclama lo disponible y la cierra. Desactivado por defecto.","autoClaimLabel":"Reclamar recompensas automáticamente","autoQualityLabel":"Aplicar calidad guardada automáticamente","autoVolumeLabel":"Aplicar volumen guardado automáticamente","bindShortcut":"Haz clic para cambiar","blurLabel":"Desenfoque del fondo del menú","centerPanel":"Restablecer posición de notificación","channelBackupExport":"Copia de seguridad de todos los canales","channelBackupImport":"Restaurar copia de seguridad","channelCurrent":"Actual","channelDoneLabel":"Listo","channelEditLabel":"Editar","channelExcludedStatus":"Automatización excluida","channelExport":"Exportar","channelExported":"Ajustes del canal exportados.","channelFavoritesOnly":"Solo fijados","channelGroupAll":"Todos los grupos","channelGroupLabel":"Grupo","channelGroupPlaceholder":"Nombre del grupo","channelHowTitle":"Cómo funcionan los canales guardados","channelImport":"Importar perfil","channelImportError":"No se pudo importar el perfil del canal.","channelImportSuccess":"Perfil del canal importado.","channelMuted":"silenciado","channelNoteLabel":"Nota","channelNotePlaceholder":"Añadir una nota…","channelNudge":"¿Quieres ajustes distintos solo para este canal?","channelOpenStreamHint":"Abre una transmisión para guardar los ajustes de su canal.","channelPin":"Fijar","channelPinned":"Fijado","channelProfileSummary":"Recordar ajustes de este canal","channelQualitySummary":"Calidad: directo {live} · VOD {vod}","channelRemoveConfirm":"¿Eliminar los ajustes guardados de {name}?","channelSavedToast":"Ajustes de {name} guardados.","channelSearchPlaceholder":"Buscar canales guardados…","channelSortName":"Nombre","channelSortRecent":"Modificados recientemente","channelSortUsed":"Usados recientemente","channelSoundOn":"sonido activado","channelSpeedSummary":"Velocidad: {speed}×","channelStep1":"Abre la transmisión del canal.","channelStep2":"Pulsa «Guardar este canal». Se guardan para él la calidad, el volumen, la velocidad y los ajustes de sonido actuales.","channelStep3":"Ajústalos abajo. Se aplican automáticamente cada vez que abras ese canal.","channelUnpin":"Desfijar","channelUseSaved":"Aplicar los ajustes guardados en este canal","channelVolumeSummary":"Volumen: {volume}% · {mute}","claimDelayLabel":"Esperar antes de reclamar","claimIntervalLabel":"Comprobar cada","claimModeInterval":"Según un horario","claimModeLabel":"Reclamar recompensas","claimModeNotify":"En cuanto Kick muestre el aviso de recompensa","claimNowLabel":"Reclamar ahora","claimWidgetHelp":"Muestra un pequeño botón que puedes arrastrar a cualquier parte de la transmisión. Haz clic para reclamar tu recompensa. Se recuerda su posición.","claimWidgetLabel":"Botón de reclamo rápido en la página","clearLog":"Borrar registro","clearNotificationHistory":"Restablecer","collapseSidebarLabel":"Contraer menú izquierdo","compactLabel":"Diseño compacto","confirmNo":"Cancelar","confirmYes":"Confirmar","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnóstico actualizado.","contrastLabel":"Tema","copyDiagnostics":"Exportar","currentChannelLabel":"Actual","diagAvailableQualities":"Calidades detectadas","diagCurrentQuality":"Calidad actual","diagUnknown":"No detectada","diagVideoResolution":"Resolución de vídeo","diagnosticsCopied":"Ajustes importados.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnóstico actualizado.","doNotDisturbLabel":"No molestar","dragPanelHint":"Arrastra el panel desde el encabezado; se guardará su posición.","excludeChannelLabel":"Omitir automatización en este canal","exportSettings":"Exportar","fallbackAuto":"Cambiar a Automático","fallbackLower":"Usar la calidad inferior más cercana","focusUnavailable":"La pantalla completa no está disponible para este reproductor.","focusViewLabel":"Vista a pantalla completa","footerClose":"Cerrar","footerHint":"Presiona {key} para mostrar/ocultar este menú","freezeAlertLabel":"Avisar cuando el reproductor se congele","freezeRecovered":"Reproducción reanudada.","freezeSoundLabel":"Reproducir sonido de alarma","freezeThresholdLabel":"Tiempo de detección de congelación","groupFeedback":"Avisos","groupInterface":"Interfaz","groupPlayer":"Reproductor","groupSystem":"Sistema","helpAccentColor":"Elige un color de acento personalizado.","helpAutoQuality":"Aplica la calidad guardada al abrir el reproductor. Automático usa la última calidad elegida en Kick.","helpAutoVolume":"Restaura el volumen y el silencio guardados al iniciar o reconectar el reproductor.","helpBlur":"Ajusta el desenfoque de 0 a 12 px. Arrastra el control o usa la rueda del ratón mientras el cursor está sobre él.","helpButton":"Ayuda","helpChannelExclude":"Desactiva los cambios automáticos de calidad, volumen y latencia en este canal. Los controles manuales siguen funcionando.","helpChannelSettings":"Al activarlo, se guardan por separado la calidad, el volumen, el silencio y la velocidad del canal. Cámbialos desde el reproductor.","helpCompact":"Reduce los espacios y la altura de los controles.","helpFallback":"Elige qué hacer si el directo no ofrece la calidad preferida.","helpHotkey":"Elige una tecla o combinación con Ctrl, Alt, Shift o Meta. Escape cancela.","helpLanguage":"Cambia el idioma del panel.","helpLiveQuality":"Calidad preferida para directos. Automático recuerda la última selección del reproductor.","helpNotificationDuration":"Elige cuánto tiempo se muestran los avisos de calidad.","helpNotificationSize":"Ajusta el tamaño del texto de los avisos de calidad.","helpNotifications":"Muestra u oculta las notificaciones del resultado de calidad. Arrastra una notificación para moverla; su posición se guardará.","helpPanelStyle":"Elige el aspecto visual del panel.","helpSleepTimer":"Inicia una cuenta atrás y pausa el vídeo actual al terminar. Cerrar este menú no cancela el temporizador.","helpSoundVolume":"Ajusta el volumen. Los botones reproducen una muestra.","helpSounds":"Activa o desactiva todos los sonidos de la extensión. Elige eventos concretos en la configuración de sonidos.","helpTheme":"Cambia el aspecto del panel.","helpVodQuality":"Calidad preferida para grabaciones; independiente de los directos.","helpVolume":"El volumen va del 0 al 100 %. Arrastra el control o usa la rueda del ratón mientras el cursor está sobre él.","hideChatLabel":"Ocultar chat","highVolumeWarning":"El volumen supera el {threshold} %.","hotkeyCancel":"Pulsa Escape para cancelar","hotkeyWaiting":"Presiona cualquier tecla…","hoverAnimationLabel":"Efecto al pasar","iconAnimationsLabel":"Animación de iconos","importSettings":"Importar","indicatorBreathe":"Respiración suave","indicatorGlow":"Brillo","indicatorOff":"Desactivada","indicatorPulse":"Pulso","indicatorTitle":"Indicador","languageLabel":"Idioma","lastResultLabel":"Último resultado","layoutTitle":"Diseño de la página","layoutUnavailable":"No disponible en esta página.","logCleared":"Registro borrado.","loudThresholdLabel":"Umbral de aviso","loudWarningLabel":"Avisar de volumen alto","minutesUnit":"min","muteLabel":"Silenciar reproductor","noPlayerForReset":"No se encontró ningún reproductor de vídeo.","noSavedChannels":"Aún no hay ajustes de canales guardados.","notificationApplied":"Calidad aplicada: {q}.","notificationDurationLabel":"Duración de la notificación","notificationFailed":"No se pudo aplicar {q}; no se encontraron los controles o esa opción de calidad.","notificationHistoryEmpty":"Aún no hay notificaciones.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Historial de notificaciones","notificationIconLabel":"Mostrar icono de notificación","notificationOpacityLabel":"Opacidad de notificación","notificationSizeLabel":"Tamaño del texto de notificación","notificationVolumeLabel":"Volumen restaurado","notificationsLabel":"Avisos de calidad","openAnimationLabel":"Animación de apertura","openReleases":"Abrir lista de versiones","panelStyleKick":"Kick","panelStyleLabel":"Estilo del panel","panelStyleMinimal":"Minimalista","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Velocidad de reproducción","playerFrozenNotice":"El reproductor parece congelado. Prueba a recargar la transmisión.","preferredVolumeLabel":"Volumen preferido","presetApplied":"Ajuste aplicado: {name}","presetsLabel":"Ajustes rápidos","previewNotification":"Vista previa de notificación","qualityAuto":"Auto (última seleccionada manualmente)","qualityAvailable":"Status","qualityCheckLabel":"Calidad del directo","qualityFallbackLabel":"Si no está disponible","qualityLiveLabel":"Calidad del directo","qualityUnavailable":"Status","qualityVodLabel":"Calidad de la grabación (VOD)","quickActionsLabel":"Reproducción","quietFullscreenLabel":"Modo silencioso en pantalla completa","recoveryLabel":"Intentar recuperar la reproducción bloqueada","refreshDiagnostics":"Diagnóstico actualizado.","removeChannelSettings":"Eliminar","reportIssue":"Informar de un problema","resetNotificationPosition":"Restablecer posición de notificación","resetPlayerLabel":"Volver a aplicar ajustes del reproductor","resetQuality":"Volver a aplicar ajustes del reproductor","resetSection":"Restablecer sección","resetSettings":"Restablecer","restoreReset":"Restablecer","restoreVolume":"Aplicar volumen guardado automáticamente","rewardClaimed":"Recompensa reclamada.","rewardNone":"No hay recompensas para reclamar ahora.","rewardsTitle":"Recompensas","safeModeHelp":"Aplica la calidad guardada al abrir el reproductor. Automático usa la última calidad elegida en Kick.","safeModeLabel":"Diseño compacto","saveChannelButton":"Guardar este canal","savedChannelsLabel":"Canales guardados","secondsUnit":"s","sectionAbout":"Acerca de la extensión","sectionAppearance":"Apariencia","sectionData":"Datos e info","sectionDiagnostics":"Diagnóstico del reproductor","sectionHotkey":"Tecla de acceso rápido","sectionMotion":"Animaciones","sectionNotifications":"Notificaciones","sectionPlayback":"Reproducción","sectionShortcuts":"Atajos","sectionSounds":"Sonidos","sectionTools":"Herramientas","settingsImportError":"No se pudieron importar los ajustes. Comprueba el archivo.","settingsImportPrompt":"¿Importar estos ajustes y sustituir la configuración actual?","settingsImported":"Ajustes importados.","settingsReset":"Restablecer","settingsResetPrompt":"¿Restablecer todos los ajustes de Kick Stream Tweaks?","clearSearch":"Borrar búsqueda","settingsSearch":"Buscar en ajustes…","shortcutChat":"Alternar chat","shortcutFocus":"Vista a pantalla completa","shortcutNotifications":"Quality notifications","shortcutQuality":"Calidad del directo","shortcutSidebar":"Alternar menú izquierdo","shortcutVolume":"Volumen preferido","silentHelp":"Silencia la transmisión sin silenciar el reproductor, así sigue reproduciéndose al cambiar de pestaña. Se puede ajustar por canal.","silentLabel":"Reproducir sin sonido (sigue en segundo plano)","silentTag":"Sin sonido","silentUnavailable":"La reproducción silenciosa no está disponible para este reproductor.","situationBandwidth":"Si no está disponible","situationQuality":"Calidad preferida","situationQuiet":"Silenciar reproductor","situationVod":"Grabación (VOD)","sleepCancelLabel":"Cancelar temporizador","sleepClock12":"AM/PM","sleepClock24":"formato de 24 horas","sleepEndsAt":"Termina a las","sleepExpired":"El temporizador pausó la reproducción.","sleepHoursLabel":"Horas","sleepMinutesLabel":"Minutos","sleepStartLabel":"Iniciar temporizador","sleepStarted":"La reproducción se pausará en {minutes} min.","sleepTimerLabel":"Temporizador de apagado","soundConfigureLabel":"Configuración de eventos de sonido","soundEffectsLabel":"Efectos de sonido","soundEventVolumeLabel":"Volumen por evento","soundMenuLabel":"Abrir y cerrar el panel","soundModalHint":"Cada interruptor controla solo ese evento. También debe estar activado el interruptor general de sonidos.","soundPreviewButton":"Vista previa","soundQualityFailure":"No se pudo aplicar la calidad","soundQualitySuccess":"Calidad aplicada","soundSettingsLabel":"Cambio de ajustes","soundVolumeLabel":"Volumen de efectos de sonido","soundVolumeRestored":"Volumen restaurado","speedFast":"Rápida","speedNormal":"Normal","speedSlow":"Lenta","statusLabel":"Estado","textScaleLabel":"Diseño compacto","textScaleLarge":"Diseño compacto","textScaleSmall":"Diseño compacto","textScaleXLarge":"Diseño compacto","themeDark":"Oscuro","themeLabel":"Tema","themeLight":"Claro","titleQuality":"Calidad","titleVolume":"Volumen","undoChange":"Restablecer","versionLabel":"Versión","widgetAutoHideLabel":"Mostrar solo cuando haya una recompensa disponible","widgetDesignLabel":"Estilo del botón","widgetDragHint":"Arrastra para mover · clic para reclamar","widgetIconBolt":"Rayo","widgetIconCoin":"Moneda","widgetIconCrown":"Corona","widgetIconCustom":"Tu propio icono","widgetIconGift":"Regalo","widgetIconLabel":"Icono","widgetIconStar":"Estrella","widgetImageError":"No se pudo usar este archivo. Elige una imagen PNG, JPG, WebP, GIF o SVG de hasta 2 MB.","widgetImageFill":"Llenar todo el botón con la imagen","widgetImageSaved":"Icono personalizado guardado.","widgetImageTip":"Las imágenes cuadradas con fondo transparente quedan mejor. La imagen solo se guarda en tu navegador.","widgetOpacityLabel":"Opacidad del botón","widgetRemoveCustom":"Quitar tu icono","widgetResetPos":"Restablecer la posición del botón","widgetSizeLabel":"Tamaño del botón","widgetStyleFlat":"Plano","widgetStyleGlass":"Cristal","widgetStyleOrb":"Esfera","widgetStylePill":"Píldora","widgetUpload":"Subir tu propio icono"},"fi":{"accentColorLabel":"Korostusväri","actionHotkeysLabel":"Valikon pikanäppäin","animFade":"Häivytys","animGlow":"Hehku","animLift":"Nosto","animNone":"Ei mitään","animPop":"Pomppu","animScale":"Skaalaus","animSlide":"Liuku","animationFull":"Tumma","animationLabel":"Tiivis asettelu","animationOff":"Vaalea","animationPreviewLabel":"Esikatselu","animationReduced":"Tiivis asettelu","animationSpeedLabel":"Animaation nopeus","autoClaimHelp":"Avaa palkintoikkunan, hakee saatavilla olevat ja sulkee sen. Oletuksena pois päältä.","autoClaimLabel":"Hae palkinnot automaattisesti","autoQualityLabel":"Käytä tallennettua laatua automaattisesti","autoVolumeLabel":"Käytä tallennettua äänenvoimakkuutta automaattisesti","bindShortcut":"Napsauta vaihtaaksesi","blurLabel":"Valikon taustan sumennus","centerPanel":"Palauta ilmoituksen sijainti","channelBackupExport":"Varmuuskopioi kaikki kanavat","channelBackupImport":"Palauta varmuuskopio","channelCurrent":"Nykyinen","channelDoneLabel":"Valmis","channelEditLabel":"Muokkaa","channelExcludedStatus":"Automaatio ohitettu","channelExport":"Vie","channelExported":"Kanava-asetukset vietiin.","channelFavoritesOnly":"Vain kiinnitetyt","channelGroupAll":"Kaikki ryhmät","channelGroupLabel":"Ryhmä","channelGroupPlaceholder":"Ryhmän nimi","channelHowTitle":"Näin tallennetut kanavat toimivat","channelImport":"Tuo profiili","channelImportError":"Kanavaprofiilin tuonti epäonnistui.","channelImportSuccess":"Kanavaprofiili tuotiin.","channelMuted":"mykistetty","channelNoteLabel":"Muistiinpano","channelNotePlaceholder":"Lisää muistiinpano…","channelNudge":"Haluatko erilliset asetukset vain tälle kanavalle?","channelOpenStreamHint":"Avaa lähetys tallentaaksesi sen kanavan asetukset.","channelPin":"Kiinnitä","channelPinned":"Kiinnitetty","channelProfileSummary":"Muista tämän kanavan asetukset","channelQualitySummary":"Laatu: live {live} · VOD {vod}","channelRemoveConfirm":"Poistetaanko kanavan {name} tallennetut asetukset?","channelSavedToast":"Kanavan {name} asetukset tallennettu.","channelSearchPlaceholder":"Hae tallennetuista kanavista…","channelSortName":"Nimi","channelSortRecent":"Äskettäin muutetut","channelSortUsed":"Äskettäin käytetyt","channelSoundOn":"ääni päällä","channelSpeedSummary":"Nopeus: {speed}×","channelStep1":"Avaa kanavan lähetys.","channelStep2":"Paina “Tallenna tämä kanava”. Nykyinen laatu, äänenvoimakkuus, nopeus ja ääniasetukset tallennetaan sille.","channelStep3":"Hienosäädä niitä alla. Ne otetaan käyttöön automaattisesti aina, kun avaat kanavan.","channelUnpin":"Poista kiinnitys","channelUseSaved":"Käytä tallennettuja asetuksia tällä kanavalla","channelVolumeSummary":"Äänenvoimakkuus: {volume}% · {mute}","claimDelayLabel":"Odota ennen hakemista","claimIntervalLabel":"Tarkista joka","claimModeInterval":"Aikataulun mukaan","claimModeLabel":"Palkintojen haku","claimModeNotify":"Heti kun Kick näyttää palkintoilmoituksen","claimNowLabel":"Hae nyt","claimWidgetHelp":"Näyttää pienen painikkeen, jonka voi vetää minne tahansa lähetyksen päälle. Napsauta sitä hakeaksesi palkinnon yhdellä klikkauksella. Sijainti muistetaan.","claimWidgetLabel":"Pikahakupainike sivulla","clearLog":"Tyhjennä loki","clearNotificationHistory":"Palauta","collapseSidebarLabel":"Piilota vasen valikko","compactLabel":"Tiivis asettelu","confirmNo":"Peruuta","confirmYes":"Vahvista","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostiikka päivitetty.","contrastLabel":"Teema","copyDiagnostics":"Vie","currentChannelLabel":"Nykyinen","diagAvailableQualities":"Havaitut laadut","diagCurrentQuality":"Nykyinen laatu","diagUnknown":"Ei havaittu","diagVideoResolution":"Videon tarkkuus","diagnosticsCopied":"Asetukset tuotu.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostiikka päivitetty.","doNotDisturbLabel":"Älä häiritse","dragPanelHint":"Vedä paneelia otsakkeesta; sen sijainti tallennetaan.","excludeChannelLabel":"Ohita kanavan automaatio","exportSettings":"Vie","fallbackAuto":"Vaihda automaattiseen","fallbackLower":"Käytä lähintä alempaa laatua","focusUnavailable":"Koko näyttö ei ole käytettävissä tässä soittimessa.","focusViewLabel":"Koko näytön näkymä","footerClose":"Sulje","footerHint":"Paina {key} avataksesi/sulkeaksesi tämän valikon","freezeAlertLabel":"Hälytä, kun soitin jäätyy","freezeRecovered":"Toisto jatkui.","freezeSoundLabel":"Soita hälytysääni","freezeThresholdLabel":"Jäätymisen tunnistusaika","groupFeedback":"Ilmoitukset","groupInterface":"Käyttöliittymä","groupPlayer":"Soitin","groupSystem":"Järjestelmä","helpAccentColor":"Valitse oma korostusväri.","helpAutoQuality":"Käyttää tallennettua laatua, kun soitin avataan. Auto käyttää Kickissä viimeksi valittua laatua.","helpAutoVolume":"Palauttaa tallennetun äänenvoimakkuuden ja mykistyksen käynnistyksen tai uudelleenyhdistyksen yhteydessä.","helpBlur":"Aseta sumennus väliltä 0–12 px. Vedä liukusäädintä tai käytä hiiren rullaa, kun osoitin on sen päällä.","helpButton":"Ohje","helpChannelExclude":"Estää laadun, äänenvoimakkuuden ja viiveen automaattiset muutokset tällä kanavalla. Käsisäätö toimii edelleen.","helpChannelSettings":"Kun käytössä, kanavan laatu, äänenvoimakkuus, mykistys ja nopeus tallennetaan erikseen. Muuta niitä soittimessa.","helpCompact":"Pienentää välejä ja säätimien korkeutta.","helpFallback":"Valitse toiminta, jos lähetys ei tarjoa ensisijaista laatua.","helpHotkey":"Valitse näppäin tai Ctrl-, Alt-, Shift- tai Meta-yhdistelmä. Escape peruuttaa.","helpLanguage":"Muuttaa paneelin kieltä.","helpLiveQuality":"Suoratoiston ensisijainen laatu. Auto muistaa soittimen viimeisimmän valinnan.","helpNotificationDuration":"Valitse, kuinka kauan laatu ilmoitus näkyy.","helpNotificationSize":"Säädä laatu ilmoitusten tekstikokoa.","helpNotifications":"Näytä tai piilota laatutuloksia koskevat ilmoitukset. Siirrä ilmoitusta vetämällä; sen sijainti tallennetaan.","helpPanelStyle":"Valitse paneelin ulkoasu.","helpSleepTimer":"Käynnistää lähtölaskennan ja keskeyttää videon ajan päätyttyä. Valikon sulkeminen ei peruuta ajastinta.","helpSoundVolume":"Säädä äänenvoimakkuutta. Painikkeet toistavat näytteen.","helpSounds":"Ota kaikki laajennuksen äänet käyttöön tai poista ne käytöstä. Valitse yksittäiset tapahtumat ääniasetuksista.","helpTheme":"Muuttaa paneelin ulkoasua.","helpVodQuality":"Tallenteiden ensisijainen laatu; erillinen suoratoiston laadusta.","helpVolume":"Äänenvoimakkuus on 0–100 %. Vedä liukusäädintä tai käytä hiiren rullaa, kun osoitin on sen päällä.","hideChatLabel":"Piilota chat","highVolumeWarning":"Soittimen äänenvoimakkuus ylittää {threshold} %.","hotkeyCancel":"Peruuta painamalla Escape","hotkeyWaiting":"Paina mitä tahansa näppäintä…","hoverAnimationLabel":"Osoitustehoste","iconAnimationsLabel":"Kuvakkeiden animaatiot","importSettings":"Tuo","indicatorBreathe":"Pehmeä hengitys","indicatorGlow":"Hehku","indicatorOff":"Pois","indicatorPulse":"Syke","indicatorTitle":"Ilmaisin","languageLabel":"Kieli","lastResultLabel":"Viimeisin tulos","layoutTitle":"Sivun asettelu","layoutUnavailable":"Ei käytettävissä tällä sivulla.","logCleared":"Loki tyhjennetty.","loudThresholdLabel":"Varoitusraja","loudWarningLabel":"Varoita kovasta äänenvoimakkuudesta","minutesUnit":"min","muteLabel":"Mykistä soitin","noPlayerForReset":"Videosoitinta ei löytynyt.","noSavedChannels":"Kanava-asetuksia ei ole vielä tallennettu.","notificationApplied":"Käytetty laatu: {q}.","notificationDurationLabel":"Ilmoituksen kesto","notificationFailed":"Laatua {q} ei voitu käyttää; soittimen ohjaimia tai laatua ei löytynyt.","notificationHistoryEmpty":"Ei ilmoituksia vielä.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Ilmoitushistoria","notificationIconLabel":"Näytä ilmoituskuvake","notificationOpacityLabel":"Ilmoituksen peittävyys","notificationSizeLabel":"Ilmoituksen tekstikoko","notificationVolumeLabel":"Äänenvoimakkuus palautettu","notificationsLabel":"Laatuilmoitukset","openAnimationLabel":"Avausanimaatio","openReleases":"Avaa versiolista","panelStyleKick":"Kick","panelStyleLabel":"Paneelin tyyli","panelStyleMinimal":"Minimalistinen","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Toistonopeus","playerFrozenNotice":"Soitin näyttää jäätyneen. Yritä ladata lähetys uudelleen.","preferredVolumeLabel":"Ensisijainen äänenvoimakkuus","presetApplied":"Valinta otettu käyttöön: {name}","presetsLabel":"Pikavalinnat","previewNotification":"Ilmoituksen esikatselu","qualityAuto":"Automaattinen (viimeksi valittu manuaalisesti)","qualityAvailable":"Status","qualityCheckLabel":"Suoratoiston laatu","qualityFallbackLabel":"Jos ei saatavilla","qualityLiveLabel":"Suoratoiston laatu","qualityUnavailable":"Status","qualityVodLabel":"Tallenteen laatu (VOD)","quickActionsLabel":"Toisto","quietFullscreenLabel":"Hiljainen tila koko näytössä","recoveryLabel":"Yritä palauttaa jumittunut toisto","refreshDiagnostics":"Diagnostiikka päivitetty.","removeChannelSettings":"Poista","reportIssue":"Ilmoita ongelmasta","resetNotificationPosition":"Palauta ilmoituksen sijainti","resetPlayerLabel":"Käytä soittimen asetukset uudelleen","resetQuality":"Käytä soittimen asetukset uudelleen","resetSection":"Palauta osio","resetSettings":"Palauta","restoreReset":"Palauta","restoreVolume":"Käytä tallennettua äänenvoimakkuutta automaattisesti","rewardClaimed":"Palkinto haettu.","rewardNone":"Ei haettavia palkintoja juuri nyt.","rewardsTitle":"Palkinnot","safeModeHelp":"Käyttää tallennettua laatua, kun soitin avataan. Auto käyttää Kickissä viimeksi valittua laatua.","safeModeLabel":"Tiivis asettelu","saveChannelButton":"Tallenna tämä kanava","savedChannelsLabel":"Tallennetut kanavat","secondsUnit":"s","sectionAbout":"Tietoja laajennuksesta","sectionAppearance":"Ulkoasu","sectionData":"Tiedot ja info","sectionDiagnostics":"Soittimen diagnostiikka","sectionHotkey":"Valikon pikanäppäin","sectionMotion":"Animaatiot","sectionNotifications":"Ilmoitukset","sectionPlayback":"Toisto","sectionShortcuts":"Pikanäppäimet","sectionSounds":"Äänet","sectionTools":"Työkalut","settingsImportError":"Asetusten tuonti epäonnistui. Tarkista tiedosto.","settingsImportPrompt":"Tuodaanko nämä asetukset ja korvataanko nykyiset?","settingsImported":"Asetukset tuotu.","settingsReset":"Palauta","settingsResetPrompt":"Palautetaanko kaikki Kick Stream Tweaks -asetukset?","clearSearch":"Tyhjennä haku","settingsSearch":"Hae asetuksista…","shortcutChat":"Näytä/piilota chat","shortcutFocus":"Koko näytön näkymä","shortcutNotifications":"Quality notifications","shortcutQuality":"Suoratoiston laatu","shortcutSidebar":"Näytä/piilota vasen valikko","shortcutVolume":"Ensisijainen äänenvoimakkuus","silentHelp":"Vaimentaa lähetyksen mykistämättä soitinta, joten se jatkuu välilehteä vaihdettaessa. Voidaan asettaa kanavakohtaisesti.","silentLabel":"Toisto ilman ääntä (jatkuu taustalla)","silentTag":"Äänetön","silentUnavailable":"Äänetön toisto ei ole käytettävissä tässä soittimessa.","situationBandwidth":"Jos ei saatavilla","situationQuality":"Ensisijainen laatu","situationQuiet":"Mykistä soitin","situationVod":"Tallenne (VOD)","sleepCancelLabel":"Peruuta ajastin","sleepClock12":"AM/PM","sleepClock24":"24 tunnin formaatti","sleepEndsAt":"Päättyy klo","sleepExpired":"Uniajastin keskeytti toiston.","sleepHoursLabel":"Tunnit","sleepMinutesLabel":"Minuutit","sleepStartLabel":"Käynnistä ajastin","sleepStarted":"Toisto keskeytyy {minutes} minuutin kuluttua.","sleepTimerLabel":"Uniajastin","soundConfigureLabel":"Äänitapahtumien asetukset","soundEffectsLabel":"Äänitehosteet","soundEventVolumeLabel":"Tapahtuman äänenvoimakkuus","soundMenuLabel":"Paneelin avaaminen ja sulkeminen","soundModalHint":"Kukin kytkin ohjaa vain omaa tapahtumaansa. Myös äänten pääkytkimen on oltava päällä.","soundPreviewButton":"Esikuuntele","soundQualityFailure":"Laatua ei voitu käyttää","soundQualitySuccess":"Laatu käytössä","soundSettingsLabel":"Asetus muuttui","soundVolumeLabel":"Äänitehosteiden voimakkuus","soundVolumeRestored":"Äänenvoimakkuus palautettu","speedFast":"Nopea","speedNormal":"Normaali","speedSlow":"Hidas","statusLabel":"Tila","textScaleLabel":"Tiivis asettelu","textScaleLarge":"Tiivis asettelu","textScaleSmall":"Tiivis asettelu","textScaleXLarge":"Tiivis asettelu","themeDark":"Tumma","themeLabel":"Teema","themeLight":"Vaalea","titleQuality":"Laatu","titleVolume":"Äänenvoimakkuus","undoChange":"Palauta","versionLabel":"Versio","widgetAutoHideLabel":"Näytä vain kun palkinto on saatavilla","widgetDesignLabel":"Painikkeen tyyli","widgetDragHint":"Vedä siirtääksesi · napsauta hakeaksesi","widgetIconBolt":"Salama","widgetIconCoin":"Kolikko","widgetIconCrown":"Kruunu","widgetIconCustom":"Oma kuvake","widgetIconGift":"Lahja","widgetIconLabel":"Kuvake","widgetIconStar":"Tähti","widgetImageError":"Tiedostoa ei voitu käyttää. Valitse PNG-, JPG-, WebP-, GIF- tai SVG-kuva, enintään 2 Mt.","widgetImageFill":"Täytä koko painike kuvalla","widgetImageSaved":"Oma kuvake tallennettu.","widgetImageTip":"Neliönmuotoiset kuvat läpinäkyvällä taustalla näyttävät parhaimmilta. Kuva säilyy vain selaimessasi.","widgetOpacityLabel":"Painikkeen läpinäkyvyys","widgetRemoveCustom":"Poista oma kuvake","widgetResetPos":"Nollaa painikkeen sijainti","widgetSizeLabel":"Painikkeen koko","widgetStyleFlat":"Litteä","widgetStyleGlass":"Lasi","widgetStyleOrb":"Pallo","widgetStylePill":"Pilleri","widgetUpload":"Lataa oma kuvake"},"fr":{"accentColorLabel":"Couleur d’accentuation","actionHotkeysLabel":"Raccourci du menu","animFade":"Fondu","animGlow":"Lueur","animLift":"Élévation","animNone":"Aucune","animPop":"Rebond","animScale":"Échelle","animSlide":"Glissement","animationFull":"Sombre","animationLabel":"Disposition compacte","animationOff":"Clair","animationPreviewLabel":"Aperçu","animationReduced":"Disposition compacte","animationSpeedLabel":"Vitesse de l’animation","autoClaimHelp":"Ouvre la fenêtre des récompenses, récupère ce qui est disponible puis la referme. Désactivé par défaut.","autoClaimLabel":"Récupérer les récompenses automatiquement","autoQualityLabel":"Appliquer automatiquement la qualité enregistrée","autoVolumeLabel":"Appliquer automatiquement le volume enregistré","bindShortcut":"Cliquez pour modifier","blurLabel":"Flou de l’arrière-plan du menu","centerPanel":"Réinitialiser la position","channelBackupExport":"Sauvegarder toutes les chaînes","channelBackupImport":"Restaurer la sauvegarde","channelCurrent":"Actuel","channelDoneLabel":"Terminé","channelEditLabel":"Modifier","channelExcludedStatus":"Automatisation exclue","channelExport":"Exporter","channelExported":"Paramètres de chaîne exportés.","channelFavoritesOnly":"Épinglés uniquement","channelGroupAll":"Tous les groupes","channelGroupLabel":"Groupe","channelGroupPlaceholder":"Nom du groupe","channelHowTitle":"Comment fonctionnent les chaînes enregistrées","channelImport":"Importer un profil","channelImportError":"Impossible d’importer ce profil de chaîne.","channelImportSuccess":"Profil de chaîne importé.","channelMuted":"son coupé","channelNoteLabel":"Remarque","channelNotePlaceholder":"Ajouter une remarque…","channelNudge":"Des réglages séparés uniquement pour cette chaîne ?","channelOpenStreamHint":"Ouvrez un stream pour enregistrer les réglages de sa chaîne.","channelPin":"Épingler","channelPinned":"Épinglé","channelProfileSummary":"Mémoriser les paramètres de cette chaîne","channelQualitySummary":"Qualité : direct {live} · VOD {vod}","channelRemoveConfirm":"Supprimer les réglages enregistrés de {name} ?","channelSavedToast":"Réglages enregistrés pour {name}.","channelSearchPlaceholder":"Rechercher des chaînes…","channelSortName":"Nom","channelSortRecent":"Modifiés récemment","channelSortUsed":"Utilisés récemment","channelSoundOn":"son activé","channelSpeedSummary":"Vitesse : {speed}×","channelStep1":"Ouvrez le stream de la chaîne.","channelStep2":"Appuyez sur « Enregistrer cette chaîne ». La qualité, le volume, la vitesse et les réglages de son actuels sont mémorisés pour elle.","channelStep3":"Ajustez-les ci-dessous. Ils sont appliqués automatiquement chaque fois que vous ouvrez cette chaîne.","channelUnpin":"Désépingler","channelUseSaved":"Appliquer les réglages enregistrés sur cette chaîne","channelVolumeSummary":"Volume : {volume}% · {mute}","claimDelayLabel":"Attendre avant de récupérer","claimIntervalLabel":"Vérifier toutes les","claimModeInterval":"Selon un calendrier","claimModeLabel":"Récupération des récompenses","claimModeNotify":"Dès que Kick affiche la notification de récompense","claimNowLabel":"Récupérer maintenant","claimWidgetHelp":"Affiche un petit bouton que vous pouvez déplacer n'importe où sur le stream. Cliquez dessus pour récupérer votre récompense en un clic. Sa position est mémorisée.","claimWidgetLabel":"Bouton de récupération rapide sur la page","clearLog":"Effacer le journal","clearNotificationHistory":"Réinitialiser","collapseSidebarLabel":"Réduire le menu de gauche","compactLabel":"Disposition compacte","confirmNo":"Annuler","confirmYes":"Confirmer","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostic actualisé.","contrastLabel":"Thème","copyDiagnostics":"Exporter","currentChannelLabel":"Actuel","diagAvailableQualities":"Qualités détectées","diagCurrentQuality":"Qualité actuelle","diagUnknown":"Non détectée","diagVideoResolution":"Résolution vidéo","diagnosticsCopied":"Réglages importés.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostic actualisé.","doNotDisturbLabel":"Ne pas déranger","dragPanelHint":"Faites glisser le panneau par son en-tête ; sa position sera mémorisée.","excludeChannelLabel":"Désactiver l’automatisation sur cette chaîne","exportSettings":"Exporter","fallbackAuto":"Passer en automatique","fallbackLower":"Utiliser la qualité inférieure la plus proche","focusUnavailable":"Le plein écran n’est pas disponible pour ce lecteur.","focusViewLabel":"Vue plein écran","footerClose":"Fermer","footerHint":"Appuyez sur {key} pour afficher/masquer ce menu","freezeAlertLabel":"Alerter quand le lecteur se fige","freezeRecovered":"Lecture reprise.","freezeSoundLabel":"Jouer un son d'alarme","freezeThresholdLabel":"Délai de détection du blocage","groupFeedback":"Alertes","groupInterface":"Interface","groupPlayer":"Lecteur","groupSystem":"Système","helpAccentColor":"Choisissez une couleur d’accentuation personnalisée.","helpAutoQuality":"Applique la qualité enregistrée à l’ouverture du lecteur. Auto reprend le dernier choix effectué sur Kick.","helpAutoVolume":"Restaure le volume et la sourdine enregistrés au démarrage ou à la reconnexion.","helpBlur":"Réglez le flou de 0 à 12 px. Faites glisser le curseur ou utilisez la molette lorsque le pointeur est dessus.","helpButton":"Aide","helpChannelExclude":"Désactive les changements automatiques de qualité, volume et latence pour cette chaîne. Les commandes manuelles restent disponibles.","helpChannelSettings":"Activée, cette option mémorise séparément la qualité, le volume, le mode muet et la vitesse de la chaîne. Modifiez-les dans le lecteur.","helpCompact":"Réduit les espacements et la hauteur des commandes.","helpFallback":"Choisissez quoi faire si le direct ne propose pas la qualité préférée.","helpHotkey":"Choisissez une touche ou une combinaison avec Ctrl, Alt, Maj ou Meta. Échap annule.","helpLanguage":"Modifie la langue du panneau.","helpLiveQuality":"Qualité préférée pour les directs. Auto mémorise le dernier choix du lecteur.","helpNotificationDuration":"Choisissez combien de temps les notifications restent visibles.","helpNotificationSize":"Réglez la taille du texte des notifications de qualité.","helpNotifications":"Afficher ou masquer les notifications du résultat de qualité. Faites glisser une notification pour la déplacer ; sa position sera enregistrée.","helpPanelStyle":"Choisissez l’apparence du panneau.","helpSleepTimer":"Lance un compte à rebours et met la vidéo en pause à la fin. Fermer le menu n’annule pas le minuteur.","helpSoundVolume":"Réglez le volume. Les boutons diffusent un exemple.","helpSounds":"Active ou désactive tous les sons de l’extension. Choisissez les événements individuellement dans les réglages audio.","helpTheme":"Modifie l’apparence du panneau.","helpVodQuality":"Qualité préférée des vidéos enregistrées, indépendante des directs.","helpVolume":"Le volume va de 0 à 100 %. Faites glisser le curseur ou utilisez la molette lorsque le pointeur est dessus.","hideChatLabel":"Masquer le chat","highVolumeWarning":"Le volume du lecteur dépasse {threshold} %.","hotkeyCancel":"Appuyez sur Échap pour annuler","hotkeyWaiting":"Appuyez sur une touche…","hoverAnimationLabel":"Effet au survol","iconAnimationsLabel":"Animations des icônes","importSettings":"Importer","indicatorBreathe":"Respiration douce","indicatorGlow":"Lueur","indicatorOff":"Désactivée","indicatorPulse":"Pulsation","indicatorTitle":"Indicateur","languageLabel":"Langue","lastResultLabel":"Dernier résultat","layoutTitle":"Disposition de la page","layoutUnavailable":"Indisponible sur cette page.","logCleared":"Journal effacé.","loudThresholdLabel":"Seuil d’alerte","loudWarningLabel":"Alerter si le volume est élevé","minutesUnit":"min","muteLabel":"Couper le son du lecteur","noPlayerForReset":"Aucun lecteur vidéo trouvé.","noSavedChannels":"Aucun réglage de chaîne enregistré.","notificationApplied":"Qualité appliquée : {q}.","notificationDurationLabel":"Durée des notifications","notificationFailed":"Impossible d’appliquer {q} ; commandes du lecteur ou option de qualité introuvables.","notificationHistoryEmpty":"Aucune notification pour le moment.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Historique des notifications","notificationIconLabel":"Afficher l’icône de notification","notificationOpacityLabel":"Opacité de notification","notificationSizeLabel":"Taille du texte des notifications","notificationVolumeLabel":"Volume restauré","notificationsLabel":"Notifications de qualité","openAnimationLabel":"Animation d’ouverture","openReleases":"Ouvrir la liste des versions","panelStyleKick":"Kick","panelStyleLabel":"Style du panneau","panelStyleMinimal":"Minimaliste","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Vitesse de lecture","playerFrozenNotice":"Le lecteur semble figé. Essayez de recharger le stream.","preferredVolumeLabel":"Volume préféré","presetApplied":"Préréglage appliqué : {name}","presetsLabel":"Préréglages rapides","previewNotification":"Aperçu de notification","qualityAuto":"Auto (dernier choix manuel)","qualityAvailable":"Status","qualityCheckLabel":"Qualité du direct","qualityFallbackLabel":"Si indisponible","qualityLiveLabel":"Qualité du direct","qualityUnavailable":"Status","qualityVodLabel":"Qualité de la vidéo (VOD)","quickActionsLabel":"Lecture","quietFullscreenLabel":"Mode silencieux en plein écran","recoveryLabel":"Tenter de relancer la lecture bloquée","refreshDiagnostics":"Diagnostic actualisé.","removeChannelSettings":"Supprimer","reportIssue":"Signaler un problème","resetNotificationPosition":"Réinitialiser la position","resetPlayerLabel":"Réappliquer les paramètres du lecteur","resetQuality":"Réappliquer les paramètres du lecteur","resetSection":"Réinitialiser la section","resetSettings":"Réinitialiser","restoreReset":"Réinitialiser","restoreVolume":"Appliquer automatiquement le volume enregistré","rewardClaimed":"Récompense récupérée.","rewardNone":"Aucune récompense à récupérer pour le moment.","rewardsTitle":"Récompenses","safeModeHelp":"Applique la qualité enregistrée à l’ouverture du lecteur. Auto reprend le dernier choix effectué sur Kick.","safeModeLabel":"Disposition compacte","saveChannelButton":"Enregistrer cette chaîne","savedChannelsLabel":"Chaînes enregistrées","secondsUnit":"s","sectionAbout":"À propos de l’extension","sectionAppearance":"Apparence","sectionData":"Données et infos","sectionDiagnostics":"Diagnostic du lecteur","sectionHotkey":"Raccourci du menu","sectionMotion":"Animations","sectionNotifications":"Notifications","sectionPlayback":"Lecture","sectionShortcuts":"Raccourcis","sectionSounds":"Sons","sectionTools":"Outils","settingsImportError":"Importation impossible. Vérifiez le fichier.","settingsImportPrompt":"Importer ces réglages et remplacer la configuration actuelle ?","settingsImported":"Réglages importés.","settingsReset":"Réinitialiser","settingsResetPrompt":"Réinitialiser tous les réglages de Kick Stream Tweaks ?","clearSearch":"Effacer la recherche","settingsSearch":"Rechercher dans les paramètres…","shortcutChat":"Afficher/masquer le chat","shortcutFocus":"Vue plein écran","shortcutNotifications":"Quality notifications","shortcutQuality":"Qualité du direct","shortcutSidebar":"Afficher/masquer le menu de gauche","shortcutVolume":"Volume préféré","silentHelp":"Coupe le son du stream sans mettre le lecteur en sourdine, il continue donc de jouer quand vous changez d'onglet. Réglable par chaîne.","silentLabel":"Lecture sans son (continue en arrière-plan)","silentTag":"Sans son","silentUnavailable":"La lecture silencieuse n'est pas disponible pour ce lecteur.","situationBandwidth":"Si indisponible","situationQuality":"Qualité préférée","situationQuiet":"Couper le son du lecteur","situationVod":"Vidéo (VOD)","sleepCancelLabel":"Annuler le minuteur","sleepClock12":"AM/PM","sleepClock24":"format 24 heures","sleepEndsAt":"Fin à","sleepExpired":"Le minuteur a mis la lecture en pause.","sleepHoursLabel":"Heures","sleepMinutesLabel":"Minutes","sleepStartLabel":"Démarrer le minuteur","sleepStarted":"La lecture s’arrêtera dans {minutes} min.","sleepTimerLabel":"Minuteur de veille","soundConfigureLabel":"Réglages des événements sonores","soundEffectsLabel":"Effets sonores","soundEventVolumeLabel":"Volume de l’événement","soundMenuLabel":"Ouverture et fermeture du panneau","soundModalHint":"Chaque interrupteur contrôle uniquement son événement. L’interrupteur général des sons doit aussi être activé.","soundPreviewButton":"Écouter","soundQualityFailure":"Échec de l’application de la qualité","soundQualitySuccess":"Qualité appliquée","soundSettingsLabel":"Modification des réglages","soundVolumeLabel":"Volume des effets sonores","soundVolumeRestored":"Volume restauré","speedFast":"Rapide","speedNormal":"Normale","speedSlow":"Lente","statusLabel":"État","textScaleLabel":"Disposition compacte","textScaleLarge":"Disposition compacte","textScaleSmall":"Disposition compacte","textScaleXLarge":"Disposition compacte","themeDark":"Sombre","themeLabel":"Thème","themeLight":"Clair","titleQuality":"Qualité","titleVolume":"Volume","undoChange":"Réinitialiser","versionLabel":"Version","widgetAutoHideLabel":"Afficher uniquement quand une récompense est disponible","widgetDesignLabel":"Style du bouton","widgetDragHint":"Glisser pour déplacer · cliquer pour récupérer","widgetIconBolt":"Éclair","widgetIconCoin":"Pièce","widgetIconCrown":"Couronne","widgetIconCustom":"Votre propre icône","widgetIconGift":"Cadeau","widgetIconLabel":"Icône","widgetIconStar":"Étoile","widgetImageError":"Impossible d'utiliser ce fichier. Choisissez une image PNG, JPG, WebP, GIF ou SVG jusqu'à 2 Mo.","widgetImageFill":"Remplir tout le bouton avec l'image","widgetImageSaved":"Icône personnalisée enregistrée.","widgetImageTip":"Les images carrées à fond transparent rendent le mieux. L'image reste uniquement dans votre navigateur.","widgetOpacityLabel":"Opacité du bouton","widgetRemoveCustom":"Supprimer votre icône","widgetResetPos":"Réinitialiser la position du bouton","widgetSizeLabel":"Taille du bouton","widgetStyleFlat":"Plat","widgetStyleGlass":"Verre","widgetStyleOrb":"Orbe","widgetStylePill":"Pilule","widgetUpload":"Importer votre propre icône"},"hi":{"accentColorLabel":"एक्सेंट रंग","actionHotkeysLabel":"मेनू हॉटकी","animFade":"धीरे दिखाएँ","animGlow":"चमक","animLift":"ऊपर उठाएँ","animNone":"कोई नहीं","animPop":"उछाल","animScale":"आकार बदलें","animSlide":"स्लाइड","animationFull":"डार्क","animationLabel":"कॉम्पैक्ट लेआउट","animationOff":"लाइट","animationPreviewLabel":"पूर्वावलोकन","animationReduced":"कॉम्पैक्ट लेआउट","animationSpeedLabel":"एनीमेशन गति","autoClaimHelp":"पुरस्कार विंडो खोलता है, उपलब्ध पुरस्कार लेता है और उसे बंद कर देता है। डिफ़ॉल्ट रूप से बंद।","autoClaimLabel":"पुरस्कार अपने-आप लें","autoQualityLabel":"सहेजी गई गुणवत्ता स्वतः लागू करें","autoVolumeLabel":"सहेजी गई वॉल्यूम स्वतः लागू करें","bindShortcut":"बदलने के लिए क्लिक करें","blurLabel":"मेनू पृष्ठभूमि का धुंधलापन","centerPanel":"सूचना की स्थिति रीसेट करें","channelBackupExport":"सभी चैनलों का बैकअप लें","channelBackupImport":"बैकअप पुनर्स्थापित करें","channelCurrent":"वर्तमान","channelDoneLabel":"हो गया","channelEditLabel":"बदलें","channelExcludedStatus":"स्वचालन छोड़ दिया गया","channelExport":"निर्यात करें","channelExported":"चैनल सेटिंग निर्यात की गई।","channelFavoritesOnly":"केवल पिन किए गए","channelGroupAll":"सभी समूह","channelGroupLabel":"समूह","channelGroupPlaceholder":"समूह का नाम","channelHowTitle":"सहेजे गए चैनल कैसे काम करते हैं","channelImport":"प्रोफ़ाइल आयात करें","channelImportError":"चैनल प्रोफ़ाइल आयात नहीं हो सकी।","channelImportSuccess":"चैनल प्रोफ़ाइल आयात की गई।","channelMuted":"म्यूट","channelNoteLabel":"नोट","channelNotePlaceholder":"नोट जोड़ें…","channelNudge":"क्या केवल इस चैनल के लिए अलग सेटिंग चाहिए?","channelOpenStreamHint":"किसी चैनल की सेटिंग सहेजने के लिए उसकी स्ट्रीम खोलें।","channelPin":"पिन करें","channelPinned":"पिन किया गया","channelProfileSummary":"इस चैनल की सेटिंग याद रखें","channelQualitySummary":"गुणवत्ता: लाइव {live} · VOD {vod}","channelRemoveConfirm":"{name} की सहेजी सेटिंग हटाएँ?","channelSavedToast":"{name} की सेटिंग सहेज ली गईं।","channelSearchPlaceholder":"सहेजे चैनल खोजें…","channelSortName":"नाम","channelSortRecent":"हाल ही में बदले गए","channelSortUsed":"हाल ही में उपयोग किए गए","channelSoundOn":"आवाज़ चालू","channelSpeedSummary":"गति: {speed}×","channelStep1":"चैनल की स्ट्रीम खोलें।","channelStep2":"“यह चैनल सहेजें” दबाएँ। इसके लिए मौजूदा गुणवत्ता, आवाज़, गति और ध्वनि सेटिंग सहेज ली जाती हैं।","channelStep3":"नीचे इन्हें ठीक करें। जब भी आप यह चैनल खोलेंगे, ये अपने-आप लागू होंगी।","channelUnpin":"अनपिन करें","channelUseSaved":"इस चैनल पर सहेजी गई सेटिंग लागू करें","channelVolumeSummary":"वॉल्यूम: {volume}% · {mute}","claimDelayLabel":"लेने से पहले प्रतीक्षा","claimIntervalLabel":"हर इतने समय में जाँचें","claimModeInterval":"समय-सारणी के अनुसार","claimModeLabel":"पुरस्कार लेना","claimModeNotify":"जैसे ही Kick पुरस्कार सूचना दिखाए","claimNowLabel":"अभी लें","claimWidgetHelp":"एक छोटा बटन दिखाता है जिसे आप स्ट्रीम पर कहीं भी खींच सकते हैं। एक क्लिक में पुरस्कार लेने के लिए इस पर क्लिक करें। इसकी जगह याद रखी जाती है।","claimWidgetLabel":"पेज पर त्वरित-प्राप्ति बटन","clearLog":"लॉग साफ़ करें","clearNotificationHistory":"रीसेट","collapseSidebarLabel":"बायाँ मेनू समेटें","compactLabel":"कॉम्पैक्ट लेआउट","confirmNo":"रद्द करें","confirmYes":"पुष्टि करें","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"डायग्नोस्टिक्स रीफ़्रेश किए गए।","contrastLabel":"थीम","copyDiagnostics":"निर्यात","currentChannelLabel":"वर्तमान","diagAvailableQualities":"पहचानी गई क्वालिटी","diagCurrentQuality":"वर्तमान क्वालिटी","diagUnknown":"पता नहीं चला","diagVideoResolution":"वीडियो रिज़ॉल्यूशन","diagnosticsCopied":"सेटिंग्स आयात हुईं।","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"डायग्नोस्टिक्स रीफ़्रेश किए गए।","doNotDisturbLabel":"परेशान न करें","dragPanelHint":"शीर्षक पट्टी से पैनल खींचें; इसकी स्थिति सहेजी जाएगी।","excludeChannelLabel":"इस चैनल पर स्वचालन छोड़ें","exportSettings":"निर्यात","fallbackAuto":"ऑटो पर स्विच करें","fallbackLower":"निकटतम कम गुणवत्ता चुनें","focusUnavailable":"इस प्लेयर के लिए फ़ुल स्क्रीन उपलब्ध नहीं है।","focusViewLabel":"फ़ुल स्क्रीन दृश्य","footerClose":"बंद करें","footerHint":"यह मेनू खोलने/बंद करने के लिए {key} दबाएँ","freezeAlertLabel":"प्लेयर फ़्रीज़ होने पर चेतावनी","freezeRecovered":"प्लेबैक फिर शुरू हुआ।","freezeSoundLabel":"अलार्म ध्वनि बजाएँ","freezeThresholdLabel":"फ़्रीज़ पहचानने का समय","groupFeedback":"अलर्ट","groupInterface":"इंटरफ़ेस","groupPlayer":"प्लेयर","groupSystem":"सिस्टम","helpAccentColor":"अपना एक्सेंट रंग चुनें।","helpAutoQuality":"प्लेयर खुलने पर सहेजी गई गुणवत्ता लागू करता है। ऑटो Kick में चुनी गई पिछली गुणवत्ता का उपयोग करता है।","helpAutoVolume":"प्लेयर शुरू होने या फिर जुड़ने पर सहेजी गई आवाज़ और म्यूट स्थिति लौटाता है।","helpBlur":"धुंधलापन 0–12 px तक सेट करें। स्लाइडर खींचें या कर्सर को उस पर रखकर माउस व्हील चलाएँ।","helpButton":"सहायता","helpChannelExclude":"इस चैनल के लिए गुणवत्ता, वॉल्यूम और विलंबता के स्वचालित बदलाव रोकता है। मैन्युअल नियंत्रण काम करते रहेंगे।","helpChannelSettings":"चालू होने पर चैनल की गुणवत्ता, वॉल्यूम, म्यूट और गति अलग से सहेजी जाती है। इन्हें प्लेयर में बदलें।","helpCompact":"अंतर और नियंत्रणों की ऊँचाई कम करता है।","helpFallback":"यदि स्ट्रीम में पसंदीदा गुणवत्ता न हो तो चुनें कि क्या करना है।","helpHotkey":"कोई कुंजी या Ctrl, Alt, Shift, Meta संयोजन चुनें। रद्द करने के लिए Escape दबाएँ।","helpLanguage":"पैनल की भाषा बदलता है।","helpLiveQuality":"लाइव स्ट्रीम की पसंदीदा गुणवत्ता। ऑटो प्लेयर का पिछला चयन याद रखता है।","helpNotificationDuration":"चुनें कि क्वालिटी सूचना कितनी देर दिखे।","helpNotificationSize":"क्वालिटी सूचनाओं के टेक्स्ट का आकार बदलें।","helpNotifications":"गुणवत्ता परिणाम की सूचनाएँ दिखाएँ या छिपाएँ। सूचना को खींचकर स्थान बदलें; उसका स्थान सहेजा जाएगा।","helpPanelStyle":"पैनल का रूप चुनें।","helpSleepTimer":"उलटी गिनती शुरू करता है और समय पूरा होने पर मौजूदा वीडियो रोकता है। मेनू बंद करने से टाइमर रद्द नहीं होता।","helpSoundVolume":"ध्वनि का स्तर बदलें। बटन नमूना बजाते हैं।","helpSounds":"एक्सटेंशन की सभी ध्वनियाँ चालू या बंद करें। ध्वनि सेटिंग में अलग-अलग घटनाएँ चुनें।","helpTheme":"पैनल का रूप बदलता है।","helpVodQuality":"रिकॉर्डिंग की पसंदीदा गुणवत्ता; लाइव स्ट्रीम से अलग।","helpVolume":"आवाज़ 0–100% तक है। स्लाइडर खींचें या कर्सर को उस पर रखकर माउस व्हील चलाएँ।","hideChatLabel":"चैट छिपाएँ","highVolumeWarning":"प्लेयर का वॉल्यूम {threshold}% से अधिक है।","hotkeyCancel":"रद्द करने के लिए Escape दबाएँ","hotkeyWaiting":"कोई भी कुंजी दबाएँ…","hoverAnimationLabel":"होवर प्रभाव","iconAnimationsLabel":"आइकन एनिमेशन","importSettings":"आयात","indicatorBreathe":"धीमी साँस","indicatorGlow":"चमक","indicatorOff":"बंद","indicatorPulse":"स्पंदन","indicatorTitle":"संकेतक","languageLabel":"भाषा","lastResultLabel":"अंतिम परिणाम","layoutTitle":"पेज लेआउट","layoutUnavailable":"इस पेज पर उपलब्ध नहीं है।","logCleared":"लॉग साफ़ हो गया।","loudThresholdLabel":"चेतावनी सीमा","loudWarningLabel":"तेज़ आवाज़ पर चेतावनी दें","minutesUnit":"मिनट","muteLabel":"प्लेयर म्यूट करें","noPlayerForReset":"कोई वीडियो प्लेयर नहीं मिला।","noSavedChannels":"अभी कोई चैनल सेटिंग सहेजी नहीं गई है।","notificationApplied":"क्वालिटी लागू: {q}।","notificationDurationLabel":"सूचना अवधि","notificationFailed":"{q} लागू नहीं हो सकी; प्लेयर कंट्रोल या क्वालिटी विकल्प नहीं मिला।","notificationHistoryEmpty":"अभी कोई सूचना नहीं।","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"सूचना इतिहास","notificationIconLabel":"सूचना आइकन दिखाएँ","notificationOpacityLabel":"सूचना की अपारदर्शिता","notificationSizeLabel":"सूचना टेक्स्ट का आकार","notificationVolumeLabel":"आवाज़ बहाल हुई","notificationsLabel":"क्वालिटी सूचनाएँ","openAnimationLabel":"खुलने का एनीमेशन","openReleases":"संस्करण सूची खोलें","panelStyleKick":"Kick","panelStyleLabel":"पैनल शैली","panelStyleMinimal":"मिनिमल","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"प्लेबैक गति","playerFrozenNotice":"प्लेयर फ़्रीज़ लगता है। स्ट्रीम फिर से लोड करके देखें।","preferredVolumeLabel":"पसंदीदा वॉल्यूम","presetApplied":"प्रीसेट लागू: {name}","presetsLabel":"त्वरित प्रीसेट","previewNotification":"सूचना का पूर्वावलोकन","qualityAuto":"ऑटो (अंतिम बार मैन्युअल रूप से चुना गया)","qualityAvailable":"Status","qualityCheckLabel":"लाइव स्ट्रीम की गुणवत्ता","qualityFallbackLabel":"उपलब्ध न होने पर","qualityLiveLabel":"लाइव स्ट्रीम की गुणवत्ता","qualityUnavailable":"Status","qualityVodLabel":"रिकॉर्डिंग की गुणवत्ता (VOD)","quickActionsLabel":"प्लेबैक","quietFullscreenLabel":"फ़ुल स्क्रीन में शांत मोड","recoveryLabel":"अटके प्लेबैक को फिर शुरू करने की कोशिश करें","refreshDiagnostics":"डायग्नोस्टिक्स रीफ़्रेश किए गए।","removeChannelSettings":"हटाएँ","reportIssue":"समस्या बताएँ","resetNotificationPosition":"सूचना की स्थिति रीसेट करें","resetPlayerLabel":"प्लेयर सेटिंग फिर लागू करें","resetQuality":"प्लेयर सेटिंग फिर लागू करें","resetSection":"अनुभाग रीसेट करें","resetSettings":"रीसेट","restoreReset":"रीसेट","restoreVolume":"सहेजी गई वॉल्यूम स्वतः लागू करें","rewardClaimed":"पुरस्कार मिल गया।","rewardNone":"अभी लेने के लिए कोई पुरस्कार नहीं है।","rewardsTitle":"पुरस्कार","safeModeHelp":"प्लेयर खुलने पर सहेजी गई गुणवत्ता लागू करता है। ऑटो Kick में चुनी गई पिछली गुणवत्ता का उपयोग करता है।","safeModeLabel":"कॉम्पैक्ट लेआउट","saveChannelButton":"यह चैनल सहेजें","savedChannelsLabel":"सहेजे गए चैनल","secondsUnit":"से","sectionAbout":"एक्सटेंशन के बारे में","sectionAppearance":"दिखावट","sectionData":"डेटा और जानकारी","sectionDiagnostics":"प्लेयर निदान","sectionHotkey":"मेनू हॉटकी","sectionMotion":"एनिमेशन","sectionNotifications":"सूचनाएँ","sectionPlayback":"प्लेबैक","sectionShortcuts":"शॉर्टकट","sectionSounds":"ध्वनियाँ","sectionTools":"उपकरण","settingsImportError":"सेटिंग्स आयात नहीं हो सकीं। फ़ाइल जाँचें।","settingsImportPrompt":"क्या इन सेटिंग्स को आयात करके मौजूदा सेटिंग्स बदलें?","settingsImported":"सेटिंग्स आयात हुईं।","settingsReset":"रीसेट","settingsResetPrompt":"क्या Kick Stream Tweaks की सभी सेटिंग्स रीसेट करें?","clearSearch":"खोज साफ़ करें","settingsSearch":"सेटिंग खोजें…","shortcutChat":"चैट टॉगल करें","shortcutFocus":"फ़ुल स्क्रीन दृश्य","shortcutNotifications":"Quality notifications","shortcutQuality":"लाइव स्ट्रीम की गुणवत्ता","shortcutSidebar":"बायाँ मेनू टॉगल करें","shortcutVolume":"पसंदीदा वॉल्यूम","silentHelp":"प्लेयर को म्यूट किए बिना स्ट्रीम की आवाज़ बंद करता है, इसलिए टैब बदलने पर भी वह चलती रहती है। हर चैनल के लिए सेट किया जा सकता है।","silentLabel":"बिना आवाज़ के चलाएँ (बैकग्राउंड में चलता रहता है)","silentTag":"बिना आवाज़","silentUnavailable":"इस प्लेयर के लिए बिना आवाज़ वाला प्लेबैक उपलब्ध नहीं है।","situationBandwidth":"उपलब्ध न होने पर","situationQuality":"पसंदीदा गुणवत्ता","situationQuiet":"प्लेयर म्यूट करें","situationVod":"रिकॉर्डिंग (VOD)","sleepCancelLabel":"टाइमर रद्द करें","sleepClock12":"AM/PM","sleepClock24":"24-घंटे का प्रारूप","sleepEndsAt":"समाप्ति समय","sleepExpired":"स्लीप टाइमर ने प्लेबैक रोक दिया।","sleepHoursLabel":"घंटे","sleepMinutesLabel":"मिनट","sleepStartLabel":"टाइमर शुरू करें","sleepStarted":"प्लेबैक {minutes} मिनट में रुक जाएगा।","sleepTimerLabel":"स्लीप टाइमर","soundConfigureLabel":"ध्वनि घटनाओं की सेटिंग","soundEffectsLabel":"ध्वनि प्रभाव","soundEventVolumeLabel":"घटना की आवाज़","soundMenuLabel":"पैनल खोलना और बंद करना","soundModalHint":"हर स्विच केवल अपनी घटना नियंत्रित करता है। मुख्य ध्वनि स्विच भी चालू होना चाहिए।","soundPreviewButton":"पूर्वावलोकन","soundQualityFailure":"गुणवत्ता लागू नहीं हुई","soundQualitySuccess":"गुणवत्ता लागू हुई","soundSettingsLabel":"सेटिंग बदलना","soundVolumeLabel":"ध्वनि प्रभाव की आवाज़","soundVolumeRestored":"आवाज़ बहाल हुई","speedFast":"तेज़","speedNormal":"सामान्य","speedSlow":"धीमा","statusLabel":"स्थिति","textScaleLabel":"कॉम्पैक्ट लेआउट","textScaleLarge":"कॉम्पैक्ट लेआउट","textScaleSmall":"कॉम्पैक्ट लेआउट","textScaleXLarge":"कॉम्पैक्ट लेआउट","themeDark":"डार्क","themeLabel":"थीम","themeLight":"लाइट","titleQuality":"गुणवत्ता","titleVolume":"आवाज़","undoChange":"रीसेट","versionLabel":"संस्करण","widgetAutoHideLabel":"केवल तभी दिखाएँ जब पुरस्कार उपलब्ध हो","widgetDesignLabel":"बटन की शैली","widgetDragHint":"हिलाने के लिए खींचें · लेने के लिए क्लिक करें","widgetIconBolt":"बिजली","widgetIconCoin":"सिक्का","widgetIconCrown":"मुकुट","widgetIconCustom":"आपका अपना आइकन","widgetIconGift":"उपहार","widgetIconLabel":"आइकन","widgetIconStar":"तारा","widgetImageError":"इस फ़ाइल का उपयोग नहीं हो सका। 2 MB तक की PNG, JPG, WebP, GIF या SVG छवि चुनें।","widgetImageFill":"पूरे बटन को छवि से भरें","widgetImageSaved":"कस्टम आइकन सहेज लिया गया।","widgetImageTip":"पारदर्शी पृष्ठभूमि वाली वर्गाकार छवियाँ सबसे अच्छी दिखती हैं। छवि केवल आपके ब्राउज़र में रहती है।","widgetOpacityLabel":"बटन की पारदर्शिता","widgetRemoveCustom":"अपना आइकन हटाएँ","widgetResetPos":"बटन की स्थिति रीसेट करें","widgetSizeLabel":"बटन का आकार","widgetStyleFlat":"सपाट","widgetStyleGlass":"काँच","widgetStyleOrb":"गोला","widgetStylePill":"कैप्सूल","widgetUpload":"अपना आइकन अपलोड करें"},"en-in":{"accentColorLabel":"Accent color","actionHotkeysLabel":"Menu Hotkey","animFade":"Fade","animGlow":"Glow","animLift":"Lift","animNone":"None","animPop":"Pop","animScale":"Scale","animSlide":"Slide","animationFull":"Dark","animationLabel":"Compact layout","animationOff":"Light","animationPreviewLabel":"Preview","animationReduced":"Compact layout","animationSpeedLabel":"Animation speed","autoClaimHelp":"Opens the rewards window, claims what is available and closes it again. Off by default.","autoClaimLabel":"Auto-claim rewards","autoQualityLabel":"Auto-apply saved quality","autoVolumeLabel":"Auto-apply saved volume","bindShortcut":"Click to rebind","blurLabel":"Menu background blur","centerPanel":"Reset notification position","channelBackupExport":"Back up all channels","channelBackupImport":"Restore backup","channelCurrent":"Current","channelDoneLabel":"Done","channelEditLabel":"Edit","channelExcludedStatus":"Automation excluded","channelExport":"Export","channelExported":"Channel settings exported.","channelFavoritesOnly":"Pinned only","channelGroupAll":"All groups","channelGroupLabel":"Group","channelGroupPlaceholder":"Group name","channelHowTitle":"How saved channels work","channelImport":"Import profile","channelImportError":"Could not import this channel profile.","channelImportSuccess":"Channel profile imported.","channelMuted":"muted","channelNoteLabel":"Note","channelNotePlaceholder":"Add a note…","channelNudge":"Want separate settings just for this channel?","channelOpenStreamHint":"Open a stream to save settings for its channel.","channelPin":"Pin","channelPinned":"Pinned","channelProfileSummary":"Remember settings for this channel","channelQualitySummary":"Quality: live {live} · VOD {vod}","channelRemoveConfirm":"Remove saved settings for {name}?","channelSavedToast":"Saved settings for {name}.","channelSearchPlaceholder":"Search saved channels…","channelSortName":"Name","channelSortRecent":"Recently changed","channelSortUsed":"Recently used","channelSoundOn":"sound on","channelSpeedSummary":"Speed: {speed}×","channelStep1":"Open a channel's stream.","channelStep2":"Press “Save this channel”. The current quality, volume, speed and sound settings are stored for it.","channelStep3":"Fine-tune them below. They are applied automatically every time you open that channel.","channelUnpin":"Unpin","channelUseSaved":"Apply the saved settings on this channel","channelVolumeSummary":"Volume: {volume}% · {mute}","claimDelayLabel":"Wait before claiming","claimIntervalLabel":"Check every","claimModeInterval":"On a schedule","claimModeLabel":"Claim rewards","claimModeNotify":"As soon as Kick shows the reward notification","claimNowLabel":"Claim now","claimWidgetHelp":"Shows a small button you can drag anywhere on the stream. Click it to claim your reward in one click. Its position is remembered.","claimWidgetLabel":"Quick-claim button on the page","clearLog":"Clear log","clearNotificationHistory":"Reset","collapseSidebarLabel":"Collapse left menu","compactLabel":"Compact layout","confirmNo":"Cancel","confirmYes":"Confirm","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostics refreshed.","contrastLabel":"Theme","copyDiagnostics":"Export","currentChannelLabel":"Current","diagAvailableQualities":"Detected qualities","diagCurrentQuality":"Current quality","diagUnknown":"Not detected","diagVideoResolution":"Video resolution","diagnosticsCopied":"Settings imported.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostics refreshed.","doNotDisturbLabel":"Do not disturb","dragPanelHint":"Drag the panel by its header; its position will be saved.","excludeChannelLabel":"Skip automation on this channel","exportSettings":"Export","fallbackAuto":"Switch to Auto","fallbackLower":"Use nearest lower quality","focusUnavailable":"Fullscreen is not available for this player.","focusViewLabel":"Fullscreen view","footerClose":"Close","footerHint":"Press {key} to toggle this menu","freezeAlertLabel":"Alert when the player freezes","freezeRecovered":"Playback resumed.","freezeSoundLabel":"Play an alarm sound","freezeThresholdLabel":"Freeze detection time","groupFeedback":"Alerts","groupInterface":"Interface","groupPlayer":"Player","groupSystem":"System","helpAccentColor":"Choose a custom highlight color.","helpAutoQuality":"Applies saved quality when the player opens. Auto uses the last quality chosen in Kick.","helpAutoVolume":"Restores saved volume and mute state when the player starts or reconnects.","helpBlur":"Set background blur from 0 to 12 px. Drag the slider or use the mouse wheel while the cursor is over it.","helpButton":"Help","helpChannelExclude":"Stops automatic quality, volume and latency changes for this channel. Manual controls still work.","helpChannelSettings":"When on, this channel saves its own quality, volume, mute and speed. Change them in the player.","helpCompact":"Reduces spacing and control height.","helpFallback":"Choose what to do when this stream lacks your preferred quality.","helpHotkey":"Choose a key or Ctrl/Alt/Shift/Meta combination to toggle the panel. Escape cancels.","helpLanguage":"Changes this panel’s language.","helpLiveQuality":"Preferred quality for live streams. Auto remembers the last player choice.","helpNotificationDuration":"Choose how long quality notifications stay visible.","helpNotificationSize":"Adjust the size of quality notification text.","helpNotifications":"Show or hide quality result notifications. Drag a notification to move it; its position is saved.","helpPanelStyle":"Choose the visual style of the panel.","helpSleepTimer":"Starts a countdown and pauses the current video when it ends. Closing this menu does not cancel it.","helpSoundVolume":"Adjust extension sound volume. Preview buttons play a sample.","helpSounds":"Turn all extension sounds on or off. Choose individual events in Configure sounds.","helpTheme":"Changes this panel’s appearance.","helpVodQuality":"Preferred quality for recordings; independent from live streams.","helpVolume":"Volume is 0–100%. Drag the slider or use the mouse wheel while the cursor is over it.","hideChatLabel":"Hide chat","highVolumeWarning":"Player volume is above {threshold}%.","hotkeyCancel":"Press Escape to cancel","hotkeyWaiting":"Press any key…","hoverAnimationLabel":"Hover effect","iconAnimationsLabel":"Icon animations","importSettings":"Import","indicatorBreathe":"Soft breathing","indicatorGlow":"Glow","indicatorOff":"Off","indicatorPulse":"Pulse","indicatorTitle":"Indicator","languageLabel":"Language","lastResultLabel":"Last result","layoutTitle":"Page layout","layoutUnavailable":"Not available on this page.","logCleared":"Log cleared.","loudThresholdLabel":"Warning threshold","loudWarningLabel":"Warn at high volume","minutesUnit":"min","muteLabel":"Mute player","noPlayerForReset":"No video player was found.","noSavedChannels":"No channel settings saved yet.","notificationApplied":"Applied quality: {q}.","notificationDurationLabel":"Notification duration","notificationFailed":"Could not apply {q}; player controls or quality option were not found.","notificationHistoryEmpty":"No notifications yet.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Notification history","notificationIconLabel":"Show notification icon","notificationOpacityLabel":"Notification opacity","notificationSizeLabel":"Notification text size","notificationVolumeLabel":"Volume restored","notificationsLabel":"Quality notifications","openAnimationLabel":"Opening animation","openReleases":"Open version list","panelStyleKick":"Kick","panelStyleLabel":"Panel style","panelStyleMinimal":"Minimal","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Playback speed","playerFrozenNotice":"The player seems frozen. Try reloading the stream.","preferredVolumeLabel":"Preferred volume","presetApplied":"Preset applied: {name}","presetsLabel":"Quick presets","previewNotification":"Preview notification","qualityAuto":"Auto (use last manually selected)","qualityAvailable":"Status","qualityCheckLabel":"Live stream quality","qualityFallbackLabel":"If unavailable","qualityLiveLabel":"Live stream quality","qualityUnavailable":"Status","qualityVodLabel":"VOD quality","quickActionsLabel":"Playback","quietFullscreenLabel":"Quiet mode in fullscreen","recoveryLabel":"Try to recover stalled playback","refreshDiagnostics":"Diagnostics refreshed.","removeChannelSettings":"Remove","reportIssue":"Report an issue","resetNotificationPosition":"Reset notification position","resetPlayerLabel":"Reapply player settings","resetQuality":"Reapply player settings","resetSection":"Reset section","resetSettings":"Reset","restoreReset":"Reset","restoreVolume":"Auto-apply saved volume","rewardClaimed":"Reward claimed.","rewardNone":"No rewards to claim right now.","rewardsTitle":"Rewards","safeModeHelp":"Applies saved quality when the player opens. Auto uses the last quality chosen in Kick.","safeModeLabel":"Compact layout","saveChannelButton":"Save this channel","savedChannelsLabel":"Saved channels","secondsUnit":"s","sectionAbout":"About the extension","sectionAppearance":"Appearance","sectionData":"Data & about","sectionDiagnostics":"Player diagnostics","sectionHotkey":"Menu Hotkey","sectionMotion":"Animations","sectionNotifications":"Notifications","sectionPlayback":"Playback","sectionShortcuts":"Shortcuts","sectionSounds":"Sounds","sectionTools":"Tools","settingsImportError":"Could not import settings. Check that this is a valid settings file.","settingsImportPrompt":"Import these settings and replace the current configuration?","settingsImported":"Settings imported.","settingsReset":"Reset","settingsResetPrompt":"Reset all Kick Stream Tweaks settings to defaults?","clearSearch":"Clear search","settingsSearch":"Search settings…","shortcutChat":"Toggle chat","shortcutFocus":"Fullscreen view","shortcutNotifications":"Quality notifications","shortcutQuality":"Live stream quality","shortcutSidebar":"Toggle left menu","shortcutVolume":"Preferred volume","silentHelp":"Silences the stream without muting the player, so it keeps playing when you switch tabs. Can be set per channel.","silentLabel":"Play without sound (keeps playing in the background)","silentTag":"Silent","silentUnavailable":"Silent playback is not available for this player.","situationBandwidth":"If unavailable","situationQuality":"Preferred quality","situationQuiet":"Mute player","situationVod":"VOD","sleepCancelLabel":"Cancel timer","sleepClock12":"AM/PM","sleepClock24":"24-hour","sleepEndsAt":"Ends at","sleepExpired":"Sleep timer paused playback.","sleepHoursLabel":"Hours","sleepMinutesLabel":"Minutes","sleepStartLabel":"Start timer","sleepStarted":"Playback will pause in {minutes} min.","sleepTimerLabel":"Sleep timer","soundConfigureLabel":"Sound event settings","soundEffectsLabel":"Sound effects","soundEventVolumeLabel":"Event volume","soundMenuLabel":"Panel open and close","soundModalHint":"Each switch controls only that event. The main Sound effects switch must also be on.","soundPreviewButton":"Preview","soundQualityFailure":"Quality could not be applied","soundQualitySuccess":"Quality applied","soundSettingsLabel":"Settings changed","soundVolumeLabel":"Sound effect volume","soundVolumeRestored":"Volume restored","speedFast":"Fast","speedNormal":"Normal","speedSlow":"Slow","statusLabel":"Status","textScaleLabel":"Compact layout","textScaleLarge":"Compact layout","textScaleSmall":"Compact layout","textScaleXLarge":"Compact layout","themeDark":"Dark","themeLabel":"Theme","themeLight":"Light","titleQuality":"Quality","titleVolume":"Volume","undoChange":"Reset","versionLabel":"Version","widgetAutoHideLabel":"Show only when a reward is available","widgetDesignLabel":"Button style","widgetDragHint":"Drag to move · click to claim","widgetIconBolt":"Bolt","widgetIconCoin":"Coin","widgetIconCrown":"Crown","widgetIconCustom":"Your own icon","widgetIconGift":"Gift","widgetIconLabel":"Icon","widgetIconStar":"Star","widgetImageError":"Could not use this file. Choose a PNG, JPG, WebP, GIF or SVG image up to 2 MB.","widgetImageFill":"Fill the whole button with the image","widgetImageSaved":"Custom icon saved.","widgetImageTip":"Square images with a transparent background look best. The image stays in your browser only.","widgetOpacityLabel":"Button opacity","widgetRemoveCustom":"Remove your icon","widgetResetPos":"Reset button position","widgetSizeLabel":"Button size","widgetStyleFlat":"Flat","widgetStyleGlass":"Glass","widgetStyleOrb":"Orb","widgetStylePill":"Pill","widgetUpload":"Upload your own icon"},"hr":{"accentColorLabel":"Boja naglaska","actionHotkeysLabel":"Tipkovni prečac izbornika","animFade":"Iščezavanje","animGlow":"Sjaj","animLift":"Podizanje","animNone":"Bez","animPop":"Poskok","animScale":"Skaliranje","animSlide":"Pomak","animationFull":"Tamna","animationLabel":"Kompaktan raspored","animationOff":"Svijetla","animationPreviewLabel":"Pregled","animationReduced":"Kompaktan raspored","animationSpeedLabel":"Brzina animacije","autoClaimHelp":"Otvara prozor nagrada, preuzima dostupno i ponovno ga zatvara. Isključeno prema zadanim postavkama.","autoClaimLabel":"Automatsko preuzimanje nagrada","autoQualityLabel":"Automatski primijeni spremljenu kvalitetu","autoVolumeLabel":"Automatski primijeni spremljenu glasnoću","bindShortcut":"Kliknite za promjenu","blurLabel":"Zamućenje pozadine izbornika","centerPanel":"Poništi položaj obavijesti","channelBackupExport":"Sigurnosno kopiraj sve kanale","channelBackupImport":"Vrati sigurnosnu kopiju","channelCurrent":"Trenutačno","channelDoneLabel":"Gotovo","channelEditLabel":"Uredi","channelExcludedStatus":"Automatizacija isključena","channelExport":"Izvezi","channelExported":"Postavke kanala su izvezene.","channelFavoritesOnly":"Samo prikvačeni","channelGroupAll":"Sve grupe","channelGroupLabel":"Grupa","channelGroupPlaceholder":"Naziv grupe","channelHowTitle":"Kako rade spremljeni kanali","channelImport":"Uvezi profil","channelImportError":"Nije moguće uvesti profil kanala.","channelImportSuccess":"Profil kanala je uvezen.","channelMuted":"utišano","channelNoteLabel":"Napomena","channelNotePlaceholder":"Dodaj napomenu…","channelNudge":"Želite posebne postavke samo za ovaj kanal?","channelOpenStreamHint":"Otvorite prijenos kako biste spremili postavke njegova kanala.","channelPin":"Prikvači","channelPinned":"Prikvačeno","channelProfileSummary":"Zapamti postavke ovog kanala","channelQualitySummary":"Kvaliteta: uživo {live} · VOD {vod}","channelRemoveConfirm":"Ukloniti spremljene postavke za {name}?","channelSavedToast":"Postavke za {name} spremljene.","channelSearchPlaceholder":"Pretraži spremljene kanale…","channelSortName":"Naziv","channelSortRecent":"Nedavno promijenjeno","channelSortUsed":"Nedavno korišteno","channelSoundOn":"zvuk uključen","channelSpeedSummary":"Brzina: {speed}×","channelStep1":"Otvorite prijenos kanala.","channelStep2":"Pritisnite „Spremi ovaj kanal“. Trenutna kvaliteta, glasnoća, brzina i postavke zvuka spremaju se za njega.","channelStep3":"Fino ih podesite u nastavku. Primjenjuju se automatski svaki put kad otvorite taj kanal.","channelUnpin":"Otkvači","channelUseSaved":"Primijeni spremljene postavke na ovom kanalu","channelVolumeSummary":"Glasnoća: {volume}% · {mute}","claimDelayLabel":"Pričekaj prije preuzimanja","claimIntervalLabel":"Provjeri svakih","claimModeInterval":"Prema rasporedu","claimModeLabel":"Preuzimanje nagrada","claimModeNotify":"Čim Kick prikaže obavijest o nagradi","claimNowLabel":"Preuzmi sada","claimWidgetHelp":"Prikazuje mali gumb koji možete povući bilo gdje na prijenosu. Kliknite ga za preuzimanje nagrade jednim klikom. Položaj se pamti.","claimWidgetLabel":"Gumb za brzo preuzimanje na stranici","clearLog":"Očisti zapisnik","clearNotificationHistory":"Poništi","collapseSidebarLabel":"Sažmi lijevi izbornik","compactLabel":"Kompaktan raspored","confirmNo":"Odustani","confirmYes":"Potvrdi","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Dijagnostika je osvježena.","contrastLabel":"Tema","copyDiagnostics":"Izvezi","currentChannelLabel":"Trenutačno","diagAvailableQualities":"Otkrivene kvalitete","diagCurrentQuality":"Trenutačna kvaliteta","diagUnknown":"Nije otkriveno","diagVideoResolution":"Razlučivost videozapisa","diagnosticsCopied":"Postavke su uvezene.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Dijagnostika je osvježena.","doNotDisturbLabel":"Ne uznemiravaj","dragPanelHint":"Povucite ploču za zaglavlje; njezin položaj bit će spremljen.","excludeChannelLabel":"Preskoči automatizaciju za kanal","exportSettings":"Izvezi","fallbackAuto":"Prebaci na automatski način","fallbackLower":"Upotrijebi najbližu nižu kvalitetu","focusUnavailable":"Prikaz preko cijelog zaslona nije dostupan.","focusViewLabel":"Prikaz preko cijelog zaslona","footerClose":"Zatvori","footerHint":"Pritisnite {key} za otvaranje ili zatvaranje izbornika","freezeAlertLabel":"Upozori kad se player zamrzne","freezeRecovered":"Reprodukcija je nastavljena.","freezeSoundLabel":"Reproduciraj zvuk alarma","freezeThresholdLabel":"Vrijeme otkrivanja zamrzavanja","groupFeedback":"Upozorenja","groupInterface":"Sučelje","groupPlayer":"Player","groupSystem":"Sustav","helpAccentColor":"Odaberite prilagođenu boju naglaska.","helpAutoQuality":"Primjenjuje spremljenu kvalitetu pri otvaranju playera. Auto koristi posljednji odabir u Kicku.","helpAutoVolume":"Vraća spremljenu glasnoću i stanje zvuka pri pokretanju ili ponovnom povezivanju.","helpBlur":"Zamućenje postavite od 0 do 12 px. Povucite klizač ili upotrijebite kotačić miša dok je pokazivač iznad njega.","helpButton":"Pomoć","helpChannelExclude":"Zaustavlja automatske promjene kvalitete, glasnoće i latencije za ovaj kanal. Ručne kontrole i dalje rade.","helpChannelSettings":"Kad je uključeno, kvaliteta, glasnoća, utišavanje i brzina kanala spremaju se zasebno. Promijeni ih u playeru.","helpCompact":"Smanjuje razmake i visinu kontrola.","helpFallback":"Odaberite što učiniti ako prijenos nema željenu kvalitetu.","helpHotkey":"Odaberite tipku ili kombinaciju s Ctrl, Alt, Shift ili Meta. Escape poništava.","helpLanguage":"Mijenja jezik panela.","helpLiveQuality":"Željena kvaliteta prijenosa uživo. Auto pamti posljednji odabir u playeru.","helpNotificationDuration":"Odaberite koliko dugo se prikazuju obavijesti.","helpNotificationSize":"Prilagodite veličinu teksta obavijesti o kvaliteti.","helpNotifications":"Prikaži ili sakrij obavijesti o rezultatu kvalitete. Povucite obavijest da biste je premjestili; njezin će se položaj spremiti.","helpPanelStyle":"Odaberite izgled panela.","helpSleepTimer":"Pokreće odbrojavanje i pauzira trenutačni video kada istekne. Zatvaranje izbornika ne poništava mjerač.","helpSoundVolume":"Podesite glasnoću. Gumbi reproduciraju uzorak.","helpSounds":"Uključite ili isključite sve zvukove dodatka. Pojedinačne događaje odaberite u postavkama zvuka.","helpTheme":"Mijenja izgled panela.","helpVodQuality":"Željena kvaliteta snimki; neovisna o prijenosima uživo.","helpVolume":"Glasnoća je 0–100 %. Povucite klizač ili upotrijebite kotačić miša dok je pokazivač iznad njega.","hideChatLabel":"Sakrij chat","highVolumeWarning":"Glasnoća playera prelazi {threshold} %.","hotkeyCancel":"Pritisnite Escape za odustajanje","hotkeyWaiting":"Pritisnite bilo koju tipku…","hoverAnimationLabel":"Efekt prelaska","iconAnimationsLabel":"Animacije ikona","importSettings":"Uvezi","indicatorBreathe":"Blago disanje","indicatorGlow":"Sjaj","indicatorOff":"Isključeno","indicatorPulse":"Pulsiranje","indicatorTitle":"Pokazatelj","languageLabel":"Jezik","lastResultLabel":"Posljednji rezultat","layoutTitle":"Raspored stranice","layoutUnavailable":"Nije dostupno na ovoj stranici.","logCleared":"Zapisnik očišćen.","loudThresholdLabel":"Prag upozorenja","loudWarningLabel":"Upozori na veliku glasnoću","minutesUnit":"min","muteLabel":"Utišaj player","noPlayerForReset":"Video player nije pronađen.","noSavedChannels":"Nema spremljenih postavki kanala.","notificationApplied":"Primijenjena kvaliteta: {q}.","notificationDurationLabel":"Trajanje obavijesti","notificationFailed":"Nije moguće primijeniti {q}; kontrole playera ili ta kvaliteta nisu pronađene.","notificationHistoryEmpty":"Još nema obavijesti.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Povijest obavijesti","notificationIconLabel":"Prikaži ikonu obavijesti","notificationOpacityLabel":"Prozirnost obavijesti","notificationSizeLabel":"Veličina teksta obavijesti","notificationVolumeLabel":"Glasnoća vraćena","notificationsLabel":"Obavijesti o kvaliteti","openAnimationLabel":"Animacija otvaranja","openReleases":"Otvori popis verzija","panelStyleKick":"Kick","panelStyleLabel":"Stil panela","panelStyleMinimal":"Minimalistički","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Brzina reprodukcije","playerFrozenNotice":"Čini se da se player zamrznuo. Pokušajte ponovno učitati prijenos.","preferredVolumeLabel":"Željena glasnoća","presetApplied":"Primijenjeno: {name}","presetsLabel":"Brzi predlošci","previewNotification":"Pregled obavijesti","qualityAuto":"Automatski (zadnja ručno odabrana)","qualityAvailable":"Status","qualityCheckLabel":"Kvaliteta prijenosa uživo","qualityFallbackLabel":"Ako nije dostupna","qualityLiveLabel":"Kvaliteta prijenosa uživo","qualityUnavailable":"Status","qualityVodLabel":"Kvaliteta snimke (VOD)","quickActionsLabel":"Reprodukcija","quietFullscreenLabel":"Tihi način preko cijelog zaslona","recoveryLabel":"Pokušaj nastaviti zaglavljenu reprodukciju","refreshDiagnostics":"Dijagnostika je osvježena.","removeChannelSettings":"Ukloni","reportIssue":"Prijavi problem","resetNotificationPosition":"Poništi položaj obavijesti","resetPlayerLabel":"Ponovno primijeni postavke playera","resetQuality":"Ponovno primijeni postavke playera","resetSection":"Poništi odjeljak","resetSettings":"Poništi","restoreReset":"Poništi","restoreVolume":"Automatski primijeni spremljenu glasnoću","rewardClaimed":"Nagrada preuzeta.","rewardNone":"Trenutno nema nagrada za preuzimanje.","rewardsTitle":"Nagrade","safeModeHelp":"Primjenjuje spremljenu kvalitetu pri otvaranju playera. Auto koristi posljednji odabir u Kicku.","safeModeLabel":"Kompaktan raspored","saveChannelButton":"Spremi ovaj kanal","savedChannelsLabel":"Spremljeni kanali","secondsUnit":"s","sectionAbout":"O proširenju","sectionAppearance":"Izgled","sectionData":"Podaci i info","sectionDiagnostics":"Dijagnostika playera","sectionHotkey":"Tipkovni prečac izbornika","sectionMotion":"Animacije","sectionNotifications":"Obavijesti","sectionPlayback":"Reprodukcija","sectionShortcuts":"Prečaci","sectionSounds":"Zvukovi","sectionTools":"Alati","settingsImportError":"Uvoz nije uspio. Provjerite datoteku.","settingsImportPrompt":"Uvesti ove postavke i zamijeniti trenutačnu konfiguraciju?","settingsImported":"Postavke su uvezene.","settingsReset":"Poništi","settingsResetPrompt":"Poništiti sve postavke Kick Stream Tweaks?","clearSearch":"Očisti pretragu","settingsSearch":"Pretraži postavke…","shortcutChat":"Prebaci chat","shortcutFocus":"Prikaz preko cijelog zaslona","shortcutNotifications":"Quality notifications","shortcutQuality":"Kvaliteta prijenosa uživo","shortcutSidebar":"Prebaci lijevi izbornik","shortcutVolume":"Željena glasnoća","silentHelp":"Utišava prijenos bez isključivanja zvuka playera, pa se nastavlja reproducirati kad promijenite karticu. Može se postaviti po kanalu.","silentLabel":"Reprodukcija bez zvuka (nastavlja se u pozadini)","silentTag":"Bez zvuka","silentUnavailable":"Tiha reprodukcija nije dostupna za ovaj player.","situationBandwidth":"Ako nije dostupna","situationQuality":"Željena kvaliteta","situationQuiet":"Utišaj player","situationVod":"Snimka (VOD)","sleepCancelLabel":"Otkaži mjerač","sleepClock12":"AM/PM","sleepClock24":"24-satni format","sleepEndsAt":"Završava u","sleepExpired":"Mjerač je zaustavio reprodukciju.","sleepHoursLabel":"Sati","sleepMinutesLabel":"Minute","sleepStartLabel":"Pokreni mjerač","sleepStarted":"Reprodukcija će se zaustaviti za {minutes} min.","sleepTimerLabel":"Mjerač za spavanje","soundConfigureLabel":"Postavke zvučnih događaja","soundEffectsLabel":"Zvučni efekti","soundEventVolumeLabel":"Glasnoća događaja","soundMenuLabel":"Otvaranje i zatvaranje panela","soundModalHint":"Svaki prekidač upravlja samo svojim događajem. Glavni prekidač zvukova također mora biti uključen.","soundPreviewButton":"Pregled","soundQualityFailure":"Kvaliteta nije primijenjena","soundQualitySuccess":"Kvaliteta primijenjena","soundSettingsLabel":"Promjena postavke","soundVolumeLabel":"Glasnoća zvučnih efekata","soundVolumeRestored":"Glasnoća vraćena","speedFast":"Brzo","speedNormal":"Normalno","speedSlow":"Sporo","statusLabel":"Status","textScaleLabel":"Kompaktan raspored","textScaleLarge":"Kompaktan raspored","textScaleSmall":"Kompaktan raspored","textScaleXLarge":"Kompaktan raspored","themeDark":"Tamna","themeLabel":"Tema","themeLight":"Svijetla","titleQuality":"Kvaliteta","titleVolume":"Glasnoća","undoChange":"Poništi","versionLabel":"Verzija","widgetAutoHideLabel":"Prikaži samo kad je nagrada dostupna","widgetDesignLabel":"Stil gumba","widgetDragHint":"Povucite za pomicanje · kliknite za preuzimanje","widgetIconBolt":"Munja","widgetIconCoin":"Novčić","widgetIconCrown":"Kruna","widgetIconCustom":"Vlastita ikona","widgetIconGift":"Poklon","widgetIconLabel":"Ikona","widgetIconStar":"Zvijezda","widgetImageError":"Ova se datoteka ne može upotrijebiti. Odaberite PNG, JPG, WebP, GIF ili SVG sliku do 2 MB.","widgetImageFill":"Ispuni cijeli gumb slikom","widgetImageSaved":"Vlastita ikona spremljena.","widgetImageTip":"Kvadratne slike s prozirnom pozadinom izgledaju najbolje. Slika ostaje samo u vašem pregledniku.","widgetOpacityLabel":"Prozirnost gumba","widgetRemoveCustom":"Ukloni vlastitu ikonu","widgetResetPos":"Vrati položaj gumba","widgetSizeLabel":"Veličina gumba","widgetStyleFlat":"Ravni","widgetStyleGlass":"Staklo","widgetStyleOrb":"Kugla","widgetStylePill":"Tableta","widgetUpload":"Prenesi vlastitu ikonu"},"hu":{"accentColorLabel":"Kiemelőszín","actionHotkeysLabel":"Menü gyorsbillentyűje","animFade":"Elhalványulás","animGlow":"Fénylés","animLift":"Emelés","animNone":"Nincs","animPop":"Felpattanás","animScale":"Méretezés","animSlide":"Csúsztatás","animationFull":"Sötét","animationLabel":"Kompakt elrendezés","animationOff":"Világos","animationPreviewLabel":"Előnézet","animationReduced":"Kompakt elrendezés","animationSpeedLabel":"Animáció sebessége","autoClaimHelp":"Megnyitja a jutalmak ablakát, begyűjti az elérhetőket, majd bezárja. Alapértelmezés szerint ki van kapcsolva.","autoClaimLabel":"Jutalmak automatikus begyűjtése","autoQualityLabel":"Mentett minőség automatikus alkalmazása","autoVolumeLabel":"Mentett hangerő automatikus alkalmazása","bindShortcut":"Kattints a módosításhoz","blurLabel":"Menüháttér elmosása","centerPanel":"Értesítés helyzetének visszaállítása","channelBackupExport":"Minden csatorna biztonsági mentése","channelBackupImport":"Biztonsági mentés visszaállítása","channelCurrent":"Aktuális","channelDoneLabel":"Kész","channelEditLabel":"Szerkesztés","channelExcludedStatus":"Automatizálás kizárva","channelExport":"Exportálás","channelExported":"A csatornabeállítások exportálva.","channelFavoritesOnly":"Csak rögzítettek","channelGroupAll":"Minden csoport","channelGroupLabel":"Csoport","channelGroupPlaceholder":"Csoport neve","channelHowTitle":"Hogyan működnek a mentett csatornák","channelImport":"Profil importálása","channelImportError":"A csatornaprofilt nem sikerült importálni.","channelImportSuccess":"A csatornaprofil importálva.","channelMuted":"némítva","channelNoteLabel":"Megjegyzés","channelNotePlaceholder":"Megjegyzés hozzáadása…","channelNudge":"Külön beállításokat szeretnél csak ehhez a csatornához?","channelOpenStreamHint":"Nyiss meg egy adást, hogy elmentsd a csatornája beállításait.","channelPin":"Rögzítés","channelPinned":"Rögzítve","channelProfileSummary":"Csatorna beállításainak megjegyzése","channelQualitySummary":"Minőség: élő {live} · VOD {vod}","channelRemoveConfirm":"Eltávolítod {name} mentett beállításait?","channelSavedToast":"{name} beállításai elmentve.","channelSearchPlaceholder":"Mentett csatornák keresése…","channelSortName":"Név","channelSortRecent":"Nemrég módosított","channelSortUsed":"Nemrég használt","channelSoundOn":"hang be","channelSpeedSummary":"Sebesség: {speed}×","channelStep1":"Nyisd meg a csatorna adását.","channelStep2":"Nyomd meg a „Csatorna mentése” gombot. A jelenlegi minőség, hangerő, sebesség és hangbeállítások elmentődnek hozzá.","channelStep3":"Finomhangold őket lent. A csatorna megnyitásakor automatikusan érvényesülnek.","channelUnpin":"Rögzítés feloldása","channelUseSaved":"Mentett beállítások alkalmazása ezen a csatornán","channelVolumeSummary":"Hangerő: {volume}% · {mute}","claimDelayLabel":"Várakozás begyűjtés előtt","claimIntervalLabel":"Ellenőrzés ennyi időnként","claimModeInterval":"Ütemezés szerint","claimModeLabel":"Jutalmak begyűjtése","claimModeNotify":"Amint a Kick megjeleníti a jutalomértesítést","claimNowLabel":"Begyűjtés most","claimWidgetHelp":"Egy kis gombot jelenít meg, amelyet bárhová áthúzhatsz az adáson. Kattints rá, hogy egy kattintással begyűjtsd a jutalmat. A pozíció megmarad.","claimWidgetLabel":"Gyorsbegyűjtő gomb az oldalon","clearLog":"Napló törlése","clearNotificationHistory":"Visszaállítás","collapseSidebarLabel":"Bal oldali menü összecsukása","compactLabel":"Kompakt elrendezés","confirmNo":"Mégse","confirmYes":"Megerősítés","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnosztika frissítve.","contrastLabel":"Téma","copyDiagnostics":"Exportálás","currentChannelLabel":"Aktuális","diagAvailableQualities":"Észlelt minőségek","diagCurrentQuality":"Jelenlegi minőség","diagUnknown":"Nem észlelhető","diagVideoResolution":"Videófelbontás","diagnosticsCopied":"Beállítások importálva.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnosztika frissítve.","doNotDisturbLabel":"Ne zavarjanak","dragPanelHint":"Húzd a panelt a fejlécnél fogva; a helyzete mentésre kerül.","excludeChannelLabel":"Automatizálás kihagyása ennél a csatornánál","exportSettings":"Exportálás","fallbackAuto":"Váltás automatikusra","fallbackLower":"Legközelebbi alacsonyabb minőség használata","focusUnavailable":"A teljes képernyő nem érhető el ehhez a lejátszóhoz.","focusViewLabel":"Teljes képernyős nézet","footerClose":"Bezárás","footerHint":"A menü megnyitásához vagy bezárásához nyomd meg: {key}","freezeAlertLabel":"Figyelmeztetés a lejátszó lefagyásakor","freezeRecovered":"A lejátszás folytatódott.","freezeSoundLabel":"Riasztási hang lejátszása","freezeThresholdLabel":"Lefagyás-érzékelési idő","groupFeedback":"Figyelmeztetések","groupInterface":"Felület","groupPlayer":"Lejátszó","groupSystem":"Rendszer","helpAccentColor":"Válassz egyéni kiemelőszínt.","helpAutoQuality":"A lejátszó megnyitásakor alkalmazza a mentett minőséget. Az automatikus mód a Kick utolsó választását használja.","helpAutoVolume":"Indításkor vagy újracsatlakozáskor visszaállítja a mentett hangerőt és némítást.","helpBlur":"Az elmosás 0–12 px között állítható. Húzd a csúszkát, vagy használd az egérgörgőt, miközben fölötte van a kurzor.","helpButton":"Súgó","helpChannelExclude":"Leállítja a minőség, hangerő és késleltetés automatikus módosítását ennél a csatornánál. A kézi vezérlés működik.","helpChannelSettings":"Bekapcsolva a csatorna minősége, hangereje, némítása és sebessége külön mentődik. A lejátszóban módosíthatók.","helpCompact":"Csökkenti a térközöket és a vezérlők magasságát.","helpFallback":"Válaszd ki, mi történjen, ha a közvetítés nem kínálja a kívánt minőséget.","helpHotkey":"Válassz billentyűt vagy Ctrl/Alt/Shift/Meta kombinációt. Az Escape megszakítja.","helpLanguage":"Módosítja a panel nyelvét.","helpLiveQuality":"Élő közvetítések kívánt minősége. Az automatikus mód megjegyzi a lejátszó utolsó választását.","helpNotificationDuration":"Válaszd ki, meddig maradjanak láthatók az értesítések.","helpNotificationSize":"Állítsd be a minőségi értesítések szövegméretét.","helpNotifications":"A minőségi eredményekről szóló értesítések megjelenítése vagy elrejtése. Húzd arrébb az értesítést; a pozíciója mentésre kerül.","helpPanelStyle":"Válaszd ki a panel megjelenését.","helpSleepTimer":"Visszaszámlálást indít, majd a végén szünetelteti az aktuális videót. A menü bezárása nem állítja le.","helpSoundVolume":"Állítsd be a hangerőt. A gombok mintát játszanak le.","helpSounds":"Az összes bővítményhang be- vagy kikapcsolása. Az egyes eseményeket a hangbeállításokban választhatod ki.","helpTheme":"Módosítja a panel megjelenését.","helpVodQuality":"Felvételek kívánt minősége; az élő közvetítéstől független.","helpVolume":"A hangerő 0–100%. Húzd a csúszkát, vagy használd az egérgörgőt, miközben fölötte van a kurzor.","hideChatLabel":"Chat elrejtése","highVolumeWarning":"A lejátszó hangereje {threshold}% felett van.","hotkeyCancel":"A megszakításhoz nyomd meg az Escape billentyűt","hotkeyWaiting":"Nyomj meg egy billentyűt…","hoverAnimationLabel":"Rámutatási effektus","iconAnimationsLabel":"Ikonanimációk","importSettings":"Importálás","indicatorBreathe":"Lágy lélegzés","indicatorGlow":"Fénylés","indicatorOff":"Ki","indicatorPulse":"Pulzálás","indicatorTitle":"Jelző","languageLabel":"Nyelv","lastResultLabel":"Legutóbbi eredmény","layoutTitle":"Oldalelrendezés","layoutUnavailable":"Ezen az oldalon nem érhető el.","logCleared":"Napló törölve.","loudThresholdLabel":"Figyelmeztetési küszöb","loudWarningLabel":"Figyelmeztetés nagy hangerőnél","minutesUnit":"perc","muteLabel":"Lejátszó némítása","noPlayerForReset":"Nem található videólejátszó.","noSavedChannels":"Még nincsenek mentett csatornabeállítások.","notificationApplied":"Alkalmazott minőség: {q}.","notificationDurationLabel":"Értesítés időtartama","notificationFailed":"A(z) {q} nem alkalmazható; a lejátszó vezérlői vagy ez a minőség nem található.","notificationHistoryEmpty":"Még nincsenek értesítések.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Értesítési előzmények","notificationIconLabel":"Értesítési ikon megjelenítése","notificationOpacityLabel":"Értesítés átlátszósága","notificationSizeLabel":"Értesítésszöveg mérete","notificationVolumeLabel":"Hangerő visszaállítva","notificationsLabel":"Minőségi értesítések","openAnimationLabel":"Megnyitási animáció","openReleases":"Verziólista megnyitása","panelStyleKick":"Kick","panelStyleLabel":"Panelstílus","panelStyleMinimal":"Minimalista","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Lejátszási sebesség","playerFrozenNotice":"A lejátszó lefagyottnak tűnik. Próbáld újratölteni az adást.","preferredVolumeLabel":"Előnyben részesített hangerő","presetApplied":"Előbeállítás alkalmazva: {name}","presetsLabel":"Gyors előbeállítások","previewNotification":"Értesítés előnézete","qualityAuto":"Automatikus (utoljára kézzel választott)","qualityAvailable":"Status","qualityCheckLabel":"Élő közvetítés minősége","qualityFallbackLabel":"Ha nem érhető el","qualityLiveLabel":"Élő közvetítés minősége","qualityUnavailable":"Status","qualityVodLabel":"Felvétel minősége (VOD)","quickActionsLabel":"Lejátszás","quietFullscreenLabel":"Csendes mód teljes képernyőn","recoveryLabel":"Elakadt lejátszás helyreállítása","refreshDiagnostics":"Diagnosztika frissítve.","removeChannelSettings":"Eltávolítás","reportIssue":"Hiba jelentése","resetNotificationPosition":"Értesítés helyzetének visszaállítása","resetPlayerLabel":"Lejátszóbeállítások újbóli alkalmazása","resetQuality":"Lejátszóbeállítások újbóli alkalmazása","resetSection":"Szakasz visszaállítása","resetSettings":"Visszaállítás","restoreReset":"Visszaállítás","restoreVolume":"Mentett hangerő automatikus alkalmazása","rewardClaimed":"Jutalom begyűjtve.","rewardNone":"Jelenleg nincs begyűjthető jutalom.","rewardsTitle":"Jutalmak","safeModeHelp":"A lejátszó megnyitásakor alkalmazza a mentett minőséget. Az automatikus mód a Kick utolsó választását használja.","safeModeLabel":"Kompakt elrendezés","saveChannelButton":"Csatorna mentése","savedChannelsLabel":"Mentett csatornák","secondsUnit":"mp","sectionAbout":"A bővítményről","sectionAppearance":"Megjelenés","sectionData":"Adatok és névjegy","sectionDiagnostics":"Lejátszódiagnosztika","sectionHotkey":"Menü gyorsbillentyűje","sectionMotion":"Animációk","sectionNotifications":"Értesítések","sectionPlayback":"Lejátszás","sectionShortcuts":"Gyorsbillentyűk","sectionSounds":"Hangok","sectionTools":"Eszközök","settingsImportError":"Az importálás nem sikerült. Ellenőrizd a fájlt.","settingsImportPrompt":"Importálod ezeket a beállításokat a jelenlegiek helyére?","settingsImported":"Beállítások importálva.","settingsReset":"Visszaállítás","settingsResetPrompt":"Visszaállítod a Kick Stream Tweaks összes beállítását?","clearSearch":"Keresés törlése","settingsSearch":"Keresés a beállításokban…","shortcutChat":"Chat váltása","shortcutFocus":"Teljes képernyős nézet","shortcutNotifications":"Quality notifications","shortcutQuality":"Élő közvetítés minősége","shortcutSidebar":"Bal oldali menü váltása","shortcutVolume":"Előnyben részesített hangerő","silentHelp":"Elnémítja az adást anélkül, hogy a lejátszót némítaná, így fülváltáskor is tovább játszik. Csatornánként állítható.","silentLabel":"Lejátszás hang nélkül (a háttérben tovább fut)","silentTag":"Hang nélkül","silentUnavailable":"A néma lejátszás nem érhető el ehhez a lejátszóhoz.","situationBandwidth":"Ha nem érhető el","situationQuality":"Előnyben részesített minőség","situationQuiet":"Lejátszó némítása","situationVod":"Felvétel (VOD)","sleepCancelLabel":"Időzítő leállítása","sleepClock12":"AM/PM","sleepClock24":"24 órás formátum","sleepEndsAt":"Befejezés","sleepExpired":"Az időzítő leállította a lejátszást.","sleepHoursLabel":"Óra","sleepMinutesLabel":"Perc","sleepStartLabel":"Időzítő indítása","sleepStarted":"A lejátszás {minutes} perc múlva leáll.","sleepTimerLabel":"Elalvás időzítő","soundConfigureLabel":"Hangesemények beállításai","soundEffectsLabel":"Hangeffektek","soundEventVolumeLabel":"Esemény hangereje","soundMenuLabel":"Panel megnyitása és bezárása","soundModalHint":"Minden kapcsoló csak a saját eseményét vezérli. A fő hangkapcsolónak is bekapcsolva kell lennie.","soundPreviewButton":"Előnézet","soundQualityFailure":"A minőség nem alkalmazható","soundQualitySuccess":"Minőség alkalmazva","soundSettingsLabel":"Beállítás módosult","soundVolumeLabel":"Hangeffektek hangereje","soundVolumeRestored":"Hangerő visszaállítva","speedFast":"Gyors","speedNormal":"Normál","speedSlow":"Lassú","statusLabel":"Állapot","textScaleLabel":"Kompakt elrendezés","textScaleLarge":"Kompakt elrendezés","textScaleSmall":"Kompakt elrendezés","textScaleXLarge":"Kompakt elrendezés","themeDark":"Sötét","themeLabel":"Téma","themeLight":"Világos","titleQuality":"Minőség","titleVolume":"Hangerő","undoChange":"Visszaállítás","versionLabel":"Verzió","widgetAutoHideLabel":"Csak akkor jelenjen meg, ha van jutalom","widgetDesignLabel":"Gomb stílusa","widgetDragHint":"Húzd a mozgatáshoz · kattints a begyűjtéshez","widgetIconBolt":"Villám","widgetIconCoin":"Érme","widgetIconCrown":"Korona","widgetIconCustom":"Saját ikon","widgetIconGift":"Ajándék","widgetIconLabel":"Ikon","widgetIconStar":"Csillag","widgetImageError":"Ez a fájl nem használható. Válassz legfeljebb 2 MB-os PNG, JPG, WebP, GIF vagy SVG képet.","widgetImageFill":"A teljes gomb kitöltése a képpel","widgetImageSaved":"Egyéni ikon elmentve.","widgetImageTip":"A négyzet alakú, átlátszó hátterű képek mutatnak a legjobban. A kép csak a böngésződben marad.","widgetOpacityLabel":"Gomb átlátszósága","widgetRemoveCustom":"Saját ikon eltávolítása","widgetResetPos":"Gomb helyének visszaállítása","widgetSizeLabel":"Gomb mérete","widgetStyleFlat":"Lapos","widgetStyleGlass":"Üveg","widgetStyleOrb":"Gömb","widgetStylePill":"Pirula","widgetUpload":"Saját ikon feltöltése"},"id":{"accentColorLabel":"Warna aksen","actionHotkeysLabel":"Pintasan menu","animFade":"Pudar","animGlow":"Cahaya","animLift":"Angkat","animNone":"Tidak ada","animPop":"Muncul","animScale":"Skala","animSlide":"Geser","animationFull":"Gelap","animationLabel":"Tata letak ringkas","animationOff":"Terang","animationPreviewLabel":"Pratinjau","animationReduced":"Tata letak ringkas","animationSpeedLabel":"Kecepatan animasi","autoClaimHelp":"Membuka jendela hadiah, mengklaim yang tersedia, lalu menutupnya. Nonaktif secara default.","autoClaimLabel":"Klaim hadiah otomatis","autoQualityLabel":"Terapkan kualitas tersimpan secara otomatis","autoVolumeLabel":"Terapkan volume tersimpan secara otomatis","bindShortcut":"Klik untuk mengubah","blurLabel":"Buram latar belakang menu","centerPanel":"Atur ulang posisi notifikasi","channelBackupExport":"Cadangkan semua kanal","channelBackupImport":"Pulihkan cadangan","channelCurrent":"Saat ini","channelDoneLabel":"Selesai","channelEditLabel":"Ubah","channelExcludedStatus":"Otomatisasi dikecualikan","channelExport":"Ekspor","channelExported":"Pengaturan kanal diekspor.","channelFavoritesOnly":"Hanya yang disematkan","channelGroupAll":"Semua grup","channelGroupLabel":"Grup","channelGroupPlaceholder":"Nama grup","channelHowTitle":"Cara kerja kanal tersimpan","channelImport":"Impor profil","channelImportError":"Profil kanal ini tidak dapat diimpor.","channelImportSuccess":"Profil kanal berhasil diimpor.","channelMuted":"dibisukan","channelNoteLabel":"Catatan","channelNotePlaceholder":"Tambahkan catatan…","channelNudge":"Ingin pengaturan terpisah khusus untuk kanal ini?","channelOpenStreamHint":"Buka siaran untuk menyimpan pengaturan kanalnya.","channelPin":"Sematkan","channelPinned":"Disematkan","channelProfileSummary":"Ingat pengaturan kanal ini","channelQualitySummary":"Kualitas: live {live} · VOD {vod}","channelRemoveConfirm":"Hapus pengaturan tersimpan untuk {name}?","channelSavedToast":"Pengaturan untuk {name} disimpan.","channelSearchPlaceholder":"Cari kanal tersimpan…","channelSortName":"Nama","channelSortRecent":"Baru diubah","channelSortUsed":"Baru digunakan","channelSoundOn":"suara aktif","channelSpeedSummary":"Kecepatan: {speed}×","channelStep1":"Buka siaran kanal.","channelStep2":"Tekan “Simpan kanal ini”. Kualitas, volume, kecepatan, dan pengaturan suara saat ini disimpan untuknya.","channelStep3":"Sesuaikan di bawah. Pengaturan diterapkan otomatis setiap kali Anda membuka kanal itu.","channelUnpin":"Lepas sematan","channelUseSaved":"Terapkan pengaturan tersimpan di kanal ini","channelVolumeSummary":"Volume: {volume}% · {mute}","claimDelayLabel":"Tunggu sebelum klaim","claimIntervalLabel":"Periksa setiap","claimModeInterval":"Sesuai jadwal","claimModeLabel":"Klaim hadiah","claimModeNotify":"Segera setelah Kick menampilkan notifikasi hadiah","claimNowLabel":"Klaim sekarang","claimWidgetHelp":"Menampilkan tombol kecil yang bisa diseret ke mana saja di siaran. Klik untuk mengklaim hadiah dengan satu klik. Posisinya diingat.","claimWidgetLabel":"Tombol klaim cepat di halaman","clearLog":"Hapus log","clearNotificationHistory":"Atur ulang","collapseSidebarLabel":"Ciutkan menu kiri","compactLabel":"Tata letak ringkas","confirmNo":"Batal","confirmYes":"Konfirmasi","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostik diperbarui.","contrastLabel":"Tema","copyDiagnostics":"Ekspor","currentChannelLabel":"Saat ini","diagAvailableQualities":"Kualitas terdeteksi","diagCurrentQuality":"Kualitas saat ini","diagUnknown":"Tidak terdeteksi","diagVideoResolution":"Resolusi video","diagnosticsCopied":"Pengaturan diimpor.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostik diperbarui.","doNotDisturbLabel":"Jangan ganggu","dragPanelHint":"Seret panel dari bagian judul; posisinya akan disimpan.","excludeChannelLabel":"Lewati otomatisasi untuk kanal ini","exportSettings":"Ekspor","fallbackAuto":"Beralih ke Otomatis","fallbackLower":"Gunakan kualitas lebih rendah terdekat","focusUnavailable":"Layar penuh tidak tersedia untuk pemutar ini.","focusViewLabel":"Tampilan layar penuh","footerClose":"Tutup","footerHint":"Tekan {key} untuk membuka/menutup menu ini","freezeAlertLabel":"Beri peringatan saat pemutar macet","freezeRecovered":"Pemutaran dilanjutkan.","freezeSoundLabel":"Putar suara alarm","freezeThresholdLabel":"Waktu deteksi macet","groupFeedback":"Peringatan","groupInterface":"Antarmuka","groupPlayer":"Pemutar","groupSystem":"Sistem","helpAccentColor":"Pilih warna aksen khusus.","helpAutoQuality":"Menerapkan kualitas tersimpan saat pemutar dibuka. Otomatis memakai kualitas terakhir yang dipilih di Kick.","helpAutoVolume":"Memulihkan volume dan status bisu saat pemutar dimulai atau tersambung kembali.","helpBlur":"Atur keburaman 0–12 px. Seret penggeser atau gunakan roda mouse saat kursor berada di atasnya.","helpButton":"Bantuan","helpChannelExclude":"Menghentikan perubahan otomatis kualitas, volume, dan latensi untuk kanal ini. Kontrol manual tetap berfungsi.","helpChannelSettings":"Saat aktif, kualitas, volume, mute, dan kecepatan kanal ini disimpan terpisah. Ubah melalui pemutar.","helpCompact":"Mengurangi jarak dan tinggi kontrol.","helpFallback":"Pilih tindakan jika kualitas pilihan tidak tersedia di siaran ini.","helpHotkey":"Pilih tombol atau kombinasi Ctrl/Alt/Shift/Meta. Escape membatalkan.","helpLanguage":"Mengubah bahasa panel ini.","helpLiveQuality":"Kualitas pilihan untuk siaran langsung. Otomatis mengingat pilihan terakhir di pemutar.","helpNotificationDuration":"Pilih berapa lama notifikasi ditampilkan.","helpNotificationSize":"Atur ukuran teks notifikasi kualitas.","helpNotifications":"Tampilkan atau sembunyikan notifikasi hasil kualitas. Seret notifikasi untuk memindahkannya; posisinya akan disimpan.","helpPanelStyle":"Pilih tampilan panel.","helpSleepTimer":"Memulai hitung mundur dan menjeda video saat waktu habis. Menutup menu tidak membatalkan timer.","helpSoundVolume":"Atur volume suara. Tombol memutar contoh.","helpSounds":"Aktifkan atau nonaktifkan semua suara ekstensi. Pilih kejadian satu per satu di pengaturan suara.","helpTheme":"Mengubah tampilan panel ini.","helpVodQuality":"Kualitas pilihan untuk rekaman; terpisah dari siaran langsung.","helpVolume":"Volume 0–100%. Seret penggeser atau gunakan roda mouse saat kursor berada di atasnya.","hideChatLabel":"Sembunyikan obrolan","highVolumeWarning":"Volume pemutar di atas {threshold}%.","hotkeyCancel":"Tekan Escape untuk membatalkan","hotkeyWaiting":"Tekan tombol apa saja…","hoverAnimationLabel":"Efek saat diarahkan","iconAnimationsLabel":"Animasi ikon","importSettings":"Impor","indicatorBreathe":"Napas lembut","indicatorGlow":"Cahaya","indicatorOff":"Mati","indicatorPulse":"Denyut","indicatorTitle":"Indikator","languageLabel":"Bahasa","lastResultLabel":"Hasil terakhir","layoutTitle":"Tata letak halaman","layoutUnavailable":"Tidak tersedia di halaman ini.","logCleared":"Log dihapus.","loudThresholdLabel":"Ambang peringatan","loudWarningLabel":"Peringatkan volume tinggi","minutesUnit":"mnt","muteLabel":"Bisukan pemutar","noPlayerForReset":"Pemutar video tidak ditemukan.","noSavedChannels":"Belum ada pengaturan kanal yang disimpan.","notificationApplied":"Kualitas diterapkan: {q}.","notificationDurationLabel":"Durasi notifikasi","notificationFailed":"Tidak dapat menerapkan {q}; kontrol pemutar atau opsi kualitas tidak ditemukan.","notificationHistoryEmpty":"Belum ada notifikasi.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Riwayat notifikasi","notificationIconLabel":"Tampilkan ikon notifikasi","notificationOpacityLabel":"Opasitas notifikasi","notificationSizeLabel":"Ukuran teks notifikasi","notificationVolumeLabel":"Volume dipulihkan","notificationsLabel":"Notifikasi kualitas","openAnimationLabel":"Animasi pembukaan","openReleases":"Buka daftar versi","panelStyleKick":"Kick","panelStyleLabel":"Gaya panel","panelStyleMinimal":"Minimalis","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Kecepatan pemutaran","playerFrozenNotice":"Pemutar tampaknya macet. Coba muat ulang siaran.","preferredVolumeLabel":"Volume pilihan","presetApplied":"Preset diterapkan: {name}","presetsLabel":"Preset cepat","previewNotification":"Pratinjau notifikasi","qualityAuto":"Otomatis (terakhir dipilih manual)","qualityAvailable":"Status","qualityCheckLabel":"Kualitas siaran langsung","qualityFallbackLabel":"Jika tidak tersedia","qualityLiveLabel":"Kualitas siaran langsung","qualityUnavailable":"Status","qualityVodLabel":"Kualitas rekaman (VOD)","quickActionsLabel":"Pemutaran","quietFullscreenLabel":"Mode senyap layar penuh","recoveryLabel":"Coba pulihkan pemutaran yang macet","refreshDiagnostics":"Diagnostik diperbarui.","removeChannelSettings":"Hapus","reportIssue":"Laporkan masalah","resetNotificationPosition":"Atur ulang posisi notifikasi","resetPlayerLabel":"Terapkan ulang pengaturan pemutar","resetQuality":"Terapkan ulang pengaturan pemutar","resetSection":"Atur ulang bagian","resetSettings":"Atur ulang","restoreReset":"Atur ulang","restoreVolume":"Terapkan volume tersimpan secara otomatis","rewardClaimed":"Hadiah diklaim.","rewardNone":"Tidak ada hadiah untuk diklaim saat ini.","rewardsTitle":"Hadiah","safeModeHelp":"Menerapkan kualitas tersimpan saat pemutar dibuka. Otomatis memakai kualitas terakhir yang dipilih di Kick.","safeModeLabel":"Tata letak ringkas","saveChannelButton":"Simpan kanal ini","savedChannelsLabel":"Kanal tersimpan","secondsUnit":"dtk","sectionAbout":"Tentang ekstensi","sectionAppearance":"Tampilan","sectionData":"Data & info","sectionDiagnostics":"Diagnostik pemutar","sectionHotkey":"Pintasan menu","sectionMotion":"Animasi","sectionNotifications":"Notifikasi","sectionPlayback":"Pemutaran","sectionShortcuts":"Pintasan","sectionSounds":"Suara","sectionTools":"Alat","settingsImportError":"Pengaturan gagal diimpor. Periksa file.","settingsImportPrompt":"Impor pengaturan ini dan ganti konfigurasi saat ini?","settingsImported":"Pengaturan diimpor.","settingsReset":"Atur ulang","settingsResetPrompt":"Atur ulang semua pengaturan Kick Stream Tweaks?","clearSearch":"Hapus pencarian","settingsSearch":"Cari pengaturan…","shortcutChat":"Alihkan obrolan","shortcutFocus":"Tampilan layar penuh","shortcutNotifications":"Quality notifications","shortcutQuality":"Kualitas siaran langsung","shortcutSidebar":"Alihkan menu kiri","shortcutVolume":"Volume pilihan","silentHelp":"Membisukan siaran tanpa membisukan pemutar, sehingga tetap berjalan saat Anda berpindah tab. Dapat diatur per kanal.","silentLabel":"Putar tanpa suara (tetap berjalan di latar belakang)","silentTag":"Tanpa suara","silentUnavailable":"Pemutaran senyap tidak tersedia untuk pemutar ini.","situationBandwidth":"Jika tidak tersedia","situationQuality":"Kualitas pilihan","situationQuiet":"Bisukan pemutar","situationVod":"Rekaman (VOD)","sleepCancelLabel":"Batalkan timer","sleepClock12":"AM/PM","sleepClock24":"format 24 jam","sleepEndsAt":"Berakhir pukul","sleepExpired":"Timer tidur menjeda pemutaran.","sleepHoursLabel":"Jam","sleepMinutesLabel":"Menit","sleepStartLabel":"Mulai timer","sleepStarted":"Pemutaran akan dijeda dalam {minutes} menit.","sleepTimerLabel":"Timer tidur","soundConfigureLabel":"Pengaturan kejadian suara","soundEffectsLabel":"Efek suara","soundEventVolumeLabel":"Volume peristiwa","soundMenuLabel":"Panel dibuka dan ditutup","soundModalHint":"Setiap tombol hanya mengatur kejadian tersebut. Tombol utama efek suara juga harus aktif.","soundPreviewButton":"Pratinjau","soundQualityFailure":"Kualitas gagal diterapkan","soundQualitySuccess":"Kualitas diterapkan","soundSettingsLabel":"Pengaturan berubah","soundVolumeLabel":"Volume efek suara","soundVolumeRestored":"Volume dipulihkan","speedFast":"Cepat","speedNormal":"Normal","speedSlow":"Lambat","statusLabel":"Status","textScaleLabel":"Tata letak ringkas","textScaleLarge":"Tata letak ringkas","textScaleSmall":"Tata letak ringkas","textScaleXLarge":"Tata letak ringkas","themeDark":"Gelap","themeLabel":"Tema","themeLight":"Terang","titleQuality":"Kualitas","titleVolume":"Volume","undoChange":"Atur ulang","versionLabel":"Versi","widgetAutoHideLabel":"Tampilkan hanya saat ada hadiah","widgetDesignLabel":"Gaya tombol","widgetDragHint":"Seret untuk memindahkan · klik untuk klaim","widgetIconBolt":"Petir","widgetIconCoin":"Koin","widgetIconCrown":"Mahkota","widgetIconCustom":"Ikon Anda sendiri","widgetIconGift":"Hadiah","widgetIconLabel":"Ikon","widgetIconStar":"Bintang","widgetImageError":"File ini tidak dapat digunakan. Pilih gambar PNG, JPG, WebP, GIF, atau SVG hingga 2 MB.","widgetImageFill":"Isi seluruh tombol dengan gambar","widgetImageSaved":"Ikon kustom disimpan.","widgetImageTip":"Gambar persegi dengan latar transparan terlihat paling bagus. Gambar hanya tersimpan di browser Anda.","widgetOpacityLabel":"Opasitas tombol","widgetRemoveCustom":"Hapus ikon Anda","widgetResetPos":"Setel ulang posisi tombol","widgetSizeLabel":"Ukuran tombol","widgetStyleFlat":"Datar","widgetStyleGlass":"Kaca","widgetStyleOrb":"Bola","widgetStylePill":"Pil","widgetUpload":"Unggah ikon Anda sendiri"},"it":{"accentColorLabel":"Colore di accento","actionHotkeysLabel":"Tasto di scelta rapida","animFade":"Dissolvenza","animGlow":"Bagliore","animLift":"Sollevamento","animNone":"Nessuna","animPop":"Rimbalzo","animScale":"Ridimensionamento","animSlide":"Scorrimento","animationFull":"Scuro","animationLabel":"Layout compatto","animationOff":"Chiaro","animationPreviewLabel":"Anteprima","animationReduced":"Layout compatto","animationSpeedLabel":"Velocità animazione","autoClaimHelp":"Apre la finestra delle ricompense, riscatta ciò che è disponibile e la richiude. Disattivato per impostazione predefinita.","autoClaimLabel":"Riscatta le ricompense automaticamente","autoQualityLabel":"Applica automaticamente la qualità salvata","autoVolumeLabel":"Applica automaticamente il volume salvato","bindShortcut":"Clicca per cambiare","blurLabel":"Sfocatura dello sfondo del menu","centerPanel":"Reimposta posizione notifica","channelBackupExport":"Esegui il backup di tutti i canali","channelBackupImport":"Ripristina backup","channelCurrent":"Corrente","channelDoneLabel":"Fatto","channelEditLabel":"Modifica","channelExcludedStatus":"Automazione esclusa","channelExport":"Esporta","channelExported":"Impostazioni del canale esportate.","channelFavoritesOnly":"Solo fissati","channelGroupAll":"Tutti i gruppi","channelGroupLabel":"Gruppo","channelGroupPlaceholder":"Nome gruppo","channelHowTitle":"Come funzionano i canali salvati","channelImport":"Importa profilo","channelImportError":"Impossibile importare il profilo del canale.","channelImportSuccess":"Profilo del canale importato.","channelMuted":"muto","channelNoteLabel":"Nota","channelNotePlaceholder":"Aggiungi una nota…","channelNudge":"Vuoi impostazioni separate solo per questo canale?","channelOpenStreamHint":"Apri uno stream per salvare le impostazioni del suo canale.","channelPin":"Fissa","channelPinned":"Fissato","channelProfileSummary":"Ricorda le impostazioni del canale","channelQualitySummary":"Qualità: live {live} · VOD {vod}","channelRemoveConfirm":"Rimuovere le impostazioni salvate di {name}?","channelSavedToast":"Impostazioni salvate per {name}.","channelSearchPlaceholder":"Cerca canali salvati…","channelSortName":"Nome","channelSortRecent":"Modificati di recente","channelSortUsed":"Usati di recente","channelSoundOn":"audio attivo","channelSpeedSummary":"Velocità: {speed}×","channelStep1":"Apri lo stream del canale.","channelStep2":"Premi «Salva questo canale». Qualità, volume, velocità e impostazioni audio attuali vengono memorizzati per lui.","channelStep3":"Rifiniscili qui sotto. Verranno applicati automaticamente ogni volta che apri quel canale.","channelUnpin":"Rimuovi fissaggio","channelUseSaved":"Applica le impostazioni salvate su questo canale","channelVolumeSummary":"Volume: {volume}% · {mute}","claimDelayLabel":"Attendi prima di riscattare","claimIntervalLabel":"Controlla ogni","claimModeInterval":"Secondo una pianificazione","claimModeLabel":"Riscatto delle ricompense","claimModeNotify":"Appena Kick mostra la notifica della ricompensa","claimNowLabel":"Riscatta ora","claimWidgetHelp":"Mostra un piccolo pulsante che puoi trascinare ovunque sullo stream. Cliccalo per riscattare la ricompensa con un clic. La posizione viene ricordata.","claimWidgetLabel":"Pulsante di riscatto rapido nella pagina","clearLog":"Cancella registro","clearNotificationHistory":"Ripristina","collapseSidebarLabel":"Comprimi menu a sinistra","compactLabel":"Layout compatto","confirmNo":"Annulla","confirmYes":"Conferma","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostica aggiornata.","contrastLabel":"Tema","copyDiagnostics":"Esporta","currentChannelLabel":"Corrente","diagAvailableQualities":"Qualità rilevate","diagCurrentQuality":"Qualità attuale","diagUnknown":"Non rilevata","diagVideoResolution":"Risoluzione video","diagnosticsCopied":"Impostazioni importate.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostica aggiornata.","doNotDisturbLabel":"Non disturbare","dragPanelHint":"Trascina il pannello dalla testata; la posizione verrà salvata.","excludeChannelLabel":"Escludi il canale dall’automazione","exportSettings":"Esporta","fallbackAuto":"Passa ad Auto","fallbackLower":"Usa la qualità inferiore più vicina","focusUnavailable":"Schermo intero non disponibile per questo lettore.","focusViewLabel":"Schermo intero","footerClose":"Chiudi","footerHint":"Premi {key} per aprire/chiudere questo menu","freezeAlertLabel":"Avvisa quando il lettore si blocca","freezeRecovered":"Riproduzione ripresa.","freezeSoundLabel":"Riproduci suono di allarme","freezeThresholdLabel":"Tempo di rilevamento del blocco","groupFeedback":"Avvisi","groupInterface":"Interfaccia","groupPlayer":"Lettore","groupSystem":"Sistema","helpAccentColor":"Scegli un colore di accento personalizzato.","helpAutoQuality":"Applica la qualità salvata all’apertura del lettore. Auto usa l’ultima qualità scelta su Kick.","helpAutoVolume":"Ripristina volume e stato muto salvati all’avvio o alla riconnessione.","helpBlur":"Imposta la sfocatura da 0 a 12 px. Trascina il cursore o usa la rotellina del mouse mentre il puntatore è sopra di esso.","helpButton":"Aiuto","helpChannelExclude":"Disattiva le modifiche automatiche di qualità, volume e latenza per questo canale. I controlli manuali restano attivi.","helpChannelSettings":"Se attiva, salva separatamente qualità, volume, muto e velocità del canale. Modificali nel lettore.","helpCompact":"Riduce spazi e altezza dei controlli.","helpFallback":"Scegli cosa fare se la diretta non offre la qualità preferita.","helpHotkey":"Scegli un tasto o una combinazione con Ctrl, Alt, Shift o Meta. Esc annulla.","helpLanguage":"Cambia la lingua del pannello.","helpLiveQuality":"Qualità preferita per le dirette. Auto ricorda l’ultima scelta del lettore.","helpNotificationDuration":"Scegli per quanto tempo mostrare le notifiche.","helpNotificationSize":"Regola la dimensione del testo delle notifiche qualità.","helpNotifications":"Mostra o nasconde le notifiche sul risultato della qualità. Trascina una notifica per spostarla; la posizione verrà salvata.","helpPanelStyle":"Scegli l’aspetto del pannello.","helpSleepTimer":"Avvia un conto alla rovescia e mette in pausa il video alla scadenza. Chiudere il menu non annulla il timer.","helpSoundVolume":"Regola il volume. I pulsanti riproducono un campione.","helpSounds":"Attiva o disattiva tutti i suoni dell’estensione. Scegli i singoli eventi nelle impostazioni audio.","helpTheme":"Cambia l’aspetto del pannello.","helpVodQuality":"Qualità preferita per le registrazioni; indipendente dalle dirette.","helpVolume":"Il volume va da 0 a 100%. Trascina il cursore o usa la rotellina del mouse mentre il puntatore è sopra di esso.","hideChatLabel":"Nascondi chat","highVolumeWarning":"Il volume del lettore supera il {threshold}%.","hotkeyCancel":"Premi Esc per annullare","hotkeyWaiting":"Premi un tasto qualsiasi…","hoverAnimationLabel":"Effetto al passaggio","iconAnimationsLabel":"Animazioni delle icone","importSettings":"Importa","indicatorBreathe":"Respiro lieve","indicatorGlow":"Bagliore","indicatorOff":"Disattivata","indicatorPulse":"Impulso","indicatorTitle":"Indicatore","languageLabel":"Lingua","lastResultLabel":"Ultimo risultato","layoutTitle":"Layout della pagina","layoutUnavailable":"Non disponibile in questa pagina.","logCleared":"Registro cancellato.","loudThresholdLabel":"Soglia avviso","loudWarningLabel":"Avviso volume alto","minutesUnit":"min","muteLabel":"Silenzia il lettore","noPlayerForReset":"Nessun lettore video trovato.","noSavedChannels":"Nessuna impostazione canale salvata.","notificationApplied":"Qualità applicata: {q}.","notificationDurationLabel":"Durata notifiche","notificationFailed":"Impossibile applicare {q}; controlli del lettore o opzione qualità non trovati.","notificationHistoryEmpty":"Nessuna notifica per ora.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Cronologia notifiche","notificationIconLabel":"Mostra icona notifica","notificationOpacityLabel":"Opacità notifica","notificationSizeLabel":"Dimensione testo notifiche","notificationVolumeLabel":"Volume ripristinato","notificationsLabel":"Notifiche qualità","openAnimationLabel":"Animazione apertura","openReleases":"Apri elenco versioni","panelStyleKick":"Kick","panelStyleLabel":"Stile del pannello","panelStyleMinimal":"Minimalista","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Velocità di riproduzione","playerFrozenNotice":"Il lettore sembra bloccato. Prova a ricaricare lo stream.","preferredVolumeLabel":"Volume preferito","presetApplied":"Preset applicato: {name}","presetsLabel":"Preset rapidi","previewNotification":"Anteprima notifica","qualityAuto":"Auto (ultima scelta manuale)","qualityAvailable":"Status","qualityCheckLabel":"Qualità della diretta","qualityFallbackLabel":"Se non disponibile","qualityLiveLabel":"Qualità della diretta","qualityUnavailable":"Status","qualityVodLabel":"Qualità della registrazione (VOD)","quickActionsLabel":"Riproduzione","quietFullscreenLabel":"Modalità silenziosa a schermo intero","recoveryLabel":"Prova a riprendere la riproduzione bloccata","refreshDiagnostics":"Diagnostica aggiornata.","removeChannelSettings":"Rimuovi","reportIssue":"Segnala un problema","resetNotificationPosition":"Reimposta posizione notifica","resetPlayerLabel":"Riapplica le impostazioni del lettore","resetQuality":"Riapplica le impostazioni del lettore","resetSection":"Reimposta sezione","resetSettings":"Ripristina","restoreReset":"Ripristina","restoreVolume":"Applica automaticamente il volume salvato","rewardClaimed":"Ricompensa riscattata.","rewardNone":"Nessuna ricompensa da riscattare al momento.","rewardsTitle":"Ricompense","safeModeHelp":"Applica la qualità salvata all’apertura del lettore. Auto usa l’ultima qualità scelta su Kick.","safeModeLabel":"Layout compatto","saveChannelButton":"Salva questo canale","savedChannelsLabel":"Canali salvati","secondsUnit":"s","sectionAbout":"Informazioni sull’estensione","sectionAppearance":"Aspetto","sectionData":"Dati e info","sectionDiagnostics":"Diagnostica del lettore","sectionHotkey":"Tasto di scelta rapida","sectionMotion":"Animazioni","sectionNotifications":"Notifiche","sectionPlayback":"Riproduzione","sectionShortcuts":"Scorciatoie","sectionSounds":"Suoni","sectionTools":"Strumenti","settingsImportError":"Impossibile importare le impostazioni. Controlla il file.","settingsImportPrompt":"Importare queste impostazioni e sostituire la configurazione attuale?","settingsImported":"Impostazioni importate.","settingsReset":"Ripristina","settingsResetPrompt":"Ripristinare tutte le impostazioni di Kick Stream Tweaks?","clearSearch":"Cancella ricerca","settingsSearch":"Cerca nelle impostazioni…","shortcutChat":"Mostra/nascondi chat","shortcutFocus":"Schermo intero","shortcutNotifications":"Quality notifications","shortcutQuality":"Qualità della diretta","shortcutSidebar":"Mostra/nascondi menu a sinistra","shortcutVolume":"Volume preferito","silentHelp":"Silenzia lo stream senza mettere in muto il lettore, così continua a riprodursi quando cambi scheda. Impostabile per canale.","silentLabel":"Riproduzione senza audio (continua in background)","silentTag":"Senza audio","silentUnavailable":"La riproduzione silenziosa non è disponibile per questo lettore.","situationBandwidth":"Se non disponibile","situationQuality":"Qualità preferita","situationQuiet":"Silenzia il lettore","situationVod":"Registrazione (VOD)","sleepCancelLabel":"Annulla timer","sleepClock12":"AM/PM","sleepClock24":"formato 24 ore","sleepEndsAt":"Termina alle","sleepExpired":"Il timer ha messo in pausa la riproduzione.","sleepHoursLabel":"Ore","sleepMinutesLabel":"Minuti","sleepStartLabel":"Avvia timer","sleepStarted":"La riproduzione verrà messa in pausa tra {minutes} min.","sleepTimerLabel":"Timer di spegnimento","soundConfigureLabel":"Impostazioni degli eventi sonori","soundEffectsLabel":"Effetti sonori","soundEventVolumeLabel":"Volume evento","soundMenuLabel":"Apertura e chiusura del pannello","soundModalHint":"Ogni interruttore controlla solo il relativo evento. Anche l’interruttore generale dei suoni deve essere attivo.","soundPreviewButton":"Anteprima","soundQualityFailure":"Qualità non applicata","soundQualitySuccess":"Qualità applicata","soundSettingsLabel":"Impostazione modificata","soundVolumeLabel":"Volume effetti sonori","soundVolumeRestored":"Volume ripristinato","speedFast":"Veloce","speedNormal":"Normale","speedSlow":"Lenta","statusLabel":"Stato","textScaleLabel":"Layout compatto","textScaleLarge":"Layout compatto","textScaleSmall":"Layout compatto","textScaleXLarge":"Layout compatto","themeDark":"Scuro","themeLabel":"Tema","themeLight":"Chiaro","titleQuality":"Qualità","titleVolume":"Volume","undoChange":"Ripristina","versionLabel":"Versione","widgetAutoHideLabel":"Mostra solo quando c'è una ricompensa","widgetDesignLabel":"Stile del pulsante","widgetDragHint":"Trascina per spostare · clic per riscattare","widgetIconBolt":"Fulmine","widgetIconCoin":"Moneta","widgetIconCrown":"Corona","widgetIconCustom":"La tua icona","widgetIconGift":"Regalo","widgetIconLabel":"Icona","widgetIconStar":"Stella","widgetImageError":"Impossibile usare questo file. Scegli un'immagine PNG, JPG, WebP, GIF o SVG fino a 2 MB.","widgetImageFill":"Riempi tutto il pulsante con l'immagine","widgetImageSaved":"Icona personalizzata salvata.","widgetImageTip":"Le immagini quadrate con sfondo trasparente rendono meglio. L'immagine resta solo nel tuo browser.","widgetOpacityLabel":"Opacità del pulsante","widgetRemoveCustom":"Rimuovi la tua icona","widgetResetPos":"Reimposta la posizione del pulsante","widgetSizeLabel":"Dimensione del pulsante","widgetStyleFlat":"Piatto","widgetStyleGlass":"Vetro","widgetStyleOrb":"Sfera","widgetStylePill":"Pillola","widgetUpload":"Carica la tua icona"},"ja":{"accentColorLabel":"アクセントカラー","actionHotkeysLabel":"メニューのホットキー","animFade":"フェード","animGlow":"発光","animLift":"上に移動","animNone":"なし","animPop":"ポップ","animScale":"拡大縮小","animSlide":"スライド","animationFull":"ダーク","animationLabel":"コンパクト表示","animationOff":"ライト","animationPreviewLabel":"プレビュー","animationReduced":"コンパクト表示","animationSpeedLabel":"アニメーション速度","autoClaimHelp":"報酬ウィンドウを開き、受け取れるものを受け取って閉じます。初期設定ではオフです。","autoClaimLabel":"報酬を自動で受け取る","autoQualityLabel":"保存した画質を自動適用","autoVolumeLabel":"保存した音量を自動適用","bindShortcut":"クリックして変更","blurLabel":"メニュー背景のぼかし","centerPanel":"通知位置をリセット","channelBackupExport":"すべてのチャンネルをバックアップ","channelBackupImport":"バックアップを復元","channelCurrent":"現在","channelDoneLabel":"完了","channelEditLabel":"編集","channelExcludedStatus":"自動化を除外","channelExport":"エクスポート","channelExported":"チャンネル設定をエクスポートしました。","channelFavoritesOnly":"ピン留めのみ","channelGroupAll":"すべてのグループ","channelGroupLabel":"グループ","channelGroupPlaceholder":"グループ名","channelHowTitle":"保存済みチャンネルの使い方","channelImport":"プロファイルをインポート","channelImportError":"チャンネルプロファイルをインポートできませんでした。","channelImportSuccess":"チャンネルプロファイルをインポートしました。","channelMuted":"ミュート","channelNoteLabel":"メモ","channelNotePlaceholder":"メモを追加…","channelNudge":"このチャンネルだけ別の設定にしますか？","channelOpenStreamHint":"配信を開くと、そのチャンネルの設定を保存できます。","channelPin":"ピン留め","channelPinned":"ピン留め済み","channelProfileSummary":"このチャンネルの設定を記憶","channelQualitySummary":"画質：ライブ {live} · VOD {vod}","channelRemoveConfirm":"{name} の保存設定を削除しますか？","channelSavedToast":"{name} の設定を保存しました。","channelSearchPlaceholder":"保存したチャンネルを検索…","channelSortName":"名前","channelSortRecent":"最近変更","channelSortUsed":"最近使用","channelSoundOn":"音声オン","channelSpeedSummary":"速度：{speed}×","channelStep1":"チャンネルの配信を開きます。","channelStep2":"「このチャンネルを保存」を押します。現在の画質・音量・速度・音声設定がそのチャンネル用に保存されます。","channelStep3":"下で細かく調整できます。そのチャンネルを開くたびに自動で適用されます。","channelUnpin":"ピン留め解除","channelUseSaved":"このチャンネルで保存済み設定を適用","channelVolumeSummary":"音量：{volume}% · {mute}","claimDelayLabel":"受け取る前に待つ","claimIntervalLabel":"確認間隔","claimModeInterval":"スケジュールで","claimModeLabel":"報酬の受け取り","claimModeNotify":"Kickが報酬通知を表示したらすぐ","claimNowLabel":"今すぐ受け取る","claimWidgetHelp":"配信画面の好きな場所にドラッグできる小さなボタンを表示します。クリックするだけで報酬を受け取れます。位置は記憶されます。","claimWidgetLabel":"ページ上のクイック受け取りボタン","clearLog":"ログを消去","clearNotificationHistory":"リセット","collapseSidebarLabel":"左メニューを折りたたむ","compactLabel":"コンパクト表示","confirmNo":"キャンセル","confirmYes":"確認","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"診断を更新しました。","contrastLabel":"テーマ","copyDiagnostics":"エクスポート","currentChannelLabel":"現在","diagAvailableQualities":"検出された画質","diagCurrentQuality":"現在の画質","diagUnknown":"未検出","diagVideoResolution":"動画解像度","diagnosticsCopied":"設定をインポートしました。","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"診断を更新しました。","doNotDisturbLabel":"通知を停止","dragPanelHint":"ヘッダーをドラッグしてパネルを移動します。位置は保存されます。","excludeChannelLabel":"このチャンネルでは自動化しない","exportSettings":"エクスポート","fallbackAuto":"自動に切り替え","fallbackLower":"最も近い低画質を選択","focusUnavailable":"このプレーヤーでは全画面を利用できません。","focusViewLabel":"全画面表示","footerClose":"閉じる","footerHint":"{key} を押してこのメニューを開閉","freezeAlertLabel":"プレーヤーが固まったら通知","freezeRecovered":"再生が再開しました。","freezeSoundLabel":"アラーム音を鳴らす","freezeThresholdLabel":"フリーズ検出時間","groupFeedback":"アラート","groupInterface":"インターフェース","groupPlayer":"プレーヤー","groupSystem":"システム","helpAccentColor":"アクセントカラーを選択します。","helpAutoQuality":"プレーヤーを開いたときに保存した画質を適用します。自動ではKickで最後に選んだ画質を使います。","helpAutoVolume":"プレーヤーの起動時や再接続時に保存した音量とミュート状態を復元します。","helpBlur":"背景のぼかしは0～12 pxで設定できます。スライダーをドラッグするか上でカーソルを動かします。0で無効になります。 スライダーをドラッグするか、カーソルを上に置いてマウスホイールを回します。","helpButton":"ヘルプ","helpChannelExclude":"このチャンネルの画質、音量、遅延の自動変更を停止します。手動操作は引き続き使えます。","helpChannelSettings":"有効にすると、このチャンネルの画質、音量、ミュート、速度を個別に保存します。プレーヤーで変更できます。","helpCompact":"間隔とコントロールの高さを小さくします。","helpFallback":"配信で優先画質を選べない場合の動作を選びます。","helpHotkey":"キーまたはCtrl/Alt/Shift/Metaとの組み合わせを選択します。Escapeでキャンセルします。","helpLanguage":"パネルの言語を変更します。","helpLiveQuality":"ライブ配信の優先画質です。自動ではプレーヤーの最後の選択を記憶します。","helpNotificationDuration":"画質通知を表示する時間を選択します。","helpNotificationSize":"画質通知の文字サイズを調整します。","helpNotifications":"画質変更の結果通知を表示または非表示にします。通知をドラッグして移動できます。位置は保存されます。","helpPanelStyle":"パネルの見た目を選択します。","helpSleepTimer":"カウントダウンを開始し、終了時に現在の動画を一時停止します。メニューを閉じても解除されません。","helpSoundVolume":"効果音の音量を調整します。ボタンでサンプルを再生します。","helpSounds":"拡張機能の効果音をすべてオン／オフします。個別のイベントはサウンド設定で選べます。","helpTheme":"パネルの外観を変更します。","helpVodQuality":"録画の優先画質です。ライブ配信の設定とは別です。","helpVolume":"音量は0～100%です。スライダーをドラッグするか、上でカーソルを動かすと変更できます。変更はすぐに反映されます。 スライダーをドラッグするか、カーソルを上に置いてマウスホイールを回します。","hideChatLabel":"チャットを隠す","highVolumeWarning":"プレーヤー音量が{threshold}%を超えています。","hotkeyCancel":"キャンセルするには Escape を押してください","hotkeyWaiting":"任意のキーを押してください…","hoverAnimationLabel":"ホバー効果","iconAnimationsLabel":"アイコンのアニメーション","importSettings":"インポート","indicatorBreathe":"ゆるやかな呼吸","indicatorGlow":"発光","indicatorOff":"オフ","indicatorPulse":"パルス","indicatorTitle":"インジケーター","languageLabel":"言語","lastResultLabel":"前回の結果","layoutTitle":"ページレイアウト","layoutUnavailable":"このページでは利用できません。","logCleared":"ログを消去しました。","loudThresholdLabel":"警告しきい値","loudWarningLabel":"音量が大きいとき警告","minutesUnit":"分","muteLabel":"プレーヤーをミュート","noPlayerForReset":"動画プレーヤーが見つかりません。","noSavedChannels":"保存されたチャンネル設定はありません。","notificationApplied":"画質を適用しました: {q}。","notificationDurationLabel":"通知の表示時間","notificationFailed":"{q}を適用できません。プレーヤー操作部または画質設定が見つかりません。","notificationHistoryEmpty":"通知はまだありません。","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"通知履歴","notificationIconLabel":"通知アイコンを表示","notificationOpacityLabel":"通知の不透明度","notificationSizeLabel":"通知テキストサイズ","notificationVolumeLabel":"音量を復元しました","notificationsLabel":"画質通知","openAnimationLabel":"開くアニメーション","openReleases":"バージョン一覧を開く","panelStyleKick":"Kick","panelStyleLabel":"パネルのスタイル","panelStyleMinimal":"ミニマル","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"再生速度","playerFrozenNotice":"プレーヤーが固まったようです。配信を再読み込みしてください。","preferredVolumeLabel":"優先音量","presetApplied":"プリセットを適用しました: {name}","presetsLabel":"クイックプリセット","previewNotification":"通知をプレビュー","qualityAuto":"自動（最後に手動選択したもの）","qualityAvailable":"Status","qualityCheckLabel":"ライブ配信の画質","qualityFallbackLabel":"選択できない場合","qualityLiveLabel":"ライブ配信の画質","qualityUnavailable":"Status","qualityVodLabel":"録画の画質 (VOD)","quickActionsLabel":"再生設定","quietFullscreenLabel":"全画面で静音","recoveryLabel":"停止した再生の復旧を試す","refreshDiagnostics":"診断を更新しました。","removeChannelSettings":"削除","reportIssue":"問題を報告","resetNotificationPosition":"通知位置をリセット","resetPlayerLabel":"プレーヤー設定を再適用","resetQuality":"プレーヤー設定を再適用","resetSection":"セクションをリセット","resetSettings":"リセット","restoreReset":"リセット","restoreVolume":"保存した音量を自動適用","rewardClaimed":"報酬を受け取りました。","rewardNone":"現在受け取れる報酬はありません。","rewardsTitle":"報酬","safeModeHelp":"プレーヤーを開いたときに保存した画質を適用します。自動ではKickで最後に選んだ画質を使います。","safeModeLabel":"コンパクト表示","saveChannelButton":"このチャンネルを保存","savedChannelsLabel":"保存したチャンネル","secondsUnit":"秒","sectionAbout":"拡張機能について","sectionAppearance":"外観","sectionData":"データと情報","sectionDiagnostics":"プレーヤー診断","sectionHotkey":"メニューのホットキー","sectionMotion":"アニメーション","sectionNotifications":"通知","sectionPlayback":"再生設定","sectionShortcuts":"ショートカット","sectionSounds":"サウンド","sectionTools":"ツール","settingsImportError":"設定をインポートできません。ファイルを確認してください。","settingsImportPrompt":"この設定をインポートして現在の設定を置き換えますか？","settingsImported":"設定をインポートしました。","settingsReset":"リセット","settingsResetPrompt":"Kick Stream Tweaksの設定をすべてリセットしますか？","clearSearch":"検索をクリア","settingsSearch":"設定を検索…","shortcutChat":"チャットを切り替え","shortcutFocus":"全画面表示","shortcutNotifications":"Quality notifications","shortcutQuality":"ライブ配信の画質","shortcutSidebar":"左メニューを切り替え","shortcutVolume":"優先音量","silentHelp":"プレーヤーをミュートせずに配信を無音にするため、タブを切り替えても再生が続きます。チャンネルごとに設定できます。","silentLabel":"音なしで再生（バックグラウンドでも再生を継続）","silentTag":"無音","silentUnavailable":"このプレーヤーでは無音再生を利用できません。","situationBandwidth":"選択できない場合","situationQuality":"優先画質","situationQuiet":"プレーヤーをミュート","situationVod":"録画 (VOD)","sleepCancelLabel":"タイマー取消","sleepClock12":"AM/PM","sleepClock24":"24時間形式","sleepEndsAt":"終了時刻","sleepExpired":"スリープタイマーにより再生を停止しました。","sleepHoursLabel":"時間","sleepMinutesLabel":"分","sleepStartLabel":"タイマー開始","sleepStarted":"{minutes}分後に再生を一時停止します。","sleepTimerLabel":"スリープタイマー","soundConfigureLabel":"イベントごとのサウンド設定","soundEffectsLabel":"効果音","soundEventVolumeLabel":"イベント音量","soundMenuLabel":"パネルの開閉","soundModalHint":"各スイッチは対応するイベントだけを制御します。全体の効果音スイッチもオンにしてください。","soundPreviewButton":"試聴","soundQualityFailure":"画質を適用できない","soundQualitySuccess":"画質を適用","soundSettingsLabel":"設定の変更","soundVolumeLabel":"効果音の音量","soundVolumeRestored":"音量を復元","speedFast":"速い","speedNormal":"標準","speedSlow":"遅い","statusLabel":"状態","textScaleLabel":"コンパクト表示","textScaleLarge":"コンパクト表示","textScaleSmall":"コンパクト表示","textScaleXLarge":"コンパクト表示","themeDark":"ダーク","themeLabel":"テーマ","themeLight":"ライト","titleQuality":"画質","titleVolume":"音量","undoChange":"リセット","versionLabel":"バージョン","widgetAutoHideLabel":"報酬があるときだけ表示","widgetDesignLabel":"ボタンのスタイル","widgetDragHint":"ドラッグで移動 · クリックで受け取り","widgetIconBolt":"稲妻","widgetIconCoin":"コイン","widgetIconCrown":"王冠","widgetIconCustom":"自分のアイコン","widgetIconGift":"ギフト","widgetIconLabel":"アイコン","widgetIconStar":"星","widgetImageError":"このファイルは使用できません。2 MB までの PNG、JPG、WebP、GIF、SVG 画像を選んでください。","widgetImageFill":"画像でボタン全体を埋める","widgetImageSaved":"カスタムアイコンを保存しました。","widgetImageTip":"背景が透明な正方形の画像が最もきれいに表示されます。画像はお使いのブラウザ内にのみ保存されます。","widgetOpacityLabel":"ボタンの透明度","widgetRemoveCustom":"自分のアイコンを削除","widgetResetPos":"ボタンの位置をリセット","widgetSizeLabel":"ボタンのサイズ","widgetStyleFlat":"フラット","widgetStyleGlass":"ガラス","widgetStyleOrb":"オーブ","widgetStylePill":"ピル","widgetUpload":"自分のアイコンをアップロード"},"ko":{"accentColorLabel":"강조 색상","actionHotkeysLabel":"메뉴 단축키","animFade":"페이드","animGlow":"빛남","animLift":"올리기","animNone":"없음","animPop":"팝","animScale":"크기 조절","animSlide":"슬라이드","animationFull":"다크","animationLabel":"컴팩트 레이아웃","animationOff":"라이트","animationPreviewLabel":"미리보기","animationReduced":"컴팩트 레이아웃","animationSpeedLabel":"애니메이션 속도","autoClaimHelp":"보상 창을 열어 받을 수 있는 보상을 받고 다시 닫습니다. 기본값은 꺼짐입니다.","autoClaimLabel":"보상 자동 수령","autoQualityLabel":"저장된 화질 자동 적용","autoVolumeLabel":"저장된 볼륨 자동 적용","bindShortcut":"클릭하여 변경","blurLabel":"메뉴 배경 흐림","centerPanel":"알림 위치 초기화","channelBackupExport":"모든 채널 백업","channelBackupImport":"백업 복원","channelCurrent":"현재","channelDoneLabel":"완료","channelEditLabel":"편집","channelExcludedStatus":"자동화 제외","channelExport":"내보내기","channelExported":"채널 설정을 내보냈습니다.","channelFavoritesOnly":"고정된 항목만","channelGroupAll":"모든 그룹","channelGroupLabel":"그룹","channelGroupPlaceholder":"그룹 이름","channelHowTitle":"저장된 채널의 작동 방식","channelImport":"프로필 가져오기","channelImportError":"채널 프로필을 가져올 수 없습니다.","channelImportSuccess":"채널 프로필을 가져왔습니다.","channelMuted":"음소거","channelNoteLabel":"메모","channelNotePlaceholder":"메모 추가…","channelNudge":"이 채널만 따로 설정하시겠어요?","channelOpenStreamHint":"방송을 열면 해당 채널의 설정을 저장할 수 있습니다.","channelPin":"고정","channelPinned":"고정됨","channelProfileSummary":"이 채널 설정 기억","channelQualitySummary":"화질: 라이브 {live} · VOD {vod}","channelRemoveConfirm":"{name}의 저장 설정을 삭제할까요?","channelSavedToast":"{name} 설정을 저장했습니다.","channelSearchPlaceholder":"저장된 채널 검색…","channelSortName":"이름","channelSortRecent":"최근 변경","channelSortUsed":"최근 사용","channelSoundOn":"소리 켜짐","channelSpeedSummary":"속도: {speed}×","channelStep1":"채널의 방송을 엽니다.","channelStep2":"“이 채널 저장”을 누르세요. 현재 화질, 음량, 속도, 소리 설정이 해당 채널용으로 저장됩니다.","channelStep3":"아래에서 세부 조정하세요. 그 채널을 열 때마다 자동으로 적용됩니다.","channelUnpin":"고정 해제","channelUseSaved":"이 채널에서 저장된 설정 적용","channelVolumeSummary":"볼륨: {volume}% · {mute}","claimDelayLabel":"받기 전 대기","claimIntervalLabel":"확인 주기","claimModeInterval":"일정에 따라","claimModeLabel":"보상 받기","claimModeNotify":"Kick이 보상 알림을 표시하는 즉시","claimNowLabel":"지금 받기","claimWidgetHelp":"방송 화면 어디로든 드래그할 수 있는 작은 버튼을 표시합니다. 클릭 한 번으로 보상을 받습니다. 위치는 기억됩니다.","claimWidgetLabel":"페이지 빠른 수령 버튼","clearLog":"로그 지우기","clearNotificationHistory":"초기화","collapseSidebarLabel":"왼쪽 메뉴 접기","compactLabel":"컴팩트 레이아웃","confirmNo":"취소","confirmYes":"확인","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"진단이 새로고침되었습니다.","contrastLabel":"테마","copyDiagnostics":"내보내기","currentChannelLabel":"현재","diagAvailableQualities":"감지된 화질","diagCurrentQuality":"현재 화질","diagUnknown":"감지되지 않음","diagVideoResolution":"동영상 해상도","diagnosticsCopied":"설정을 가져왔습니다.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"진단이 새로고침되었습니다.","doNotDisturbLabel":"방해 금지","dragPanelHint":"제목 표시줄을 끌어 패널을 이동하세요. 위치가 저장됩니다.","excludeChannelLabel":"이 채널에서 자동화 건너뛰기","exportSettings":"내보내기","fallbackAuto":"자동으로 전환","fallbackLower":"가장 가까운 낮은 화질 사용","focusUnavailable":"이 플레이어에서는 전체 화면을 사용할 수 없습니다.","focusViewLabel":"전체 화면 보기","footerClose":"닫기","footerHint":"{key}를 눌러 이 메뉴를 열고 닫기","freezeAlertLabel":"플레이어가 멈추면 알림","freezeRecovered":"재생이 재개되었습니다.","freezeSoundLabel":"경보음 재생","freezeThresholdLabel":"멈춤 감지 시간","groupFeedback":"알림","groupInterface":"인터페이스","groupPlayer":"플레이어","groupSystem":"시스템","helpAccentColor":"사용자 지정 강조 색상을 선택합니다.","helpAutoQuality":"플레이어가 열릴 때 저장된 화질을 적용합니다. 자동은 Kick에서 마지막으로 선택한 화질을 사용합니다.","helpAutoVolume":"플레이어 시작 또는 재연결 시 저장된 볼륨과 음소거 상태를 복원합니다.","helpBlur":"배경 흐림은 0~12px로 설정할 수 있습니다. 슬라이더를 드래그하거나 커서를 올린 상태에서 마우스 휠을 사용하세요.","helpButton":"도움말","helpChannelExclude":"이 채널의 화질, 볼륨, 지연 시간 자동 변경을 중지합니다. 수동 조작은 계속 사용할 수 있습니다.","helpChannelSettings":"켜면 이 채널의 화질, 볼륨, 음소거, 속도를 따로 저장합니다. 플레이어에서 변경하세요.","helpCompact":"간격과 컨트롤 높이를 줄입니다.","helpFallback":"선호 화질을 사용할 수 없을 때의 동작을 선택합니다.","helpHotkey":"키 또는 Ctrl/Alt/Shift/Meta 조합을 선택하세요. Escape를 누르면 취소됩니다.","helpLanguage":"패널 언어를 변경합니다.","helpLiveQuality":"라이브 스트림 선호 화질입니다. 자동은 플레이어의 마지막 선택을 기억합니다.","helpNotificationDuration":"화질 알림이 표시될 시간을 선택하세요.","helpNotificationSize":"화질 알림의 글자 크기를 조절합니다.","helpNotifications":"화질 변경 결과 알림을 표시하거나 숨깁니다. 알림을 드래그해 이동하면 위치가 저장됩니다.","helpPanelStyle":"패널 모양을 선택합니다.","helpSleepTimer":"카운트다운을 시작하고 시간이 끝나면 현재 동영상을 일시 중지합니다. 메뉴를 닫아도 취소되지 않습니다.","helpSoundVolume":"효과음 볼륨을 조절합니다. 버튼을 눌러 샘플을 재생하세요.","helpSounds":"확장 프로그램의 모든 소리를 켜거나 끕니다. 소리 설정에서 개별 이벤트를 선택하세요.","helpTheme":"패널 모양을 변경합니다.","helpVodQuality":"녹화 영상 선호 화질이며 라이브 설정과 별개입니다.","helpVolume":"볼륨은 0~100%입니다. 슬라이더를 드래그하거나 커서를 올린 상태에서 마우스 휠을 사용하세요.","hideChatLabel":"채팅 숨기기","highVolumeWarning":"플레이어 볼륨이 {threshold}%를 넘었습니다.","hotkeyCancel":"취소하려면 Escape를 누르세요","hotkeyWaiting":"아무 키나 누르세요…","hoverAnimationLabel":"마우스 오버 효과","iconAnimationsLabel":"아이콘 애니메이션","importSettings":"가져오기","indicatorBreathe":"부드러운 호흡","indicatorGlow":"빛남","indicatorOff":"끔","indicatorPulse":"맥동","indicatorTitle":"표시등","languageLabel":"언어","lastResultLabel":"마지막 결과","layoutTitle":"페이지 레이아웃","layoutUnavailable":"이 페이지에서는 사용할 수 없습니다.","logCleared":"로그를 지웠습니다.","loudThresholdLabel":"경고 기준","loudWarningLabel":"높은 볼륨 경고","minutesUnit":"분","muteLabel":"플레이어 음소거","noPlayerForReset":"비디오 플레이어를 찾을 수 없습니다.","noSavedChannels":"저장된 채널 설정이 없습니다.","notificationApplied":"화질 적용됨: {q}.","notificationDurationLabel":"알림 표시 시간","notificationFailed":"{q}을(를) 적용하지 못했습니다. 플레이어 컨트롤 또는 화질 옵션을 찾지 못했습니다.","notificationHistoryEmpty":"알림이 아직 없습니다.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"알림 기록","notificationIconLabel":"알림 아이콘 표시","notificationOpacityLabel":"알림 불투명도","notificationSizeLabel":"알림 글자 크기","notificationVolumeLabel":"음량 복원됨","notificationsLabel":"화질 알림","openAnimationLabel":"열기 애니메이션","openReleases":"버전 목록 열기","panelStyleKick":"Kick","panelStyleLabel":"패널 스타일","panelStyleMinimal":"미니멀","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"재생 속도","playerFrozenNotice":"플레이어가 멈춘 것 같습니다. 방송을 다시 불러오세요.","preferredVolumeLabel":"선호 볼륨","presetApplied":"프리셋 적용됨: {name}","presetsLabel":"빠른 프리셋","previewNotification":"알림 미리보기","qualityAuto":"자동 (마지막으로 수동 선택한 값)","qualityAvailable":"Status","qualityCheckLabel":"라이브 스트림 화질","qualityFallbackLabel":"사용할 수 없는 경우","qualityLiveLabel":"라이브 스트림 화질","qualityUnavailable":"Status","qualityVodLabel":"녹화 영상 화질 (VOD)","quickActionsLabel":"재생","quietFullscreenLabel":"전체 화면에서 조용히","recoveryLabel":"멈춘 재생 복구 시도","refreshDiagnostics":"진단이 새로고침되었습니다.","removeChannelSettings":"삭제","reportIssue":"문제 신고","resetNotificationPosition":"알림 위치 초기화","resetPlayerLabel":"플레이어 설정 다시 적용","resetQuality":"플레이어 설정 다시 적용","resetSection":"섹션 초기화","resetSettings":"초기화","restoreReset":"초기화","restoreVolume":"저장된 볼륨 자동 적용","rewardClaimed":"보상을 받았습니다.","rewardNone":"지금 받을 수 있는 보상이 없습니다.","rewardsTitle":"보상","safeModeHelp":"플레이어가 열릴 때 저장된 화질을 적용합니다. 자동은 Kick에서 마지막으로 선택한 화질을 사용합니다.","safeModeLabel":"컴팩트 레이아웃","saveChannelButton":"이 채널 저장","savedChannelsLabel":"저장된 채널","secondsUnit":"초","sectionAbout":"확장 프로그램 정보","sectionAppearance":"외형","sectionData":"데이터 및 정보","sectionDiagnostics":"플레이어 진단","sectionHotkey":"메뉴 단축키","sectionMotion":"애니메이션","sectionNotifications":"알림","sectionPlayback":"재생","sectionShortcuts":"단축키","sectionSounds":"소리","sectionTools":"도구","settingsImportError":"설정을 가져오지 못했습니다. 파일을 확인하세요.","settingsImportPrompt":"이 설정을 가져와 현재 구성을 바꿀까요?","settingsImported":"설정을 가져왔습니다.","settingsReset":"초기화","settingsResetPrompt":"Kick Stream Tweaks 설정을 모두 초기화할까요?","clearSearch":"검색 지우기","settingsSearch":"설정 검색…","shortcutChat":"채팅 전환","shortcutFocus":"전체 화면 보기","shortcutNotifications":"Quality notifications","shortcutQuality":"라이브 스트림 화질","shortcutSidebar":"왼쪽 메뉴 전환","shortcutVolume":"선호 볼륨","silentHelp":"플레이어를 음소거하지 않고 방송 소리만 꺼서 탭을 바꿔도 계속 재생됩니다. 채널별로 설정할 수 있습니다.","silentLabel":"소리 없이 재생 (백그라운드에서도 계속 재생)","silentTag":"무음","silentUnavailable":"이 플레이어에서는 무음 재생을 사용할 수 없습니다.","situationBandwidth":"사용할 수 없는 경우","situationQuality":"선호 화질","situationQuiet":"플레이어 음소거","situationVod":"녹화 영상 (VOD)","sleepCancelLabel":"타이머 취소","sleepClock12":"AM/PM","sleepClock24":"24시간 형식","sleepEndsAt":"종료 시각","sleepExpired":"취침 타이머가 재생을 중지했습니다.","sleepHoursLabel":"시간","sleepMinutesLabel":"분","sleepStartLabel":"타이머 시작","sleepStarted":"{minutes}분 후 재생이 일시 중지됩니다.","sleepTimerLabel":"취침 타이머","soundConfigureLabel":"이벤트별 소리 설정","soundEffectsLabel":"효과음","soundEventVolumeLabel":"이벤트 음량","soundMenuLabel":"패널 열기 및 닫기","soundModalHint":"각 스위치는 해당 이벤트만 제어합니다. 기본 효과음 스위치도 켜져 있어야 합니다.","soundPreviewButton":"미리 듣기","soundQualityFailure":"화질 적용 실패","soundQualitySuccess":"화질 적용됨","soundSettingsLabel":"설정 변경","soundVolumeLabel":"효과음 볼륨","soundVolumeRestored":"볼륨 복원됨","speedFast":"빠르게","speedNormal":"보통","speedSlow":"느리게","statusLabel":"상태","textScaleLabel":"컴팩트 레이아웃","textScaleLarge":"컴팩트 레이아웃","textScaleSmall":"컴팩트 레이아웃","textScaleXLarge":"컴팩트 레이아웃","themeDark":"다크","themeLabel":"테마","themeLight":"라이트","titleQuality":"화질","titleVolume":"음량","undoChange":"초기화","versionLabel":"버전","widgetAutoHideLabel":"보상이 있을 때만 표시","widgetDesignLabel":"버튼 스타일","widgetDragHint":"드래그하여 이동 · 클릭하여 수령","widgetIconBolt":"번개","widgetIconCoin":"코인","widgetIconCrown":"왕관","widgetIconCustom":"내 아이콘","widgetIconGift":"선물","widgetIconLabel":"아이콘","widgetIconStar":"별","widgetImageError":"이 파일을 사용할 수 없습니다. 2 MB 이하의 PNG, JPG, WebP, GIF, SVG 이미지를 선택하세요.","widgetImageFill":"이미지로 버튼 전체 채우기","widgetImageSaved":"사용자 아이콘을 저장했습니다.","widgetImageTip":"배경이 투명한 정사각형 이미지가 가장 보기 좋습니다. 이미지는 브라우저에만 저장됩니다.","widgetOpacityLabel":"버튼 투명도","widgetRemoveCustom":"내 아이콘 제거","widgetResetPos":"버튼 위치 초기화","widgetSizeLabel":"버튼 크기","widgetStyleFlat":"플랫","widgetStyleGlass":"유리","widgetStyleOrb":"구슬","widgetStylePill":"알약","widgetUpload":"내 아이콘 업로드"},"lt":{"accentColorLabel":"Akcento spalva","actionHotkeysLabel":"Meniu spartusis klavišas","animFade":"Išnykimas","animGlow":"Švytėjimas","animLift":"Pakėlimas","animNone":"Nėra","animPop":"Šuolis","animScale":"Mastelis","animSlide":"Slinkimas","animationFull":"Tamsi","animationLabel":"Kompaktiškas išdėstymas","animationOff":"Šviesi","animationPreviewLabel":"Peržiūra","animationReduced":"Kompaktiškas išdėstymas","animationSpeedLabel":"Animacijos greitis","autoClaimHelp":"Atidaro apdovanojimų langą, atsiima galimus ir vėl jį uždaro. Pagal numatytuosius nustatymus išjungta.","autoClaimLabel":"Automatiškai atsiimti apdovanojimus","autoQualityLabel":"Automatiškai taikyti išsaugotą kokybę","autoVolumeLabel":"Automatiškai taikyti išsaugotą garsumą","bindShortcut":"Spustelėkite, kad pakeistumėte","blurLabel":"Meniu fono suliejimas","centerPanel":"Atkurti pranešimo vietą","channelBackupExport":"Sukurti visų kanalų atsarginę kopiją","channelBackupImport":"Atkurti atsarginę kopiją","channelCurrent":"Dabartinis","channelDoneLabel":"Atlikta","channelEditLabel":"Redaguoti","channelExcludedStatus":"Automatika netaikoma","channelExport":"Eksportuoti","channelExported":"Kanalo nustatymai eksportuoti.","channelFavoritesOnly":"Tik prisegti","channelGroupAll":"Visos grupės","channelGroupLabel":"Grupė","channelGroupPlaceholder":"Grupės pavadinimas","channelHowTitle":"Kaip veikia išsaugoti kanalai","channelImport":"Importuoti profilį","channelImportError":"Nepavyko importuoti kanalo profilio.","channelImportSuccess":"Kanalo profilis importuotas.","channelMuted":"nutildyta","channelNoteLabel":"Pastaba","channelNotePlaceholder":"Pridėti pastabą…","channelNudge":"Norite atskirų nustatymų tik šiam kanalui?","channelOpenStreamHint":"Atidarykite transliaciją, kad išsaugotumėte jos kanalo nustatymus.","channelPin":"Prisegti","channelPinned":"Prisegtas","channelProfileSummary":"Prisiminti šio kanalo nustatymus","channelQualitySummary":"Kokybė: tiesiogiai {live} · VOD {vod}","channelRemoveConfirm":"Pašalinti {name} nustatymus?","channelSavedToast":"Kanalo {name} nustatymai išsaugoti.","channelSearchPlaceholder":"Ieškoti išsaugotų kanalų…","channelSortName":"Pavadinimas","channelSortRecent":"Neseniai pakeisti","channelSortUsed":"Neseniai naudoti","channelSoundOn":"garsas įjungtas","channelSpeedSummary":"Greitis: {speed}×","channelStep1":"Atidarykite kanalo transliaciją.","channelStep2":"Paspauskite „Išsaugoti šį kanalą“. Dabartinė kokybė, garsas, greitis ir garso nustatymai išsaugomi jam.","channelStep3":"Sureguliuokite juos žemiau. Jie taikomi automatiškai kaskart atidarius tą kanalą.","channelUnpin":"Atsegti","channelUseSaved":"Taikyti išsaugotus nustatymus šiame kanale","channelVolumeSummary":"Garsumas: {volume}% · {mute}","claimDelayLabel":"Palaukti prieš atsiimant","claimIntervalLabel":"Tikrinti kas","claimModeInterval":"Pagal tvarkaraštį","claimModeLabel":"Apdovanojimų atsiėmimas","claimModeNotify":"Kai tik Kick parodo pranešimą apie apdovanojimą","claimNowLabel":"Atsiimti dabar","claimWidgetHelp":"Rodo mažą mygtuką, kurį galima nutempti bet kur transliacijoje. Spustelėkite, kad atsiimtumėte apdovanojimą vienu paspaudimu. Padėtis įsimenama.","claimWidgetLabel":"Greito atsiėmimo mygtukas puslapyje","clearLog":"Išvalyti žurnalą","clearNotificationHistory":"Atkurti","collapseSidebarLabel":"Sutraukti kairįjį meniu","compactLabel":"Kompaktiškas išdėstymas","confirmNo":"Atšaukti","confirmYes":"Patvirtinti","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostika atnaujinta.","contrastLabel":"Tema","copyDiagnostics":"Eksportuoti","currentChannelLabel":"Dabartinis","diagAvailableQualities":"Aptiktos kokybės","diagCurrentQuality":"Dabartinė kokybė","diagUnknown":"Neaptikta","diagVideoResolution":"Vaizdo raiška","diagnosticsCopied":"Nustatymai importuoti.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostika atnaujinta.","doNotDisturbLabel":"Netrukdyti","dragPanelHint":"Tempkite skydelį už antraštės; jo vieta bus išsaugota.","excludeChannelLabel":"Praleisti automatizavimą šiame kanale","exportSettings":"Eksportuoti","fallbackAuto":"Perjungti į automatinę","fallbackLower":"Naudoti artimiausią žemesnę kokybę","focusUnavailable":"Šiame grotuve viso ekrano režimas nepasiekiamas.","focusViewLabel":"Viso ekrano vaizdas","footerClose":"Uždaryti","footerHint":"Paspauskite {key}, kad atidarytumėte arba uždarytumėte meniu","freezeAlertLabel":"Perspėti, kai grotuvas užstringa","freezeRecovered":"Atkūrimas tęsiamas.","freezeSoundLabel":"Paleisti signalo garsą","freezeThresholdLabel":"Užstrigimo aptikimo laikas","groupFeedback":"Įspėjimai","groupInterface":"Sąsaja","groupPlayer":"Grotuvas","groupSystem":"Sistema","helpAccentColor":"Pasirinkite pasirinktinę akcento spalvą.","helpAutoQuality":"Atidarius grotuvą pritaiko išsaugotą kokybę. Automatinis režimas naudoja paskutinį Kick pasirinkimą.","helpAutoVolume":"Paleidus grotuvą arba prisijungus iš naujo atkuriamas išsaugotas garsumas ir nutildymas.","helpBlur":"Suliejimą nustatykite nuo 0 iki 12 px. Vilkite slankiklį arba naudokite pelės ratuką, kai žymeklis yra virš jo.","helpButton":"Pagalba","helpChannelExclude":"Išjungia automatinį kokybės, garsumo ir delsos keitimą šiame kanale. Rankinis valdymas lieka.","helpChannelSettings":"Įjungus šią parinktį kanalo kokybė, garsumas, nutildymas ir greitis saugomi atskirai. Keiskite juos grotuve.","helpCompact":"Sumažina tarpus ir valdiklių aukštį.","helpFallback":"Pasirinkite, ką daryti, jei transliacijoje nėra pageidaujamos kokybės.","helpHotkey":"Pasirinkite klavišą arba derinį su Ctrl, Alt, Shift ar Meta. Escape atšaukia.","helpLanguage":"Keičia skydelio kalbą.","helpLiveQuality":"Pageidaujama tiesioginių transliacijų kokybė. Automatinis režimas įsimena paskutinį grotuvo pasirinkimą.","helpNotificationDuration":"Pasirinkite, kiek laiko rodyti pranešimus.","helpNotificationSize":"Nustatykite kokybės pranešimų teksto dydį.","helpNotifications":"Rodyti arba slėpti pranešimus apie kokybės parinkimo rezultatą. Vilkite pranešimą, kad jį perkeltumėte; vieta bus išsaugota.","helpPanelStyle":"Pasirinkite skydelio išvaizdą.","helpSleepTimer":"Pradeda atgalinį skaičiavimą ir jam pasibaigus pristabdo dabartinį vaizdo įrašą. Uždarius meniu laikmatis neatšaukiamas.","helpSoundVolume":"Nustatykite garsumą. Mygtukai paleidžia pavyzdį.","helpSounds":"Įjungia arba išjungia visus plėtinio garsus. Atskiirus įvykius pasirinkite garso nustatymuose.","helpTheme":"Keičia skydelio išvaizdą.","helpVodQuality":"Pageidaujama įrašų kokybė; nepriklauso nuo tiesioginių transliacijų.","helpVolume":"Garsumas yra 0–100 %. Vilkite slankiklį arba naudokite pelės ratuką, kai žymeklis yra virš jo.","hideChatLabel":"Slėpti pokalbį","highVolumeWarning":"Grotuvo garsumas viršija {threshold} %.","hotkeyCancel":"Norėdami atšaukti paspauskite Escape","hotkeyWaiting":"Paspauskite bet kurį klavišą…","hoverAnimationLabel":"Užvedimo efektas","iconAnimationsLabel":"Piktogramų animacijos","importSettings":"Importuoti","indicatorBreathe":"Švelnus kvėpavimas","indicatorGlow":"Švytėjimas","indicatorOff":"Išjungta","indicatorPulse":"Pulsavimas","indicatorTitle":"Indikatorius","languageLabel":"Kalba","lastResultLabel":"Paskutinis rezultatas","layoutTitle":"Puslapio išdėstymas","layoutUnavailable":"Šiame puslapyje nepasiekiama.","logCleared":"Žurnalas išvalytas.","loudThresholdLabel":"Įspėjimo riba","loudWarningLabel":"Įspėti apie didelį garsumą","minutesUnit":"min.","muteLabel":"Nutildyti grotuvą","noPlayerForReset":"Vaizdo grotuvas nerastas.","noSavedChannels":"Išsaugotų kanalų nustatymų nėra.","notificationApplied":"Pritaikyta kokybė: {q}.","notificationDurationLabel":"Pranešimo trukmė","notificationFailed":"Nepavyko pritaikyti {q}; nerasti grotuvo valdikliai arba ši kokybė.","notificationHistoryEmpty":"Pranešimų dar nėra.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Pranešimų istorija","notificationIconLabel":"Rodyti pranešimo piktogramą","notificationOpacityLabel":"Pranešimo nepermatomumas","notificationSizeLabel":"Pranešimo teksto dydis","notificationVolumeLabel":"Atkurtas garsumas","notificationsLabel":"Kokybės pranešimai","openAnimationLabel":"Atidarymo animacija","openReleases":"Atverti versijų sąrašą","panelStyleKick":"Kick","panelStyleLabel":"Skydelio stilius","panelStyleMinimal":"Minimalistinis","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Atkūrimo greitis","playerFrozenNotice":"Atrodo, kad grotuvas užstrigo. Pabandykite iš naujo įkelti transliaciją.","preferredVolumeLabel":"Pageidaujamas garsumas","presetApplied":"Pritaikyta: {name}","presetsLabel":"Greitosios nuostatos","previewNotification":"Pranešimo peržiūra","qualityAuto":"Automatinė (paskutinė pasirinkta rankiniu būdu)","qualityAvailable":"Status","qualityCheckLabel":"Tiesioginės transliacijos kokybė","qualityFallbackLabel":"Jei nepasiekiama","qualityLiveLabel":"Tiesioginės transliacijos kokybė","qualityUnavailable":"Status","qualityVodLabel":"Įrašo kokybė (VOD)","quickActionsLabel":"Atkūrimas","quietFullscreenLabel":"Tylus režimas visame ekrane","recoveryLabel":"Bandyti atkurti užstrigusį atkūrimą","refreshDiagnostics":"Diagnostika atnaujinta.","removeChannelSettings":"Pašalinti","reportIssue":"Pranešti apie problemą","resetNotificationPosition":"Atkurti pranešimo vietą","resetPlayerLabel":"Iš naujo taikyti grotuvo nustatymus","resetQuality":"Iš naujo taikyti grotuvo nustatymus","resetSection":"Atkurti skiltį","resetSettings":"Atkurti","restoreReset":"Atkurti","restoreVolume":"Automatiškai taikyti išsaugotą garsumą","rewardClaimed":"Apdovanojimas atsiimtas.","rewardNone":"Šiuo metu nėra apdovanojimų.","rewardsTitle":"Apdovanojimai","safeModeHelp":"Atidarius grotuvą pritaiko išsaugotą kokybę. Automatinis režimas naudoja paskutinį Kick pasirinkimą.","safeModeLabel":"Kompaktiškas išdėstymas","saveChannelButton":"Išsaugoti šį kanalą","savedChannelsLabel":"Išsaugoti kanalai","secondsUnit":"s","sectionAbout":"Apie plėtinį","sectionAppearance":"Išvaizda","sectionData":"Duomenys ir informacija","sectionDiagnostics":"Grotuvo diagnostika","sectionHotkey":"Meniu spartusis klavišas","sectionMotion":"Animacijos","sectionNotifications":"Pranešimai","sectionPlayback":"Atkūrimas","sectionShortcuts":"Spartieji klavišai","sectionSounds":"Garsai","sectionTools":"Įrankiai","settingsImportError":"Nepavyko importuoti nustatymų. Patikrinkite failą.","settingsImportPrompt":"Importuoti šiuos nustatymus ir pakeisti dabartinius?","settingsImported":"Nustatymai importuoti.","settingsReset":"Atkurti","settingsResetPrompt":"Atkurti visus Kick Stream Tweaks nustatymus?","clearSearch":"Išvalyti paiešką","settingsSearch":"Ieškoti nustatymuose…","shortcutChat":"Perjungti pokalbį","shortcutFocus":"Viso ekrano vaizdas","shortcutNotifications":"Quality notifications","shortcutQuality":"Tiesioginės transliacijos kokybė","shortcutSidebar":"Perjungti kairįjį meniu","shortcutVolume":"Pageidaujamas garsumas","silentHelp":"Nutildo transliaciją nenutildydamas grotuvo, todėl ji tęsiasi pakeitus skirtuką. Galima nustatyti kiekvienam kanalui.","silentLabel":"Leisti be garso (tęsiasi fone)","silentTag":"Be garso","silentUnavailable":"Tylus atkūrimas šiame grotuve nepasiekiamas.","situationBandwidth":"Jei nepasiekiama","situationQuality":"Pageidaujama kokybė","situationQuiet":"Nutildyti grotuvą","situationVod":"Įrašas (VOD)","sleepCancelLabel":"Atšaukti laikmatį","sleepClock12":"AM/PM","sleepClock24":"24 valandų formatas","sleepEndsAt":"Baigsis","sleepExpired":"Miego laikmatis pristabdė atkūrimą.","sleepHoursLabel":"Valandos","sleepMinutesLabel":"Minutės","sleepStartLabel":"Paleisti laikmatį","sleepStarted":"Atkūrimas bus pristabdytas po {minutes} min.","sleepTimerLabel":"Miego laikmatis","soundConfigureLabel":"Garso įvykių nustatymai","soundEffectsLabel":"Garso efektai","soundEventVolumeLabel":"Įvykio garsumas","soundMenuLabel":"Skydelio atidarymas ir uždarymas","soundModalHint":"Kiekvienas jungiklis valdo tik atitinkamą įvykį. Turi būti įjungtas ir pagrindinis garsų jungiklis.","soundPreviewButton":"Peržiūra","soundQualityFailure":"Kokybės pritaikyti nepavyko","soundQualitySuccess":"Kokybė pritaikyta","soundSettingsLabel":"Nustatymų keitimas","soundVolumeLabel":"Garso efektų garsumas","soundVolumeRestored":"Garsumas atkurtas","speedFast":"Greitai","speedNormal":"Įprastai","speedSlow":"Lėtai","statusLabel":"Būsena","textScaleLabel":"Kompaktiškas išdėstymas","textScaleLarge":"Kompaktiškas išdėstymas","textScaleSmall":"Kompaktiškas išdėstymas","textScaleXLarge":"Kompaktiškas išdėstymas","themeDark":"Tamsi","themeLabel":"Tema","themeLight":"Šviesi","titleQuality":"Kokybė","titleVolume":"Garsas","undoChange":"Atkurti","versionLabel":"Versija","widgetAutoHideLabel":"Rodyti tik kai yra apdovanojimas","widgetDesignLabel":"Mygtuko stilius","widgetDragHint":"Tempkite perkelti · spustelėkite atsiimti","widgetIconBolt":"Žaibas","widgetIconCoin":"Moneta","widgetIconCrown":"Karūna","widgetIconCustom":"Jūsų piktograma","widgetIconGift":"Dovana","widgetIconLabel":"Piktograma","widgetIconStar":"Žvaigždė","widgetImageError":"Šio failo naudoti nepavyko. Pasirinkite PNG, JPG, WebP, GIF arba SVG paveikslėlį iki 2 MB.","widgetImageFill":"Užpildyti visą mygtuką paveikslėliu","widgetImageSaved":"Pasirinktinė piktograma išsaugota.","widgetImageTip":"Geriausiai atrodo kvadratiniai paveikslėliai su skaidriu fonu. Paveikslėlis lieka tik jūsų naršyklėje.","widgetOpacityLabel":"Mygtuko skaidrumas","widgetRemoveCustom":"Pašalinti jūsų piktogramą","widgetResetPos":"Atstatyti mygtuko padėtį","widgetSizeLabel":"Mygtuko dydis","widgetStyleFlat":"Plokščias","widgetStyleGlass":"Stiklas","widgetStyleOrb":"Rutulys","widgetStylePill":"Tabletė","widgetUpload":"Įkelti savo piktogramą"},"lv":{"accentColorLabel":"Akcenta krāsa","actionHotkeysLabel":"Izvēlnes īsinājumtaustiņš","animFade":"Izgaist","animGlow":"Mirdzums","animLift":"Pacelt","animNone":"Nav","animPop":"Lēciens","animScale":"Mērogot","animSlide":"Slīdēt","animationFull":"Tumšs","animationLabel":"Kompakts izkārtojums","animationOff":"Gaišs","animationPreviewLabel":"Priekšskatījums","animationReduced":"Kompakts izkārtojums","animationSpeedLabel":"Animācijas ātrums","autoClaimHelp":"Atver balvu logu, saņem pieejamo un aizver to. Pēc noklusējuma izslēgts.","autoClaimLabel":"Automātiski saņemt balvas","autoQualityLabel":"Automātiski lietot saglabāto kvalitāti","autoVolumeLabel":"Automātiski lietot saglabāto skaļumu","bindShortcut":"Noklikšķiniet, lai mainītu","blurLabel":"Izvēlnes fona aizmiglošana","centerPanel":"Atiestatīt paziņojuma pozīciju","channelBackupExport":"Dublēt visus kanālus","channelBackupImport":"Atjaunot dublējumu","channelCurrent":"Pašreizējais","channelDoneLabel":"Gatavs","channelEditLabel":"Rediģēt","channelExcludedStatus":"Automatizācija izslēgta","channelExport":"Eksportēt","channelExported":"Kanāla iestatījumi eksportēti.","channelFavoritesOnly":"Tikai piespraustie","channelGroupAll":"Visas grupas","channelGroupLabel":"Grupa","channelGroupPlaceholder":"Grupas nosaukums","channelHowTitle":"Kā darbojas saglabātie kanāli","channelImport":"Importēt profilu","channelImportError":"Neizdevās importēt kanāla profilu.","channelImportSuccess":"Kanāla profils importēts.","channelMuted":"izslēgta skaņa","channelNoteLabel":"Piezīme","channelNotePlaceholder":"Pievienot piezīmi…","channelNudge":"Vai vēlaties atsevišķus iestatījumus tikai šim kanālam?","channelOpenStreamHint":"Atveriet pārraidi, lai saglabātu tās kanāla iestatījumus.","channelPin":"Piespraust","channelPinned":"Piesprausts","channelProfileSummary":"Atcerēties šī kanāla iestatījumus","channelQualitySummary":"Kvalitāte: tiešraide {live} · VOD {vod}","channelRemoveConfirm":"Noņemt {name} saglabātos iestatījumus?","channelSavedToast":"Kanāla {name} iestatījumi saglabāti.","channelSearchPlaceholder":"Meklēt saglabātos kanālus…","channelSortName":"Nosaukums","channelSortRecent":"Nesen mainīti","channelSortUsed":"Nesen lietoti","channelSoundOn":"skaņa ieslēgta","channelSpeedSummary":"Ātrums: {speed}×","channelStep1":"Atveriet kanāla pārraidi.","channelStep2":"Nospiediet “Saglabāt šo kanālu”. Pašreizējā kvalitāte, skaļums, ātrums un skaņas iestatījumi tiek saglabāti tam.","channelStep3":"Precizējiet tos zemāk. Tie tiek piemēroti automātiski ikreiz, kad atverat šo kanālu.","channelUnpin":"Atspraust","channelUseSaved":"Lietot saglabātos iestatījumus šajā kanālā","channelVolumeSummary":"Skaļums: {volume}% · {mute}","claimDelayLabel":"Gaidīt pirms saņemšanas","claimIntervalLabel":"Pārbaudīt ik pēc","claimModeInterval":"Pēc grafika","claimModeLabel":"Balvu saņemšana","claimModeNotify":"Tiklīdz Kick parāda paziņojumu par balvu","claimNowLabel":"Saņemt tagad","claimWidgetHelp":"Parāda mazu pogu, ko var pārvilkt jebkur straumē. Noklikšķiniet, lai saņemtu balvu ar vienu klikšķi. Pozīcija tiek atcerēta.","claimWidgetLabel":"Ātrās saņemšanas poga lapā","clearLog":"Notīrīt žurnālu","clearNotificationHistory":"Atiestatīt","collapseSidebarLabel":"Sakļaut kreiso izvēlni","compactLabel":"Kompakts izkārtojums","confirmNo":"Atcelt","confirmYes":"Apstiprināt","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostika atjaunināta.","contrastLabel":"Motīvs","copyDiagnostics":"Eksportēt","currentChannelLabel":"Pašreizējais","diagAvailableQualities":"Noteiktās kvalitātes","diagCurrentQuality":"Pašreizējā kvalitāte","diagUnknown":"Nav noteikts","diagVideoResolution":"Video izšķirtspēja","diagnosticsCopied":"Iestatījumi importēti.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostika atjaunināta.","doNotDisturbLabel":"Netraucēt","dragPanelHint":"Velciet paneli aiz galvenes; tā novietojums tiks saglabāts.","excludeChannelLabel":"Izlaist automatizāciju šim kanālam","exportSettings":"Eksportēt","fallbackAuto":"Pārslēgt uz automātisko","fallbackLower":"Izmantot tuvāko zemāko kvalitāti","focusUnavailable":"Šim atskaņotājam pilnekrāns nav pieejams.","focusViewLabel":"Pilnekrāna skats","footerClose":"Aizvērt","footerHint":"Nospiediet {key}, lai atvērtu vai aizvērtu izvēlni","freezeAlertLabel":"Brīdināt, kad atskaņotājs sastingst","freezeRecovered":"Atskaņošana atsākta.","freezeSoundLabel":"Atskaņot trauksmes signālu","freezeThresholdLabel":"Sastingšanas noteikšanas laiks","groupFeedback":"Brīdinājumi","groupInterface":"Saskarne","groupPlayer":"Atskaņotājs","groupSystem":"Sistēma","helpAccentColor":"Izvēlieties pielāgotu akcenta krāsu.","helpAutoQuality":"Atverot atskaņotāju, tiek lietota saglabātā kvalitāte. Automātiskais režīms izmanto pēdējo Kick izvēli.","helpAutoVolume":"Atskaņotāja palaišanas vai atkārtotas savienošanās laikā atjauno skaļumu un skaņas izslēgšanu.","helpBlur":"Iestatiet aizmiglojumu no 0 līdz 12 px. Velciet slīdni vai ritiniet peles ritenīti, kamēr kursors atrodas virs tā.","helpButton":"Palīdzība","helpChannelExclude":"Aptur automātisku kvalitātes, skaļuma un aizkaves maiņu šim kanālam. Manuālā vadība joprojām darbojas.","helpChannelSettings":"Ieslēdzot, kanāla kvalitāte, skaļums, skaņas izslēgšana un ātrums tiek saglabāti atsevišķi. Mainiet tos atskaņotājā.","helpCompact":"Samazina atstarpes un vadīklu augstumu.","helpFallback":"Izvēlieties darbību, ja straumē nav vēlamās kvalitātes.","helpHotkey":"Izvēlieties taustiņu vai Ctrl, Alt, Shift vai Meta kombināciju. Escape atceļ.","helpLanguage":"Maina paneļa valodu.","helpLiveQuality":"Vēlamā tiešraižu kvalitāte. Automātiskais režīms atceras pēdējo atskaņotāja izvēli.","helpNotificationDuration":"Izvēlieties, cik ilgi rādīt paziņojumus.","helpNotificationSize":"Mainiet kvalitātes paziņojumu teksta lielumu.","helpNotifications":"Rādīt vai slēpt paziņojumus par kvalitātes izvēles rezultātu. Velciet paziņojumu, lai to pārvietotu; tā atrašanās vieta tiks saglabāta.","helpPanelStyle":"Izvēlieties paneļa izskatu.","helpSleepTimer":"Sāk laika atskaiti un tās beigās aptur pašreizējo video. Izvēlnes aizvēršana neatceļ taimeri.","helpSoundVolume":"Mainiet skaļumu. Pogas atskaņo skaņas paraugu.","helpSounds":"Ieslēdz vai izslēdz visus paplašinājuma skaņas efektus. Atsevišķus notikumus izvēlieties skaņas iestatījumos.","helpTheme":"Maina paneļa izskatu.","helpVodQuality":"Vēlamā ierakstu kvalitāte; neatkarīga no tiešraidēm.","helpVolume":"Skaļums ir 0–100%. Velciet slīdni vai ritiniet peles ritenīti, kamēr kursors atrodas virs tā.","hideChatLabel":"Paslēpt tērzēšanu","highVolumeWarning":"Atskaņotāja skaļums pārsniedz {threshold}%.","hotkeyCancel":"Lai atceltu, nospiediet Escape","hotkeyWaiting":"Nospiediet jebkuru taustiņu…","hoverAnimationLabel":"Norādes efekts","iconAnimationsLabel":"Ikonu animācijas","importSettings":"Importēt","indicatorBreathe":"Maiga elpošana","indicatorGlow":"Mirdzums","indicatorOff":"Izslēgta","indicatorPulse":"Pulsēšana","indicatorTitle":"Indikators","languageLabel":"Valoda","lastResultLabel":"Pēdējais rezultāts","layoutTitle":"Lapas izkārtojums","layoutUnavailable":"Šajā lapā nav pieejams.","logCleared":"Žurnāls notīrīts.","loudThresholdLabel":"Brīdinājuma slieksnis","loudWarningLabel":"Brīdināt par lielu skaļumu","minutesUnit":"min.","muteLabel":"Izslēgt atskaņotāja skaņu","noPlayerForReset":"Video atskaņotājs nav atrasts.","noSavedChannels":"Saglabātu kanālu iestatījumu vēl nav.","notificationApplied":"Lietotā kvalitāte: {q}.","notificationDurationLabel":"Paziņojuma ilgums","notificationFailed":"Neizdevās lietot {q}; nav atrastas atskaņotāja vadīklas vai šī kvalitāte.","notificationHistoryEmpty":"Paziņojumu vēl nav.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Paziņojumu vēsture","notificationIconLabel":"Rādīt paziņojuma ikonu","notificationOpacityLabel":"Paziņojuma necaurredzamība","notificationSizeLabel":"Paziņojuma teksta lielums","notificationVolumeLabel":"Skaļums atjaunots","notificationsLabel":"Kvalitātes paziņojumi","openAnimationLabel":"Atvēršanas animācija","openReleases":"Atvērt versiju sarakstu","panelStyleKick":"Kick","panelStyleLabel":"Paneļa stils","panelStyleMinimal":"Minimālistisks","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Atskaņošanas ātrums","playerFrozenNotice":"Šķiet, ka atskaņotājs ir sastindzis. Mēģiniet pārlādēt straumi.","preferredVolumeLabel":"Vēlamais skaļums","presetApplied":"Pielietots: {name}","presetsLabel":"Ātrie iestatījumi","previewNotification":"Paziņojuma priekšskatījums","qualityAuto":"Automātiski (pēdējā manuāli izvēlētā kvalitāte)","qualityAvailable":"Status","qualityCheckLabel":"Tiešraides kvalitāte","qualityFallbackLabel":"Ja nav pieejama","qualityLiveLabel":"Tiešraides kvalitāte","qualityUnavailable":"Status","qualityVodLabel":"Ieraksta kvalitāte (VOD)","quickActionsLabel":"Atskaņošana","quietFullscreenLabel":"Klusais režīms pilnekrānā","recoveryLabel":"Mēģināt atjaunot iestrēgušu atskaņošanu","refreshDiagnostics":"Diagnostika atjaunināta.","removeChannelSettings":"Noņemt","reportIssue":"Ziņot par problēmu","resetNotificationPosition":"Atiestatīt paziņojuma pozīciju","resetPlayerLabel":"Atkārtoti lietot atskaņotāja iestatījumus","resetQuality":"Atkārtoti lietot atskaņotāja iestatījumus","resetSection":"Atiestatīt sadaļu","resetSettings":"Atiestatīt","restoreReset":"Atiestatīt","restoreVolume":"Automātiski lietot saglabāto skaļumu","rewardClaimed":"Balva saņemta.","rewardNone":"Pašlaik nav balvu, ko saņemt.","rewardsTitle":"Balvas","safeModeHelp":"Atverot atskaņotāju, tiek lietota saglabātā kvalitāte. Automātiskais režīms izmanto pēdējo Kick izvēli.","safeModeLabel":"Kompakts izkārtojums","saveChannelButton":"Saglabāt šo kanālu","savedChannelsLabel":"Saglabātie kanāli","secondsUnit":"s","sectionAbout":"Par paplašinājumu","sectionAppearance":"Izskats","sectionData":"Dati un informācija","sectionDiagnostics":"Atskaņotāja diagnostika","sectionHotkey":"Izvēlnes īsinājumtaustiņš","sectionMotion":"Animācijas","sectionNotifications":"Paziņojumi","sectionPlayback":"Atskaņošana","sectionShortcuts":"Īsinājumtaustiņi","sectionSounds":"Skaņas","sectionTools":"Rīki","settingsImportError":"Iestatījumus neizdevās importēt. Pārbaudiet failu.","settingsImportPrompt":"Importēt šos iestatījumus un aizstāt pašreizējos?","settingsImported":"Iestatījumi importēti.","settingsReset":"Atiestatīt","settingsResetPrompt":"Atiestatīt visus Kick Stream Tweaks iestatījumus?","clearSearch":"Notīrīt meklēšanu","settingsSearch":"Meklēt iestatījumos…","shortcutChat":"Pārslēgt tērzēšanu","shortcutFocus":"Pilnekrāna skats","shortcutNotifications":"Quality notifications","shortcutQuality":"Tiešraides kvalitāte","shortcutSidebar":"Pārslēgt kreiso izvēlni","shortcutVolume":"Vēlamais skaļums","silentHelp":"Izslēdz straumes skaņu, neizslēdzot atskaņotāju, tāpēc tā turpinās, mainot cilni. Var iestatīt katram kanālam.","silentLabel":"Atskaņot bez skaņas (turpinās fonā)","silentTag":"Bez skaņas","silentUnavailable":"Atskaņošana bez skaņas šim atskaņotājam nav pieejama.","situationBandwidth":"Ja nav pieejama","situationQuality":"Vēlamā kvalitāte","situationQuiet":"Izslēgt atskaņotāja skaņu","situationVod":"Ieraksts (VOD)","sleepCancelLabel":"Atcelt taimeri","sleepClock12":"AM/PM","sleepClock24":"24 stundu formāts","sleepEndsAt":"Beigsies plkst.","sleepExpired":"Miega taimeris apturēja atskaņošanu.","sleepHoursLabel":"Stundas","sleepMinutesLabel":"Minūtes","sleepStartLabel":"Sākt taimeri","sleepStarted":"Atskaņošana tiks apturēta pēc {minutes} min.","sleepTimerLabel":"Miega taimeris","soundConfigureLabel":"Skaņas notikumu iestatījumi","soundEffectsLabel":"Skaņas efekti","soundEventVolumeLabel":"Notikuma skaļums","soundMenuLabel":"Paneļa atvēršana un aizvēršana","soundModalHint":"Katrs slēdzis kontrolē tikai savu notikumu. Jābūt ieslēgtam arī galvenajam skaņu slēdzim.","soundPreviewButton":"Priekšskatījums","soundQualityFailure":"Kvalitāti neizdevās lietot","soundQualitySuccess":"Kvalitāte lietota","soundSettingsLabel":"Iestatījumu maiņa","soundVolumeLabel":"Skaņas efektu skaļums","soundVolumeRestored":"Skaļums atjaunots","speedFast":"Ātri","speedNormal":"Parasti","speedSlow":"Lēni","statusLabel":"Statuss","textScaleLabel":"Kompakts izkārtojums","textScaleLarge":"Kompakts izkārtojums","textScaleSmall":"Kompakts izkārtojums","textScaleXLarge":"Kompakts izkārtojums","themeDark":"Tumšs","themeLabel":"Motīvs","themeLight":"Gaišs","titleQuality":"Kvalitāte","titleVolume":"Skaļums","undoChange":"Atiestatīt","versionLabel":"Versija","widgetAutoHideLabel":"Rādīt tikai tad, kad ir balva","widgetDesignLabel":"Pogas stils","widgetDragHint":"Velciet, lai pārvietotu · noklikšķiniet, lai saņemtu","widgetIconBolt":"Zibens","widgetIconCoin":"Monēta","widgetIconCrown":"Kronis","widgetIconCustom":"Jūsu ikona","widgetIconGift":"Dāvana","widgetIconLabel":"Ikona","widgetIconStar":"Zvaigzne","widgetImageError":"Šo failu nevarēja izmantot. Izvēlieties PNG, JPG, WebP, GIF vai SVG attēlu līdz 2 MB.","widgetImageFill":"Aizpildīt visu pogu ar attēlu","widgetImageSaved":"Pielāgotā ikona saglabāta.","widgetImageTip":"Vislabāk izskatās kvadrātveida attēli ar caurspīdīgu fonu. Attēls paliek tikai jūsu pārlūkā.","widgetOpacityLabel":"Pogas caurspīdīgums","widgetRemoveCustom":"Noņemt jūsu ikonu","widgetResetPos":"Atiestatīt pogas pozīciju","widgetSizeLabel":"Pogas izmērs","widgetStyleFlat":"Plakans","widgetStyleGlass":"Stikls","widgetStyleOrb":"Lode","widgetStylePill":"Tablete","widgetUpload":"Augšupielādēt savu ikonu"},"mk":{"accentColorLabel":"Акцентна боја","actionHotkeysLabel":"Кратенка за менито","animFade":"Избледување","animGlow":"Сјај","animLift":"Подигнување","animNone":"Нема","animPop":"Скок","animScale":"Скалирање","animSlide":"Лизгање","animationFull":"Темна","animationLabel":"Компактен распоред","animationOff":"Светла","animationPreviewLabel":"Преглед","animationReduced":"Компактен распоред","animationSpeedLabel":"Брзина на анимација","autoClaimHelp":"Го отвора прозорецот со награди, ги зема достапните и го затвора. Исклучено по подразбирање.","autoClaimLabel":"Автоматско земање награди","autoQualityLabel":"Автоматски примени зачуван квалитет","autoVolumeLabel":"Автоматски примени зачувана гласност","bindShortcut":"Кликнете за промена","blurLabel":"Замаглување на заднината на менито","centerPanel":"Ресетирај позиција на известување","channelBackupExport":"Направи резервна копија на сите канали","channelBackupImport":"Врати резервна копија","channelCurrent":"Тековно","channelDoneLabel":"Готово","channelEditLabel":"Уреди","channelExcludedStatus":"Автоматизацијата е исклучена","channelExport":"Извези","channelExported":"Поставките за каналот се извезени.","channelFavoritesOnly":"Само закачени","channelGroupAll":"Сите групи","channelGroupLabel":"Група","channelGroupPlaceholder":"Име на групата","channelHowTitle":"Како работат зачуваните канали","channelImport":"Увези профил","channelImportError":"Не може да се увезе профилот на каналот.","channelImportSuccess":"Профилот на каналот е увезен.","channelMuted":"без звук","channelNoteLabel":"Забелешка","channelNotePlaceholder":"Додај белешка…","channelNudge":"Сакате посебни поставки само за овој канал?","channelOpenStreamHint":"Отворете пренос за да ги зачувате поставките на неговиот канал.","channelPin":"Закачи","channelPinned":"Закачено","channelProfileSummary":"Запомни ги поставките за каналот","channelQualitySummary":"Квалитет: во живо {live} · VOD {vod}","channelRemoveConfirm":"Да се отстранат поставките за {name}?","channelSavedToast":"Поставките за {name} се зачувани.","channelSearchPlaceholder":"Пребарај зачувани канали…","channelSortName":"Име","channelSortRecent":"Неодамна изменети","channelSortUsed":"Неодамна користени","channelSoundOn":"звукот е вклучен","channelSpeedSummary":"Брзина: {speed}×","channelStep1":"Отворете го преносот на каналот.","channelStep2":"Притиснете „Зачувај го овој канал“. Тековниот квалитет, јачина, брзина и поставки за звук се зачувуваат за него.","channelStep3":"Дотерајте ги подолу. Се применуваат автоматски секој пат кога ќе го отворите каналот.","channelUnpin":"Откачи","channelUseSaved":"Примени ги зачуваните поставки на овој канал","channelVolumeSummary":"Јачина: {volume}% · {mute}","claimDelayLabel":"Почекај пред земање","claimIntervalLabel":"Проверувај на секои","claimModeInterval":"Според распоред","claimModeLabel":"Земање награди","claimModeNotify":"Веднаш штом Kick ќе прикаже известување за награда","claimNowLabel":"Земи сега","claimWidgetHelp":"Прикажува мало копче што можете да го повлечете каде било на преносот. Кликнете за да ја земете наградата со еден клик. Положбата се памети.","claimWidgetLabel":"Копче за брзо земање на страницата","clearLog":"Исчисти дневник","clearNotificationHistory":"Ресетирај","collapseSidebarLabel":"Собери го левото мени","compactLabel":"Компактен распоред","confirmNo":"Откажи","confirmYes":"Потврди","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Дијагностиката е освежена.","contrastLabel":"Тема","copyDiagnostics":"Извези","currentChannelLabel":"Тековно","diagAvailableQualities":"Откриени квалитети","diagCurrentQuality":"Тековен квалитет","diagUnknown":"Не е откриено","diagVideoResolution":"Резолуција на видеото","diagnosticsCopied":"Поставките се увезени.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Дијагностиката е освежена.","doNotDisturbLabel":"Не вознемирувај","dragPanelHint":"Повлечете ја таблата за заглавието; нејзината положба ќе се зачува.","excludeChannelLabel":"Прескокни автоматизација за каналот","exportSettings":"Извези","fallbackAuto":"Префрли на автоматски","fallbackLower":"Користи најблизок понизок квалитет","focusUnavailable":"Цел екран не е достапен за овој плеер.","focusViewLabel":"Цел екран","footerClose":"Затвори","footerHint":"Притиснете {key} за да го отворите или затворите менито","freezeAlertLabel":"Предупреди кога плеерот ќе замрзне","freezeRecovered":"Репродукцијата продолжи.","freezeSoundLabel":"Пушти алармен звук","freezeThresholdLabel":"Време за откривање замрзнување","groupFeedback":"Известувања","groupInterface":"Интерфејс","groupPlayer":"Плеер","groupSystem":"Систем","helpAccentColor":"Изберете сопствена акцентна боја.","helpAutoQuality":"Го применува зачуваниот квалитет кога ќе се отвори плеерот. Автоматскиот режим го користи последниот избор во Kick.","helpAutoVolume":"Ја враќа зачуваната гласност и исклучениот звук при стартување или повторно поврзување.","helpBlur":"Поставете заматување од 0 до 12 px. Повлечете го лизгачот или користете го тркалцето на глувчето додека курсорот е над него.","helpButton":"Помош","helpChannelExclude":"Ги запира автоматските промени на квалитетот, звукот и доцнењето за каналот. Рачните контроли остануваат.","helpChannelSettings":"Кога е вклучено, квалитетот, звукот и брзината за каналот се зачувуваат одделно. Менувајте ги во плеерот.","helpCompact":"Ги намалува растојанијата и висината на контролите.","helpFallback":"Изберете што да се направи ако преносот го нема посакуваниот квалитет.","helpHotkey":"Изберете копче или комбинација со Ctrl, Alt, Shift или Meta. Escape откажува.","helpLanguage":"Го менува јазикот на панелот.","helpLiveQuality":"Посакуван квалитет за преноси во живо. Автоматскиот режим го памети последниот избор.","helpNotificationDuration":"Изберете колку долго да се прикажуваат известувањата.","helpNotificationSize":"Прилагодете ја големината на текстот за квалитет.","helpNotifications":"Прикажувајте или скривајте известувања за резултатот од изборот на квалитет. Повлечете известување за да го преместите; положбата ќе се зачува.","helpPanelStyle":"Изберете изглед на панелот.","helpSleepTimer":"Започнува одбројување и го паузира тековното видео кога ќе заврши. Затворањето на менито не го откажува.","helpSoundVolume":"Прилагодете ја јачината. Копчињата пуштаат пример.","helpSounds":"Ги вклучува или исклучува сите звуци на додатокот. Изберете поединечни настани во поставките за звук.","helpTheme":"Го менува изгледот на панелот.","helpVodQuality":"Посакуван квалитет за снимки; независен од преносите во живо.","helpVolume":"Гласноста е од 0 до 100%. Повлечете го лизгачот или користете го тркалцето на глувчето додека курсорот е над него.","hideChatLabel":"Сокриј го четот","highVolumeWarning":"Јачината на звукот е над {threshold}%.","hotkeyCancel":"Притиснете Escape за откажување","hotkeyWaiting":"Притиснете кое било копче…","hoverAnimationLabel":"Ефект при посочување","iconAnimationsLabel":"Анимација на иконите","importSettings":"Увези","indicatorBreathe":"Нежно дишење","indicatorGlow":"Сјај","indicatorOff":"Исклучено","indicatorPulse":"Пулсирање","indicatorTitle":"Индикатор","languageLabel":"Јазик","lastResultLabel":"Последен резултат","layoutTitle":"Распоред на страницата","layoutUnavailable":"Не е достапно на оваа страница.","logCleared":"Дневникот е исчистен.","loudThresholdLabel":"Праг на предупредување","loudWarningLabel":"Предупреди за висока јачина","minutesUnit":"мин","muteLabel":"Исклучи звук","noPlayerForReset":"Не е пронајден видео плеер.","noSavedChannels":"Сè уште нема зачувани поставки за канали.","notificationApplied":"Применет квалитет: {q}.","notificationDurationLabel":"Времетраење на известувањето","notificationFailed":"Не може да се примени {q}; не се пронајдени контролите или таа опција за квалитет.","notificationHistoryEmpty":"Сè уште нема известувања.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Историја на известувања","notificationIconLabel":"Прикажи икона за известување","notificationOpacityLabel":"Непроѕирност на известувањето","notificationSizeLabel":"Големина на текстот на известувањата","notificationVolumeLabel":"Јачината е обновена","notificationsLabel":"Известувања за квалитет","openAnimationLabel":"Анимација при отворање","openReleases":"Отвори список на верзии","panelStyleKick":"Kick","panelStyleLabel":"Стил на панелот","panelStyleMinimal":"Минималистички","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Брзина на репродукција","playerFrozenNotice":"Плеерот изгледа замрзнат. Обидете се да го освежите преносот.","preferredVolumeLabel":"Посакувана гласност","presetApplied":"Применет профил: {name}","presetsLabel":"Брзи профили","previewNotification":"Преглед на известување","qualityAuto":"Автоматски (последен рачен избор)","qualityAvailable":"Status","qualityCheckLabel":"Квалитет на преносот во живо","qualityFallbackLabel":"Ако не е достапен","qualityLiveLabel":"Квалитет на преносот во живо","qualityUnavailable":"Status","qualityVodLabel":"Квалитет на снимката (VOD)","quickActionsLabel":"Репродукција","quietFullscreenLabel":"Тивок режим на цел екран","recoveryLabel":"Обиди се да продолжиш заглавена репродукција","refreshDiagnostics":"Дијагностиката е освежена.","removeChannelSettings":"Отстрани","reportIssue":"Пријави проблем","resetNotificationPosition":"Ресетирај позиција на известување","resetPlayerLabel":"Повторно примени ги поставките","resetQuality":"Повторно примени ги поставките","resetSection":"Ресетирај дел","resetSettings":"Ресетирај","restoreReset":"Ресетирај","restoreVolume":"Автоматски примени зачувана гласност","rewardClaimed":"Наградата е земена.","rewardNone":"Моментално нема награди за земање.","rewardsTitle":"Награди","safeModeHelp":"Го применува зачуваниот квалитет кога ќе се отвори плеерот. Автоматскиот режим го користи последниот избор во Kick.","safeModeLabel":"Компактен распоред","saveChannelButton":"Зачувај го овој канал","savedChannelsLabel":"Зачувани канали","secondsUnit":"с","sectionAbout":"За наставката","sectionAppearance":"Изглед","sectionData":"Податоци и информации","sectionDiagnostics":"Дијагностика на плеерот","sectionHotkey":"Кратенка за менито","sectionMotion":"Анимации","sectionNotifications":"Известувања","sectionPlayback":"Репродукција","sectionShortcuts":"Кратенки","sectionSounds":"Звуци","sectionTools":"Алатки","settingsImportError":"Увозот не успеа. Проверете ја датотеката.","settingsImportPrompt":"Да се увезат овие поставки и да се заменат тековните?","settingsImported":"Поставките се увезени.","settingsReset":"Ресетирај","settingsResetPrompt":"Да се ресетираат сите поставки на Kick Stream Tweaks?","clearSearch":"Исчисти пребарување","settingsSearch":"Пребарај поставки…","shortcutChat":"Вклучи/исклучи чет","shortcutFocus":"Цел екран","shortcutNotifications":"Quality notifications","shortcutQuality":"Квалитет на преносот во живо","shortcutSidebar":"Вклучи/исклучи лево мени","shortcutVolume":"Посакувана гласност","silentHelp":"Го занемува преносот без да го занеми плеерот, па продолжува да игра при промена на картичка. Може да се постави по канал.","silentLabel":"Репродукција без звук (продолжува во позадина)","silentTag":"Без звук","silentUnavailable":"Тивката репродукција не е достапна за овој плеер.","situationBandwidth":"Ако не е достапен","situationQuality":"Посакуван квалитет","situationQuiet":"Исклучи звук","situationVod":"Снимка (VOD)","sleepCancelLabel":"Откажи тајмер","sleepClock12":"AM/PM","sleepClock24":"24-часовен формат","sleepEndsAt":"Завршува во","sleepExpired":"Тајмерот ја запре репродукцијата.","sleepHoursLabel":"Часови","sleepMinutesLabel":"Минути","sleepStartLabel":"Стартувај тајмер","sleepStarted":"Репродукцијата ќе запре по {minutes} мин.","sleepTimerLabel":"Тајмер за спиење","soundConfigureLabel":"Поставки за звучни настани","soundEffectsLabel":"Звучни ефекти","soundEventVolumeLabel":"Јачина за настан","soundMenuLabel":"Отворање и затворање на панелот","soundModalHint":"Секој прекинувач го контролира само својот настан. Мора да биде вклучен и главниот прекинувач за звуци.","soundPreviewButton":"Преглед","soundQualityFailure":"Квалитетот не е применет","soundQualitySuccess":"Квалитетот е применет","soundSettingsLabel":"Промена на поставка","soundVolumeLabel":"Јачина на звучните ефекти","soundVolumeRestored":"Гласноста е обновена","speedFast":"Брзо","speedNormal":"Нормално","speedSlow":"Бавно","statusLabel":"Статус","textScaleLabel":"Компактен распоред","textScaleLarge":"Компактен распоред","textScaleSmall":"Компактен распоред","textScaleXLarge":"Компактен распоред","themeDark":"Темна","themeLabel":"Тема","themeLight":"Светла","titleQuality":"Квалитет","titleVolume":"Јачина","undoChange":"Ресетирај","versionLabel":"Верзија","widgetAutoHideLabel":"Прикажи само кога има награда","widgetDesignLabel":"Стил на копчето","widgetDragHint":"Повлечете за преместување · кликнете за земање","widgetIconBolt":"Молња","widgetIconCoin":"Монета","widgetIconCrown":"Круна","widgetIconCustom":"Ваша икона","widgetIconGift":"Подарок","widgetIconLabel":"Икона","widgetIconStar":"Ѕвезда","widgetImageError":"Оваа датотека не може да се користи. Изберете слика PNG, JPG, WebP, GIF или SVG до 2 MB.","widgetImageFill":"Исполни го целото копче со сликата","widgetImageSaved":"Сопствената икона е зачувана.","widgetImageTip":"Најдобро изгледаат квадратни слики со проѕирна позадина. Сликата останува само во вашиот прелистувач.","widgetOpacityLabel":"Проѕирност на копчето","widgetRemoveCustom":"Отстрани ја вашата икона","widgetResetPos":"Ресетирај ја положбата на копчето","widgetSizeLabel":"Големина на копчето","widgetStyleFlat":"Рамен","widgetStyleGlass":"Стакло","widgetStyleOrb":"Топка","widgetStylePill":"Таблета","widgetUpload":"Качи своја икона"},"mn":{"accentColorLabel":"Тодруулах өнгө","actionHotkeysLabel":"Цэсний товчлол","animFade":"Бүдгэрэх","animGlow":"Гэрэлтэх","animLift":"Өргөх","animNone":"Үгүй","animPop":"Үсрэлт","animScale":"Хэмжээ өөрчлөх","animSlide":"Гулсах","animationFull":"Бараан","animationLabel":"Авсаархан байрлал","animationOff":"Цайвар","animationPreviewLabel":"Урьдчилан харах","animationReduced":"Авсаархан байрлал","animationSpeedLabel":"Хөдөлгөөний хурд","autoClaimHelp":"Шагналын цонхыг нээж, авах боломжтойг нь аваад дахин хаана. Анхдагчаар унтраалттай.","autoClaimLabel":"Шагналыг автоматаар авах","autoQualityLabel":"Хадгалсан чанарыг автоматаар тохируулах","autoVolumeLabel":"Хадгалсан дууны түвшнийг автоматаар тохируулах","bindShortcut":"Өөрчлөхийн тулд дарна уу","blurLabel":"Цэсний дэвсгэр бүдгэрүүлэх","centerPanel":"Мэдэгдлийн байрлалыг дахин тохируулах","channelBackupExport":"Бүх сувгийг нөөцлөх","channelBackupImport":"Нөөцөөс сэргээх","channelCurrent":"Одоогийн","channelDoneLabel":"Болсон","channelEditLabel":"Засах","channelExcludedStatus":"Автомат үйлдэл хасагдсан","channelExport":"Экспортлох","channelExported":"Сувгийн тохиргоог экспортоллоо.","channelFavoritesOnly":"Зөвхөн бэхэлсэн","channelGroupAll":"Бүх бүлэг","channelGroupLabel":"Бүлэг","channelGroupPlaceholder":"Бүлгийн нэр","channelHowTitle":"Хадгалсан сувгууд хэрхэн ажилладаг","channelImport":"Профайл импортлох","channelImportError":"Сувгийн профайлыг импортлож чадсангүй.","channelImportSuccess":"Сувгийн профайлыг импортоллоо.","channelMuted":"дуугүй","channelNoteLabel":"Тэмдэглэл","channelNotePlaceholder":"Тэмдэглэл нэмэх…","channelNudge":"Зөвхөн энэ сувагт тусдаа тохиргоо хэрэгтэй юу?","channelOpenStreamHint":"Сувгийн тохиргоог хадгалахын тулд дамжуулалтыг нээнэ үү.","channelPin":"Бэхлэх","channelPinned":"Бэхэлсэн","channelProfileSummary":"Энэ сувгийн тохиргоог хадгалах","channelQualitySummary":"Чанар: шууд {live} · VOD {vod}","channelRemoveConfirm":"{name}-н хадгалсан тохиргоог устгах уу?","channelSavedToast":"{name}-ийн тохиргоо хадгалагдлаа.","channelSearchPlaceholder":"Хадгалсан сувгаас хайх…","channelSortName":"Нэр","channelSortRecent":"Сүүлд өөрчилсөн","channelSortUsed":"Сүүлд ашигласан","channelSoundOn":"дуу асаалттай","channelSpeedSummary":"Хурд: {speed}×","channelStep1":"Сувгийн шууд дамжуулалтыг нээнэ үү.","channelStep2":"“Энэ сувгийг хадгалах” товчийг дарна уу. Одоогийн чанар, дууны хэмжээ, хурд, дууны тохиргоо түүнд зориулан хадгалагдана.","channelStep3":"Доор нарийвчлан тохируулна уу. Энэ сувгийг нээх бүрт автоматаар хэрэгжинэ.","channelUnpin":"Бэхэлгээг авах","channelUseSaved":"Энэ суваг дээр хадгалсан тохиргоог ашиглах","channelVolumeSummary":"Дуу: {volume}% · {mute}","claimDelayLabel":"Авахын өмнө хүлээх","claimIntervalLabel":"Шалгах давтамж","claimModeInterval":"Хуваарийн дагуу","claimModeLabel":"Шагнал авах","claimModeNotify":"Kick шагналын мэдэгдэл харуулмагц","claimNowLabel":"Одоо авах","claimWidgetHelp":"Дамжуулалтын аль ч хэсэгт чирж болох жижиг товчийг харуулна. Нэг товшилтоор шагналаа авахын тулд дарна уу. Байрлал хадгалагдана.","claimWidgetLabel":"Хуудсан дээрх шуурхай авах товч","clearLog":"Бүртгэл цэвэрлэх","clearNotificationHistory":"Дахин тохируулах","collapseSidebarLabel":"Зүүн цэсийг хураах","compactLabel":"Авсаархан байрлал","confirmNo":"Цуцлах","confirmYes":"Баталгаажуулах","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Оношилгоог шинэчиллээ.","contrastLabel":"Загвар","copyDiagnostics":"Экспортлох","currentChannelLabel":"Одоогийн","diagAvailableQualities":"Илэрсэн чанарууд","diagCurrentQuality":"Одоогийн чанар","diagUnknown":"Илрээгүй","diagVideoResolution":"Видеоны нягтаршил","diagnosticsCopied":"Тохиргоо импортлогдлоо.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Оношилгоог шинэчиллээ.","doNotDisturbLabel":"Бүү саад бол","dragPanelHint":"Самбарыг гарчгаас нь чирнэ үү; байрлал хадгалагдана.","excludeChannelLabel":"Энэ сувагт автомат үйлдэл хийхгүй","exportSettings":"Экспортлох","fallbackAuto":"Автомат руу шилжих","fallbackLower":"Хамгийн ойр бага чанарыг сонгох","focusUnavailable":"Энэ тоглуулагч бүтэн дэлгэц дэмжихгүй.","focusViewLabel":"Бүтэн дэлгэц","footerClose":"Хаах","footerHint":"Цэсийг нээх эсвэл хаахын тулд {key} дарна уу","freezeAlertLabel":"Тоглуулагч гацахад сануулах","freezeRecovered":"Тоглуулалт сэргэлээ.","freezeSoundLabel":"Дохиоллын дуу тоглуулах","freezeThresholdLabel":"Гацсаныг илрүүлэх хугацаа","groupFeedback":"Сэрэмжлүүлэг","groupInterface":"Интерфэйс","groupPlayer":"Тоглуулагч","groupSystem":"Систем","helpAccentColor":"Өөрийн тодруулах өнгийг сонгоно.","helpAutoQuality":"Тоглуулагч нээгдэхэд хадгалсан чанарыг тохируулна. Автомат горим Kick дээрх сүүлийн сонголтыг ашиглана.","helpAutoVolume":"Тоглуулагч эхлэх эсвэл дахин холбогдоход хадгалсан дуу болон дуугүй төлөвийг сэргээнэ.","helpBlur":"Дэвсгэр бүдгэрүүлэлтийг 0–12 px тохируулна. Гулсуурыг чирэх эсвэл курсорыг дээр нь байрлуулж хулганын хүрдийг эргүүлнэ.","helpButton":"Тусламж","helpChannelExclude":"Энэ сувгийн чанар, дуу болон саатлыг автоматаар өөрчлөхийг зогсооно. Гараар удирдах боломж хэвээр.","helpChannelSettings":"Асаалттай үед сувгийн чанар, дуу, дуу хаалт, хурд тусдаа хадгалагдана. Тоглуулагч дээр өөрчилнө.","helpCompact":"Зай болон удирдлагын өндрийг багасгана.","helpFallback":"Дамжуулалтад хүссэн чанар байхгүй үед хийх үйлдлийг сонгоно уу.","helpHotkey":"Товч эсвэл Ctrl/Alt/Shift/Meta хослол сонгоно уу. Escape цуцална.","helpLanguage":"Самбарын хэлийг өөрчилнө.","helpLiveQuality":"Шууд дамжуулалтын хүссэн чанар. Автомат горим тоглуулагчийн сүүлийн сонголтыг санана.","helpNotificationDuration":"Мэдэгдэл хэр удаан харагдахыг сонгоно.","helpNotificationSize":"Чанарын мэдэгдлийн текстийн хэмжээг тохируулна.","helpNotifications":"Чанарын тохируулгын үр дүнгийн мэдэгдлийг харуулах эсвэл нуух. Мэдэгдлийг чирж зөөхөд байрлал нь хадгалагдана.","helpPanelStyle":"Самбарын харагдах байдлыг сонгоно.","helpSleepTimer":"Цаг тоолж эхлээд дуусахад одоогийн видеог түр зогсооно. Цэсийг хаах нь цаглагчийг цуцлахгүй.","helpSoundVolume":"Дууны түвшинг тохируулна. Товчнууд жишээ дуу тоглуулна.","helpSounds":"Өргөтгөлийн бүх дууг асаах эсвэл унтраана. Дууны тохиргооноос үйл явдлыг тус бүрээр сонгоно.","helpTheme":"Самбарын харагдах байдлыг өөрчилнө.","helpVodQuality":"Бичлэгийн хүссэн чанар; шууд дамжуулалтаас тусдаа.","helpVolume":"Дууны түвшин 0–100%. Гулсуурыг чирэх эсвэл курсорыг дээр нь байрлуулж хулганын хүрдийг эргүүлнэ.","hideChatLabel":"Чатыг нуух","highVolumeWarning":"Тоглуулагчийн дуу {threshold}%-иас их байна.","hotkeyCancel":"Цуцлахын тулд Escape дарна уу","hotkeyWaiting":"Дурын товч дарна уу…","hoverAnimationLabel":"Заах эффект","iconAnimationsLabel":"Дүрсний хөдөлгөөн","importSettings":"Импортлох","indicatorBreathe":"Зөөлөн амьсгал","indicatorGlow":"Гэрэлтэх","indicatorOff":"Унтраах","indicatorPulse":"Цохилох","indicatorTitle":"Заагч","languageLabel":"Хэл","lastResultLabel":"Сүүлийн үр дүн","layoutTitle":"Хуудасны байршил","layoutUnavailable":"Энэ хуудсанд боломжгүй.","logCleared":"Бүртгэл цэвэрлэгдлээ.","loudThresholdLabel":"Анхааруулах босго","loudWarningLabel":"Өндөр дууг анхааруулах","minutesUnit":"мин","muteLabel":"Дууг хаах","noPlayerForReset":"Видео тоглуулагч олдсонгүй.","noSavedChannels":"Хадгалсан сувгийн тохиргоо алга.","notificationApplied":"Чанар тохирууллаа: {q}.","notificationDurationLabel":"Мэдэгдлийн үргэлжлэх хугацаа","notificationFailed":"{q} чанарыг тохируулж чадсангүй; удирдлага эсвэл сонголт олдсонгүй.","notificationHistoryEmpty":"Мэдэгдэл алга байна.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Мэдэгдлийн түүх","notificationIconLabel":"Мэдэгдлийн дүрс харуулах","notificationOpacityLabel":"Мэдэгдлийн тунгалаг байдал","notificationSizeLabel":"Мэдэгдлийн текстийн хэмжээ","notificationVolumeLabel":"Дууны түвшин сэргээгдсэн","notificationsLabel":"Чанарын мэдэгдэл","openAnimationLabel":"Нээх хөдөлгөөн","openReleases":"Хувилбарын жагсаалт нээх","panelStyleKick":"Kick","panelStyleLabel":"Самбарын загвар","panelStyleMinimal":"Минимал","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Тоглуулах хурд","playerFrozenNotice":"Тоглуулагч гацсан бололтой. Дамжуулалтыг дахин ачаална уу.","preferredVolumeLabel":"Хүссэн дууны түвшин","presetApplied":"Загвар хэрэглэгдлээ: {name}","presetsLabel":"Хурдан загвар","previewNotification":"Мэдэгдлийн урьдчилан харах","qualityAuto":"Автомат (гараар хамгийн сүүлд сонгосон)","qualityAvailable":"Status","qualityCheckLabel":"Шууд дамжуулалтын чанар","qualityFallbackLabel":"Боломжгүй бол","qualityLiveLabel":"Шууд дамжуулалтын чанар","qualityUnavailable":"Status","qualityVodLabel":"Бичлэгийн чанар (VOD)","quickActionsLabel":"Тоглуулах","quietFullscreenLabel":"Дэлгэц дүүрэн үед чимээгүй","recoveryLabel":"Гацсан тоглуулалтыг сэргээхийг оролдох","refreshDiagnostics":"Оношилгоог шинэчиллээ.","removeChannelSettings":"Устгах","reportIssue":"Алдаа мэдээлэх","resetNotificationPosition":"Мэдэгдлийн байрлалыг дахин тохируулах","resetPlayerLabel":"Тоглуулагчийн тохиргоог дахин хэрэглэх","resetQuality":"Тоглуулагчийн тохиргоог дахин хэрэглэх","resetSection":"Хэсгийг дахин тохируулах","resetSettings":"Дахин тохируулах","restoreReset":"Дахин тохируулах","restoreVolume":"Хадгалсан дууны түвшнийг автоматаар тохируулах","rewardClaimed":"Шагнал авлаа.","rewardNone":"Одоогоор авах шагнал алга.","rewardsTitle":"Шагнал","safeModeHelp":"Тоглуулагч нээгдэхэд хадгалсан чанарыг тохируулна. Автомат горим Kick дээрх сүүлийн сонголтыг ашиглана.","safeModeLabel":"Авсаархан байрлал","saveChannelButton":"Энэ сувгийг хадгалах","savedChannelsLabel":"Хадгалсан сувгууд","secondsUnit":"сек","sectionAbout":"Өргөтгөлийн тухай","sectionAppearance":"Гадаад төрх","sectionData":"Өгөгдөл ба мэдээлэл","sectionDiagnostics":"Тоглуулагчийн оношилгоо","sectionHotkey":"Цэсний товчлол","sectionMotion":"Анимаци","sectionNotifications":"Мэдэгдэл","sectionPlayback":"Тоглуулах","sectionShortcuts":"Товчлол","sectionSounds":"Дуу","sectionTools":"Хэрэгсэл","settingsImportError":"Импорт амжилтгүй. Файлыг шалгана уу.","settingsImportPrompt":"Эдгээр тохиргоог импортолж одоогийн тохиргоог солих уу?","settingsImported":"Тохиргоо импортлогдлоо.","settingsReset":"Дахин тохируулах","settingsResetPrompt":"Kick Stream Tweaks-ийн бүх тохиргоог анхны болгох уу?","clearSearch":"Хайлтыг арилгах","settingsSearch":"Тохиргооноос хайх…","shortcutChat":"Чатыг солих","shortcutFocus":"Бүтэн дэлгэц","shortcutNotifications":"Quality notifications","shortcutQuality":"Шууд дамжуулалтын чанар","shortcutSidebar":"Зүүн цэсийг солих","shortcutVolume":"Хүссэн дууны түвшин","silentHelp":"Тоглуулагчийг дууг нь хаахгүйгээр дамжуулалтыг дуугүй болгодог тул таб солиход үргэлжилнэ. Суваг тус бүрээр тохируулж болно.","silentLabel":"Дуугүй тоглуулах (суурь дээр үргэлжилнэ)","silentTag":"Дуугүй","silentUnavailable":"Энэ тоглуулагчид дуугүй тоглуулалт боломжгүй.","situationBandwidth":"Боломжгүй бол","situationQuality":"Хүссэн чанар","situationQuiet":"Дууг хаах","situationVod":"Бичлэг (VOD)","sleepCancelLabel":"Цаглагч цуцлах","sleepClock12":"AM/PM","sleepClock24":"24 цагийн формат","sleepEndsAt":"Дуусах цаг","sleepExpired":"Унтах цаглагч тоглуулалтыг зогсоолоо.","sleepHoursLabel":"Цаг","sleepMinutesLabel":"Минут","sleepStartLabel":"Цаглагч эхлүүлэх","sleepStarted":"Тоглуулалт {minutes} минутын дараа түр зогсоно.","sleepTimerLabel":"Унтах цаг","soundConfigureLabel":"Дууны үйл явдлын тохиргоо","soundEffectsLabel":"Дууны эффект","soundEventVolumeLabel":"Үйл явдлын дуу","soundMenuLabel":"Самбар нээх, хаах","soundModalHint":"Сонголт бүр зөвхөн тухайн үйл явдлыг удирдана. Үндсэн дууны товч мөн асаалттай байх ёстой.","soundPreviewButton":"Сонсох","soundQualityFailure":"Чанар тохирсонгүй","soundQualitySuccess":"Чанар тохирлоо","soundSettingsLabel":"Тохиргоо өөрчлөх","soundVolumeLabel":"Дууны эффектийн түвшин","soundVolumeRestored":"Дууны түвшин сэргээгдлээ","speedFast":"Хурдан","speedNormal":"Хэвийн","speedSlow":"Удаан","statusLabel":"Төлөв","textScaleLabel":"Авсаархан байрлал","textScaleLarge":"Авсаархан байрлал","textScaleSmall":"Авсаархан байрлал","textScaleXLarge":"Авсаархан байрлал","themeDark":"Бараан","themeLabel":"Загвар","themeLight":"Цайвар","titleQuality":"Чанар","titleVolume":"Дууны хэмжээ","undoChange":"Дахин тохируулах","versionLabel":"Хувилбар","widgetAutoHideLabel":"Шагнал байгаа үед л харуулах","widgetDesignLabel":"Товчийн хэв маяг","widgetDragHint":"Зөөхийн тулд чирнэ · авахын тулд дарна","widgetIconBolt":"Аянга","widgetIconCoin":"Зоос","widgetIconCrown":"Титэм","widgetIconCustom":"Таны өөрийн дүрс","widgetIconGift":"Бэлэг","widgetIconLabel":"Дүрс","widgetIconStar":"Од","widgetImageError":"Энэ файлыг ашиглах боломжгүй. 2 МБ хүртэлх PNG, JPG, WebP, GIF эсвэл SVG зураг сонгоно уу.","widgetImageFill":"Товчийг бүхэлд нь зургаар дүүргэх","widgetImageSaved":"Өөрийн дүрс хадгалагдлаа.","widgetImageTip":"Тунгалаг дэвсгэртэй дөрвөлжин зураг хамгийн сайн харагдана. Зураг зөвхөн таны хөтөч дээр хадгалагдана.","widgetOpacityLabel":"Товчийн тунгалагшил","widgetRemoveCustom":"Таны дүрсийг устгах","widgetResetPos":"Товчийн байрлалыг дахин тохируулах","widgetSizeLabel":"Товчийн хэмжээ","widgetStyleFlat":"Хавтгай","widgetStyleGlass":"Шил","widgetStyleOrb":"Бөмбөлөг","widgetStylePill":"Шахмал","widgetUpload":"Өөрийн дүрсийг байршуулах"},"ms":{"accentColorLabel":"Warna aksen","actionHotkeysLabel":"Pintasan menu","animFade":"Pudar","animGlow":"Bercahaya","animLift":"Angkat","animNone":"Tiada","animPop":"Lantun","animScale":"Skala","animSlide":"Luncur","animationFull":"Gelap","animationLabel":"Susun atur padat","animationOff":"Cerah","animationPreviewLabel":"Pratonton","animationReduced":"Susun atur padat","animationSpeedLabel":"Kelajuan animasi","autoClaimHelp":"Membuka tetingkap ganjaran, menuntut yang tersedia dan menutupnya semula. Dimatikan secara lalai.","autoClaimLabel":"Tuntut ganjaran secara automatik","autoQualityLabel":"Gunakan kualiti tersimpan secara automatik","autoVolumeLabel":"Gunakan kelantangan tersimpan secara automatik","bindShortcut":"Klik untuk menukar","blurLabel":"Kaburkan latar belakang menu","centerPanel":"Tetapkan semula kedudukan pemberitahuan","channelBackupExport":"Sandarkan semua saluran","channelBackupImport":"Pulihkan sandaran","channelCurrent":"Semasa","channelDoneLabel":"Selesai","channelEditLabel":"Edit","channelExcludedStatus":"Automasi dikecualikan","channelExport":"Eksport","channelExported":"Tetapan saluran dieksport.","channelFavoritesOnly":"Dipinkan sahaja","channelGroupAll":"Semua kumpulan","channelGroupLabel":"Kumpulan","channelGroupPlaceholder":"Nama kumpulan","channelHowTitle":"Cara saluran tersimpan berfungsi","channelImport":"Import profil","channelImportError":"Tidak dapat mengimport profil saluran ini.","channelImportSuccess":"Profil saluran telah diimport.","channelMuted":"diredam","channelNoteLabel":"Nota","channelNotePlaceholder":"Tambah nota…","channelNudge":"Mahu tetapan berasingan hanya untuk saluran ini?","channelOpenStreamHint":"Buka siaran untuk menyimpan tetapan salurannya.","channelPin":"Pin","channelPinned":"Dipinkan","channelProfileSummary":"Ingat tetapan saluran ini","channelQualitySummary":"Kualiti: langsung {live} · VOD {vod}","channelRemoveConfirm":"Buang tetapan disimpan untuk {name}?","channelSavedToast":"Tetapan untuk {name} disimpan.","channelSearchPlaceholder":"Cari saluran disimpan…","channelSortName":"Nama","channelSortRecent":"Baru diubah","channelSortUsed":"Baru digunakan","channelSoundOn":"bunyi hidup","channelSpeedSummary":"Kelajuan: {speed}×","channelStep1":"Buka siaran saluran.","channelStep2":"Tekan “Simpan saluran ini”. Kualiti, kelantangan, kelajuan dan tetapan bunyi semasa disimpan untuknya.","channelStep3":"Laraskan di bawah. Ia digunakan secara automatik setiap kali anda membuka saluran itu.","channelUnpin":"Nyahpin","channelUseSaved":"Gunakan tetapan tersimpan pada saluran ini","channelVolumeSummary":"Kelantangan: {volume}% · {mute}","claimDelayLabel":"Tunggu sebelum menuntut","claimIntervalLabel":"Semak setiap","claimModeInterval":"Mengikut jadual","claimModeLabel":"Tuntut ganjaran","claimModeNotify":"Sebaik sahaja Kick memaparkan pemberitahuan ganjaran","claimNowLabel":"Tuntut sekarang","claimWidgetHelp":"Memaparkan butang kecil yang boleh diseret ke mana-mana pada siaran. Klik untuk menuntut ganjaran dengan satu klik. Kedudukannya diingati.","claimWidgetLabel":"Butang tuntut pantas pada halaman","clearLog":"Kosongkan log","clearNotificationHistory":"Tetapkan semula","collapseSidebarLabel":"Runtuhkan menu kiri","compactLabel":"Susun atur padat","confirmNo":"Batal","confirmYes":"Sahkan","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostik dikemas kini.","contrastLabel":"Tema","copyDiagnostics":"Eksport","currentChannelLabel":"Semasa","diagAvailableQualities":"Kualiti dikesan","diagCurrentQuality":"Kualiti semasa","diagUnknown":"Tidak dikesan","diagVideoResolution":"Resolusi video","diagnosticsCopied":"Tetapan diimport.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostik dikemas kini.","doNotDisturbLabel":"Jangan ganggu","dragPanelHint":"Seret panel pada pengepala; kedudukannya akan disimpan.","excludeChannelLabel":"Langkau automasi untuk saluran ini","exportSettings":"Eksport","fallbackAuto":"Tukar kepada Auto","fallbackLower":"Gunakan kualiti lebih rendah yang terdekat","focusUnavailable":"Skrin penuh tidak tersedia untuk pemain ini.","focusViewLabel":"Paparan skrin penuh","footerClose":"Tutup","footerHint":"Tekan {key} untuk membuka atau menutup menu","freezeAlertLabel":"Beri amaran apabila pemain beku","freezeRecovered":"Main semula disambung.","freezeSoundLabel":"Mainkan bunyi penggera","freezeThresholdLabel":"Masa pengesanan beku","groupFeedback":"Makluman","groupInterface":"Antara muka","groupPlayer":"Pemain","groupSystem":"Sistem","helpAccentColor":"Pilih warna aksen tersuai.","helpAutoQuality":"Gunakan kualiti tersimpan apabila pemain dibuka. Auto menggunakan pilihan terakhir di Kick.","helpAutoVolume":"Pulihkan kelantangan dan status bisu tersimpan apabila pemain bermula atau bersambung semula.","helpBlur":"Laraskan kabur dari 0 hingga 12 px. Seret peluncur atau gunakan roda tetikus apabila kursor berada di atasnya.","helpButton":"Bantuan","helpChannelExclude":"Menghentikan perubahan automatik kualiti, kelantangan dan latensi untuk saluran ini. Kawalan manual kekal berfungsi.","helpChannelSettings":"Apabila aktif, kualiti, kelantangan, senyap dan kelajuan saluran ini disimpan berasingan. Ubah dalam pemain.","helpCompact":"Mengurangkan jarak dan ketinggian kawalan.","helpFallback":"Pilih tindakan jika strim tiada kualiti pilihan anda.","helpHotkey":"Pilih kekunci atau gabungan Ctrl/Alt/Shift/Meta. Escape membatalkan.","helpLanguage":"Ubah bahasa panel ini.","helpLiveQuality":"Kualiti pilihan untuk strim langsung. Auto mengingati pilihan terakhir pemain.","helpNotificationDuration":"Pilih tempoh pemberitahuan dipaparkan.","helpNotificationSize":"Laraskan saiz teks pemberitahuan kualiti.","helpNotifications":"Tunjukkan atau sembunyikan pemberitahuan hasil kualiti. Seret pemberitahuan untuk mengalihkannya; kedudukannya akan disimpan.","helpPanelStyle":"Pilih rupa panel.","helpSleepTimer":"Memulakan kira detik dan menjeda video semasa apabila tamat. Menutup menu tidak membatalkan pemasa.","helpSoundVolume":"Laraskan kelantangan. Butang memainkan sampel.","helpSounds":"Hidupkan atau matikan semua bunyi sambungan. Pilih peristiwa tertentu dalam tetapan bunyi.","helpTheme":"Ubah rupa panel ini.","helpVodQuality":"Kualiti pilihan untuk rakaman; berasingan daripada strim langsung.","helpVolume":"Kelantangan ialah 0–100%. Seret peluncur atau gunakan roda tetikus apabila kursor berada di atasnya.","hideChatLabel":"Sembunyikan sembang","highVolumeWarning":"Kelantangan pemain melebihi {threshold}%.","hotkeyCancel":"Tekan Escape untuk membatalkan","hotkeyWaiting":"Tekan sebarang kekunci…","hoverAnimationLabel":"Kesan tuding","iconAnimationsLabel":"Animasi ikon","importSettings":"Import","indicatorBreathe":"Pernafasan lembut","indicatorGlow":"Bercahaya","indicatorOff":"Mati","indicatorPulse":"Denyutan","indicatorTitle":"Penunjuk","languageLabel":"Bahasa","lastResultLabel":"Keputusan terakhir","layoutTitle":"Susun atur halaman","layoutUnavailable":"Tidak tersedia pada halaman ini.","logCleared":"Log dikosongkan.","loudThresholdLabel":"Ambang amaran","loudWarningLabel":"Amaran bunyi kuat","minutesUnit":"min","muteLabel":"Senyapkan pemain","noPlayerForReset":"Pemain video tidak ditemui.","noSavedChannels":"Tiada tetapan saluran disimpan lagi.","notificationApplied":"Kualiti digunakan: {q}.","notificationDurationLabel":"Tempoh pemberitahuan","notificationFailed":"Tidak dapat menggunakan {q}; kawalan pemain atau pilihan kualiti tidak ditemui.","notificationHistoryEmpty":"Belum ada pemberitahuan.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Sejarah pemberitahuan","notificationIconLabel":"Tunjukkan ikon pemberitahuan","notificationOpacityLabel":"Kelegapan pemberitahuan","notificationSizeLabel":"Saiz teks pemberitahuan","notificationVolumeLabel":"Kelantangan dipulihkan","notificationsLabel":"Pemberitahuan kualiti","openAnimationLabel":"Animasi buka","openReleases":"Buka senarai versi","panelStyleKick":"Kick","panelStyleLabel":"Gaya panel","panelStyleMinimal":"Minimal","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Kelajuan main balik","playerFrozenNotice":"Pemain nampaknya beku. Cuba muat semula siaran.","preferredVolumeLabel":"Kelantangan pilihan","presetApplied":"Praset digunakan: {name}","presetsLabel":"Praset pantas","previewNotification":"Pratonton pemberitahuan","qualityAuto":"Auto (pilihan manual terakhir)","qualityAvailable":"Status","qualityCheckLabel":"Kualiti strim langsung","qualityFallbackLabel":"Jika tidak tersedia","qualityLiveLabel":"Kualiti strim langsung","qualityUnavailable":"Status","qualityVodLabel":"Kualiti rakaman (VOD)","quickActionsLabel":"Main balik","quietFullscreenLabel":"Mod senyap skrin penuh","recoveryLabel":"Cuba pulihkan main balik yang tersekat","refreshDiagnostics":"Diagnostik dikemas kini.","removeChannelSettings":"Buang","reportIssue":"Laporkan masalah","resetNotificationPosition":"Tetapkan semula kedudukan pemberitahuan","resetPlayerLabel":"Gunakan semula tetapan pemain","resetQuality":"Gunakan semula tetapan pemain","resetSection":"Tetapkan semula bahagian","resetSettings":"Tetapkan semula","restoreReset":"Tetapkan semula","restoreVolume":"Gunakan kelantangan tersimpan secara automatik","rewardClaimed":"Ganjaran dituntut.","rewardNone":"Tiada ganjaran untuk dituntut buat masa ini.","rewardsTitle":"Ganjaran","safeModeHelp":"Gunakan kualiti tersimpan apabila pemain dibuka. Auto menggunakan pilihan terakhir di Kick.","safeModeLabel":"Susun atur padat","saveChannelButton":"Simpan saluran ini","savedChannelsLabel":"Saluran disimpan","secondsUnit":"s","sectionAbout":"Tentang sambungan","sectionAppearance":"Penampilan","sectionData":"Data & maklumat","sectionDiagnostics":"Diagnostik pemain","sectionHotkey":"Pintasan menu","sectionMotion":"Animasi","sectionNotifications":"Pemberitahuan","sectionPlayback":"Main balik","sectionShortcuts":"Pintasan","sectionSounds":"Bunyi","sectionTools":"Alat","settingsImportError":"Tetapan gagal diimport. Semak fail.","settingsImportPrompt":"Import tetapan ini dan gantikan konfigurasi semasa?","settingsImported":"Tetapan diimport.","settingsReset":"Tetapkan semula","settingsResetPrompt":"Tetapkan semula semua tetapan Kick Stream Tweaks?","clearSearch":"Kosongkan carian","settingsSearch":"Cari tetapan…","shortcutChat":"Togol sembang","shortcutFocus":"Paparan skrin penuh","shortcutNotifications":"Quality notifications","shortcutQuality":"Kualiti strim langsung","shortcutSidebar":"Togol menu kiri","shortcutVolume":"Kelantangan pilihan","silentHelp":"Mendiamkan siaran tanpa membisukan pemain, jadi ia terus dimainkan apabila anda bertukar tab. Boleh ditetapkan bagi setiap saluran.","silentLabel":"Main tanpa bunyi (terus dimainkan di latar belakang)","silentTag":"Tanpa bunyi","silentUnavailable":"Main semula senyap tidak tersedia untuk pemain ini.","situationBandwidth":"Jika tidak tersedia","situationQuality":"Kualiti pilihan","situationQuiet":"Senyapkan pemain","situationVod":"Rakaman (VOD)","sleepCancelLabel":"Batalkan pemasa","sleepClock12":"AM/PM","sleepClock24":"format 24 jam","sleepEndsAt":"Tamat pada","sleepExpired":"Pemasa tidur menjeda main balik.","sleepHoursLabel":"Jam","sleepMinutesLabel":"Minit","sleepStartLabel":"Mulakan pemasa","sleepStarted":"Main balik akan dijeda dalam {minutes} minit.","sleepTimerLabel":"Pemasa tidur","soundConfigureLabel":"Tetapan peristiwa bunyi","soundEffectsLabel":"Kesan bunyi","soundEventVolumeLabel":"Kelantangan peristiwa","soundMenuLabel":"Panel dibuka dan ditutup","soundModalHint":"Setiap suis mengawal peristiwa itu sahaja. Suis utama kesan bunyi juga mesti dihidupkan.","soundPreviewButton":"Pratonton","soundQualityFailure":"Kualiti gagal digunakan","soundQualitySuccess":"Kualiti digunakan","soundSettingsLabel":"Tetapan berubah","soundVolumeLabel":"Kelantangan kesan bunyi","soundVolumeRestored":"Kelantangan dipulihkan","speedFast":"Pantas","speedNormal":"Biasa","speedSlow":"Perlahan","statusLabel":"Status","textScaleLabel":"Susun atur padat","textScaleLarge":"Susun atur padat","textScaleSmall":"Susun atur padat","textScaleXLarge":"Susun atur padat","themeDark":"Gelap","themeLabel":"Tema","themeLight":"Cerah","titleQuality":"Kualiti","titleVolume":"Kelantangan","undoChange":"Tetapkan semula","versionLabel":"Versi","widgetAutoHideLabel":"Tunjuk hanya apabila ada ganjaran","widgetDesignLabel":"Gaya butang","widgetDragHint":"Seret untuk alih · klik untuk tuntut","widgetIconBolt":"Kilat","widgetIconCoin":"Syiling","widgetIconCrown":"Mahkota","widgetIconCustom":"Ikon anda sendiri","widgetIconGift":"Hadiah","widgetIconLabel":"Ikon","widgetIconStar":"Bintang","widgetImageError":"Fail ini tidak dapat digunakan. Pilih imej PNG, JPG, WebP, GIF atau SVG sehingga 2 MB.","widgetImageFill":"Isi seluruh butang dengan imej","widgetImageSaved":"Ikon tersuai disimpan.","widgetImageTip":"Imej segi empat sama dengan latar lutsinar kelihatan paling baik. Imej hanya kekal dalam pelayar anda.","widgetOpacityLabel":"Kelegapan butang","widgetRemoveCustom":"Alih keluar ikon anda","widgetResetPos":"Tetapkan semula kedudukan butang","widgetSizeLabel":"Saiz butang","widgetStyleFlat":"Rata","widgetStyleGlass":"Kaca","widgetStyleOrb":"Bebola","widgetStylePill":"Pil","widgetUpload":"Muat naik ikon anda sendiri"},"nl":{"accentColorLabel":"Accentkleur","actionHotkeysLabel":"Menu-sneltoets","animFade":"Vervagen","animGlow":"Gloed","animLift":"Optillen","animNone":"Geen","animPop":"Pop","animScale":"Schalen","animSlide":"Schuiven","animationFull":"Donker","animationLabel":"Compacte indeling","animationOff":"Licht","animationPreviewLabel":"Voorbeeld","animationReduced":"Compacte indeling","animationSpeedLabel":"Animatiesnelheid","autoClaimHelp":"Opent het beloningsvenster, haalt beschikbare beloningen op en sluit het weer. Standaard uit.","autoClaimLabel":"Beloningen automatisch ophalen","autoQualityLabel":"Opgeslagen kwaliteit automatisch toepassen","autoVolumeLabel":"Opgeslagen volume automatisch toepassen","bindShortcut":"Klik om te wijzigen","blurLabel":"Achtergrond van menu vervagen","centerPanel":"Meldingspositie resetten","channelBackupExport":"Back-up maken van alle kanalen","channelBackupImport":"Back-up herstellen","channelCurrent":"Huidig","channelDoneLabel":"Klaar","channelEditLabel":"Bewerken","channelExcludedStatus":"Automatisering uitgesloten","channelExport":"Exporteren","channelExported":"Kanaalinstellingen geëxporteerd.","channelFavoritesOnly":"Alleen vastgemaakt","channelGroupAll":"Alle groepen","channelGroupLabel":"Groep","channelGroupPlaceholder":"Groepsnaam","channelHowTitle":"Zo werken opgeslagen kanalen","channelImport":"Profiel importeren","channelImportError":"Dit kanaalprofiel kon niet worden geïmporteerd.","channelImportSuccess":"Kanaalprofiel geïmporteerd.","channelMuted":"gedempt","channelNoteLabel":"Notitie","channelNotePlaceholder":"Notitie toevoegen…","channelNudge":"Aparte instellingen alleen voor dit kanaal?","channelOpenStreamHint":"Open een stream om de instellingen van het kanaal op te slaan.","channelPin":"Vastmaken","channelPinned":"Vastgemaakt","channelProfileSummary":"Instellingen voor dit kanaal onthouden","channelQualitySummary":"Kwaliteit: live {live} · VOD {vod}","channelRemoveConfirm":"Opgeslagen instellingen voor {name} verwijderen?","channelSavedToast":"Instellingen voor {name} opgeslagen.","channelSearchPlaceholder":"Opgeslagen kanalen zoeken…","channelSortName":"Naam","channelSortRecent":"Onlangs gewijzigd","channelSortUsed":"Onlangs gebruikt","channelSoundOn":"geluid aan","channelSpeedSummary":"Snelheid: {speed}×","channelStep1":"Open de stream van het kanaal.","channelStep2":"Druk op “Dit kanaal opslaan”. De huidige kwaliteit, het volume, de snelheid en de geluidsinstellingen worden ervoor bewaard.","channelStep3":"Stel ze hieronder bij. Ze worden automatisch toegepast telkens als je dat kanaal opent.","channelUnpin":"Losmaken","channelUseSaved":"Opgeslagen instellingen op dit kanaal toepassen","channelVolumeSummary":"Volume: {volume}% · {mute}","claimDelayLabel":"Wachten voor het ophalen","claimIntervalLabel":"Controleer elke","claimModeInterval":"Volgens schema","claimModeLabel":"Beloningen ophalen","claimModeNotify":"Zodra Kick de beloningsmelding toont","claimNowLabel":"Nu ophalen","claimWidgetHelp":"Toont een kleine knop die je overal over de stream kunt slepen. Klik erop om je beloning met één klik op te halen. De positie wordt onthouden.","claimWidgetLabel":"Snelle ophaalknop op de pagina","clearLog":"Log wissen","clearNotificationHistory":"Resetten","collapseSidebarLabel":"Linkermenu inklappen","compactLabel":"Compacte indeling","confirmNo":"Annuleren","confirmYes":"Bevestigen","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnose vernieuwd.","contrastLabel":"Thema","copyDiagnostics":"Exporteren","currentChannelLabel":"Huidig","diagAvailableQualities":"Gedetecteerde kwaliteiten","diagCurrentQuality":"Huidige kwaliteit","diagUnknown":"Niet gedetecteerd","diagVideoResolution":"Videoresolutie","diagnosticsCopied":"Instellingen geïmporteerd.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnose vernieuwd.","doNotDisturbLabel":"Niet storen","dragPanelHint":"Versleep het paneel aan de kop; de positie wordt opgeslagen.","excludeChannelLabel":"Automatisering voor dit kanaal overslaan","exportSettings":"Exporteren","fallbackAuto":"Overschakelen naar Auto","fallbackLower":"Dichtstbijzijnde lagere kwaliteit gebruiken","focusUnavailable":"Volledig scherm is niet beschikbaar voor deze speler.","focusViewLabel":"Volledig scherm","footerClose":"Sluiten","footerHint":"Druk op {key} om dit menu te openen/sluiten","freezeAlertLabel":"Waarschuwen als de speler vastloopt","freezeRecovered":"Afspelen hervat.","freezeSoundLabel":"Alarmgeluid afspelen","freezeThresholdLabel":"Tijd voor detectie van vastlopen","groupFeedback":"Meldingen","groupInterface":"Interface","groupPlayer":"Speler","groupSystem":"Systeem","helpAccentColor":"Kies een aangepaste accentkleur.","helpAutoQuality":"Past opgeslagen kwaliteit toe wanneer de speler opent. Auto gebruikt de laatste keuze in Kick.","helpAutoVolume":"Herstelt opgeslagen volume en dempen bij starten of opnieuw verbinden.","helpBlur":"Stel vervaging in van 0 tot 12 px. Sleep de schuifregelaar of gebruik het muiswiel terwijl de cursor erboven staat.","helpButton":"Help","helpChannelExclude":"Stopt automatische wijzigingen van kwaliteit, volume en latentie voor dit kanaal. Handmatige bediening blijft werken.","helpChannelSettings":"Als dit aanstaat, worden kwaliteit, volume, dempen en snelheid voor dit kanaal apart onthouden. Pas ze aan in de speler.","helpCompact":"Verkleint afstanden en de hoogte van bedieningselementen.","helpFallback":"Kies wat er gebeurt als de stream de voorkeurskwaliteit niet aanbiedt.","helpHotkey":"Kies een toets of combinatie met Ctrl, Alt, Shift of Meta. Escape annuleert.","helpLanguage":"Wijzigt de taal van dit paneel.","helpLiveQuality":"Voorkeurskwaliteit voor livestreams. Auto onthoudt de laatste keuze in de speler.","helpNotificationDuration":"Kies hoe lang kwaliteitsmeldingen zichtbaar blijven.","helpNotificationSize":"Pas de tekstgrootte van kwaliteitsmeldingen aan.","helpNotifications":"Meldingen over het kwaliteitsresultaat tonen of verbergen. Sleep een melding om deze te verplaatsen; de positie wordt opgeslagen.","helpPanelStyle":"Kies de uitstraling van het paneel.","helpSleepTimer":"Start een aftelling en pauzeert de huidige video zodra deze afloopt. Het menu sluiten annuleert de timer niet.","helpSoundVolume":"Pas het volume aan. De knoppen spelen een voorbeeld af.","helpSounds":"Schakel alle geluiden van de extensie in of uit. Kies afzonderlijke gebeurtenissen bij de geluidsinstellingen.","helpTheme":"Wijzigt het uiterlijk van dit paneel.","helpVodQuality":"Voorkeurskwaliteit voor opnamen; staat los van livestreams.","helpVolume":"Volume is 0–100%. Sleep de schuifregelaar of gebruik het muiswiel terwijl de cursor erboven staat.","hideChatLabel":"Chat verbergen","highVolumeWarning":"Het spelervolume is hoger dan {threshold}%.","hotkeyCancel":"Druk op Escape om te annuleren","hotkeyWaiting":"Druk op een willekeurige toets…","hoverAnimationLabel":"Aanwijseffect","iconAnimationsLabel":"Pictogramanimaties","importSettings":"Importeren","indicatorBreathe":"Zacht ademen","indicatorGlow":"Gloed","indicatorOff":"Uit","indicatorPulse":"Pulseren","indicatorTitle":"Indicator","languageLabel":"Taal","lastResultLabel":"Laatste resultaat","layoutTitle":"Pagina-indeling","layoutUnavailable":"Niet beschikbaar op deze pagina.","logCleared":"Log gewist.","loudThresholdLabel":"Waarschuwingsdrempel","loudWarningLabel":"Waarschuwen bij hoog volume","minutesUnit":"min","muteLabel":"Speler dempen","noPlayerForReset":"Geen videospeler gevonden.","noSavedChannels":"Er zijn nog geen kanaalinstellingen opgeslagen.","notificationApplied":"Kwaliteit toegepast: {q}.","notificationDurationLabel":"Duur melding","notificationFailed":"Kan {q} niet toepassen; spelerbediening of kwaliteitsoptie niet gevonden.","notificationHistoryEmpty":"Nog geen meldingen.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Meldingsgeschiedenis","notificationIconLabel":"Meldingspictogram tonen","notificationOpacityLabel":"Meldingstransparantie","notificationSizeLabel":"Tekstgrootte melding","notificationVolumeLabel":"Volume hersteld","notificationsLabel":"Kwaliteitsmeldingen","openAnimationLabel":"Openingsanimatie","openReleases":"Versielijst openen","panelStyleKick":"Kick","panelStyleLabel":"Paneelstijl","panelStyleMinimal":"Minimalistisch","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Afspeelsnelheid","playerFrozenNotice":"De speler lijkt vastgelopen. Probeer de stream opnieuw te laden.","preferredVolumeLabel":"Voorkeursvolume","presetApplied":"Voorinstelling toegepast: {name}","presetsLabel":"Snelle voorinstellingen","previewNotification":"Meldingsvoorbeeld","qualityAuto":"Auto (laatst handmatig gekozen)","qualityAvailable":"Status","qualityCheckLabel":"Kwaliteit van livestream","qualityFallbackLabel":"Indien niet beschikbaar","qualityLiveLabel":"Kwaliteit van livestream","qualityUnavailable":"Status","qualityVodLabel":"Kwaliteit van opname (VOD)","quickActionsLabel":"Afspelen","quietFullscreenLabel":"Stille modus op volledig scherm","recoveryLabel":"Vastgelopen afspelen proberen te herstellen","refreshDiagnostics":"Diagnose vernieuwd.","removeChannelSettings":"Verwijderen","reportIssue":"Probleem melden","resetNotificationPosition":"Meldingspositie resetten","resetPlayerLabel":"Spelerinstellingen opnieuw toepassen","resetQuality":"Spelerinstellingen opnieuw toepassen","resetSection":"Sectie herstellen","resetSettings":"Resetten","restoreReset":"Resetten","restoreVolume":"Opgeslagen volume automatisch toepassen","rewardClaimed":"Beloning opgehaald.","rewardNone":"Momenteel geen beloningen om op te halen.","rewardsTitle":"Beloningen","safeModeHelp":"Past opgeslagen kwaliteit toe wanneer de speler opent. Auto gebruikt de laatste keuze in Kick.","safeModeLabel":"Compacte indeling","saveChannelButton":"Dit kanaal opslaan","savedChannelsLabel":"Opgeslagen kanalen","secondsUnit":"s","sectionAbout":"Over de extensie","sectionAppearance":"Weergave","sectionData":"Gegevens & info","sectionDiagnostics":"Spelerdiagnose","sectionHotkey":"Menu-sneltoets","sectionMotion":"Animaties","sectionNotifications":"Meldingen","sectionPlayback":"Afspelen","sectionShortcuts":"Sneltoetsen","sectionSounds":"Geluiden","sectionTools":"Hulpmiddelen","settingsImportError":"Instellingen importeren is mislukt. Controleer het bestand.","settingsImportPrompt":"Deze instellingen importeren en de huidige configuratie vervangen?","settingsImported":"Instellingen geïmporteerd.","settingsReset":"Resetten","settingsResetPrompt":"Alle Kick Stream Tweaks-instellingen resetten?","clearSearch":"Zoekopdracht wissen","settingsSearch":"Instellingen zoeken…","shortcutChat":"Chat omschakelen","shortcutFocus":"Volledig scherm","shortcutNotifications":"Quality notifications","shortcutQuality":"Kwaliteit van livestream","shortcutSidebar":"Linkermenu omschakelen","shortcutVolume":"Voorkeursvolume","silentHelp":"Zet de stream stil zonder de speler te dempen, zodat hij blijft spelen als je van tabblad wisselt. Per kanaal in te stellen.","silentLabel":"Zonder geluid afspelen (blijft op de achtergrond doorspelen)","silentTag":"Zonder geluid","silentUnavailable":"Stil afspelen is niet beschikbaar voor deze speler.","situationBandwidth":"Indien niet beschikbaar","situationQuality":"Voorkeurskwaliteit","situationQuiet":"Speler dempen","situationVod":"Opname (VOD)","sleepCancelLabel":"Timer annuleren","sleepClock12":"AM/PM","sleepClock24":"24-uursnotatie","sleepEndsAt":"Eindigt om","sleepExpired":"De slaaptimer heeft het afspelen gepauzeerd.","sleepHoursLabel":"Uur","sleepMinutesLabel":"Minuten","sleepStartLabel":"Timer starten","sleepStarted":"Afspelen wordt over {minutes} min gepauzeerd.","sleepTimerLabel":"Slaaptimer","soundConfigureLabel":"Instellingen voor geluidsgebeurtenissen","soundEffectsLabel":"Geluidseffecten","soundEventVolumeLabel":"Volume per gebeurtenis","soundMenuLabel":"Paneel openen en sluiten","soundModalHint":"Elke schakelaar bepaalt alleen die gebeurtenis. De hoofdschakelaar voor geluiden moet ook aanstaan.","soundPreviewButton":"Voorbeeld","soundQualityFailure":"Kwaliteit niet toegepast","soundQualitySuccess":"Kwaliteit toegepast","soundSettingsLabel":"Instelling gewijzigd","soundVolumeLabel":"Volume geluidseffecten","soundVolumeRestored":"Volume hersteld","speedFast":"Snel","speedNormal":"Normaal","speedSlow":"Langzaam","statusLabel":"Status","textScaleLabel":"Compacte indeling","textScaleLarge":"Compacte indeling","textScaleSmall":"Compacte indeling","textScaleXLarge":"Compacte indeling","themeDark":"Donker","themeLabel":"Thema","themeLight":"Licht","titleQuality":"Kwaliteit","titleVolume":"Volume","undoChange":"Resetten","versionLabel":"Versie","widgetAutoHideLabel":"Alleen tonen als er een beloning beschikbaar is","widgetDesignLabel":"Knopstijl","widgetDragHint":"Sleep om te verplaatsen · klik om op te halen","widgetIconBolt":"Bliksem","widgetIconCoin":"Munt","widgetIconCrown":"Kroon","widgetIconCustom":"Je eigen pictogram","widgetIconGift":"Cadeau","widgetIconLabel":"Pictogram","widgetIconStar":"Ster","widgetImageError":"Dit bestand kan niet worden gebruikt. Kies een PNG-, JPG-, WebP-, GIF- of SVG-afbeelding tot 2 MB.","widgetImageFill":"De hele knop vullen met de afbeelding","widgetImageSaved":"Eigen pictogram opgeslagen.","widgetImageTip":"Vierkante afbeeldingen met transparante achtergrond zien er het best uit. De afbeelding blijft alleen in je browser.","widgetOpacityLabel":"Doorzichtigheid van de knop","widgetRemoveCustom":"Je pictogram verwijderen","widgetResetPos":"Positie van de knop resetten","widgetSizeLabel":"Knopgrootte","widgetStyleFlat":"Plat","widgetStyleGlass":"Glas","widgetStyleOrb":"Bol","widgetStylePill":"Pil","widgetUpload":"Eigen pictogram uploaden"},"no":{"accentColorLabel":"Aksentfarge","actionHotkeysLabel":"Menysnarvei","animFade":"Ton ut","animGlow":"Glød","animLift":"Løft","animNone":"Ingen","animPop":"Sprett","animScale":"Skaler","animSlide":"Skyv","animationFull":"Mørk","animationLabel":"Kompakt oppsett","animationOff":"Lys","animationPreviewLabel":"Forhåndsvisning","animationReduced":"Kompakt oppsett","animationSpeedLabel":"Animasjonshastighet","autoClaimHelp":"Åpner belønningsvinduet, henter det som er tilgjengelig og lukker det igjen. Av som standard.","autoClaimLabel":"Hent belønninger automatisk","autoQualityLabel":"Bruk lagret kvalitet automatisk","autoVolumeLabel":"Bruk lagret volum automatisk","bindShortcut":"Klikk for å endre","blurLabel":"Uskarp bakgrunn i menyen","centerPanel":"Tilbakestill varselposisjon","channelBackupExport":"Sikkerhetskopier alle kanaler","channelBackupImport":"Gjenopprett sikkerhetskopi","channelCurrent":"Gjeldende","channelDoneLabel":"Ferdig","channelEditLabel":"Rediger","channelExcludedStatus":"Automatisering ekskludert","channelExport":"Eksporter","channelExported":"Kanalinnstillinger eksportert.","channelFavoritesOnly":"Bare festede","channelGroupAll":"Alle grupper","channelGroupLabel":"Gruppe","channelGroupPlaceholder":"Gruppenavn","channelHowTitle":"Slik fungerer lagrede kanaler","channelImport":"Importer profil","channelImportError":"Kunne ikke importere kanalprofilen.","channelImportSuccess":"Kanalprofil importert.","channelMuted":"dempet","channelNoteLabel":"Notat","channelNotePlaceholder":"Legg til et notat…","channelNudge":"Vil du ha egne innstillinger bare for denne kanalen?","channelOpenStreamHint":"Åpne en strøm for å lagre innstillingene for kanalen.","channelPin":"Fest","channelPinned":"Festet","channelProfileSummary":"Husk innstillinger for denne kanalen","channelQualitySummary":"Kvalitet: direkte {live} · VOD {vod}","channelRemoveConfirm":"Fjerne lagrede innstillinger for {name}?","channelSavedToast":"Innstillinger lagret for {name}.","channelSearchPlaceholder":"Søk i lagrede kanaler…","channelSortName":"Navn","channelSortRecent":"Nylig endret","channelSortUsed":"Nylig brukt","channelSoundOn":"lyd på","channelSpeedSummary":"Hastighet: {speed}×","channelStep1":"Åpne kanalens strøm.","channelStep2":"Trykk «Lagre denne kanalen». Gjeldende kvalitet, volum, hastighet og lydinnstillinger lagres for den.","channelStep3":"Finjuster dem nedenfor. De brukes automatisk hver gang du åpner kanalen.","channelUnpin":"Løsne","channelUseSaved":"Bruk de lagrede innstillingene på denne kanalen","channelVolumeSummary":"Volum: {volume}% · {mute}","claimDelayLabel":"Vent før henting","claimIntervalLabel":"Sjekk hvert","claimModeInterval":"Etter en tidsplan","claimModeLabel":"Hent belønninger","claimModeNotify":"Så snart Kick viser belønningsvarselet","claimNowLabel":"Hent nå","claimWidgetHelp":"Viser en liten knapp du kan dra hvor som helst på strømmen. Klikk på den for å hente belønningen med ett klikk. Plasseringen huskes.","claimWidgetLabel":"Hurtighent-knapp på siden","clearLog":"Tøm logg","clearNotificationHistory":"Tilbakestill","collapseSidebarLabel":"Skjul venstre meny","compactLabel":"Kompakt oppsett","confirmNo":"Avbryt","confirmYes":"Bekreft","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostikk oppdatert.","contrastLabel":"Tema","copyDiagnostics":"Eksporter","currentChannelLabel":"Gjeldende","diagAvailableQualities":"Oppdagede kvaliteter","diagCurrentQuality":"Gjeldende kvalitet","diagUnknown":"Ikke oppdaget","diagVideoResolution":"Videooppløsning","diagnosticsCopied":"Innstillinger importert.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostikk oppdatert.","doNotDisturbLabel":"Ikke forstyrr","dragPanelHint":"Dra panelet i overskriften; plasseringen lagres.","excludeChannelLabel":"Hopp over automatisering for kanalen","exportSettings":"Eksporter","fallbackAuto":"Bytt til Auto","fallbackLower":"Bruk nærmeste lavere kvalitet","focusUnavailable":"Fullskjerm er ikke tilgjengelig for denne spilleren.","focusViewLabel":"Fullskjerm","footerClose":"Lukk","footerHint":"Trykk {key} for å åpne eller lukke menyen","freezeAlertLabel":"Varsle når spilleren fryser","freezeRecovered":"Avspillingen er gjenopptatt.","freezeSoundLabel":"Spill av alarmlyd","freezeThresholdLabel":"Tid for deteksjon av frysing","groupFeedback":"Varsler","groupInterface":"Grensesnitt","groupPlayer":"Spiller","groupSystem":"System","helpAccentColor":"Velg en egendefinert aksentfarge.","helpAutoQuality":"Bruker lagret kvalitet når spilleren åpnes. Auto bruker det siste valget i Kick.","helpAutoVolume":"Gjenoppretter lagret volum og demping når spilleren starter eller kobler til på nytt.","helpBlur":"Still inn uskarphet fra 0 til 12 px. Dra skyveknappen eller bruk musehjulet mens markøren er over den.","helpButton":"Hjelp","helpChannelExclude":"Stopper automatiske endringer av kvalitet, volum og forsinkelse for kanalen. Manuelle kontroller virker fortsatt.","helpChannelSettings":"Når den er på, lagres kanalens kvalitet, volum, demping og hastighet separat. Endre dem i spilleren.","helpCompact":"Reduserer avstand og høyden på kontroller.","helpFallback":"Velg hva som skal skje hvis strømmen mangler den foretrukne kvaliteten.","helpHotkey":"Velg en tast eller kombinasjon med Ctrl, Alt, Shift eller Meta. Escape avbryter.","helpLanguage":"Endrer språket i panelet.","helpLiveQuality":"Foretrukket kvalitet for direktestrømmer. Auto husker spillerens siste valg.","helpNotificationDuration":"Velg hvor lenge kvalitetsvarsler skal vises.","helpNotificationSize":"Juster tekststørrelsen for kvalitetsvarsler.","helpNotifications":"Vis eller skjul varsler om kvalitetsresultatet. Dra et varsel for å flytte det; plasseringen lagres.","helpPanelStyle":"Velg panelets visuelle stil.","helpSleepTimer":"Starter en nedtelling og setter videoen på pause når tiden er ute. Timeren avbrytes ikke når menyen lukkes.","helpSoundVolume":"Juster volumet. Knappene spiller av en prøve.","helpSounds":"Slå alle lyder fra utvidelsen av eller på. Velg enkelthendelser i lydinnstillingene.","helpTheme":"Endrer utseendet til panelet.","helpVodQuality":"Foretrukket kvalitet for opptak; uavhengig av direktestrømmer.","helpVolume":"Volumet er 0–100 %. Dra skyveknappen eller bruk musehjulet mens markøren er over den.","hideChatLabel":"Skjul chat","highVolumeWarning":"Spillervolumet er over {threshold} %.","hotkeyCancel":"Trykk Escape for å avbryte","hotkeyWaiting":"Trykk en vilkårlig tast…","hoverAnimationLabel":"Pekeeffekt","iconAnimationsLabel":"Ikonanimasjoner","importSettings":"Importer","indicatorBreathe":"Myk pusting","indicatorGlow":"Glød","indicatorOff":"Av","indicatorPulse":"Pulsering","indicatorTitle":"Indikator","languageLabel":"Språk","lastResultLabel":"Siste resultat","layoutTitle":"Sideoppsett","layoutUnavailable":"Ikke tilgjengelig på denne siden.","logCleared":"Logg tømt.","loudThresholdLabel":"Varselgrense","loudWarningLabel":"Varsle ved høyt volum","minutesUnit":"min","muteLabel":"Demp spiller","noPlayerForReset":"Fant ingen videospiller.","noSavedChannels":"Ingen kanalinnstillinger er lagret ennå.","notificationApplied":"Brukt kvalitet: {q}.","notificationDurationLabel":"Varselvarighet","notificationFailed":"Kunne ikke bruke {q}; fant ikke spillerkontroller eller kvalitetsvalget.","notificationHistoryEmpty":"Ingen varsler ennå.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Varslingshistorikk","notificationIconLabel":"Vis varslingsikon","notificationOpacityLabel":"Varselgjennomsiktighet","notificationSizeLabel":"Tekststørrelse for varsler","notificationVolumeLabel":"Volum gjenopprettet","notificationsLabel":"Kvalitetsvarsler","openAnimationLabel":"Åpningsanimasjon","openReleases":"Åpne versjonslisten","panelStyleKick":"Kick","panelStyleLabel":"Panelstil","panelStyleMinimal":"Minimalistisk","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Avspillingshastighet","playerFrozenNotice":"Spilleren ser ut til å ha frosset. Prøv å laste strømmen på nytt.","preferredVolumeLabel":"Foretrukket volum","presetApplied":"Valg brukt: {name}","presetsLabel":"Hurtigvalg","previewNotification":"Forhåndsvisning av varsel","qualityAuto":"Auto (sist valgt manuelt)","qualityAvailable":"Status","qualityCheckLabel":"Kvalitet på direktestrøm","qualityFallbackLabel":"Hvis utilgjengelig","qualityLiveLabel":"Kvalitet på direktestrøm","qualityUnavailable":"Status","qualityVodLabel":"Kvalitet på opptak (VOD)","quickActionsLabel":"Avspilling","quietFullscreenLabel":"Stillemodus i fullskjerm","recoveryLabel":"Prøv å gjenoppta avspilling som har stoppet","refreshDiagnostics":"Diagnostikk oppdatert.","removeChannelSettings":"Fjern","reportIssue":"Meld fra om problem","resetNotificationPosition":"Tilbakestill varselposisjon","resetPlayerLabel":"Bruk spillerinnstillinger på nytt","resetQuality":"Bruk spillerinnstillinger på nytt","resetSection":"Tilbakestill seksjon","resetSettings":"Tilbakestill","restoreReset":"Tilbakestill","restoreVolume":"Bruk lagret volum automatisk","rewardClaimed":"Belønning hentet.","rewardNone":"Ingen belønninger å hente akkurat nå.","rewardsTitle":"Belønninger","safeModeHelp":"Bruker lagret kvalitet når spilleren åpnes. Auto bruker det siste valget i Kick.","safeModeLabel":"Kompakt oppsett","saveChannelButton":"Lagre denne kanalen","savedChannelsLabel":"Lagrede kanaler","secondsUnit":"s","sectionAbout":"Om utvidelsen","sectionAppearance":"Utseende","sectionData":"Data og info","sectionDiagnostics":"Spillerdiagnostikk","sectionHotkey":"Menysnarvei","sectionMotion":"Animasjoner","sectionNotifications":"Varsler","sectionPlayback":"Avspilling","sectionShortcuts":"Hurtigtaster","sectionSounds":"Lyder","sectionTools":"Verktøy","settingsImportError":"Kunne ikke importere innstillingene. Sjekk filen.","settingsImportPrompt":"Importer disse innstillingene og erstatte gjeldende konfigurasjon?","settingsImported":"Innstillinger importert.","settingsReset":"Tilbakestill","settingsResetPrompt":"Tilbakestille alle Kick Stream Tweaks-innstillinger?","clearSearch":"Tøm søk","settingsSearch":"Søk i innstillinger…","shortcutChat":"Veksle chat","shortcutFocus":"Fullskjerm","shortcutNotifications":"Quality notifications","shortcutQuality":"Kvalitet på direktestrøm","shortcutSidebar":"Veksle venstre meny","shortcutVolume":"Foretrukket volum","silentHelp":"Gjør strømmen stille uten å dempe spilleren, slik at den fortsetter å spille når du bytter fane. Kan angis per kanal.","silentLabel":"Spill av uten lyd (fortsetter i bakgrunnen)","silentTag":"Uten lyd","silentUnavailable":"Lydløs avspilling er ikke tilgjengelig for denne spilleren.","situationBandwidth":"Hvis utilgjengelig","situationQuality":"Foretrukket kvalitet","situationQuiet":"Demp spiller","situationVod":"Opptak (VOD)","sleepCancelLabel":"Avbryt timer","sleepClock12":"AM/PM","sleepClock24":"24-timersformat","sleepEndsAt":"Slutter kl.","sleepExpired":"Søvntimeren satte avspillingen på pause.","sleepHoursLabel":"Timer","sleepMinutesLabel":"Minutter","sleepStartLabel":"Start timer","sleepStarted":"Avspillingen settes på pause om {minutes} min.","sleepTimerLabel":"Søvntimer","soundConfigureLabel":"Innstillinger for lydhendelser","soundEffectsLabel":"Lydeffekter","soundEventVolumeLabel":"Hendelsesvolum","soundMenuLabel":"Åpne og lukke panelet","soundModalHint":"Hver bryter styrer bare sin egen hendelse. Hovedbryteren for lyder må også være på.","soundPreviewButton":"Forhåndsvisning","soundQualityFailure":"Kvalitet kunne ikke brukes","soundQualitySuccess":"Kvalitet brukt","soundSettingsLabel":"Innstilling endret","soundVolumeLabel":"Lydeffektvolum","soundVolumeRestored":"Volum gjenopprettet","speedFast":"Rask","speedNormal":"Normal","speedSlow":"Langsom","statusLabel":"Status","textScaleLabel":"Kompakt oppsett","textScaleLarge":"Kompakt oppsett","textScaleSmall":"Kompakt oppsett","textScaleXLarge":"Kompakt oppsett","themeDark":"Mørk","themeLabel":"Tema","themeLight":"Lys","titleQuality":"Kvalitet","titleVolume":"Volum","undoChange":"Tilbakestill","versionLabel":"Versjon","widgetAutoHideLabel":"Vis bare når en belønning er tilgjengelig","widgetDesignLabel":"Knappestil","widgetDragHint":"Dra for å flytte · klikk for å hente","widgetIconBolt":"Lyn","widgetIconCoin":"Mynt","widgetIconCrown":"Krone","widgetIconCustom":"Ditt eget ikon","widgetIconGift":"Gave","widgetIconLabel":"Ikon","widgetIconStar":"Stjerne","widgetImageError":"Filen kunne ikke brukes. Velg et PNG-, JPG-, WebP-, GIF- eller SVG-bilde på opptil 2 MB.","widgetImageFill":"Fyll hele knappen med bildet","widgetImageSaved":"Eget ikon lagret.","widgetImageTip":"Kvadratiske bilder med gjennomsiktig bakgrunn ser best ut. Bildet blir bare i nettleseren din.","widgetOpacityLabel":"Knappens gjennomsiktighet","widgetRemoveCustom":"Fjern ikonet ditt","widgetResetPos":"Tilbakestill knappens plassering","widgetSizeLabel":"Knappestørrelse","widgetStyleFlat":"Flat","widgetStyleGlass":"Glass","widgetStyleOrb":"Kule","widgetStylePill":"Pille","widgetUpload":"Last opp ditt eget ikon"},"pl":{"accentColorLabel":"Kolor akcentu","actionHotkeysLabel":"Skrót menu","animFade":"Zanikanie","animGlow":"Poświata","animLift":"Uniesienie","animNone":"Brak","animPop":"Odbicie","animScale":"Skalowanie","animSlide":"Przesunięcie","animationFull":"Ciemny","animationLabel":"Kompaktowy układ","animationOff":"Jasny","animationPreviewLabel":"Podgląd","animationReduced":"Kompaktowy układ","animationSpeedLabel":"Szybkość animacji","autoClaimHelp":"Otwiera okno nagród, odbiera dostępne i zamyka je. Domyślnie wyłączone.","autoClaimLabel":"Automatyczny odbiór nagród","autoQualityLabel":"Automatycznie stosuj zapisaną jakość","autoVolumeLabel":"Automatycznie stosuj zapisaną głośność","bindShortcut":"Kliknij, aby zmienić","blurLabel":"Rozmycie tła menu","centerPanel":"Resetuj pozycję powiadomienia","channelBackupExport":"Utwórz kopię zapasową wszystkich kanałów","channelBackupImport":"Przywróć kopię zapasową","channelCurrent":"Bieżący","channelDoneLabel":"Gotowe","channelEditLabel":"Edytuj","channelExcludedStatus":"Automatyzacja wyłączona","channelExport":"Eksportuj","channelExported":"Wyeksportowano ustawienia kanału.","channelFavoritesOnly":"Tylko przypięte","channelGroupAll":"Wszystkie grupy","channelGroupLabel":"Grupa","channelGroupPlaceholder":"Nazwa grupy","channelHowTitle":"Jak działają zapisane kanały","channelImport":"Importuj profil","channelImportError":"Nie udało się zaimportować profilu kanału.","channelImportSuccess":"Zaimportowano profil kanału.","channelMuted":"wyciszony","channelNoteLabel":"Notatka","channelNotePlaceholder":"Dodaj notatkę…","channelNudge":"Chcesz osobne ustawienia tylko dla tego kanału?","channelOpenStreamHint":"Otwórz transmisję, aby zapisać ustawienia jej kanału.","channelPin":"Przypnij","channelPinned":"Przypięty","channelProfileSummary":"Zapamiętaj ustawienia kanału","channelQualitySummary":"Jakość: live {live} · VOD {vod}","channelRemoveConfirm":"Usunąć zapisane ustawienia kanału {name}?","channelSavedToast":"Zapisano ustawienia kanału {name}.","channelSearchPlaceholder":"Szukaj zapisanych kanałów…","channelSortName":"Nazwa","channelSortRecent":"Ostatnio zmienione","channelSortUsed":"Ostatnio używane","channelSoundOn":"dźwięk włączony","channelSpeedSummary":"Prędkość: {speed}×","channelStep1":"Otwórz transmisję kanału.","channelStep2":"Naciśnij „Zapisz ten kanał”. Bieżąca jakość, głośność, prędkość i ustawienia dźwięku zostaną dla niego zapamiętane.","channelStep3":"Dopracuj je poniżej. Będą stosowane automatycznie przy każdym otwarciu tego kanału.","channelUnpin":"Odepnij","channelUseSaved":"Stosuj zapisane ustawienia na tym kanale","channelVolumeSummary":"Głośność: {volume}% · {mute}","claimDelayLabel":"Poczekaj przed odebraniem","claimIntervalLabel":"Sprawdzaj co","claimModeInterval":"Według harmonogramu","claimModeLabel":"Odbieranie nagród","claimModeNotify":"Gdy tylko Kick pokaże powiadomienie o nagrodzie","claimNowLabel":"Odbierz teraz","claimWidgetHelp":"Pokazuje mały przycisk, który można przeciągnąć w dowolne miejsce transmisji. Kliknij go, aby odebrać nagrodę jednym kliknięciem. Pozycja jest zapamiętywana.","claimWidgetLabel":"Przycisk szybkiego odbioru na stronie","clearLog":"Wyczyść dziennik","clearNotificationHistory":"Resetuj","collapseSidebarLabel":"Zwiń lewe menu","compactLabel":"Kompaktowy układ","confirmNo":"Anuluj","confirmYes":"Potwierdź","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Odświeżono diagnostykę.","contrastLabel":"Motyw","copyDiagnostics":"Eksportuj","currentChannelLabel":"Bieżący","diagAvailableQualities":"Wykryte jakości","diagCurrentQuality":"Bieżąca jakość","diagUnknown":"Nie wykryto","diagVideoResolution":"Rozdzielczość wideo","diagnosticsCopied":"Ustawienia zaimportowane.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Odświeżono diagnostykę.","doNotDisturbLabel":"Nie przeszkadzać","dragPanelHint":"Przeciągnij panel za nagłówek; jego położenie zostanie zapisane.","excludeChannelLabel":"Pomiń automatyzację na tym kanale","exportSettings":"Eksportuj","fallbackAuto":"Przełącz na Auto","fallbackLower":"Użyj najbliższej niższej jakości","focusUnavailable":"Pełny ekran jest niedostępny dla tego odtwarzacza.","focusViewLabel":"Widok pełnoekranowy","footerClose":"Zamknij","footerHint":"Naciśnij {key}, aby otworzyć/zamknąć to menu","freezeAlertLabel":"Alert, gdy odtwarzacz się zawiesi","freezeRecovered":"Odtwarzanie wznowione.","freezeSoundLabel":"Odtwórz dźwięk alarmu","freezeThresholdLabel":"Czas wykrywania zawieszenia","groupFeedback":"Alerty","groupInterface":"Interfejs","groupPlayer":"Odtwarzacz","groupSystem":"System","helpAccentColor":"Wybierz własny kolor akcentu.","helpAutoQuality":"Stosuje zapisaną jakość po otwarciu odtwarzacza. Auto używa ostatniego wyboru w Kick.","helpAutoVolume":"Przywraca zapisany poziom głośności i wyciszenie po uruchomieniu lub ponownym połączeniu.","helpBlur":"Ustaw rozmycie w zakresie 0–12 px. Przeciągnij suwak lub użyj kółka myszy, gdy kursor znajduje się nad nim.","helpButton":"Pomoc","helpChannelExclude":"Wyłącza automatyczne zmiany jakości, głośności i opóźnienia na tym kanale. Ręczne sterowanie nadal działa.","helpChannelSettings":"Po włączeniu jakość, głośność, wyciszenie i szybkość kanału są zapisywane osobno. Zmieniaj je w odtwarzaczu.","helpCompact":"Zmniejsza odstępy i wysokość elementów sterujących.","helpFallback":"Wybierz działanie, gdy transmisja nie oferuje preferowanej jakości.","helpHotkey":"Wybierz klawisz lub kombinację z Ctrl, Alt, Shift albo Meta. Escape anuluje.","helpLanguage":"Zmienia język panelu.","helpLiveQuality":"Preferowana jakość transmisji na żywo. Auto pamięta ostatni wybór w odtwarzaczu.","helpNotificationDuration":"Wybierz, jak długo wyświetlać powiadomienia.","helpNotificationSize":"Dostosuj rozmiar tekstu powiadomień o jakości.","helpNotifications":"Pokazuj lub ukrywaj powiadomienia o wyniku ustawienia jakości. Przeciągnij powiadomienie, aby je przesunąć; jego położenie zostanie zapisane.","helpPanelStyle":"Wybierz wygląd panelu.","helpSleepTimer":"Rozpoczyna odliczanie i po jego zakończeniu wstrzymuje bieżący film. Zamknięcie menu nie anuluje timera.","helpSoundVolume":"Dostosuj głośność. Przyciski odtwarzają próbkę.","helpSounds":"Włącza lub wyłącza wszystkie dźwięki rozszerzenia. Wybierz poszczególne zdarzenia w ustawieniach dźwięku.","helpTheme":"Zmienia wygląd panelu.","helpVodQuality":"Preferowana jakość nagrań; niezależna od transmisji na żywo.","helpVolume":"Głośność wynosi 0–100%. Przeciągnij suwak lub użyj kółka myszy, gdy kursor znajduje się nad nim.","hideChatLabel":"Ukryj czat","highVolumeWarning":"Głośność odtwarzacza przekracza {threshold}%.","hotkeyCancel":"Naciśnij Escape, aby anulować","hotkeyWaiting":"Naciśnij dowolny klawisz…","hoverAnimationLabel":"Efekt najechania","iconAnimationsLabel":"Animacje ikon","importSettings":"Importuj","indicatorBreathe":"Łagodny oddech","indicatorGlow":"Poświata","indicatorOff":"Wyłączona","indicatorPulse":"Pulsowanie","indicatorTitle":"Wskaźnik","languageLabel":"Język","lastResultLabel":"Ostatni wynik","layoutTitle":"Układ strony","layoutUnavailable":"Niedostępne na tej stronie.","logCleared":"Dziennik wyczyszczony.","loudThresholdLabel":"Próg ostrzeżenia","loudWarningLabel":"Ostrzegaj przy dużej głośności","minutesUnit":"min","muteLabel":"Wycisz odtwarzacz","noPlayerForReset":"Nie znaleziono odtwarzacza wideo.","noSavedChannels":"Nie zapisano jeszcze ustawień kanałów.","notificationApplied":"Zastosowano jakość: {q}.","notificationDurationLabel":"Czas wyświetlania powiadomienia","notificationFailed":"Nie można zastosować {q}; nie znaleziono sterowania odtwarzaczem ani tej jakości.","notificationHistoryEmpty":"Brak powiadomień.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Historia powiadomień","notificationIconLabel":"Pokaż ikonę powiadomienia","notificationOpacityLabel":"Przezroczystość powiadomienia","notificationSizeLabel":"Rozmiar tekstu powiadomień","notificationVolumeLabel":"Głośność przywrócona","notificationsLabel":"Powiadomienia o jakości","openAnimationLabel":"Animacja otwierania","openReleases":"Otwórz listę wersji","panelStyleKick":"Kick","panelStyleLabel":"Styl panelu","panelStyleMinimal":"Minimalistyczny","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Szybkość odtwarzania","playerFrozenNotice":"Odtwarzacz wygląda na zawieszony. Spróbuj ponownie załadować transmisję.","preferredVolumeLabel":"Preferowana głośność","presetApplied":"Zastosowano: {name}","presetsLabel":"Szybkie ustawienia","previewNotification":"Podgląd powiadomienia","qualityAuto":"Auto (ostatnio wybrana ręcznie)","qualityAvailable":"Status","qualityCheckLabel":"Jakość transmisji na żywo","qualityFallbackLabel":"Jeśli niedostępna","qualityLiveLabel":"Jakość transmisji na żywo","qualityUnavailable":"Status","qualityVodLabel":"Jakość nagrania (VOD)","quickActionsLabel":"Odtwarzanie","quietFullscreenLabel":"Tryb cichy na pełnym ekranie","recoveryLabel":"Spróbuj wznowić zablokowane odtwarzanie","refreshDiagnostics":"Odświeżono diagnostykę.","removeChannelSettings":"Usuń","reportIssue":"Zgłoś problem","resetNotificationPosition":"Resetuj pozycję powiadomienia","resetPlayerLabel":"Zastosuj ponownie ustawienia","resetQuality":"Zastosuj ponownie ustawienia","resetSection":"Resetuj sekcję","resetSettings":"Resetuj","restoreReset":"Resetuj","restoreVolume":"Automatycznie stosuj zapisaną głośność","rewardClaimed":"Nagroda odebrana.","rewardNone":"Brak nagród do odebrania.","rewardsTitle":"Nagrody","safeModeHelp":"Stosuje zapisaną jakość po otwarciu odtwarzacza. Auto używa ostatniego wyboru w Kick.","safeModeLabel":"Kompaktowy układ","saveChannelButton":"Zapisz ten kanał","savedChannelsLabel":"Zapisane kanały","secondsUnit":"s","sectionAbout":"O rozszerzeniu","sectionAppearance":"Wygląd","sectionData":"Dane i informacje","sectionDiagnostics":"Diagnostyka odtwarzacza","sectionHotkey":"Skrót menu","sectionMotion":"Animacje","sectionNotifications":"Powiadomienia","sectionPlayback":"Odtwarzanie","sectionShortcuts":"Skróty","sectionSounds":"Dźwięki","sectionTools":"Narzędzia","settingsImportError":"Nie udało się zaimportować ustawień. Sprawdź plik.","settingsImportPrompt":"Zaimportować te ustawienia i zastąpić bieżącą konfigurację?","settingsImported":"Ustawienia zaimportowane.","settingsReset":"Resetuj","settingsResetPrompt":"Zresetować wszystkie ustawienia Kick Stream Tweaks?","clearSearch":"Wyczyść wyszukiwanie","settingsSearch":"Szukaj w ustawieniach…","shortcutChat":"Przełącz czat","shortcutFocus":"Widok pełnoekranowy","shortcutNotifications":"Quality notifications","shortcutQuality":"Jakość transmisji na żywo","shortcutSidebar":"Przełącz lewe menu","shortcutVolume":"Preferowana głośność","silentHelp":"Wycisza transmisję bez wyciszania odtwarzacza, więc odtwarzanie trwa po zmianie karty. Można ustawić dla każdego kanału.","silentLabel":"Odtwarzaj bez dźwięku (działa w tle)","silentTag":"Bez dźwięku","silentUnavailable":"Ciche odtwarzanie jest niedostępne dla tego odtwarzacza.","situationBandwidth":"Jeśli niedostępna","situationQuality":"Preferowana jakość","situationQuiet":"Wycisz odtwarzacz","situationVod":"Nagranie (VOD)","sleepCancelLabel":"Anuluj timer","sleepClock12":"AM/PM","sleepClock24":"format 24-godzinny","sleepEndsAt":"Zakończy się o","sleepExpired":"Wyłącznik czasowy wstrzymał odtwarzanie.","sleepHoursLabel":"Godziny","sleepMinutesLabel":"Minuty","sleepStartLabel":"Uruchom timer","sleepStarted":"Odtwarzanie zostanie wstrzymane za {minutes} min.","sleepTimerLabel":"Wyłącznik czasowy","soundConfigureLabel":"Ustawienia zdarzeń dźwiękowych","soundEffectsLabel":"Efekty dźwiękowe","soundEventVolumeLabel":"Głośność zdarzenia","soundMenuLabel":"Otwieranie i zamykanie panelu","soundModalHint":"Każdy przełącznik steruje tylko danym zdarzeniem. Główny przełącznik dźwięków też musi być włączony.","soundPreviewButton":"Podgląd","soundQualityFailure":"Nie można zastosować jakości","soundQualitySuccess":"Zastosowano jakość","soundSettingsLabel":"Zmiana ustawienia","soundVolumeLabel":"Głośność efektów dźwiękowych","soundVolumeRestored":"Przywrócono głośność","speedFast":"Szybka","speedNormal":"Normalna","speedSlow":"Wolna","statusLabel":"Stan","textScaleLabel":"Kompaktowy układ","textScaleLarge":"Kompaktowy układ","textScaleSmall":"Kompaktowy układ","textScaleXLarge":"Kompaktowy układ","themeDark":"Ciemny","themeLabel":"Motyw","themeLight":"Jasny","titleQuality":"Jakość","titleVolume":"Głośność","undoChange":"Resetuj","versionLabel":"Wersja","widgetAutoHideLabel":"Pokazuj tylko, gdy nagroda jest dostępna","widgetDesignLabel":"Styl przycisku","widgetDragHint":"Przeciągnij, aby przesunąć · kliknij, aby odebrać","widgetIconBolt":"Piorun","widgetIconCoin":"Moneta","widgetIconCrown":"Korona","widgetIconCustom":"Własna ikona","widgetIconGift":"Prezent","widgetIconLabel":"Ikona","widgetIconStar":"Gwiazda","widgetImageError":"Nie można użyć tego pliku. Wybierz obraz PNG, JPG, WebP, GIF lub SVG do 2 MB.","widgetImageFill":"Wypełnij cały przycisk obrazem","widgetImageSaved":"Własna ikona zapisana.","widgetImageTip":"Najlepiej wyglądają kwadratowe obrazy z przezroczystym tłem. Obraz pozostaje tylko w Twojej przeglądarce.","widgetOpacityLabel":"Przezroczystość przycisku","widgetRemoveCustom":"Usuń własną ikonę","widgetResetPos":"Zresetuj pozycję przycisku","widgetSizeLabel":"Rozmiar przycisku","widgetStyleFlat":"Płaski","widgetStyleGlass":"Szkło","widgetStyleOrb":"Kula","widgetStylePill":"Pigułka","widgetUpload":"Prześlij własną ikonę"},"pt":{"accentColorLabel":"Cor de destaque","actionHotkeysLabel":"Tecla de atalho","animFade":"Esbatimento","animGlow":"Brilho","animLift":"Elevar","animNone":"Nenhuma","animPop":"Salto","animScale":"Escala","animSlide":"Deslizar","animationFull":"Escuro","animationLabel":"Layout compacto","animationOff":"Claro","animationPreviewLabel":"Pré-visualização","animationReduced":"Layout compacto","animationSpeedLabel":"Velocidade da animação","autoClaimHelp":"Abre a janela de recompensas, resgata o que estiver disponível e fecha-a. Desativado por predefinição.","autoClaimLabel":"Resgatar recompensas automaticamente","autoQualityLabel":"Aplicar qualidade salva automaticamente","autoVolumeLabel":"Aplicar volume salvo automaticamente","bindShortcut":"Clique para alterar","blurLabel":"Desfoque do fundo do menu","centerPanel":"Repor posição da notificação","channelBackupExport":"Criar cópia de segurança de todos os canais","channelBackupImport":"Restaurar cópia de segurança","channelCurrent":"Atual","channelDoneLabel":"Concluído","channelEditLabel":"Editar","channelExcludedStatus":"Automação excluída","channelExport":"Exportar","channelExported":"Definições do canal exportadas.","channelFavoritesOnly":"Apenas fixados","channelGroupAll":"Todos os grupos","channelGroupLabel":"Grupo","channelGroupPlaceholder":"Nome do grupo","channelHowTitle":"Como funcionam os canais guardados","channelImport":"Importar perfil","channelImportError":"Não foi possível importar o perfil do canal.","channelImportSuccess":"Perfil do canal importado.","channelMuted":"silenciado","channelNoteLabel":"Nota","channelNotePlaceholder":"Adicionar uma nota…","channelNudge":"Quer definições separadas só para este canal?","channelOpenStreamHint":"Abra uma transmissão para guardar as definições do respetivo canal.","channelPin":"Fixar","channelPinned":"Fixado","channelProfileSummary":"Guardar definições deste canal","channelQualitySummary":"Qualidade: direto {live} · VOD {vod}","channelRemoveConfirm":"Remover definições guardadas de {name}?","channelSavedToast":"Definições de {name} guardadas.","channelSearchPlaceholder":"Pesquisar canais guardados…","channelSortName":"Nome","channelSortRecent":"Alterados recentemente","channelSortUsed":"Usados recentemente","channelSoundOn":"som ligado","channelSpeedSummary":"Velocidade: {speed}×","channelStep1":"Abra a transmissão do canal.","channelStep2":"Prima “Guardar este canal”. A qualidade, o volume, a velocidade e as definições de som atuais ficam guardados para ele.","channelStep3":"Ajuste-os abaixo. São aplicados automaticamente sempre que abrir esse canal.","channelUnpin":"Desafixar","channelUseSaved":"Aplicar as definições guardadas neste canal","channelVolumeSummary":"Volume: {volume}% · {mute}","claimDelayLabel":"Aguardar antes de resgatar","claimIntervalLabel":"Verificar a cada","claimModeInterval":"Com um horário","claimModeLabel":"Resgate de recompensas","claimModeNotify":"Assim que o Kick mostrar a notificação de recompensa","claimNowLabel":"Resgatar agora","claimWidgetHelp":"Mostra um pequeno botão que pode arrastar para qualquer lugar da transmissão. Clique para resgatar a recompensa com um clique. A posição é memorizada.","claimWidgetLabel":"Botão de resgate rápido na página","clearLog":"Limpar registo","clearNotificationHistory":"Repor","collapseSidebarLabel":"Recolher menu esquerdo","compactLabel":"Layout compacto","confirmNo":"Cancelar","confirmYes":"Confirmar","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnóstico atualizado.","contrastLabel":"Tema","copyDiagnostics":"Exportar","currentChannelLabel":"Atual","diagAvailableQualities":"Qualidades detetadas","diagCurrentQuality":"Qualidade atual","diagUnknown":"Não detetada","diagVideoResolution":"Resolução do vídeo","diagnosticsCopied":"Definições importadas.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnóstico atualizado.","doNotDisturbLabel":"Não incomodar","dragPanelHint":"Arraste o painel pelo cabeçalho; a posição será guardada.","excludeChannelLabel":"Ignorar automatização neste canal","exportSettings":"Exportar","fallbackAuto":"Mudar para Automático","fallbackLower":"Usar a qualidade inferior mais próxima","focusUnavailable":"Ecrã inteiro indisponível para este leitor.","focusViewLabel":"Ecrã inteiro","footerClose":"Fechar","footerHint":"Pressione {key} para abrir/fechar este menu","freezeAlertLabel":"Avisar quando o reprodutor bloquear","freezeRecovered":"Reprodução retomada.","freezeSoundLabel":"Reproduzir som de alarme","freezeThresholdLabel":"Tempo de deteção de bloqueio","groupFeedback":"Alertas","groupInterface":"Interface","groupPlayer":"Reprodutor","groupSystem":"Sistema","helpAccentColor":"Escolha uma cor de destaque personalizada.","helpAutoQuality":"Aplica a qualidade guardada ao abrir o leitor. Auto usa a última escolha feita no Kick.","helpAutoVolume":"Restaura o volume e o estado de silêncio guardados ao iniciar ou reconectar.","helpBlur":"Ajuste o desfoque entre 0 e 12 px. Arraste o controlo ou use a roda do rato enquanto o cursor estiver sobre ele.","helpButton":"Ajuda","helpChannelExclude":"Impede alterações automáticas de qualidade, volume e latência neste canal. Os controlos manuais continuam ativos.","helpChannelSettings":"Ativada, guarda separadamente a qualidade, volume, silêncio e velocidade deste canal. Altere-os no leitor.","helpCompact":"Reduz os espaços e a altura dos controlos.","helpFallback":"Escolha o que fazer se a transmissão não tiver a qualidade preferida.","helpHotkey":"Escolha uma tecla ou combinação com Ctrl, Alt, Shift ou Meta. Escape cancela.","helpLanguage":"Altera o idioma do painel.","helpLiveQuality":"Qualidade preferida para transmissões ao vivo. Auto memoriza a última escolha do leitor.","helpNotificationDuration":"Escolha durante quanto tempo os avisos ficam visíveis.","helpNotificationSize":"Ajuste o tamanho do texto dos avisos de qualidade.","helpNotifications":"Mostra ou oculta notificações sobre o resultado da qualidade. Arraste uma notificação para movê-la; a posição será guardada.","helpPanelStyle":"Escolha o aspeto do painel.","helpSleepTimer":"Inicia uma contagem decrescente e pausa o vídeo atual no fim. Fechar o menu não cancela o temporizador.","helpSoundVolume":"Ajuste o volume. Os botões reproduzem uma amostra.","helpSounds":"Ativa ou desativa todos os sons da extensão. Escolha eventos individuais nas definições de som.","helpTheme":"Altera o aspeto do painel.","helpVodQuality":"Qualidade preferida para gravações; independente das transmissões ao vivo.","helpVolume":"O volume vai de 0 a 100%. Arraste o controlo ou use a roda do rato enquanto o cursor estiver sobre ele.","hideChatLabel":"Ocultar chat","highVolumeWarning":"O volume do leitor está acima de {threshold}%.","hotkeyCancel":"Prima Escape para cancelar","hotkeyWaiting":"Pressione qualquer tecla…","hoverAnimationLabel":"Efeito ao passar","iconAnimationsLabel":"Animações dos ícones","importSettings":"Importar","indicatorBreathe":"Respiração suave","indicatorGlow":"Brilho","indicatorOff":"Desativada","indicatorPulse":"Pulsar","indicatorTitle":"Indicador","languageLabel":"Idioma","lastResultLabel":"Último resultado","layoutTitle":"Disposição da página","layoutUnavailable":"Indisponível nesta página.","logCleared":"Registo limpo.","loudThresholdLabel":"Limite do aviso","loudWarningLabel":"Avisar sobre volume alto","minutesUnit":"min","muteLabel":"Silenciar leitor","noPlayerForReset":"Não foi encontrado nenhum leitor de vídeo.","noSavedChannels":"Ainda não existem definições de canais guardadas.","notificationApplied":"Qualidade aplicada: {q}.","notificationDurationLabel":"Duração da notificação","notificationFailed":"Não foi possível aplicar {q}; controlos do leitor ou opção de qualidade não encontrados.","notificationHistoryEmpty":"Ainda não há notificações.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Histórico de notificações","notificationIconLabel":"Mostrar ícone de notificação","notificationOpacityLabel":"Opacidade da notificação","notificationSizeLabel":"Tamanho do texto da notificação","notificationVolumeLabel":"Volume restaurado","notificationsLabel":"Notificações de qualidade","openAnimationLabel":"Animação de abertura","openReleases":"Abrir lista de versões","panelStyleKick":"Kick","panelStyleLabel":"Estilo do painel","panelStyleMinimal":"Minimalista","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Velocidade de reprodução","playerFrozenNotice":"O reprodutor parece bloqueado. Tente recarregar a transmissão.","preferredVolumeLabel":"Volume preferido","presetApplied":"Predefinição aplicada: {name}","presetsLabel":"Predefinições rápidas","previewNotification":"Pré-visualização da notificação","qualityAuto":"Auto (última escolha manual)","qualityAvailable":"Status","qualityCheckLabel":"Qualidade da transmissão ao vivo","qualityFallbackLabel":"Se indisponível","qualityLiveLabel":"Qualidade da transmissão ao vivo","qualityUnavailable":"Status","qualityVodLabel":"Qualidade da gravação (VOD)","quickActionsLabel":"Reprodução","quietFullscreenLabel":"Modo silencioso em ecrã inteiro","recoveryLabel":"Tentar recuperar reprodução bloqueada","refreshDiagnostics":"Diagnóstico atualizado.","removeChannelSettings":"Remover","reportIssue":"Relatar um problema","resetNotificationPosition":"Repor posição da notificação","resetPlayerLabel":"Reaplicar definições do leitor","resetQuality":"Reaplicar definições do leitor","resetSection":"Repor secção","resetSettings":"Repor","restoreReset":"Repor","restoreVolume":"Aplicar volume salvo automaticamente","rewardClaimed":"Recompensa resgatada.","rewardNone":"Não há recompensas para resgatar neste momento.","rewardsTitle":"Recompensas","safeModeHelp":"Aplica a qualidade guardada ao abrir o leitor. Auto usa a última escolha feita no Kick.","safeModeLabel":"Layout compacto","saveChannelButton":"Guardar este canal","savedChannelsLabel":"Canais guardados","secondsUnit":"s","sectionAbout":"Sobre a extensão","sectionAppearance":"Aparência","sectionData":"Dados e informações","sectionDiagnostics":"Diagnóstico do player","sectionHotkey":"Tecla de atalho","sectionMotion":"Animações","sectionNotifications":"Notificações","sectionPlayback":"Reprodução","sectionShortcuts":"Atalhos","sectionSounds":"Sons","sectionTools":"Ferramentas","settingsImportError":"Não foi possível importar as definições. Verifique o ficheiro.","settingsImportPrompt":"Importar estas definições e substituir a configuração atual?","settingsImported":"Definições importadas.","settingsReset":"Repor","settingsResetPrompt":"Repor todas as definições do Kick Stream Tweaks?","clearSearch":"Limpar pesquisa","settingsSearch":"Pesquisar definições…","shortcutChat":"Alternar chat","shortcutFocus":"Ecrã inteiro","shortcutNotifications":"Quality notifications","shortcutQuality":"Qualidade da transmissão ao vivo","shortcutSidebar":"Alternar menu esquerdo","shortcutVolume":"Volume preferido","silentHelp":"Silencia a transmissão sem silenciar o reprodutor, por isso continua a reproduzir quando muda de separador. Pode ser definido por canal.","silentLabel":"Reproduzir sem som (continua em segundo plano)","silentTag":"Sem som","silentUnavailable":"A reprodução silenciosa não está disponível para este reprodutor.","situationBandwidth":"Se indisponível","situationQuality":"Qualidade preferida","situationQuiet":"Silenciar leitor","situationVod":"Gravação (VOD)","sleepCancelLabel":"Cancelar temporizador","sleepClock12":"AM/PM","sleepClock24":"formato de 24 horas","sleepEndsAt":"Termina às","sleepExpired":"O temporizador pausou a reprodução.","sleepHoursLabel":"Horas","sleepMinutesLabel":"Minutos","sleepStartLabel":"Iniciar temporizador","sleepStarted":"A reprodução será pausada em {minutes} min.","sleepTimerLabel":"Temporizador de suspensão","soundConfigureLabel":"Definições de eventos sonoros","soundEffectsLabel":"Efeitos sonoros","soundEventVolumeLabel":"Volume do evento","soundMenuLabel":"Abrir e fechar o painel","soundModalHint":"Cada botão controla apenas o respetivo evento. O botão geral de sons também tem de estar ativo.","soundPreviewButton":"Pré-visualizar","soundQualityFailure":"Não foi possível aplicar a qualidade","soundQualitySuccess":"Qualidade aplicada","soundSettingsLabel":"Definição alterada","soundVolumeLabel":"Volume dos efeitos sonoros","soundVolumeRestored":"Volume restaurado","speedFast":"Rápida","speedNormal":"Normal","speedSlow":"Lenta","statusLabel":"Estado","textScaleLabel":"Layout compacto","textScaleLarge":"Layout compacto","textScaleSmall":"Layout compacto","textScaleXLarge":"Layout compacto","themeDark":"Escuro","themeLabel":"Tema","themeLight":"Claro","titleQuality":"Qualidade","titleVolume":"Volume","undoChange":"Repor","versionLabel":"Versão","widgetAutoHideLabel":"Mostrar apenas quando houver recompensa","widgetDesignLabel":"Estilo do botão","widgetDragHint":"Arraste para mover · clique para resgatar","widgetIconBolt":"Raio","widgetIconCoin":"Moeda","widgetIconCrown":"Coroa","widgetIconCustom":"O seu próprio ícone","widgetIconGift":"Presente","widgetIconLabel":"Ícone","widgetIconStar":"Estrela","widgetImageError":"Não foi possível usar este ficheiro. Escolha uma imagem PNG, JPG, WebP, GIF ou SVG até 2 MB.","widgetImageFill":"Preencher todo o botão com a imagem","widgetImageSaved":"Ícone personalizado guardado.","widgetImageTip":"As imagens quadradas com fundo transparente ficam melhor. A imagem fica apenas no seu navegador.","widgetOpacityLabel":"Opacidade do botão","widgetRemoveCustom":"Remover o seu ícone","widgetResetPos":"Repor a posição do botão","widgetSizeLabel":"Tamanho do botão","widgetStyleFlat":"Plano","widgetStyleGlass":"Vidro","widgetStyleOrb":"Esfera","widgetStylePill":"Pílula","widgetUpload":"Carregar o seu próprio ícone"},"ro":{"accentColorLabel":"Culoare de accent","actionHotkeysLabel":"Comandă rapidă meniu","animFade":"Estompare","animGlow":"Strălucire","animLift":"Ridicare","animNone":"Niciuna","animPop":"Săritură","animScale":"Scalare","animSlide":"Glisare","animationFull":"Întunecată","animationLabel":"Aspect compact","animationOff":"Deschisă","animationPreviewLabel":"Previzualizare","animationReduced":"Aspect compact","animationSpeedLabel":"Viteza animației","autoClaimHelp":"Deschide fereastra de recompense, revendică ce este disponibil și o închide. Dezactivat implicit.","autoClaimLabel":"Revendicare automată a recompenselor","autoQualityLabel":"Aplică automat calitatea salvată","autoVolumeLabel":"Aplică automat volumul salvat","bindShortcut":"Clic pentru a schimba","blurLabel":"Estomparea fundalului meniului","centerPanel":"Resetează poziția notificării","channelBackupExport":"Fă backup pentru toate canalele","channelBackupImport":"Restaurează backupul","channelCurrent":"Curent","channelDoneLabel":"Gata","channelEditLabel":"Editează","channelExcludedStatus":"Automatizare exclusă","channelExport":"Exportă","channelExported":"Setările canalului au fost exportate.","channelFavoritesOnly":"Doar fixate","channelGroupAll":"Toate grupurile","channelGroupLabel":"Grup","channelGroupPlaceholder":"Numele grupului","channelHowTitle":"Cum funcționează canalele salvate","channelImport":"Importă profilul","channelImportError":"Profilul canalului nu a putut fi importat.","channelImportSuccess":"Profilul canalului a fost importat.","channelMuted":"mut","channelNoteLabel":"Notă","channelNotePlaceholder":"Adaugă o notă…","channelNudge":"Vrei setări separate doar pentru acest canal?","channelOpenStreamHint":"Deschide o transmisie pentru a salva setările canalului ei.","channelPin":"Fixează","channelPinned":"Fixat","channelProfileSummary":"Reține setările acestui canal","channelQualitySummary":"Calitate: live {live} · VOD {vod}","channelRemoveConfirm":"Elimini setările salvate pentru {name}?","channelSavedToast":"Setările pentru {name} au fost salvate.","channelSearchPlaceholder":"Caută canale salvate…","channelSortName":"Nume","channelSortRecent":"Modificate recent","channelSortUsed":"Folosite recent","channelSoundOn":"sunet activ","channelSpeedSummary":"Viteză: {speed}×","channelStep1":"Deschide transmisia canalului.","channelStep2":"Apasă „Salvează acest canal”. Calitatea, volumul, viteza și setările de sunet curente sunt memorate pentru el.","channelStep3":"Ajustează-le mai jos. Se aplică automat de fiecare dată când deschizi acel canal.","channelUnpin":"Anulează fixarea","channelUseSaved":"Aplică setările salvate pe acest canal","channelVolumeSummary":"Volum: {volume}% · {mute}","claimDelayLabel":"Așteaptă înainte de revendicare","claimIntervalLabel":"Verifică la fiecare","claimModeInterval":"Conform unui program","claimModeLabel":"Revendicarea recompenselor","claimModeNotify":"De îndată ce Kick afișează notificarea de recompensă","claimNowLabel":"Revendică acum","claimWidgetHelp":"Afișează un buton mic pe care îl poți trage oriunde pe transmisie. Fă clic pe el pentru a revendica recompensa dintr-un singur clic. Poziția este reținută.","claimWidgetLabel":"Buton de revendicare rapidă pe pagină","clearLog":"Șterge jurnalul","clearNotificationHistory":"Resetează","collapseSidebarLabel":"Restrânge meniul din stânga","compactLabel":"Aspect compact","confirmNo":"Anulează","confirmYes":"Confirmă","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnosticul a fost actualizat.","contrastLabel":"Temă","copyDiagnostics":"Exportă","currentChannelLabel":"Curent","diagAvailableQualities":"Calități detectate","diagCurrentQuality":"Calitate curentă","diagUnknown":"Nedetectată","diagVideoResolution":"Rezoluție video","diagnosticsCopied":"Setări importate.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnosticul a fost actualizat.","doNotDisturbLabel":"Nu deranja","dragPanelHint":"Trage panoul de antet; poziția va fi salvată.","excludeChannelLabel":"Omite automatizarea pentru canal","exportSettings":"Exportă","fallbackAuto":"Comută pe Automat","fallbackLower":"Folosește cea mai apropiată calitate inferioară","focusUnavailable":"Ecranul complet nu este disponibil pentru acest player.","focusViewLabel":"Ecran complet","footerClose":"Închide","footerHint":"Apasă {key} pentru a comuta acest meniu","freezeAlertLabel":"Alertă când playerul îngheață","freezeRecovered":"Redarea a fost reluată.","freezeSoundLabel":"Redă un sunet de alarmă","freezeThresholdLabel":"Timp de detectare a înghețării","groupFeedback":"Alerte","groupInterface":"Interfață","groupPlayer":"Player","groupSystem":"Sistem","helpAccentColor":"Alege o culoare de accent personalizată.","helpAutoQuality":"Aplică nivelul salvat la deschiderea playerului. Modul automat folosește ultima alegere din Kick.","helpAutoVolume":"Restabilește volumul și starea de dezactivare a sunetului la pornire sau reconectare.","helpBlur":"Reglează estomparea între 0 și 12 px. Trage cursorul sau folosește rotița mouse-ului când indicatorul este deasupra lui.","helpButton":"Ajutor","helpChannelExclude":"Oprește schimbările automate de calitate, volum și latență pentru acest canal. Comenzile manuale funcționează în continuare.","helpChannelSettings":"Activată, salvează separat calitatea, volumul, oprirea sunetului și viteza canalului. Modifică-le în player.","helpCompact":"Reduce spațiile și înălțimea comenzilor.","helpFallback":"Alege ce se întâmplă dacă transmisiunea nu oferă calitatea preferată.","helpHotkey":"Alege o tastă sau o combinație cu Ctrl, Alt, Shift ori Meta. Escape anulează.","helpLanguage":"Schimbă limba panoului.","helpLiveQuality":"Calitatea preferată pentru transmisiuni live. Modul automat reține ultima alegere din player.","helpNotificationDuration":"Alegeți cât timp rămân vizibile notificările.","helpNotificationSize":"Ajustați dimensiunea textului notificărilor de calitate.","helpNotifications":"Afișează sau ascunde notificările privind rezultatul calității. Trage o notificare pentru a o muta; poziția va fi salvată.","helpPanelStyle":"Alege aspectul panoului.","helpSleepTimer":"Pornește o numărătoare inversă și oprește videoclipul curent la final. Închiderea meniului nu anulează temporizatorul.","helpSoundVolume":"Ajustați volumul. Butoanele redau un exemplu.","helpSounds":"Activează sau dezactivează toate sunetele extensiei. Alege evenimente individuale din setările de sunet.","helpTheme":"Schimbă aspectul panoului.","helpVodQuality":"Calitatea preferată pentru înregistrări; independentă de transmisiunile live.","helpVolume":"Volumul este între 0 și 100%. Trage cursorul sau folosește rotița mouse-ului când indicatorul este deasupra lui.","hideChatLabel":"Ascunde chatul","highVolumeWarning":"Volumul playerului depășește {threshold}%.","hotkeyCancel":"Apasă Escape pentru anulare","hotkeyWaiting":"Apasă orice tastă…","hoverAnimationLabel":"Efect la trecere","iconAnimationsLabel":"Animații pictograme","importSettings":"Importă","indicatorBreathe":"Respirație lină","indicatorGlow":"Strălucire","indicatorOff":"Oprită","indicatorPulse":"Puls","indicatorTitle":"Indicator","languageLabel":"Limbă","lastResultLabel":"Ultimul rezultat","layoutTitle":"Aspectul paginii","layoutUnavailable":"Indisponibil pe această pagină.","logCleared":"Jurnal șters.","loudThresholdLabel":"Prag de avertizare","loudWarningLabel":"Avertizează la volum ridicat","minutesUnit":"min","muteLabel":"Dezactivează sunetul","noPlayerForReset":"Playerul video nu a fost găsit.","noSavedChannels":"Nu există încă setări de canale salvate.","notificationApplied":"Calitate aplicată: {q}.","notificationDurationLabel":"Durata notificării","notificationFailed":"Nu s-a putut aplica {q}; comenzile playerului sau opțiunea de calitate nu au fost găsite.","notificationHistoryEmpty":"Nu există notificări încă.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Istoricul notificărilor","notificationIconLabel":"Afișează pictograma notificării","notificationOpacityLabel":"Opacitatea notificării","notificationSizeLabel":"Dimensiunea textului notificării","notificationVolumeLabel":"Volum restabilit","notificationsLabel":"Notificări privind calitatea","openAnimationLabel":"Animație de deschidere","openReleases":"Deschide lista versiunilor","panelStyleKick":"Kick","panelStyleLabel":"Stilul panoului","panelStyleMinimal":"Minimalist","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Viteză de redare","playerFrozenNotice":"Playerul pare înghețat. Încearcă să reîncarci transmisia.","preferredVolumeLabel":"Volum preferat","presetApplied":"Presetare aplicată: {name}","presetsLabel":"Presetări rapide","previewNotification":"Previzualizare notificare","qualityAuto":"Auto (ultima selecție manuală)","qualityAvailable":"Status","qualityCheckLabel":"Calitatea transmisiunii live","qualityFallbackLabel":"Dacă nu este disponibilă","qualityLiveLabel":"Calitatea transmisiunii live","qualityUnavailable":"Status","qualityVodLabel":"Calitatea înregistrării (VOD)","quickActionsLabel":"Redare","quietFullscreenLabel":"Mod silențios pe ecran complet","recoveryLabel":"Încearcă reluarea redării blocate","refreshDiagnostics":"Diagnosticul a fost actualizat.","removeChannelSettings":"Elimină","reportIssue":"Raportează o problemă","resetNotificationPosition":"Resetează poziția notificării","resetPlayerLabel":"Aplică din nou setările playerului","resetQuality":"Aplică din nou setările playerului","resetSection":"Resetează secțiunea","resetSettings":"Resetează","restoreReset":"Resetează","restoreVolume":"Aplică automat volumul salvat","rewardClaimed":"Recompensă revendicată.","rewardNone":"Nu există recompense de revendicat acum.","rewardsTitle":"Recompense","safeModeHelp":"Aplică nivelul salvat la deschiderea playerului. Modul automat folosește ultima alegere din Kick.","safeModeLabel":"Aspect compact","saveChannelButton":"Salvează acest canal","savedChannelsLabel":"Canale salvate","secondsUnit":"s","sectionAbout":"Despre extensie","sectionAppearance":"Aspect","sectionData":"Date și informații","sectionDiagnostics":"Diagnosticare player","sectionHotkey":"Comandă rapidă meniu","sectionMotion":"Animații","sectionNotifications":"Notificări","sectionPlayback":"Redare","sectionShortcuts":"Comenzi rapide","sectionSounds":"Sunete","sectionTools":"Instrumente","settingsImportError":"Importul a eșuat. Verificați fișierul.","settingsImportPrompt":"Importați aceste setări și înlocuiți configurația curentă?","settingsImported":"Setări importate.","settingsReset":"Resetează","settingsResetPrompt":"Resetați toate setările Kick Stream Tweaks?","clearSearch":"Șterge căutarea","settingsSearch":"Caută în setări…","shortcutChat":"Comută chatul","shortcutFocus":"Ecran complet","shortcutNotifications":"Quality notifications","shortcutQuality":"Calitatea transmisiunii live","shortcutSidebar":"Comută meniul din stânga","shortcutVolume":"Volum preferat","silentHelp":"Dezactivează sunetul transmisiei fără a pune playerul pe mut, astfel încât continuă să ruleze când schimbi fila. Se poate seta pentru fiecare canal.","silentLabel":"Redare fără sunet (continuă în fundal)","silentTag":"Fără sunet","silentUnavailable":"Redarea silențioasă nu este disponibilă pentru acest player.","situationBandwidth":"Dacă nu este disponibilă","situationQuality":"Calitate preferată","situationQuiet":"Dezactivează sunetul","situationVod":"Înregistrare (VOD)","sleepCancelLabel":"Anulează temporizatorul","sleepClock12":"AM/PM","sleepClock24":"format de 24 de ore","sleepEndsAt":"Se încheie la","sleepExpired":"Temporizatorul a oprit redarea.","sleepHoursLabel":"Ore","sleepMinutesLabel":"Minute","sleepStartLabel":"Pornește temporizatorul","sleepStarted":"Redarea se va opri în {minutes} min.","sleepTimerLabel":"Temporizator de somn","soundConfigureLabel":"Setări pentru evenimente sonore","soundEffectsLabel":"Efecte sonore","soundEventVolumeLabel":"Volumul evenimentului","soundMenuLabel":"Deschiderea și închiderea panoului","soundModalHint":"Fiecare comutator controlează doar evenimentul său. Comutatorul principal de sunet trebuie să fie activ.","soundPreviewButton":"Previzualizare","soundQualityFailure":"Calitatea nu a putut fi aplicată","soundQualitySuccess":"Calitate aplicată","soundSettingsLabel":"Setare modificată","soundVolumeLabel":"Volumul efectelor sonore","soundVolumeRestored":"Volum restabilit","speedFast":"Rapidă","speedNormal":"Normală","speedSlow":"Lentă","statusLabel":"Stare","textScaleLabel":"Aspect compact","textScaleLarge":"Aspect compact","textScaleSmall":"Aspect compact","textScaleXLarge":"Aspect compact","themeDark":"Întunecată","themeLabel":"Temă","themeLight":"Deschisă","titleQuality":"Calitate","titleVolume":"Volum","undoChange":"Resetează","versionLabel":"Versiune","widgetAutoHideLabel":"Afișează doar când există o recompensă","widgetDesignLabel":"Stilul butonului","widgetDragHint":"Trage pentru a muta · fă clic pentru a revendica","widgetIconBolt":"Fulger","widgetIconCoin":"Monedă","widgetIconCrown":"Coroană","widgetIconCustom":"Pictograma ta","widgetIconGift":"Cadou","widgetIconLabel":"Pictogramă","widgetIconStar":"Stea","widgetImageError":"Acest fișier nu poate fi folosit. Alege o imagine PNG, JPG, WebP, GIF sau SVG de până la 2 MB.","widgetImageFill":"Umple tot butonul cu imaginea","widgetImageSaved":"Pictograma personalizată a fost salvată.","widgetImageTip":"Imaginile pătrate cu fundal transparent arată cel mai bine. Imaginea rămâne doar în browserul tău.","widgetOpacityLabel":"Opacitatea butonului","widgetRemoveCustom":"Elimină pictograma ta","widgetResetPos":"Resetează poziția butonului","widgetSizeLabel":"Dimensiunea butonului","widgetStyleFlat":"Plat","widgetStyleGlass":"Sticlă","widgetStyleOrb":"Sferă","widgetStylePill":"Pilulă","widgetUpload":"Încarcă propria pictogramă"},"ru":{"accentColorLabel":"Цвет акцента","actionHotkeysLabel":"Горячие клавиши действий","animFade":"Плавное появление","animGlow":"Свечение","animLift":"Подъём","animNone":"Нет","animPop":"Всплеск","animScale":"Масштабирование","animSlide":"Сдвиг","animationFull":"Полные","animationLabel":"Анимации панели","animationOff":"Выключены","animationPreviewLabel":"Предпросмотр","animationReduced":"Уменьшенные","animationSpeedLabel":"Скорость анимации","autoClaimHelp":"Открывает окно наград, забирает доступное и закрывает его. По умолчанию выключено.","autoClaimLabel":"Автосбор наград","autoQualityLabel":"Автоприменение качества","autoVolumeLabel":"Автоприменение громкости","bindShortcut":"Назначить клавишу","blurLabel":"Размытие фона меню","centerPanel":"Вернуть панель в центр","channelBackupExport":"Создать резервную копию всех каналов","channelBackupImport":"Восстановить резервную копию","channelCurrent":"Текущий","channelDoneLabel":"Готово","channelEditLabel":"Изменить","channelExcludedStatus":"Автоматика отключена","channelExport":"Экспортировать","channelExported":"Настройки канала экспортированы.","channelFavoritesOnly":"Только закреплённые","channelGroupAll":"Все группы","channelGroupLabel":"Группа","channelGroupPlaceholder":"Название группы","channelHowTitle":"Как работают сохранённые каналы","channelImport":"Импортировать профиль","channelImportError":"Не удалось импортировать профиль канала.","channelImportSuccess":"Профиль канала импортирован.","channelMuted":"звук выключен","channelNoteLabel":"Заметка","channelNotePlaceholder":"Добавьте заметку…","channelNudge":"Нужны отдельные настройки только для этого канала?","channelOpenStreamHint":"Откройте трансляцию, чтобы сохранить настройки её канала.","channelPin":"Закрепить","channelPinned":"Закреплён","channelProfileSummary":"Сохранено для этого канала","channelQualitySummary":"Качество: эфир {live} · VOD {vod}","channelRemoveConfirm":"Удалить сохранённые настройки канала {name}?","channelSavedToast":"Настройки для {name} сохранены.","channelSearchPlaceholder":"Поиск сохранённых каналов…","channelSortName":"По имени","channelSortRecent":"Недавно изменённые","channelSortUsed":"Недавно использованные","channelSoundOn":"звук включён","channelSpeedSummary":"Скорость: {speed}×","channelStep1":"Откройте трансляцию нужного канала.","channelStep2":"Нажмите «Сохранить этот канал». Текущие качество, громкость, скорость и настройки звука запомнятся для него.","channelStep3":"Уточните их ниже. Они будут применяться автоматически при каждом открытии этого канала.","channelUnpin":"Открепить","channelUseSaved":"Применять сохранённые настройки на этом канале","channelVolumeSummary":"Громкость: {volume}% · {mute}","claimDelayLabel":"Ждать перед получением","claimIntervalLabel":"Проверять каждые","claimModeInterval":"По расписанию","claimModeLabel":"Забирать награды","claimModeNotify":"Сразу, как Kick покажет уведомление о награде","claimNowLabel":"Забрать сейчас","claimWidgetHelp":"Показывает небольшую кнопку, которую можно перетащить в любое место стрима. Нажмите на неё, чтобы забрать награду в один клик. Положение запоминается.","claimWidgetLabel":"Кнопка быстрого получения на странице","clearLog":"Очистить журнал","clearNotificationHistory":"Очистить историю уведомлений","collapseSidebarLabel":"Свернуть левое меню","compactLabel":"Компактный вид","confirmNo":"Отмена","confirmYes":"Подтвердить","conflictCheckLabel":"Проверить конфликты настроек","conflictsFound":"Возможные конфликты: {items}","conflictsNone":"Конфликтов не обнаружено.","contrastLabel":"Высокая контрастность","copyDiagnostics":"Скопировать диагностику","currentChannelLabel":"Текущий канал","diagAvailableQualities":"Найденные варианты","diagCurrentQuality":"Текущее качество","diagUnknown":"Не определено","diagVideoResolution":"Разрешение видео","diagnosticsCopied":"Диагностика скопирована.","diagnosticsLogEmpty":"Событий диагностики пока нет.","diagnosticsLogLabel":"Журнал действий","diagnosticsRefreshed":"Диагностика обновлена.","doNotDisturbLabel":"Не беспокоить","dragPanelHint":"Перетаскивайте панель за заголовок; её положение сохранится.","excludeChannelLabel":"Не применять автоматику на этом канале","exportSettings":"Экспорт","fallbackAuto":"Переключиться на «Авто»","fallbackLower":"Выбрать ближайшее ниже","focusUnavailable":"Для этого плеера недоступен полноэкранный режим.","focusViewLabel":"Режим просмотра во весь экран","footerClose":"Закрыть","footerHint":"Нажмите {key}, чтобы открыть/закрыть меню","freezeAlertLabel":"Сигнал при зависании плеера","freezeRecovered":"Воспроизведение возобновилось.","freezeSoundLabel":"Звуковая тревога","freezeThresholdLabel":"Время до срабатывания","groupFeedback":"Оповещения","groupInterface":"Интерфейс","groupPlayer":"Плеер","groupSystem":"Система","helpAccentColor":"Выберите свой цвет акцента.","helpAutoQuality":"Применяет сохранённое качество при открытии плеера. Режим «Авто» использует последний выбор в Kick.","helpAutoVolume":"Восстанавливает сохранённую громкость и состояние звука при запуске плеера или переподключении.","helpBlur":"Размытие — от 0 до 12 px. Перетащите ползунок или прокручивайте колёсико мыши, наведя на него курсор.","helpButton":"Справка","helpChannelExclude":"Отключает автоматическую смену качества, громкости и задержки для этого канала. Ручное управление плеером продолжит работать.","helpChannelSettings":"Если включить эту опцию, для канала отдельно сохраняются качество, громкость, выключение звука и скорость. Меняйте эти параметры в плеере при включённой опции.","helpCompact":"Уменьшает отступы и высоту элементов управления.","helpFallback":"Выберите действие, если в трансляции нет предпочитаемого качества.","helpHotkey":"Назначьте клавишу или сочетание с Ctrl, Alt, Shift либо Meta. Escape отменяет действие.","helpLanguage":"Меняет язык панели.","helpLiveQuality":"Предпочитаемое качество прямых эфиров. Режим «Авто» запоминает последний выбор в плеере.","helpNotificationDuration":"Выберите, сколько показывать уведомление о качестве.","helpNotificationSize":"Настройте размер текста уведомлений о качестве.","helpNotifications":"Показывать или скрывать уведомления о результате выбора качества. Перетащите уведомление, чтобы переместить его; позиция сохранится.","helpPanelStyle":"Выберите оформление панели.","helpSleepTimer":"Запускает обратный отсчёт и ставит текущее видео на паузу по его завершении. Закрытие меню не отменяет таймер.","helpSoundVolume":"Настройте громкость звуков. Кнопки воспроизводят пример.","helpSounds":"Включает или выключает все звуки расширения. Отдельные события можно выбрать в настройках звука.","helpTheme":"Меняет оформление панели.","helpVodQuality":"Предпочитаемое качество записей; настройка не зависит от прямого эфира.","helpVolume":"Громкость — от 0 до 100%. Перетащите ползунок или прокручивайте колёсико мыши, наведя на него курсор.","hideChatLabel":"Скрыть чат","highVolumeWarning":"Громкость плеера выше {threshold}%.","hotkeyCancel":"Escape — отмена","hotkeyWaiting":"Нажмите любую клавишу…","hoverAnimationLabel":"Эффект наведения","iconAnimationsLabel":"Анимация значков","importSettings":"Импорт","indicatorBreathe":"Мягкое дыхание","indicatorGlow":"Свечение","indicatorOff":"Выключена","indicatorPulse":"Пульсация","indicatorTitle":"Индикатор","languageLabel":"Язык","lastResultLabel":"Последний результат","layoutTitle":"Раскладка страницы","layoutUnavailable":"Недоступно на этой странице.","logCleared":"Журнал очищен.","loudThresholdLabel":"Порог предупреждения","loudWarningLabel":"Предупреждать о высокой громкости","minutesUnit":"мин","muteLabel":"Выключить звук плеера","noPlayerForReset":"Видеоплеер не найден.","noSavedChannels":"Сохранённых настроек каналов пока нет.","notificationApplied":"Применено качество: {q}.","notificationDurationLabel":"Длительность уведомления","notificationFailed":"Не удалось применить {q}: не найдены элементы управления плеером или этот вариант качества.","notificationHistoryEmpty":"Уведомлений пока нет.","notificationHistoryEnabledLabel":"Включать историю уведомлений","notificationHistoryLabel":"История уведомлений","notificationIconLabel":"Показывать значок уведомления","notificationOpacityLabel":"Прозрачность уведомления","notificationSizeLabel":"Размер текста уведомления","notificationVolumeLabel":"Громкость восстановлена","notificationsLabel":"Уведомления о качестве","openAnimationLabel":"Анимация открытия","openReleases":"Открыть список версий","panelStyleKick":"Kick","panelStyleLabel":"Стиль панели","panelStyleMinimal":"Минималистичный","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Скорость воспроизведения","playerFrozenNotice":"Плеер завис. Попробуйте перезагрузить трансляцию.","preferredVolumeLabel":"Предпочитаемая громкость","presetApplied":"Пресет применён: {name}","presetsLabel":"Быстрые пресеты","previewNotification":"Предпросмотр уведомления","qualityAuto":"Авто (последнее выбранное вручную)","qualityAvailable":"Выбранное качество доступно.","qualityCheckLabel":"Проверить выбранное качество","qualityFallbackLabel":"Если качество недоступно","qualityLiveLabel":"Качество прямого эфира","qualityUnavailable":"Выбранное качество недоступно.","qualityVodLabel":"Качество записи (VOD)","quickActionsLabel":"Быстрые команды","quietFullscreenLabel":"Тихий режим во весь экран","recoveryLabel":"Пробовать восстановить зависший плеер","refreshDiagnostics":"Обновить диагностику","removeChannelSettings":"Удалить","reportIssue":"Сообщить о проблеме","resetNotificationPosition":"Сбросить положение уведомления","resetPlayerLabel":"Повторно применить настройки плеера","resetQuality":"Сбросить качество","resetSection":"Сбросить раздел","resetSettings":"Сбросить","restoreReset":"Восстановить до сброса","restoreVolume":"Вернуть громкость","rewardClaimed":"Награда получена.","rewardNone":"Сейчас нет наград для получения.","rewardsTitle":"Награды","safeModeHelp":"Временно отключает автоматические изменения плеера, но оставляет панель доступной.","safeModeLabel":"Безопасный режим","saveChannelButton":"Сохранить этот канал","savedChannelsLabel":"Сохранённые каналы","secondsUnit":"с","sectionAbout":"О расширении","sectionAppearance":"Внешний вид","sectionData":"Данные и о скрипте","sectionDiagnostics":"Диагностика плеера","sectionHotkey":"Горячая клавиша","sectionMotion":"Анимации","sectionNotifications":"Уведомления","sectionPlayback":"Воспроизведение","sectionShortcuts":"Горячие клавиши","sectionSounds":"Звуки","sectionTools":"Инструменты","settingsImportError":"Не удалось импортировать настройки. Проверьте файл.","settingsImportPrompt":"Импортировать эти настройки и заменить текущую конфигурацию?","settingsImported":"Настройки импортированы.","settingsReset":"Сбросить","settingsResetPrompt":"Сбросить все настройки Kick Stream Tweaks?","clearSearch":"Очистить поиск","settingsSearch":"Поиск по настройкам…","shortcutChat":"Показать/скрыть чат","shortcutFocus":"Режим без отвлечений","shortcutNotifications":"Переключить уведомления","shortcutQuality":"Сбросить качество","shortcutSidebar":"Свернуть/развернуть левое меню","shortcutVolume":"Вернуть громкость","silentHelp":"Заглушает стрим, не отключая плеер, поэтому он продолжает играть при смене вкладки. Можно задать для каждого канала.","silentLabel":"Воспроизведение без звука (стрим не останавливается в фоне)","silentTag":"Без звука","silentUnavailable":"Режим без звука недоступен для этого плеера.","situationBandwidth":"Экономия трафика","situationQuality":"Лучшее качество","situationQuiet":"Тихий просмотр","situationVod":"VOD","sleepCancelLabel":"Отменить таймер","sleepClock12":"AM/PM","sleepClock24":"24-часовой формат","sleepEndsAt":"Остановится в","sleepExpired":"Таймер сна остановил воспроизведение.","sleepHoursLabel":"Часы","sleepMinutesLabel":"Минуты","sleepStartLabel":"Запустить таймер","sleepStarted":"Воспроизведение остановится через {minutes} мин.","sleepTimerLabel":"Таймер сна","soundConfigureLabel":"Настройка звуковых событий","soundEffectsLabel":"Звуковые эффекты","soundEventVolumeLabel":"Громкость события","soundMenuLabel":"Открытие и закрытие панели","soundModalHint":"Каждый переключатель управляет только своим событием. Главный переключатель звука тоже должен быть включён.","soundPreviewButton":"Прослушать","soundQualityFailure":"Не удалось применить качество","soundQualitySuccess":"Качество применено","soundSettingsLabel":"Изменение настроек","soundVolumeLabel":"Громкость звуковых эффектов","soundVolumeRestored":"Громкость восстановлена","speedFast":"Быстро","speedNormal":"Обычная","speedSlow":"Медленно","statusLabel":"Состояние","textScaleLabel":"Размер текста","textScaleLarge":"110%","textScaleSmall":"90%","textScaleXLarge":"130%","themeDark":"Тёмная","themeLabel":"Тема","themeLight":"Светлая","titleQuality":"Качество","titleVolume":"Громкость","undoChange":"Отменить последнее изменение","versionLabel":"Версия","widgetAutoHideLabel":"Показывать только когда есть награда","widgetDesignLabel":"Стиль кнопки","widgetDragHint":"Перетащите, чтобы переместить · нажмите, чтобы забрать","widgetIconBolt":"Молния","widgetIconCoin":"Монета","widgetIconCrown":"Корона","widgetIconCustom":"Ваш значок","widgetIconGift":"Подарок","widgetIconLabel":"Значок","widgetIconStar":"Звезда","widgetImageError":"Не удалось использовать этот файл. Выберите изображение PNG, JPG, WebP, GIF или SVG до 2 МБ.","widgetImageFill":"Заполнить всю кнопку изображением","widgetImageSaved":"Свой значок сохранён.","widgetImageTip":"Лучше всего подходят квадратные изображения с прозрачным фоном. Изображение хранится только в вашем браузере.","widgetOpacityLabel":"Прозрачность кнопки","widgetRemoveCustom":"Удалить ваш значок","widgetResetPos":"Сбросить положение кнопки","widgetSizeLabel":"Размер кнопки","widgetStyleFlat":"Плоский","widgetStyleGlass":"Стекло","widgetStyleOrb":"Шар","widgetStylePill":"Таблетка","widgetUpload":"Загрузить свой значок"},"sk":{"accentColorLabel":"Farba zvýraznenia","actionHotkeysLabel":"Klávesová skratka ponuky","animFade":"Zoslabenie","animGlow":"Žiara","animLift":"Zdvihnutie","animNone":"Žiadna","animPop":"Odskok","animScale":"Zmena mierky","animSlide":"Posun","animationFull":"Tmavý","animationLabel":"Kompaktné rozloženie","animationOff":"Svetlý","animationPreviewLabel":"Ukážka","animationReduced":"Kompaktné rozloženie","animationSpeedLabel":"Rýchlosť animácie","autoClaimHelp":"Otvorí okno odmien, vyzdvihne dostupné a znova ho zavrie. Predvolene vypnuté.","autoClaimLabel":"Automaticky vyzdvihnúť odmeny","autoQualityLabel":"Automaticky použiť uloženú kvalitu","autoVolumeLabel":"Automaticky použiť uloženú hlasitosť","bindShortcut":"Kliknutím zmeníte","blurLabel":"Rozmazanie pozadia ponuky","centerPanel":"Obnoviť polohu oznámenia","channelBackupExport":"Zálohovať všetky kanály","channelBackupImport":"Obnoviť zálohu","channelCurrent":"Aktuálne","channelDoneLabel":"Hotovo","channelEditLabel":"Upraviť","channelExcludedStatus":"Automatizácia vylúčená","channelExport":"Exportovať","channelExported":"Nastavenia kanála boli exportované.","channelFavoritesOnly":"Iba pripnuté","channelGroupAll":"Všetky skupiny","channelGroupLabel":"Skupina","channelGroupPlaceholder":"Názov skupiny","channelHowTitle":"Ako fungujú uložené kanály","channelImport":"Importovať profil","channelImportError":"Profil kanála sa nepodarilo importovať.","channelImportSuccess":"Profil kanála bol importovaný.","channelMuted":"stlmené","channelNoteLabel":"Poznámka","channelNotePlaceholder":"Pridať poznámku…","channelNudge":"Chcete samostatné nastavenia len pre tento kanál?","channelOpenStreamHint":"Otvorte vysielanie, aby ste uložili nastavenia jeho kanála.","channelPin":"Pripnúť","channelPinned":"Pripnuté","channelProfileSummary":"Zapamätať nastavenia kanála","channelQualitySummary":"Kvalita: naživo {live} · VOD {vod}","channelRemoveConfirm":"Odstrániť uložené nastavenia pre {name}?","channelSavedToast":"Nastavenia pre {name} uložené.","channelSearchPlaceholder":"Hľadať uložené kanály…","channelSortName":"Názov","channelSortRecent":"Nedávno zmenené","channelSortUsed":"Nedávno použité","channelSoundOn":"zvuk zapnutý","channelSpeedSummary":"Rýchlosť: {speed}×","channelStep1":"Otvorte vysielanie kanála.","channelStep2":"Stlačte „Uložiť tento kanál“. Uloží sa preň aktuálna kvalita, hlasitosť, rýchlosť a nastavenia zvuku.","channelStep3":"Doladiť ich môžete nižšie. Použijú sa automaticky pri každom otvorení tohto kanála.","channelUnpin":"Odopnúť","channelUseSaved":"Použiť uložené nastavenia na tomto kanáli","channelVolumeSummary":"Hlasitosť: {volume}% · {mute}","claimDelayLabel":"Počkať pred vyzdvihnutím","claimIntervalLabel":"Kontrolovať každých","claimModeInterval":"Podľa plánu","claimModeLabel":"Vyzdvihovanie odmien","claimModeNotify":"Hneď ako Kick zobrazí oznámenie o odmene","claimNowLabel":"Vyzdvihnúť teraz","claimWidgetHelp":"Zobrazí malé tlačidlo, ktoré môžete presunúť kamkoľvek na stream. Kliknutím vyzdvihnete odmenu jedným kliknutím. Poloha sa zapamätá.","claimWidgetLabel":"Tlačidlo rýchleho vyzdvihnutia na stránke","clearLog":"Vymazať záznam","clearNotificationHistory":"Obnoviť","collapseSidebarLabel":"Zbaliť ľavé menu","compactLabel":"Kompaktné rozloženie","confirmNo":"Zrušiť","confirmYes":"Potvrdiť","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostika obnovená.","contrastLabel":"Motív","copyDiagnostics":"Exportovať","currentChannelLabel":"Aktuálne","diagAvailableQualities":"Zistené kvality","diagCurrentQuality":"Aktuálna kvalita","diagUnknown":"Nezistené","diagVideoResolution":"Rozlíšenie videa","diagnosticsCopied":"Nastavenia boli importované.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostika obnovená.","doNotDisturbLabel":"Nerušiť","dragPanelHint":"Potiahnite panel za hlavičku; jeho poloha sa uloží.","excludeChannelLabel":"Vynechať automatizáciu kanála","exportSettings":"Exportovať","fallbackAuto":"Prepnúť na automatickú","fallbackLower":"Použiť najbližšiu nižšiu kvalitu","focusUnavailable":"Celá obrazovka nie je pre tento prehrávač dostupná.","focusViewLabel":"Celá obrazovka","footerClose":"Zavrieť","footerHint":"Stlačením {key} otvoríte alebo zatvoríte ponuku","freezeAlertLabel":"Upozorniť pri zamrznutí prehrávača","freezeRecovered":"Prehrávanie bolo obnovené.","freezeSoundLabel":"Prehrať alarm","freezeThresholdLabel":"Čas detekcie zamrznutia","groupFeedback":"Upozornenia","groupInterface":"Rozhranie","groupPlayer":"Prehrávač","groupSystem":"Systém","helpAccentColor":"Vyberte vlastnú farbu zvýraznenia.","helpAutoQuality":"Pri otvorení prehrávača použije uloženú kvalitu. Automatický režim použije poslednú voľbu v Kicku.","helpAutoVolume":"Pri spustení alebo opätovnom pripojení obnoví uloženú hlasitosť a stíšenie.","helpBlur":"Rozmazanie nastavte od 0 do 12 px. Posuňte jazdec alebo použite koliesko myši, keď je kurzor nad ním.","helpButton":"Pomoc","helpChannelExclude":"Vypne automatické zmeny kvality, hlasitosti a latencie pre tento kanál. Ručné ovládanie zostáva funkčné.","helpChannelSettings":"Po zapnutí sa kvalita, hlasitosť, stlmenie a rýchlosť kanála ukladajú samostatne. Meňte ich v prehrávači.","helpCompact":"Zmenší medzery a výšku ovládacích prvkov.","helpFallback":"Vyberte, čo robiť, ak stream neponúka preferovanú kvalitu.","helpHotkey":"Vyberte kláves alebo kombináciu s Ctrl, Alt, Shift či Meta. Escape zruší akciu.","helpLanguage":"Mení jazyk panela.","helpLiveQuality":"Preferovaná kvalita živých prenosov. Automatický režim si pamätá poslednú voľbu prehrávača.","helpNotificationDuration":"Vyberte, ako dlho sa majú oznámenia zobrazovať.","helpNotificationSize":"Upravte veľkosť textu oznámení o kvalite.","helpNotifications":"Zobrazí alebo skryje upozornenia o výsledku nastavenia kvality. Presunutím upozornenia zmeníte jeho polohu, ktorá sa uloží.","helpPanelStyle":"Vyberte vzhľad panela.","helpSleepTimer":"Spustí odpočítavanie a po jeho skončení pozastaví aktuálne video. Zatvorenie ponuky časovač nezruší.","helpSoundVolume":"Upravte hlasitosť. Tlačidlá prehrajú ukážku.","helpSounds":"Zapne alebo vypne všetky zvuky rozšírenia. Jednotlivé udalosti vyberte v nastaveniach zvuku.","helpTheme":"Mení vzhľad panela.","helpVodQuality":"Preferovaná kvalita záznamov; nezávislá od živých prenosov.","helpVolume":"Hlasitosť je 0–100 %. Posuňte jazdec alebo použite koliesko myši, keď je kurzor nad ním.","hideChatLabel":"Skryť chat","highVolumeWarning":"Hlasitosť prehrávača je nad {threshold} %.","hotkeyCancel":"Zrušíte stlačením Escape","hotkeyWaiting":"Stlačte ľubovoľný kláves…","hoverAnimationLabel":"Efekt pri prejdení","iconAnimationsLabel":"Animácie ikon","importSettings":"Importovať","indicatorBreathe":"Jemné dýchanie","indicatorGlow":"Žiara","indicatorOff":"Vypnuté","indicatorPulse":"Pulzovanie","indicatorTitle":"Indikátor","languageLabel":"Jazyk","lastResultLabel":"Posledný výsledok","layoutTitle":"Rozloženie stránky","layoutUnavailable":"Na tejto stránke nie je dostupné.","logCleared":"Záznam vymazaný.","loudThresholdLabel":"Hranica upozornenia","loudWarningLabel":"Upozorniť na vysokú hlasitosť","minutesUnit":"min","muteLabel":"Stlmiť prehrávač","noPlayerForReset":"Prehrávač videa sa nenašiel.","noSavedChannels":"Zatiaľ nie sú uložené žiadne nastavenia kanálov.","notificationApplied":"Použitá kvalita: {q}.","notificationDurationLabel":"Trvanie oznámenia","notificationFailed":"Nedá sa použiť {q}; nenašli sa ovládacie prvky prehrávača ani táto kvalita.","notificationHistoryEmpty":"Zatiaľ žiadne oznámenia.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"História oznámení","notificationIconLabel":"Zobraziť ikonu oznámenia","notificationOpacityLabel":"Priehľadnosť oznámenia","notificationSizeLabel":"Veľkosť textu oznámenia","notificationVolumeLabel":"Hlasitosť obnovená","notificationsLabel":"Upozornenia o kvalite","openAnimationLabel":"Animácia otvorenia","openReleases":"Otvoriť zoznam verzií","panelStyleKick":"Kick","panelStyleLabel":"Štýl panela","panelStyleMinimal":"Minimalistický","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Rýchlosť prehrávania","playerFrozenNotice":"Prehrávač vyzerá zamrznutý. Skúste vysielanie načítať znova.","preferredVolumeLabel":"Preferovaná hlasitosť","presetApplied":"Použitá predvoľba: {name}","presetsLabel":"Rýchle predvoľby","previewNotification":"Ukážka upozornenia","qualityAuto":"Automaticky (naposledy ručne vybraná)","qualityAvailable":"Status","qualityCheckLabel":"Kvalita živého vysielania","qualityFallbackLabel":"Ak nie je dostupná","qualityLiveLabel":"Kvalita živého vysielania","qualityUnavailable":"Status","qualityVodLabel":"Kvalita záznamu (VOD)","quickActionsLabel":"Prehrávanie","quietFullscreenLabel":"Tichý režim na celej obrazovke","recoveryLabel":"Skúsiť obnoviť zaseknuté prehrávanie","refreshDiagnostics":"Diagnostika obnovená.","removeChannelSettings":"Odstrániť","reportIssue":"Nahlásiť problém","resetNotificationPosition":"Obnoviť polohu oznámenia","resetPlayerLabel":"Znova použiť nastavenia prehrávača","resetQuality":"Znova použiť nastavenia prehrávača","resetSection":"Obnoviť sekciu","resetSettings":"Obnoviť","restoreReset":"Obnoviť","restoreVolume":"Automaticky použiť uloženú hlasitosť","rewardClaimed":"Odmena vyzdvihnutá.","rewardNone":"Momentálne nie sú žiadne odmeny na vyzdvihnutie.","rewardsTitle":"Odmeny","safeModeHelp":"Pri otvorení prehrávača použije uloženú kvalitu. Automatický režim použije poslednú voľbu v Kicku.","safeModeLabel":"Kompaktné rozloženie","saveChannelButton":"Uložiť tento kanál","savedChannelsLabel":"Uložené kanály","secondsUnit":"s","sectionAbout":"O rozšírení","sectionAppearance":"Vzhľad","sectionData":"Údaje a informácie","sectionDiagnostics":"Diagnostika prehrávača","sectionHotkey":"Klávesová skratka ponuky","sectionMotion":"Animácie","sectionNotifications":"Upozornenia","sectionPlayback":"Prehrávanie","sectionShortcuts":"Skratky","sectionSounds":"Zvuky","sectionTools":"Nástroje","settingsImportError":"Import zlyhal. Skontrolujte súbor.","settingsImportPrompt":"Importovať tieto nastavenia a nahradiť aktuálnu konfiguráciu?","settingsImported":"Nastavenia boli importované.","settingsReset":"Obnoviť","settingsResetPrompt":"Obnoviť všetky nastavenia Kick Stream Tweaks?","clearSearch":"Vymazať vyhľadávanie","settingsSearch":"Hľadať v nastaveniach…","shortcutChat":"Prepnúť chat","shortcutFocus":"Celá obrazovka","shortcutNotifications":"Quality notifications","shortcutQuality":"Kvalita živého vysielania","shortcutSidebar":"Prepnúť ľavé menu","shortcutVolume":"Preferovaná hlasitosť","silentHelp":"Stlmí stream bez stlmenia prehrávača, takže sa po prepnutí karty ďalej prehráva. Dá sa nastaviť pre každý kanál.","silentLabel":"Prehrávať bez zvuku (beží na pozadí)","silentTag":"Bez zvuku","silentUnavailable":"Tiché prehrávanie nie je pre tento prehrávač dostupné.","situationBandwidth":"Ak nie je dostupná","situationQuality":"Preferovaná kvalita","situationQuiet":"Stlmiť prehrávač","situationVod":"Záznam (VOD)","sleepCancelLabel":"Zrušiť časovač","sleepClock12":"AM/PM","sleepClock24":"24-hodinový formát","sleepEndsAt":"Skončí o","sleepExpired":"Časovač pozastavil prehrávanie.","sleepHoursLabel":"Hodiny","sleepMinutesLabel":"Minúty","sleepStartLabel":"Spustiť časovač","sleepStarted":"Prehrávanie sa pozastaví o {minutes} min.","sleepTimerLabel":"Časovač spánku","soundConfigureLabel":"Nastavenia zvukových udalostí","soundEffectsLabel":"Zvukové efekty","soundEventVolumeLabel":"Hlasitosť udalosti","soundMenuLabel":"Otvorenie a zatvorenie panela","soundModalHint":"Každý prepínač ovláda iba svoju udalosť. Hlavný prepínač zvukov musí byť tiež zapnutý.","soundPreviewButton":"Ukážka","soundQualityFailure":"Kvalitu sa nepodarilo použiť","soundQualitySuccess":"Kvalita použitá","soundSettingsLabel":"Zmena nastavenia","soundVolumeLabel":"Hlasitosť zvukových efektov","soundVolumeRestored":"Hlasitosť obnovená","speedFast":"Rýchla","speedNormal":"Normálna","speedSlow":"Pomalá","statusLabel":"Stav","textScaleLabel":"Kompaktné rozloženie","textScaleLarge":"Kompaktné rozloženie","textScaleSmall":"Kompaktné rozloženie","textScaleXLarge":"Kompaktné rozloženie","themeDark":"Tmavý","themeLabel":"Motív","themeLight":"Svetlý","titleQuality":"Kvalita","titleVolume":"Hlasitosť","undoChange":"Obnoviť","versionLabel":"Verzia","widgetAutoHideLabel":"Zobraziť len keď je odmena dostupná","widgetDesignLabel":"Štýl tlačidla","widgetDragHint":"Presuňte potiahnutím · kliknutím vyzdvihnete","widgetIconBolt":"Blesk","widgetIconCoin":"Minca","widgetIconCrown":"Koruna","widgetIconCustom":"Vlastná ikona","widgetIconGift":"Darček","widgetIconLabel":"Ikona","widgetIconStar":"Hviezda","widgetImageError":"Tento súbor nie je možné použiť. Vyberte obrázok PNG, JPG, WebP, GIF alebo SVG do 2 MB.","widgetImageFill":"Vyplniť celé tlačidlo obrázkom","widgetImageSaved":"Vlastná ikona uložená.","widgetImageTip":"Najlepšie vyzerajú štvorcové obrázky s priehľadným pozadím. Obrázok zostáva len vo vašom prehliadači.","widgetOpacityLabel":"Priehľadnosť tlačidla","widgetRemoveCustom":"Odstrániť vlastnú ikonu","widgetResetPos":"Obnoviť polohu tlačidla","widgetSizeLabel":"Veľkosť tlačidla","widgetStyleFlat":"Plochý","widgetStyleGlass":"Sklo","widgetStyleOrb":"Guľa","widgetStylePill":"Kapsula","widgetUpload":"Nahrať vlastnú ikonu"},"sr":{"accentColorLabel":"Boja isticanja","actionHotkeysLabel":"Prečica za meni","animFade":"Изблеђивање","animGlow":"Сјај","animLift":"Подизање","animNone":"Нема","animPop":"Скок","animScale":"Промена размере","animSlide":"Померање","animationFull":"Tamna","animationLabel":"Kompaktan raspored","animationOff":"Svetla","animationPreviewLabel":"Преглед","animationReduced":"Kompaktan raspored","animationSpeedLabel":"Брзина анимације","autoClaimHelp":"Отвара прозор награда, преузима доступно и поново га затвара. Подразумевано је искључено.","autoClaimLabel":"Аутоматско преузимање награда","autoQualityLabel":"Automatski primeni sačuvani kvalitet","autoVolumeLabel":"Automatski primeni sačuvanu jačinu zvuka","bindShortcut":"Kliknite da promenite","blurLabel":"Zamućenje pozadine menija","centerPanel":"Resetuj položaj obaveštenja","channelBackupExport":"Napravi rezervnu kopiju svih kanala","channelBackupImport":"Vrati rezervnu kopiju","channelCurrent":"Trenutno","channelDoneLabel":"Готово","channelEditLabel":"Уреди","channelExcludedStatus":"Automatizacija isključena","channelExport":"Izvezi","channelExported":"Podešavanja kanala su izvezena.","channelFavoritesOnly":"Samo zakačeni","channelGroupAll":"Sve grupe","channelGroupLabel":"Grupa","channelGroupPlaceholder":"Naziv grupe","channelHowTitle":"Како раде сачувани канали","channelImport":"Uvezi profil","channelImportError":"Nije moguće uvesti profil kanala.","channelImportSuccess":"Profil kanala je uvezen.","channelMuted":"utišano","channelNoteLabel":"Beleška","channelNotePlaceholder":"Dodaj belešku…","channelNudge":"Желите посебна подешавања само за овај канал?","channelOpenStreamHint":"Отворите пренос да бисте сачували подешавања његовог канала.","channelPin":"Zakači","channelPinned":"Zakačeno","channelProfileSummary":"Zapamti podešavanja ovog kanala","channelQualitySummary":"Kvalitet: uživo {live} · VOD {vod}","channelRemoveConfirm":"Ukloniti sačuvana podešavanja za {name}?","channelSavedToast":"Подешавања за {name} су сачувана.","channelSearchPlaceholder":"Pretraži sačuvane kanale…","channelSortName":"Naziv","channelSortRecent":"Nedavno izmenjeno","channelSortUsed":"Nedavno korišćeno","channelSoundOn":"zvuk uključen","channelSpeedSummary":"Brzina: {speed}×","channelStep1":"Отворите пренос канала.","channelStep2":"Притисните „Сачувај овај канал“. Тренутни квалитет, јачина, брзина и подешавања звука чувају се за њега.","channelStep3":"Фино их подесите испод. Примењују се аутоматски сваки пут када отворите тај канал.","channelUnpin":"Otkači","channelUseSaved":"Примени сачувана подешавања на овом каналу","channelVolumeSummary":"Jačina: {volume}% · {mute}","claimDelayLabel":"Сачекај пре преузимања","claimIntervalLabel":"Проверавај на сваких","claimModeInterval":"Према распореду","claimModeLabel":"Преузимање награда","claimModeNotify":"Чим Kick прикаже обавештење о награди","claimNowLabel":"Преузми сада","claimWidgetHelp":"Приказује мало дугме које можете да превучете било где на преносу. Кликните на њега да преузмете награду једним кликом. Положај се памти.","claimWidgetLabel":"Дугме за брзо преузимање на страници","clearLog":"Обриши дневник","clearNotificationHistory":"Resetuj","collapseSidebarLabel":"Скупи леви мени","compactLabel":"Kompaktan raspored","confirmNo":"Откажи","confirmYes":"Потврди","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Dijagnostika je osvežena.","contrastLabel":"Tema","copyDiagnostics":"Izvezi","currentChannelLabel":"Trenutno","diagAvailableQualities":"Otkriveni kvaliteti","diagCurrentQuality":"Trenutni kvalitet","diagUnknown":"Nije otkriveno","diagVideoResolution":"Rezolucija videa","diagnosticsCopied":"Podešavanja su uvezena.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Dijagnostika je osvežena.","doNotDisturbLabel":"Ne uznemiravaj","dragPanelHint":"Prevucite panel za zaglavlje; njegov položaj će biti sačuvan.","excludeChannelLabel":"Preskoči automatizaciju za kanal","exportSettings":"Izvezi","fallbackAuto":"Prebaci na automatski režim","fallbackLower":"Koristi najbliži niži kvalitet","focusUnavailable":"Prikaz preko celog ekrana nije dostupan.","focusViewLabel":"Prikaz preko celog ekrana","footerClose":"Zatvori","footerHint":"Pritisnite {key} da otvorite ili zatvorite meni","freezeAlertLabel":"Упозори када се плејер замрзне","freezeRecovered":"Репродукција је настављена.","freezeSoundLabel":"Пусти звук аларма","freezeThresholdLabel":"Време откривања замрзавања","groupFeedback":"Обавештења","groupInterface":"Интерфејс","groupPlayer":"Плејер","groupSystem":"Систем","helpAccentColor":"Izaberite prilagođenu boju isticanja.","helpAutoQuality":"Primenjuje sačuvani kvalitet kada se plejer otvori. Automatski koristi poslednji izbor na Kicku.","helpAutoVolume":"Vraća sačuvanu jačinu zvuka i stanje utišavanja pri pokretanju ili ponovnom povezivanju.","helpBlur":"Podesite zamućenje od 0 do 12 px. Prevucite klizač ili koristite točkić miša dok je kursor iznad njega.","helpButton":"Pomoć","helpChannelExclude":"Zaustavlja automatske promene kvaliteta, zvuka i kašnjenja za ovaj kanal. Ručne kontrole i dalje rade.","helpChannelSettings":"Kada je uključeno, kvalitet, jačina zvuka, utišavanje i brzina kanala čuvaju se odvojeno. Menjaj ih u plejeru.","helpCompact":"Smanjuje razmake i visinu kontrola.","helpFallback":"Izaberite šta da se uradi ako prenos nema željeni kvalitet.","helpHotkey":"Izaberite taster ili kombinaciju sa Ctrl, Alt, Shift ili Meta. Escape otkazuje.","helpLanguage":"Menja jezik panela.","helpLiveQuality":"Željeni kvalitet prenosa uživo. Automatski pamti poslednji izbor u plejeru.","helpNotificationDuration":"Izaberite koliko dugo se obaveštenja prikazuju.","helpNotificationSize":"Podesite veličinu teksta obaveštenja o kvalitetu.","helpNotifications":"Prikaži ili sakrij obaveštenja o rezultatu kvaliteta. Prevucite obaveštenje da biste ga pomerili; položaj će biti sačuvan.","helpPanelStyle":"Izaberite izgled panela.","helpSleepTimer":"Pokreće odbrojavanje i pauzira trenutni video kada istekne. Zatvaranje menija ne otkazuje tajmer.","helpSoundVolume":"Podesite jačinu zvuka. Dugmad puštaju primer.","helpSounds":"Uključuje ili isključuje sve zvukove dodatka. Pojedinačne događaje izaberite u podešavanjima zvuka.","helpTheme":"Menja izgled panela.","helpVodQuality":"Željeni kvalitet snimaka; nezavisan od prenosa uživo.","helpVolume":"Jačina zvuka je 0–100%. Prevucite klizač ili koristite točkić miša dok je kursor iznad njega.","hideChatLabel":"Сакриј чет","highVolumeWarning":"Jačina zvuka plejera je iznad {threshold}%.","hotkeyCancel":"Pritisnite Escape za otkazivanje","hotkeyWaiting":"Pritisnite bilo koji taster…","hoverAnimationLabel":"Ефекат преласка","iconAnimationsLabel":"Анимације икона","importSettings":"Uvezi","indicatorBreathe":"Благо дисање","indicatorGlow":"Сјај","indicatorOff":"Искључено","indicatorPulse":"Пулсирање","indicatorTitle":"Показатељ","languageLabel":"Jezik","lastResultLabel":"Poslednji rezultat","layoutTitle":"Распоред странице","layoutUnavailable":"Није доступно на овој страници.","logCleared":"Дневник је обрисан.","loudThresholdLabel":"Prag upozorenja","loudWarningLabel":"Upozori na veliku jačinu zvuka","minutesUnit":"мин","muteLabel":"Utišaj plejer","noPlayerForReset":"Video plejer nije pronađen.","noSavedChannels":"Još nema sačuvanih podešavanja kanala.","notificationApplied":"Primenjen kvalitet: {q}.","notificationDurationLabel":"Trajanje obaveštenja","notificationFailed":"Nije moguće primeniti {q}; kontrole plejera ili ta opcija kvaliteta nisu pronađene.","notificationHistoryEmpty":"Još nema obaveštenja.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Istorija obaveštenja","notificationIconLabel":"Prikaži ikonu obaveštenja","notificationOpacityLabel":"Providnost obaveštenja","notificationSizeLabel":"Veličina teksta obaveštenja","notificationVolumeLabel":"Jačina zvuka vraćena","notificationsLabel":"Obaveštenja o kvalitetu","openAnimationLabel":"Анимација отварања","openReleases":"Otvori listu verzija","panelStyleKick":"Kick","panelStyleLabel":"Stil panela","panelStyleMinimal":"Minimalistički","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Brzina reprodukcije","playerFrozenNotice":"Изгледа да се плејер замрзнуо. Покушајте да поново учитате пренос.","preferredVolumeLabel":"Željena jačina zvuka","presetApplied":"Примењен пресет: {name}","presetsLabel":"Брзи пресети","previewNotification":"Pregled obaveštenja","qualityAuto":"Automatski (poslednji ručni izbor)","qualityAvailable":"Status","qualityCheckLabel":"Kvalitet prenosa uživo","qualityFallbackLabel":"Ako nije dostupan","qualityLiveLabel":"Kvalitet prenosa uživo","qualityUnavailable":"Status","qualityVodLabel":"Kvalitet snimka (VOD)","quickActionsLabel":"Reprodukcija","quietFullscreenLabel":"Tihi režim preko celog ekrana","recoveryLabel":"Pokušaj da oporaviš zaglavljenu reprodukciju","refreshDiagnostics":"Dijagnostika je osvežena.","removeChannelSettings":"Ukloni","reportIssue":"Пријави проблем","resetNotificationPosition":"Resetuj položaj obaveštenja","resetPlayerLabel":"Ponovo primeni podešavanja plejera","resetQuality":"Ponovo primeni podešavanja plejera","resetSection":"Resetuj odeljak","resetSettings":"Resetuj","restoreReset":"Resetuj","restoreVolume":"Automatski primeni sačuvanu jačinu zvuka","rewardClaimed":"Награда је преузета.","rewardNone":"Тренутно нема награда за преузимање.","rewardsTitle":"Награде","safeModeHelp":"Primenjuje sačuvani kvalitet kada se plejer otvori. Automatski koristi poslednji izbor na Kicku.","safeModeLabel":"Kompaktan raspored","saveChannelButton":"Сачувај овај канал","savedChannelsLabel":"Sačuvani kanali","secondsUnit":"с","sectionAbout":"O proširenju","sectionAppearance":"Izgled","sectionData":"Подаци и информације","sectionDiagnostics":"Dijagnostika plejera","sectionHotkey":"Prečica za meni","sectionMotion":"Анимације","sectionNotifications":"Обавештења","sectionPlayback":"Reprodukcija","sectionShortcuts":"Пречице","sectionSounds":"Zvukovi","sectionTools":"Алати","settingsImportError":"Uvoz nije uspeo. Proverite datoteku.","settingsImportPrompt":"Uvesti ova podešavanja i zameniti trenutnu konfiguraciju?","settingsImported":"Podešavanja su uvezena.","settingsReset":"Resetuj","settingsResetPrompt":"Resetovati sva podešavanja Kick Stream Tweaks?","clearSearch":"Обриши претрагу","settingsSearch":"Pretraži podešavanja…","shortcutChat":"Укључи/искључи чет","shortcutFocus":"Prikaz preko celog ekrana","shortcutNotifications":"Quality notifications","shortcutQuality":"Kvalitet prenosa uživo","shortcutSidebar":"Укључи/искључи леви мени","shortcutVolume":"Željena jačina zvuka","silentHelp":"Утишава пренос без искључивања звука плејера, па наставља да се пушта кад промените картицу. Може се подесити по каналу.","silentLabel":"Репродукција без звука (наставља у позадини)","silentTag":"Без звука","silentUnavailable":"Тиха репродукција није доступна за овај плејер.","situationBandwidth":"Ako nije dostupan","situationQuality":"Željeni kvalitet","situationQuiet":"Utišaj plejer","situationVod":"Snimak (VOD)","sleepCancelLabel":"Otkaži tajmer","sleepClock12":"AM/PM","sleepClock24":"24-часовни формат","sleepEndsAt":"Завршава се у","sleepExpired":"Tajmer je zaustavio reprodukciju.","sleepHoursLabel":"Сати","sleepMinutesLabel":"Минути","sleepStartLabel":"Pokreni tajmer","sleepStarted":"Reprodukcija će se zaustaviti za {minutes} min.","sleepTimerLabel":"Tajmer za spavanje","soundConfigureLabel":"Podešavanja zvučnih događaja","soundEffectsLabel":"Zvučni efekti","soundEventVolumeLabel":"Jačina zvuka događaja","soundMenuLabel":"Otvaranje i zatvaranje panela","soundModalHint":"Svaki prekidač upravlja samo svojim događajem. Glavni prekidač zvuka takođe mora biti uključen.","soundPreviewButton":"Pregled","soundQualityFailure":"Kvalitet nije moguće primeniti","soundQualitySuccess":"Kvalitet je primenjen","soundSettingsLabel":"Promena podešavanja","soundVolumeLabel":"Jačina zvučnih efekata","soundVolumeRestored":"Jačina zvuka je vraćena","speedFast":"Брзо","speedNormal":"Нормално","speedSlow":"Споро","statusLabel":"Status","textScaleLabel":"Kompaktan raspored","textScaleLarge":"Kompaktan raspored","textScaleSmall":"Kompaktan raspored","textScaleXLarge":"Kompaktan raspored","themeDark":"Tamna","themeLabel":"Tema","themeLight":"Svetla","titleQuality":"Квалитет","titleVolume":"Јачина звука","undoChange":"Resetuj","versionLabel":"Верзија","widgetAutoHideLabel":"Прикажи само када је награда доступна","widgetDesignLabel":"Стил дугмета","widgetDragHint":"Превуците за померање · кликните за преузимање","widgetIconBolt":"Муња","widgetIconCoin":"Новчић","widgetIconCrown":"Круна","widgetIconCustom":"Ваша икона","widgetIconGift":"Поклон","widgetIconLabel":"Икона","widgetIconStar":"Звезда","widgetImageError":"Ова датотека се не може користити. Изаберите слику PNG, JPG, WebP, GIF или SVG до 2 MB.","widgetImageFill":"Испуни цело дугме сликом","widgetImageSaved":"Сопствена икона је сачувана.","widgetImageTip":"Најбоље изгледају квадратне слике са провидном позадином. Слика остаје само у вашем прегледачу.","widgetOpacityLabel":"Провидност дугмета","widgetRemoveCustom":"Уклони вашу икону","widgetResetPos":"Врати положај дугмета","widgetSizeLabel":"Величина дугмета","widgetStyleFlat":"Раван","widgetStyleGlass":"Стакло","widgetStyleOrb":"Лопта","widgetStylePill":"Таблета","widgetUpload":"Отпреми своју икону"},"sv":{"accentColorLabel":"Accentfärg","actionHotkeysLabel":"Menygenväg","animFade":"Tona bort","animGlow":"Glöd","animLift":"Lyft","animNone":"Ingen","animPop":"Studs","animScale":"Skala","animSlide":"Glid","animationFull":"Mörkt","animationLabel":"Kompakt layout","animationOff":"Ljust","animationPreviewLabel":"Förhandsvisning","animationReduced":"Kompakt layout","animationSpeedLabel":"Animationshastighet","autoClaimHelp":"Öppnar belöningsfönstret, hämtar det som finns och stänger det igen. Av som standard.","autoClaimLabel":"Hämta belöningar automatiskt","autoQualityLabel":"Applicera sparad kvalitet automatiskt","autoVolumeLabel":"Applicera sparad volym automatiskt","bindShortcut":"Klicka för att ändra","blurLabel":"Oskärpa på menyns bakgrund","centerPanel":"Återställ aviseringens position","channelBackupExport":"Säkerhetskopiera alla kanaler","channelBackupImport":"Återställ säkerhetskopia","channelCurrent":"Aktuell","channelDoneLabel":"Klar","channelEditLabel":"Redigera","channelExcludedStatus":"Automatisering undantagen","channelExport":"Exportera","channelExported":"Kanalinställningar exporterade.","channelFavoritesOnly":"Endast fästa","channelGroupAll":"Alla grupper","channelGroupLabel":"Grupp","channelGroupPlaceholder":"Gruppnamn","channelHowTitle":"Så fungerar sparade kanaler","channelImport":"Importera profil","channelImportError":"Det gick inte att importera kanalprofilen.","channelImportSuccess":"Kanalprofil importerad.","channelMuted":"ljud av","channelNoteLabel":"Anteckning","channelNotePlaceholder":"Lägg till en anteckning…","channelNudge":"Vill du ha separata inställningar bara för den här kanalen?","channelOpenStreamHint":"Öppna en sändning för att spara inställningarna för dess kanal.","channelPin":"Fäst","channelPinned":"Fäst","channelProfileSummary":"Kom ihåg inställningar för kanalen","channelQualitySummary":"Kvalitet: live {live} · VOD {vod}","channelRemoveConfirm":"Ta bort sparade inställningar för {name}?","channelSavedToast":"Inställningar sparade för {name}.","channelSearchPlaceholder":"Sök bland sparade kanaler…","channelSortName":"Namn","channelSortRecent":"Nyligen ändrade","channelSortUsed":"Nyligen använda","channelSoundOn":"ljud på","channelSpeedSummary":"Hastighet: {speed}×","channelStep1":"Öppna kanalens sändning.","channelStep2":"Tryck på ”Spara den här kanalen”. Aktuell kvalitet, volym, hastighet och ljudinställningar sparas för den.","channelStep3":"Finjustera dem nedan. De tillämpas automatiskt varje gång du öppnar kanalen.","channelUnpin":"Lossa","channelUseSaved":"Använd de sparade inställningarna på den här kanalen","channelVolumeSummary":"Volym: {volume}% · {mute}","claimDelayLabel":"Vänta före hämtning","claimIntervalLabel":"Kontrollera var","claimModeInterval":"Enligt schema","claimModeLabel":"Hämta belöningar","claimModeNotify":"Så fort Kick visar belöningsmeddelandet","claimNowLabel":"Hämta nu","claimWidgetHelp":"Visar en liten knapp som du kan dra var som helst på sändningen. Klicka på den för att hämta belöningen med ett klick. Placeringen kommer ihåg.","claimWidgetLabel":"Snabbhämtningsknapp på sidan","clearLog":"Rensa logg","clearNotificationHistory":"Återställ","collapseSidebarLabel":"Fäll in vänstermenyn","compactLabel":"Kompakt layout","confirmNo":"Avbryt","confirmYes":"Bekräfta","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Diagnostiken har uppdaterats.","contrastLabel":"Tema","copyDiagnostics":"Exportera","currentChannelLabel":"Aktuell","diagAvailableQualities":"Upptäckta kvaliteter","diagCurrentQuality":"Aktuell kvalitet","diagUnknown":"Hittades inte","diagVideoResolution":"Videoupplösning","diagnosticsCopied":"Inställningar importerade.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Diagnostiken har uppdaterats.","doNotDisturbLabel":"Stör ej","dragPanelHint":"Dra panelen i rubriken; dess position sparas.","excludeChannelLabel":"Hoppa över automatisering för kanalen","exportSettings":"Exportera","fallbackAuto":"Byt till Auto","fallbackLower":"Använd närmaste lägre kvalitet","focusUnavailable":"Helskärm är inte tillgängligt för den här spelaren.","focusViewLabel":"Helskärmsvy","footerClose":"Stäng","footerHint":"Tryck på {key} för att växla den här menyn","freezeAlertLabel":"Varna när spelaren hänger sig","freezeRecovered":"Uppspelningen har återupptagits.","freezeSoundLabel":"Spela upp larmljud","freezeThresholdLabel":"Tid för upptäckt av frysning","groupFeedback":"Aviseringar","groupInterface":"Gränssnitt","groupPlayer":"Spelare","groupSystem":"System","helpAccentColor":"Välj en egen accentfärg.","helpAutoQuality":"Använder sparad kvalitet när spelaren öppnas. Auto använder det senaste valet i Kick.","helpAutoVolume":"Återställer sparad volym och ljud av/på vid start eller återanslutning.","helpBlur":"Ställ in oskärpa från 0 till 12 px. Dra reglaget eller använd mushjulet när markören är ovanför det.","helpButton":"Hjälp","helpChannelExclude":"Stoppar automatiska ändringar av kvalitet, volym och fördröjning för kanalen. Manuell styrning fungerar fortfarande.","helpChannelSettings":"När funktionen är på sparas kanalens kvalitet, volym, ljud av och hastighet separat. Ändra dem i spelaren.","helpCompact":"Minskar avstånd och kontrollernas höjd.","helpFallback":"Välj vad som ska hända om sändningen saknar den föredragna kvaliteten.","helpHotkey":"Välj en tangent eller kombination med Ctrl, Alt, Skift eller Meta. Escape avbryter.","helpLanguage":"Ändrar panelens språk.","helpLiveQuality":"Föredragen kvalitet för livesändningar. Auto kommer ihåg spelarens senaste val.","helpNotificationDuration":"Välj hur länge kvalitetsaviseringar visas.","helpNotificationSize":"Justera textstorleken för kvalitetsaviseringar.","helpNotifications":"Visa eller dölj aviseringar om kvalitetsresultat. Dra en avisering för att flytta den; positionen sparas.","helpPanelStyle":"Välj panelens utseende.","helpSleepTimer":"Startar en nedräkning och pausar videon när tiden går ut. Timern avbryts inte när menyn stängs.","helpSoundVolume":"Justera volymen. Knapparna spelar upp ett exempel.","helpSounds":"Slå på eller av alla ljud från tillägget. Välj enskilda händelser i ljudinställningarna.","helpTheme":"Ändrar panelens utseende.","helpVodQuality":"Föredragen kvalitet för inspelningar; separat från livesändningar.","helpVolume":"Volymen är 0–100 %. Dra reglaget eller använd mushjulet när markören är ovanför det.","hideChatLabel":"Dölj chatt","highVolumeWarning":"Spelarens volym är över {threshold} %.","hotkeyCancel":"Tryck på Escape för att avbryta","hotkeyWaiting":"Tryck på valfri tangent…","hoverAnimationLabel":"Hovringseffekt","iconAnimationsLabel":"Ikonanimationer","importSettings":"Importera","indicatorBreathe":"Mjuk andning","indicatorGlow":"Glöd","indicatorOff":"Av","indicatorPulse":"Pulsering","indicatorTitle":"Indikator","languageLabel":"Språk","lastResultLabel":"Senaste resultat","layoutTitle":"Sidlayout","layoutUnavailable":"Inte tillgängligt på den här sidan.","logCleared":"Loggen rensad.","loudThresholdLabel":"Varningsgräns","loudWarningLabel":"Varna vid hög volym","minutesUnit":"min","muteLabel":"Stäng av ljudet","noPlayerForReset":"Ingen videospelare hittades.","noSavedChannels":"Inga sparade kanalinställningar ännu.","notificationApplied":"Kvalitet tillämpad: {q}.","notificationDurationLabel":"Aviseringens varaktighet","notificationFailed":"Kunde inte tillämpa {q}; spelarens kontroller eller kvalitetsalternativ hittades inte.","notificationHistoryEmpty":"Inga aviseringar ännu.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Aviseringshistorik","notificationIconLabel":"Visa aviseringsikon","notificationOpacityLabel":"Aviseringens opacitet","notificationSizeLabel":"Textstorlek för aviseringar","notificationVolumeLabel":"Volym återställd","notificationsLabel":"Kvalitetsaviseringar","openAnimationLabel":"Öppningsanimation","openReleases":"Öppna versionslistan","panelStyleKick":"Kick","panelStyleLabel":"Panelstil","panelStyleMinimal":"Minimalistisk","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Uppspelningshastighet","playerFrozenNotice":"Spelaren verkar ha hängt sig. Prova att ladda om sändningen.","preferredVolumeLabel":"Föredragen volym","presetApplied":"Snabbval tillämpat: {name}","presetsLabel":"Snabbval","previewNotification":"Förhandsvisning av avisering","qualityAuto":"Auto (senast manuellt vald)","qualityAvailable":"Status","qualityCheckLabel":"Kvalitet på livesändning","qualityFallbackLabel":"Om den inte är tillgänglig","qualityLiveLabel":"Kvalitet på livesändning","qualityUnavailable":"Status","qualityVodLabel":"Kvalitet på inspelning (VOD)","quickActionsLabel":"Uppspelning","quietFullscreenLabel":"Tyst läge i helskärm","recoveryLabel":"Försök återuppta uppspelning som fastnat","refreshDiagnostics":"Diagnostiken har uppdaterats.","removeChannelSettings":"Ta bort","reportIssue":"Rapportera ett problem","resetNotificationPosition":"Återställ aviseringens position","resetPlayerLabel":"Tillämpa spelarinställningar igen","resetQuality":"Tillämpa spelarinställningar igen","resetSection":"Återställ sektion","resetSettings":"Återställ","restoreReset":"Återställ","restoreVolume":"Applicera sparad volym automatiskt","rewardClaimed":"Belöning hämtad.","rewardNone":"Inga belöningar att hämta just nu.","rewardsTitle":"Belöningar","safeModeHelp":"Använder sparad kvalitet när spelaren öppnas. Auto använder det senaste valet i Kick.","safeModeLabel":"Kompakt layout","saveChannelButton":"Spara den här kanalen","savedChannelsLabel":"Sparade kanaler","secondsUnit":"s","sectionAbout":"Om tillägget","sectionAppearance":"Utseende","sectionData":"Data & info","sectionDiagnostics":"Spelardiagnostik","sectionHotkey":"Menygenväg","sectionMotion":"Animationer","sectionNotifications":"Aviseringar","sectionPlayback":"Uppspelning","sectionShortcuts":"Genvägar","sectionSounds":"Ljud","sectionTools":"Verktyg","settingsImportError":"Det gick inte att importera inställningarna. Kontrollera filen.","settingsImportPrompt":"Importera inställningarna och ersätta den nuvarande konfigurationen?","settingsImported":"Inställningar importerade.","settingsReset":"Återställ","settingsResetPrompt":"Återställa alla Kick Stream Tweaks-inställningar?","clearSearch":"Rensa sökning","settingsSearch":"Sök i inställningar…","shortcutChat":"Växla chatt","shortcutFocus":"Helskärmsvy","shortcutNotifications":"Quality notifications","shortcutQuality":"Kvalitet på livesändning","shortcutSidebar":"Växla vänstermenyn","shortcutVolume":"Föredragen volym","silentHelp":"Gör strömmen ljudlös utan att stänga av ljudet i spelaren, så den fortsätter spela när du byter flik. Kan ställas in per kanal.","silentLabel":"Spela utan ljud (fortsätter i bakgrunden)","silentTag":"Utan ljud","silentUnavailable":"Ljudlös uppspelning är inte tillgänglig för den här spelaren.","situationBandwidth":"Om den inte är tillgänglig","situationQuality":"Föredragen kvalitet","situationQuiet":"Stäng av ljudet","situationVod":"Inspelning (VOD)","sleepCancelLabel":"Avbryt timer","sleepClock12":"AM/PM","sleepClock24":"24-timmarsformat","sleepEndsAt":"Slutar kl.","sleepExpired":"Insomningstimern pausade uppspelningen.","sleepHoursLabel":"Timmar","sleepMinutesLabel":"Minuter","sleepStartLabel":"Starta timer","sleepStarted":"Uppspelningen pausas om {minutes} min.","sleepTimerLabel":"Insomningstimer","soundConfigureLabel":"Inställningar för ljudhändelser","soundEffectsLabel":"Ljudeffekter","soundEventVolumeLabel":"Händelsevolym","soundMenuLabel":"Öppna och stänga panelen","soundModalHint":"Varje reglage styr bara sin händelse. Huvudreglaget för ljud måste också vara på.","soundPreviewButton":"Förhandsgranska","soundQualityFailure":"Kvaliteten kunde inte användas","soundQualitySuccess":"Kvalitet tillämpad","soundSettingsLabel":"Inställning ändrad","soundVolumeLabel":"Ljudeffekternas volym","soundVolumeRestored":"Volym återställd","speedFast":"Snabb","speedNormal":"Normal","speedSlow":"Långsam","statusLabel":"Status","textScaleLabel":"Kompakt layout","textScaleLarge":"Kompakt layout","textScaleSmall":"Kompakt layout","textScaleXLarge":"Kompakt layout","themeDark":"Mörkt","themeLabel":"Tema","themeLight":"Ljust","titleQuality":"Kvalitet","titleVolume":"Volym","undoChange":"Återställ","versionLabel":"Version","widgetAutoHideLabel":"Visa bara när en belöning finns","widgetDesignLabel":"Knappstil","widgetDragHint":"Dra för att flytta · klicka för att hämta","widgetIconBolt":"Blixt","widgetIconCoin":"Mynt","widgetIconCrown":"Krona","widgetIconCustom":"Din egen ikon","widgetIconGift":"Present","widgetIconLabel":"Ikon","widgetIconStar":"Stjärna","widgetImageError":"Filen kunde inte användas. Välj en PNG-, JPG-, WebP-, GIF- eller SVG-bild på upp till 2 MB.","widgetImageFill":"Fyll hela knappen med bilden","widgetImageSaved":"Egen ikon sparad.","widgetImageTip":"Kvadratiska bilder med genomskinlig bakgrund ser bäst ut. Bilden stannar bara i din webbläsare.","widgetOpacityLabel":"Knappens genomskinlighet","widgetRemoveCustom":"Ta bort din ikon","widgetResetPos":"Återställ knappens placering","widgetSizeLabel":"Knappstorlek","widgetStyleFlat":"Platt","widgetStyleGlass":"Glas","widgetStyleOrb":"Klot","widgetStylePill":"Piller","widgetUpload":"Ladda upp din egen ikon"},"th":{"accentColorLabel":"สีเน้น","actionHotkeysLabel":"ปุ่มลัดเมนู","animFade":"ค่อย ๆ ปรากฏ","animGlow":"เรืองแสง","animLift":"ยกขึ้น","animNone":"ไม่มี","animPop":"เด้ง","animScale":"ปรับขนาด","animSlide":"เลื่อน","animationFull":"มืด","animationLabel":"เค้าโครงกะทัดรัด","animationOff":"สว่าง","animationPreviewLabel":"ตัวอย่าง","animationReduced":"เค้าโครงกะทัดรัด","animationSpeedLabel":"ความเร็วภาพเคลื่อนไหว","autoClaimHelp":"เปิดหน้าต่างรางวัล รับรางวัลที่มี แล้วปิดอีกครั้ง ปิดไว้เป็นค่าเริ่มต้น","autoClaimLabel":"รับรางวัลอัตโนมัติ","autoQualityLabel":"ใช้คุณภาพที่บันทึกไว้โดยอัตโนมัติ","autoVolumeLabel":"ใช้ระดับเสียงที่บันทึกไว้โดยอัตโนมัติ","bindShortcut":"คลิกเพื่อเปลี่ยน","blurLabel":"ความเบลอของพื้นหลังเมนู","centerPanel":"รีเซ็ตตำแหน่งการแจ้งเตือน","channelBackupExport":"สำรองข้อมูลทุกช่อง","channelBackupImport":"กู้คืนข้อมูลสำรอง","channelCurrent":"ปัจจุบัน","channelDoneLabel":"เสร็จสิ้น","channelEditLabel":"แก้ไข","channelExcludedStatus":"ยกเว้นระบบอัตโนมัติ","channelExport":"ส่งออก","channelExported":"ส่งออกการตั้งค่าช่องแล้ว","channelFavoritesOnly":"เฉพาะที่ปักหมุด","channelGroupAll":"ทุกกลุ่ม","channelGroupLabel":"กลุ่ม","channelGroupPlaceholder":"ชื่อกลุ่ม","channelHowTitle":"ช่องที่บันทึกไว้ทำงานอย่างไร","channelImport":"นำเข้าโปรไฟล์","channelImportError":"นำเข้าโปรไฟล์ช่องไม่สำเร็จ","channelImportSuccess":"นำเข้าโปรไฟล์ช่องแล้ว","channelMuted":"ปิดเสียง","channelNoteLabel":"บันทึก","channelNotePlaceholder":"เพิ่มบันทึก…","channelNudge":"ต้องการการตั้งค่าแยกเฉพาะช่องนี้หรือไม่","channelOpenStreamHint":"เปิดสตรีมเพื่อบันทึกการตั้งค่าของช่อง","channelPin":"ปักหมุด","channelPinned":"ปักหมุดแล้ว","channelProfileSummary":"จำการตั้งค่าของช่องนี้","channelQualitySummary":"คุณภาพ: สด {live} · VOD {vod}","channelRemoveConfirm":"ลบการตั้งค่าที่บันทึกของ {name} หรือไม่","channelSavedToast":"บันทึกการตั้งค่าของ {name} แล้ว","channelSearchPlaceholder":"ค้นหาช่องที่บันทึก…","channelSortName":"ชื่อ","channelSortRecent":"แก้ไขล่าสุด","channelSortUsed":"ใช้ล่าสุด","channelSoundOn":"เปิดเสียง","channelSpeedSummary":"ความเร็ว: {speed}×","channelStep1":"เปิดสตรีมของช่อง","channelStep2":"กด “บันทึกช่องนี้” คุณภาพ ระดับเสียง ความเร็ว และการตั้งค่าเสียงปัจจุบันจะถูกบันทึกไว้สำหรับช่องนั้น","channelStep3":"ปรับแต่งเพิ่มเติมด้านล่าง ระบบจะใช้โดยอัตโนมัติทุกครั้งที่คุณเปิดช่องนั้น","channelUnpin":"เลิกปักหมุด","channelUseSaved":"ใช้การตั้งค่าที่บันทึกไว้กับช่องนี้","channelVolumeSummary":"ระดับเสียง: {volume}% · {mute}","claimDelayLabel":"รอก่อนรับ","claimIntervalLabel":"ตรวจสอบทุก","claimModeInterval":"ตามตารางเวลา","claimModeLabel":"การรับรางวัล","claimModeNotify":"ทันทีที่ Kick แสดงการแจ้งเตือนรางวัล","claimNowLabel":"รับตอนนี้","claimWidgetHelp":"แสดงปุ่มเล็กที่ลากไปไว้ตรงไหนของสตรีมก็ได้ คลิกเพื่อรับรางวัลในคลิกเดียว ระบบจำตำแหน่งไว้","claimWidgetLabel":"ปุ่มรับรางวัลด่วนบนหน้า","clearLog":"ล้างบันทึก","clearNotificationHistory":"รีเซ็ต","collapseSidebarLabel":"ยุบเมนูด้านซ้าย","compactLabel":"เค้าโครงกะทัดรัด","confirmNo":"ยกเลิก","confirmYes":"ยืนยัน","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"อัปเดตการวินิจฉัยแล้ว","contrastLabel":"ธีม","copyDiagnostics":"ส่งออก","currentChannelLabel":"ปัจจุบัน","diagAvailableQualities":"คุณภาพที่ตรวจพบ","diagCurrentQuality":"คุณภาพปัจจุบัน","diagUnknown":"ไม่พบ","diagVideoResolution":"ความละเอียดวิดีโอ","diagnosticsCopied":"นำเข้าการตั้งค่าแล้ว","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"อัปเดตการวินิจฉัยแล้ว","doNotDisturbLabel":"ห้ามรบกวน","dragPanelHint":"ลากแผงจากส่วนหัว ระบบจะบันทึกตำแหน่งไว้","excludeChannelLabel":"ข้ามระบบอัตโนมัติสำหรับช่องนี้","exportSettings":"ส่งออก","fallbackAuto":"เปลี่ยนเป็นอัตโนมัติ","fallbackLower":"ใช้คุณภาพที่ต่ำกว่าซึ่งใกล้เคียงที่สุด","focusUnavailable":"เครื่องเล่นนี้ไม่รองรับเต็มหน้าจอ","focusViewLabel":"เต็มหน้าจอ","footerClose":"ปิด","footerHint":"กด {key} เพื่อเปิด/ปิดเมนูนี้","freezeAlertLabel":"แจ้งเตือนเมื่อเครื่องเล่นค้าง","freezeRecovered":"เล่นต่อแล้ว","freezeSoundLabel":"เล่นเสียงเตือน","freezeThresholdLabel":"เวลาตรวจจับการค้าง","groupFeedback":"การแจ้งเตือน","groupInterface":"อินเทอร์เฟซ","groupPlayer":"เครื่องเล่น","groupSystem":"ระบบ","helpAccentColor":"เลือกสีเน้นที่กำหนดเอง","helpAutoQuality":"ใช้คุณภาพที่บันทึกไว้เมื่อเปิดเครื่องเล่น โหมดอัตโนมัติใช้ค่าล่าสุดที่เลือกใน Kick","helpAutoVolume":"คืนค่าระดับเสียงและสถานะปิดเสียงเมื่อเริ่มหรือเชื่อมต่อเครื่องเล่นอีกครั้ง","helpBlur":"ตั้งค่าความเบลอ 0–12 px ลากแถบเลื่อนหรือหมุนล้อเมาส์ขณะวางเคอร์เซอร์ไว้เหนือแถบ","helpButton":"ช่วยเหลือ","helpChannelExclude":"หยุดการเปลี่ยนคุณภาพ ระดับเสียง และความหน่วงอัตโนมัติสำหรับช่องนี้ การควบคุมด้วยตนเองยังใช้ได้","helpChannelSettings":"เมื่อเปิดใช้ จะบันทึกคุณภาพ ระดับเสียง ปิดเสียง และความเร็วของช่องนี้แยกกัน เปลี่ยนได้ในเครื่องเล่น","helpCompact":"ลดระยะห่างและความสูงของตัวควบคุม","helpFallback":"เลือกการทำงานเมื่อสตรีมไม่มีคุณภาพที่ต้องการ","helpHotkey":"เลือกปุ่มหรือชุดปุ่มร่วมกับ Ctrl, Alt, Shift หรือ Meta กด Escape เพื่อยกเลิก","helpLanguage":"เปลี่ยนภาษาของแผงนี้","helpLiveQuality":"คุณภาพที่ต้องการสำหรับสตรีมสด โหมดอัตโนมัติจะจำค่าล่าสุดในเครื่องเล่น","helpNotificationDuration":"เลือกระยะเวลาที่แสดงการแจ้งเตือนคุณภาพ","helpNotificationSize":"ปรับขนาดข้อความแจ้งเตือนคุณภาพ","helpNotifications":"แสดงหรือซ่อนการแจ้งผลการเลือกคุณภาพ ลากการแจ้งเตือนเพื่อย้ายตำแหน่ง โดยตำแหน่งจะถูกบันทึก","helpPanelStyle":"เลือกรูปลักษณ์ของแผง","helpSleepTimer":"เริ่มนับถอยหลังและหยุดวิดีโอปัจจุบันชั่วคราวเมื่อหมดเวลา การปิดเมนูไม่ยกเลิกตัวตั้งเวลา","helpSoundVolume":"ปรับระดับเสียง ปุ่มตัวอย่างจะเล่นเสียงให้ฟัง","helpSounds":"เปิดหรือปิดเสียงทั้งหมดของส่วนขยาย เลือกเหตุการณ์แยกได้ในการตั้งค่าเสียง","helpTheme":"เปลี่ยนรูปลักษณ์ของแผงนี้","helpVodQuality":"คุณภาพที่ต้องการสำหรับวิดีโอบันทึก แยกจากสตรีมสด","helpVolume":"ระดับเสียง 0–100% ลากแถบเลื่อนหรือหมุนล้อเมาส์ขณะวางเคอร์เซอร์ไว้เหนือแถบ","hideChatLabel":"ซ่อนแชต","highVolumeWarning":"ระดับเสียงเครื่องเล่นสูงกว่า {threshold}%","hotkeyCancel":"กด Escape เพื่อยกเลิก","hotkeyWaiting":"กดปุ่มใดก็ได้…","hoverAnimationLabel":"เอฟเฟกต์เมื่อชี้","iconAnimationsLabel":"แอนิเมชันไอคอน","importSettings":"นำเข้า","indicatorBreathe":"หายใจเบา ๆ","indicatorGlow":"เรืองแสง","indicatorOff":"ปิด","indicatorPulse":"เต้นเป็นจังหวะ","indicatorTitle":"ตัวบ่งชี้","languageLabel":"ภาษา","lastResultLabel":"ผลลัพธ์ล่าสุด","layoutTitle":"เลย์เอาต์หน้า","layoutUnavailable":"ใช้งานไม่ได้ในหน้านี้","logCleared":"ล้างบันทึกแล้ว","loudThresholdLabel":"เกณฑ์การเตือน","loudWarningLabel":"เตือนเมื่อเสียงดัง","minutesUnit":"นาที","muteLabel":"ปิดเสียงเครื่องเล่น","noPlayerForReset":"ไม่พบเครื่องเล่นวิดีโอ","noSavedChannels":"ยังไม่มีการบันทึกการตั้งค่าช่อง","notificationApplied":"ใช้คุณภาพแล้ว: {q}","notificationDurationLabel":"ระยะเวลาแจ้งเตือน","notificationFailed":"ใช้ {q} ไม่ได้ ไม่พบตัวควบคุมหรือระดับคุณภาพนี้","notificationHistoryEmpty":"ยังไม่มีการแจ้งเตือน","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"ประวัติการแจ้งเตือน","notificationIconLabel":"แสดงไอคอนการแจ้งเตือน","notificationOpacityLabel":"ความทึบของการแจ้งเตือน","notificationSizeLabel":"ขนาดข้อความการแจ้งเตือน","notificationVolumeLabel":"คืนค่าระดับเสียงแล้ว","notificationsLabel":"การแจ้งเตือนคุณภาพ","openAnimationLabel":"ภาพเคลื่อนไหวตอนเปิด","openReleases":"เปิดรายการเวอร์ชัน","panelStyleKick":"Kick","panelStyleLabel":"รูปแบบแผง","panelStyleMinimal":"มินิมอล","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"ความเร็วการเล่น","playerFrozenNotice":"เครื่องเล่นดูเหมือนจะค้าง ลองโหลดสตรีมใหม่","preferredVolumeLabel":"ระดับเสียงที่ต้องการ","presetApplied":"ใช้ค่าที่ตั้งไว้แล้ว: {name}","presetsLabel":"ค่าที่ตั้งไว้ล่วงหน้า","previewNotification":"แสดงตัวอย่างการแจ้งเตือน","qualityAuto":"อัตโนมัติ (เลือกด้วยตนเองล่าสุด)","qualityAvailable":"Status","qualityCheckLabel":"คุณภาพสตรีมสด","qualityFallbackLabel":"หากไม่มีให้เลือก","qualityLiveLabel":"คุณภาพสตรีมสด","qualityUnavailable":"Status","qualityVodLabel":"คุณภาพวิดีโอบันทึก (VOD)","quickActionsLabel":"การเล่น","quietFullscreenLabel":"โหมดเงียบแบบเต็มหน้าจอ","recoveryLabel":"ลองกู้คืนการเล่นที่ค้าง","refreshDiagnostics":"อัปเดตการวินิจฉัยแล้ว","removeChannelSettings":"ลบ","reportIssue":"รายงานปัญหา","resetNotificationPosition":"รีเซ็ตตำแหน่งการแจ้งเตือน","resetPlayerLabel":"ใช้การตั้งค่าเครื่องเล่นอีกครั้ง","resetQuality":"ใช้การตั้งค่าเครื่องเล่นอีกครั้ง","resetSection":"รีเซ็ตส่วนนี้","resetSettings":"รีเซ็ต","restoreReset":"รีเซ็ต","restoreVolume":"ใช้ระดับเสียงที่บันทึกไว้โดยอัตโนมัติ","rewardClaimed":"รับรางวัลแล้ว","rewardNone":"ขณะนี้ไม่มีรางวัลให้รับ","rewardsTitle":"รางวัล","safeModeHelp":"ใช้คุณภาพที่บันทึกไว้เมื่อเปิดเครื่องเล่น โหมดอัตโนมัติใช้ค่าล่าสุดที่เลือกใน Kick","safeModeLabel":"เค้าโครงกะทัดรัด","saveChannelButton":"บันทึกช่องนี้","savedChannelsLabel":"ช่องที่บันทึกไว้","secondsUnit":"วิ","sectionAbout":"เกี่ยวกับส่วนขยาย","sectionAppearance":"ลักษณะที่ปรากฏ","sectionData":"ข้อมูลและเกี่ยวกับ","sectionDiagnostics":"การวินิจฉัยเครื่องเล่น","sectionHotkey":"ปุ่มลัดเมนู","sectionMotion":"แอนิเมชัน","sectionNotifications":"การแจ้งเตือน","sectionPlayback":"การเล่น","sectionShortcuts":"ปุ่มลัด","sectionSounds":"เสียง","sectionTools":"เครื่องมือ","settingsImportError":"นำเข้าการตั้งค่าไม่ได้ โปรดตรวจสอบไฟล์","settingsImportPrompt":"นำเข้าการตั้งค่าเหล่านี้และแทนที่ค่าปัจจุบันหรือไม่","settingsImported":"นำเข้าการตั้งค่าแล้ว","settingsReset":"รีเซ็ต","settingsResetPrompt":"รีเซ็ตการตั้งค่า Kick Stream Tweaks ทั้งหมดหรือไม่","clearSearch":"ล้างการค้นหา","settingsSearch":"ค้นหาการตั้งค่า…","shortcutChat":"สลับแชต","shortcutFocus":"เต็มหน้าจอ","shortcutNotifications":"Quality notifications","shortcutQuality":"คุณภาพสตรีมสด","shortcutSidebar":"สลับเมนูด้านซ้าย","shortcutVolume":"ระดับเสียงที่ต้องการ","silentHelp":"ปิดเสียงสตรีมโดยไม่ปิดเสียงเครื่องเล่น จึงเล่นต่อได้เมื่อสลับแท็บ ตั้งค่าแยกตามช่องได้","silentLabel":"เล่นโดยไม่มีเสียง (เล่นต่อเบื้องหลัง)","silentTag":"ไม่มีเสียง","silentUnavailable":"เครื่องเล่นนี้ไม่รองรับการเล่นแบบไม่มีเสียง","situationBandwidth":"หากไม่มีให้เลือก","situationQuality":"คุณภาพที่ต้องการ","situationQuiet":"ปิดเสียงเครื่องเล่น","situationVod":"วิดีโอบันทึก (VOD)","sleepCancelLabel":"ยกเลิกตัวตั้งเวลา","sleepClock12":"AM/PM","sleepClock24":"รูปแบบ 24 ชั่วโมง","sleepEndsAt":"สิ้นสุดเวลา","sleepExpired":"ตั้งเวลาปิดหยุดการเล่นแล้ว","sleepHoursLabel":"ชั่วโมง","sleepMinutesLabel":"นาที","sleepStartLabel":"เริ่มตัวตั้งเวลา","sleepStarted":"การเล่นจะหยุดชั่วคราวใน {minutes} นาที","sleepTimerLabel":"ตั้งเวลาปิด","soundConfigureLabel":"ตั้งค่าเสียงตามเหตุการณ์","soundEffectsLabel":"เสียงประกอบ","soundEventVolumeLabel":"ระดับเสียงตามเหตุการณ์","soundMenuLabel":"เปิดและปิดแผงควบคุม","soundModalHint":"สวิตช์แต่ละรายการควบคุมเฉพาะเหตุการณ์นั้น และต้องเปิดสวิตช์เสียงหลักด้วย","soundPreviewButton":"ฟังตัวอย่าง","soundQualityFailure":"ใช้คุณภาพไม่ได้","soundQualitySuccess":"ใช้คุณภาพแล้ว","soundSettingsLabel":"เปลี่ยนการตั้งค่า","soundVolumeLabel":"ระดับเสียงเอฟเฟกต์","soundVolumeRestored":"คืนค่าระดับเสียงแล้ว","speedFast":"เร็ว","speedNormal":"ปกติ","speedSlow":"ช้า","statusLabel":"สถานะ","textScaleLabel":"เค้าโครงกะทัดรัด","textScaleLarge":"เค้าโครงกะทัดรัด","textScaleSmall":"เค้าโครงกะทัดรัด","textScaleXLarge":"เค้าโครงกะทัดรัด","themeDark":"มืด","themeLabel":"ธีม","themeLight":"สว่าง","titleQuality":"คุณภาพ","titleVolume":"ระดับเสียง","undoChange":"รีเซ็ต","versionLabel":"เวอร์ชัน","widgetAutoHideLabel":"แสดงเฉพาะเมื่อมีรางวัล","widgetDesignLabel":"สไตล์ปุ่ม","widgetDragHint":"ลากเพื่อย้าย · คลิกเพื่อรับ","widgetIconBolt":"สายฟ้า","widgetIconCoin":"เหรียญ","widgetIconCrown":"มงกุฎ","widgetIconCustom":"ไอคอนของคุณเอง","widgetIconGift":"ของขวัญ","widgetIconLabel":"ไอคอน","widgetIconStar":"ดาว","widgetImageError":"ไม่สามารถใช้ไฟล์นี้ได้ เลือกรูปภาพ PNG, JPG, WebP, GIF หรือ SVG ขนาดไม่เกิน 2 MB","widgetImageFill":"เติมรูปภาพเต็มปุ่ม","widgetImageSaved":"บันทึกไอคอนที่กำหนดเองแล้ว","widgetImageTip":"รูปภาพสี่เหลี่ยมจัตุรัสที่พื้นหลังโปร่งใสจะดูดีที่สุด รูปภาพจะอยู่ในเบราว์เซอร์ของคุณเท่านั้น","widgetOpacityLabel":"ความโปร่งใสของปุ่ม","widgetRemoveCustom":"ลบไอคอนของคุณ","widgetResetPos":"รีเซ็ตตำแหน่งปุ่ม","widgetSizeLabel":"ขนาดปุ่ม","widgetStyleFlat":"แบน","widgetStyleGlass":"กระจก","widgetStyleOrb":"ทรงกลม","widgetStylePill":"แคปซูล","widgetUpload":"อัปโหลดไอคอนของคุณเอง"},"tr":{"accentColorLabel":"Vurgu rengi","actionHotkeysLabel":"Menü kısayolu","animFade":"Solma","animGlow":"Parlama","animLift":"Yükseltme","animNone":"Yok","animPop":"Zıplama","animScale":"Ölçekleme","animSlide":"Kaydırma","animationFull":"Koyu","animationLabel":"Kompakt düzen","animationOff":"Açık","animationPreviewLabel":"Önizleme","animationReduced":"Kompakt düzen","animationSpeedLabel":"Animasyon hızı","autoClaimHelp":"Ödül penceresini açar, alınabilecekleri alır ve tekrar kapatır. Varsayılan olarak kapalıdır.","autoClaimLabel":"Ödülleri otomatik al","autoQualityLabel":"Kaydedilen kaliteyi otomatik uygula","autoVolumeLabel":"Kaydedilen sesi otomatik uygula","bindShortcut":"Değiştirmek için tıklayın","blurLabel":"Menü arka planı bulanıklığı","centerPanel":"Bildirim konumunu sıfırla","channelBackupExport":"Tüm kanalları yedekle","channelBackupImport":"Yedeği geri yükle","channelCurrent":"Geçerli","channelDoneLabel":"Bitti","channelEditLabel":"Düzenle","channelExcludedStatus":"Otomasyon hariç","channelExport":"Dışa aktar","channelExported":"Kanal ayarları dışa aktarıldı.","channelFavoritesOnly":"Yalnızca sabitlenenler","channelGroupAll":"Tüm gruplar","channelGroupLabel":"Grup","channelGroupPlaceholder":"Grup adı","channelHowTitle":"Kayıtlı kanallar nasıl çalışır","channelImport":"Profili içe aktar","channelImportError":"Kanal profili içe aktarılamadı.","channelImportSuccess":"Kanal profili içe aktarıldı.","channelMuted":"sessiz","channelNoteLabel":"Not","channelNotePlaceholder":"Not ekle…","channelNudge":"Yalnızca bu kanal için ayrı ayarlar mı istiyorsunuz?","channelOpenStreamHint":"Kanalın ayarlarını kaydetmek için bir yayın açın.","channelPin":"Sabitle","channelPinned":"Sabitlendi","channelProfileSummary":"Bu kanalın ayarlarını hatırla","channelQualitySummary":"Kalite: canlı {live} · VOD {vod}","channelRemoveConfirm":"{name} için kayıtlı ayarlar kaldırılsın mı?","channelSavedToast":"{name} için ayarlar kaydedildi.","channelSearchPlaceholder":"Kayıtlı kanallarda ara…","channelSortName":"Ad","channelSortRecent":"Yakın zamanda değiştirilen","channelSortUsed":"Yakın zamanda kullanılan","channelSoundOn":"ses açık","channelSpeedSummary":"Hız: {speed}×","channelStep1":"Kanalın yayınını açın.","channelStep2":"“Bu kanalı kaydet”e basın. Geçerli kalite, ses, hız ve ses ayarları o kanal için saklanır.","channelStep3":"Aşağıda ince ayar yapın. O kanalı her açtığınızda otomatik uygulanır.","channelUnpin":"Sabitlemeyi kaldır","channelUseSaved":"Kayıtlı ayarları bu kanalda uygula","channelVolumeSummary":"Ses: %{volume} · {mute}","claimDelayLabel":"Almadan önce bekle","claimIntervalLabel":"Kontrol sıklığı","claimModeInterval":"Bir programa göre","claimModeLabel":"Ödülleri alma","claimModeNotify":"Kick ödül bildirimini gösterir göstermez","claimNowLabel":"Şimdi al","claimWidgetHelp":"Yayının üzerinde istediğiniz yere sürükleyebileceğiniz küçük bir düğme gösterir. Ödülü tek tıkla almak için tıklayın. Konumu hatırlanır.","claimWidgetLabel":"Sayfada hızlı alma düğmesi","clearLog":"Günlüğü temizle","clearNotificationHistory":"Sıfırla","collapseSidebarLabel":"Sol menüyü daralt","compactLabel":"Kompakt düzen","confirmNo":"İptal","confirmYes":"Onayla","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Tanılama yenilendi.","contrastLabel":"Tema","copyDiagnostics":"Dışa aktar","currentChannelLabel":"Geçerli","diagAvailableQualities":"Algılanan kaliteler","diagCurrentQuality":"Mevcut kalite","diagUnknown":"Algılanmadı","diagVideoResolution":"Video çözünürlüğü","diagnosticsCopied":"Ayarlar içe aktarıldı.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Tanılama yenilendi.","doNotDisturbLabel":"Rahatsız etme","dragPanelHint":"Paneli başlığından sürükleyin; konumu kaydedilir.","excludeChannelLabel":"Bu kanalda otomasyonu atla","exportSettings":"Dışa aktar","fallbackAuto":"Otomatik moda geç","fallbackLower":"En yakın düşük kaliteyi kullan","focusUnavailable":"Bu oynatıcıda tam ekran kullanılamıyor.","focusViewLabel":"Tam ekran görünümü","footerClose":"Kapat","footerHint":"Bu menüyü açmak/kapatmak için {key} tuşuna basın","freezeAlertLabel":"Oynatıcı donduğunda uyar","freezeRecovered":"Oynatma yeniden başladı.","freezeSoundLabel":"Alarm sesi çal","freezeThresholdLabel":"Donma algılama süresi","groupFeedback":"Uyarılar","groupInterface":"Arayüz","groupPlayer":"Oynatıcı","groupSystem":"Sistem","helpAccentColor":"Özel bir vurgu rengi seçin.","helpAutoQuality":"Oynatıcı açıldığında kaydedilen kaliteyi uygular. Otomatik, Kick’teki son seçimi kullanır.","helpAutoVolume":"Oynatıcı başlatıldığında veya yeniden bağlandığında kaydedilen ses ve sessiz durumunu geri yükler.","helpBlur":"Bulanıklığı 0–12 px arasında ayarlayın. Kaydırıcıyı sürükleyin veya imleç üzerindeyken fare tekerleğini kullanın.","helpButton":"Yardım","helpChannelExclude":"Bu kanalda kalite, ses ve gecikmenin otomatik değişmesini durdurur. Elle kontroller çalışmaya devam eder.","helpChannelSettings":"Açıkken bu kanalın kalite, ses, sessiz ve hız ayarları ayrı kaydedilir. Bunları oynatıcıdan değiştirin.","helpCompact":"Boşlukları ve denetimlerin yüksekliğini azaltır.","helpFallback":"Yayın tercih edilen kaliteyi sunmuyorsa yapılacak işlemi seçin.","helpHotkey":"Bir tuş veya Ctrl/Alt/Shift/Meta bileşimi seçin. Escape işlemi iptal eder.","helpLanguage":"Panelin dilini değiştirir.","helpLiveQuality":"Canlı yayınlar için tercih edilen kalite. Otomatik, oynatıcının son seçimini hatırlar.","helpNotificationDuration":"Kalite bildirimlerinin ne kadar gösterileceğini seçin.","helpNotificationSize":"Kalite bildirimlerinin metin boyutunu ayarlayın.","helpNotifications":"Kalite sonucu bildirimlerini gösterir veya gizler. Bildirimi taşımak için sürükleyin; konumu kaydedilir.","helpPanelStyle":"Panelin görünümünü seçin.","helpSleepTimer":"Geri sayımı başlatır ve süre bitince videoyu duraklatır. Menüyü kapatmak zamanlayıcıyı iptal etmez.","helpSoundVolume":"Ses seviyesini ayarlayın. Düğmeler örnek sesi çalar.","helpSounds":"Uzantının tüm seslerini açıp kapatır. Ayrı olayları ses ayarlarından seçin.","helpTheme":"Panelin görünümünü değiştirir.","helpVodQuality":"Kayıtlar için tercih edilen kalite; canlı yayınlardan bağımsızdır.","helpVolume":"Ses seviyesi %0–100 arasındadır. Kaydırıcıyı sürükleyin veya imleç üzerindeyken fare tekerleğini kullanın.","hideChatLabel":"Sohbeti gizle","highVolumeWarning":"Oynatıcı ses düzeyi %{threshold} değerinin üzerinde.","hotkeyCancel":"İptal etmek için Escape tuşuna basın","hotkeyWaiting":"Herhangi bir tuşa basın…","hoverAnimationLabel":"Üzerine gelme efekti","iconAnimationsLabel":"Simge animasyonları","importSettings":"İçe aktar","indicatorBreathe":"Yumuşak nefes","indicatorGlow":"Parlama","indicatorOff":"Kapalı","indicatorPulse":"Darbe","indicatorTitle":"Gösterge","languageLabel":"Dil","lastResultLabel":"Sonuç","layoutTitle":"Sayfa düzeni","layoutUnavailable":"Bu sayfada kullanılamıyor.","logCleared":"Günlük temizlendi.","loudThresholdLabel":"Uyarı eşiği","loudWarningLabel":"Yüksek ses düzeyinde uyar","minutesUnit":"dk","muteLabel":"Oynatıcıyı sessize al","noPlayerForReset":"Video oynatıcı bulunamadı.","noSavedChannels":"Henüz kayıtlı kanal ayarı yok.","notificationApplied":"Uygulanan kalite: {q}.","notificationDurationLabel":"Bildirim süresi","notificationFailed":"{q} uygulanamadı; oynatıcı kontrolleri veya kalite seçeneği bulunamadı.","notificationHistoryEmpty":"Henüz bildirim yok.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Bildirim geçmişi","notificationIconLabel":"Bildirim simgesini göster","notificationOpacityLabel":"Bildirim opaklığı","notificationSizeLabel":"Bildirim metni boyutu","notificationVolumeLabel":"Ses düzeyi geri yüklendi","notificationsLabel":"Kalite bildirimleri","openAnimationLabel":"Açılış animasyonu","openReleases":"Sürüm listesini aç","panelStyleKick":"Kick","panelStyleLabel":"Panel stili","panelStyleMinimal":"Minimal","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Oynatma hızı","playerFrozenNotice":"Oynatıcı donmuş görünüyor. Yayını yeniden yüklemeyi deneyin.","preferredVolumeLabel":"Tercih edilen ses seviyesi","presetApplied":"Ön ayar uygulandı: {name}","presetsLabel":"Hızlı ön ayarlar","previewNotification":"Bildirim önizlemesi","qualityAuto":"Otomatik (son manuel seçilen)","qualityAvailable":"Status","qualityCheckLabel":"Canlı yayın kalitesi","qualityFallbackLabel":"Kullanılamıyorsa","qualityLiveLabel":"Canlı yayın kalitesi","qualityUnavailable":"Status","qualityVodLabel":"Kayıt kalitesi (VOD)","quickActionsLabel":"Oynatma","quietFullscreenLabel":"Tam ekranda sessiz mod","recoveryLabel":"Takılan oynatmayı kurtarmayı dene","refreshDiagnostics":"Tanılama yenilendi.","removeChannelSettings":"Kaldır","reportIssue":"Sorun bildir","resetNotificationPosition":"Bildirim konumunu sıfırla","resetPlayerLabel":"Oynatıcı ayarlarını yeniden uygula","resetQuality":"Oynatıcı ayarlarını yeniden uygula","resetSection":"Bölümü sıfırla","resetSettings":"Sıfırla","restoreReset":"Sıfırla","restoreVolume":"Kaydedilen sesi otomatik uygula","rewardClaimed":"Ödül alındı.","rewardNone":"Şu anda alınacak ödül yok.","rewardsTitle":"Ödüller","safeModeHelp":"Oynatıcı açıldığında kaydedilen kaliteyi uygular. Otomatik, Kick’teki son seçimi kullanır.","safeModeLabel":"Kompakt düzen","saveChannelButton":"Bu kanalı kaydet","savedChannelsLabel":"Kayıtlı kanallar","secondsUnit":"sn","sectionAbout":"Uzantı hakkında","sectionAppearance":"Görünüm","sectionData":"Veri ve hakkında","sectionDiagnostics":"Oynatıcı tanılama","sectionHotkey":"Menü kısayolu","sectionMotion":"Animasyonlar","sectionNotifications":"Bildirimler","sectionPlayback":"Oynatma","sectionShortcuts":"Kısayollar","sectionSounds":"Sesler","sectionTools":"Araçlar","settingsImportError":"Ayarlar içe aktarılamadı. Dosyayı kontrol edin.","settingsImportPrompt":"Bu ayarlar içe aktarılsın ve mevcut yapılandırma değiştirilsin mi?","settingsImported":"Ayarlar içe aktarıldı.","settingsReset":"Sıfırla","settingsResetPrompt":"Tüm Kick Stream Tweaks ayarları sıfırlansın mı?","clearSearch":"Aramayı temizle","settingsSearch":"Ayarları ara…","shortcutChat":"Sohbeti aç/kapat","shortcutFocus":"Tam ekran görünümü","shortcutNotifications":"Quality notifications","shortcutQuality":"Canlı yayın kalitesi","shortcutSidebar":"Sol menüyü aç/kapat","shortcutVolume":"Tercih edilen ses seviyesi","silentHelp":"Oynatıcıyı sessize almadan yayının sesini kapatır, böylece sekme değiştirdiğinizde oynatmaya devam eder. Kanal bazında ayarlanabilir.","silentLabel":"Sessiz oynat (arka planda devam eder)","silentTag":"Sessiz","silentUnavailable":"Bu oynatıcı için sessiz oynatma kullanılamıyor.","situationBandwidth":"Kullanılamıyorsa","situationQuality":"Tercih edilen kalite","situationQuiet":"Oynatıcıyı sessize al","situationVod":"Kayıt (VOD)","sleepCancelLabel":"Zamanlayıcıyı iptal et","sleepClock12":"AM/PM","sleepClock24":"24 saat biçimi","sleepEndsAt":"Bitiş saati","sleepExpired":"Uyku zamanlayıcısı oynatmayı duraklattı.","sleepHoursLabel":"Saat","sleepMinutesLabel":"Dakika","sleepStartLabel":"Zamanlayıcıyı başlat","sleepStarted":"Oynatma {minutes} dakika sonra duraklatılacak.","sleepTimerLabel":"Uyku zamanlayıcısı","soundConfigureLabel":"Ses olayı ayarları","soundEffectsLabel":"Ses efektleri","soundEventVolumeLabel":"Etkinlik ses düzeyi","soundMenuLabel":"Panelin açılması ve kapanması","soundModalHint":"Her anahtar yalnızca ilgili olayı denetler. Ana ses efekti anahtarı da açık olmalıdır.","soundPreviewButton":"Önizleme","soundQualityFailure":"Kalite uygulanamadı","soundQualitySuccess":"Kalite uygulandı","soundSettingsLabel":"Ayar değişikliği","soundVolumeLabel":"Ses efekti seviyesi","soundVolumeRestored":"Ses düzeyi geri yüklendi","speedFast":"Hızlı","speedNormal":"Normal","speedSlow":"Yavaş","statusLabel":"Durum","textScaleLabel":"Kompakt düzen","textScaleLarge":"Kompakt düzen","textScaleSmall":"Kompakt düzen","textScaleXLarge":"Kompakt düzen","themeDark":"Koyu","themeLabel":"Tema","themeLight":"Açık","titleQuality":"Kalite","titleVolume":"Ses","undoChange":"Sıfırla","versionLabel":"Sürüm","widgetAutoHideLabel":"Yalnızca ödül varken göster","widgetDesignLabel":"Düğme stili","widgetDragHint":"Taşımak için sürükle · almak için tıkla","widgetIconBolt":"Şimşek","widgetIconCoin":"Madeni para","widgetIconCrown":"Taç","widgetIconCustom":"Kendi simgeniz","widgetIconGift":"Hediye","widgetIconLabel":"Simge","widgetIconStar":"Yıldız","widgetImageError":"Bu dosya kullanılamadı. 2 MB'a kadar PNG, JPG, WebP, GIF veya SVG görseli seçin.","widgetImageFill":"Düğmenin tamamını görselle doldur","widgetImageSaved":"Özel simge kaydedildi.","widgetImageTip":"Şeffaf arka planlı kare görseller en iyi görünür. Görsel yalnızca tarayıcınızda kalır.","widgetOpacityLabel":"Düğme saydamlığı","widgetRemoveCustom":"Simgenizi kaldırın","widgetResetPos":"Düğme konumunu sıfırla","widgetSizeLabel":"Düğme boyutu","widgetStyleFlat":"Düz","widgetStyleGlass":"Cam","widgetStyleOrb":"Küre","widgetStylePill":"Hap","widgetUpload":"Kendi simgenizi yükleyin"},"vi":{"accentColorLabel":"Màu nhấn","actionHotkeysLabel":"Phím tắt menu","animFade":"Mờ dần","animGlow":"Phát sáng","animLift":"Nâng lên","animNone":"Không","animPop":"Nảy","animScale":"Thu phóng","animSlide":"Trượt","animationFull":"Tối","animationLabel":"Bố cục gọn","animationOff":"Sáng","animationPreviewLabel":"Xem trước","animationReduced":"Bố cục gọn","animationSpeedLabel":"Tốc độ hiệu ứng","autoClaimHelp":"Mở cửa sổ phần thưởng, nhận những gì có sẵn rồi đóng lại. Mặc định tắt.","autoClaimLabel":"Tự động nhận phần thưởng","autoQualityLabel":"Tự động áp dụng chất lượng đã lưu","autoVolumeLabel":"Tự động áp dụng âm lượng đã lưu","bindShortcut":"Nhấp để đổi","blurLabel":"Độ mờ nền menu","centerPanel":"Đặt lại vị trí thông báo","channelBackupExport":"Sao lưu tất cả kênh","channelBackupImport":"Khôi phục bản sao lưu","channelCurrent":"Hiện tại","channelDoneLabel":"Xong","channelEditLabel":"Sửa","channelExcludedStatus":"Đã loại trừ tự động hóa","channelExport":"Xuất","channelExported":"Đã xuất cài đặt kênh.","channelFavoritesOnly":"Chỉ mục đã ghim","channelGroupAll":"Tất cả nhóm","channelGroupLabel":"Nhóm","channelGroupPlaceholder":"Tên nhóm","channelHowTitle":"Cách kênh đã lưu hoạt động","channelImport":"Nhập hồ sơ","channelImportError":"Không thể nhập hồ sơ kênh này.","channelImportSuccess":"Đã nhập hồ sơ kênh.","channelMuted":"đã tắt tiếng","channelNoteLabel":"Ghi chú","channelNotePlaceholder":"Thêm ghi chú…","channelNudge":"Muốn cài đặt riêng chỉ cho kênh này?","channelOpenStreamHint":"Mở một luồng phát để lưu cài đặt cho kênh của nó.","channelPin":"Ghim","channelPinned":"Đã ghim","channelProfileSummary":"Ghi nhớ cài đặt cho kênh này","channelQualitySummary":"Chất lượng: trực tiếp {live} · VOD {vod}","channelRemoveConfirm":"Xóa cài đặt đã lưu của {name}?","channelSavedToast":"Đã lưu cài đặt cho {name}.","channelSearchPlaceholder":"Tìm kênh đã lưu…","channelSortName":"Tên","channelSortRecent":"Mới thay đổi","channelSortUsed":"Mới sử dụng","channelSoundOn":"đang bật tiếng","channelSpeedSummary":"Tốc độ: {speed}×","channelStep1":"Mở luồng phát của kênh.","channelStep2":"Nhấn “Lưu kênh này”. Chất lượng, âm lượng, tốc độ và cài đặt âm thanh hiện tại sẽ được lưu cho kênh đó.","channelStep3":"Tinh chỉnh bên dưới. Chúng được áp dụng tự động mỗi khi bạn mở kênh đó.","channelUnpin":"Bỏ ghim","channelUseSaved":"Áp dụng cài đặt đã lưu trên kênh này","channelVolumeSummary":"Âm lượng: {volume}% · {mute}","claimDelayLabel":"Chờ trước khi nhận","claimIntervalLabel":"Kiểm tra mỗi","claimModeInterval":"Theo lịch","claimModeLabel":"Nhận phần thưởng","claimModeNotify":"Ngay khi Kick hiển thị thông báo phần thưởng","claimNowLabel":"Nhận ngay","claimWidgetHelp":"Hiển thị một nút nhỏ có thể kéo đến bất kỳ đâu trên luồng phát. Nhấp để nhận phần thưởng chỉ bằng một lần nhấp. Vị trí được ghi nhớ.","claimWidgetLabel":"Nút nhận nhanh trên trang","clearLog":"Xóa nhật ký","clearNotificationHistory":"Đặt lại","collapseSidebarLabel":"Thu gọn menu bên trái","compactLabel":"Bố cục gọn","confirmNo":"Hủy","confirmYes":"Xác nhận","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"Đã làm mới chẩn đoán.","contrastLabel":"Chủ đề","copyDiagnostics":"Xuất","currentChannelLabel":"Hiện tại","diagAvailableQualities":"Chất lượng phát hiện","diagCurrentQuality":"Chất lượng hiện tại","diagUnknown":"Không phát hiện","diagVideoResolution":"Độ phân giải video","diagnosticsCopied":"Đã nhập cài đặt.","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"Đã làm mới chẩn đoán.","doNotDisturbLabel":"Không làm phiền","dragPanelHint":"Kéo bảng từ thanh tiêu đề; vị trí sẽ được lưu.","excludeChannelLabel":"Bỏ qua tự động hóa trên kênh này","exportSettings":"Xuất","fallbackAuto":"Chuyển sang Tự động","fallbackLower":"Dùng chất lượng thấp hơn gần nhất","focusUnavailable":"Trình phát này không hỗ trợ toàn màn hình.","focusViewLabel":"Toàn màn hình","footerClose":"Đóng","footerHint":"Nhấn {key} để bật/tắt menu này","freezeAlertLabel":"Cảnh báo khi trình phát bị treo","freezeRecovered":"Đã phát lại.","freezeSoundLabel":"Phát âm thanh báo động","freezeThresholdLabel":"Thời gian phát hiện treo","groupFeedback":"Cảnh báo","groupInterface":"Giao diện","groupPlayer":"Trình phát","groupSystem":"Hệ thống","helpAccentColor":"Chọn màu nhấn tùy chỉnh.","helpAutoQuality":"Áp dụng chất lượng đã lưu khi mở trình phát. Tự động dùng lựa chọn gần nhất trên Kick.","helpAutoVolume":"Khôi phục âm lượng và trạng thái tắt tiếng đã lưu khi trình phát khởi động hoặc kết nối lại.","helpBlur":"Đặt độ mờ từ 0–12 px. Kéo thanh trượt hoặc dùng bánh xe chuột khi con trỏ ở trên thanh.","helpButton":"Trợ giúp","helpChannelExclude":"Ngừng tự động đổi chất lượng, âm lượng và độ trễ trên kênh này. Điều khiển thủ công vẫn hoạt động.","helpChannelSettings":"Khi bật, chất lượng, âm lượng, tắt tiếng và tốc độ của kênh được lưu riêng. Hãy đổi trong trình phát.","helpCompact":"Giảm khoảng cách và chiều cao điều khiển.","helpFallback":"Chọn cách xử lý khi luồng không có chất lượng ưu tiên.","helpHotkey":"Chọn phím hoặc tổ hợp Ctrl/Alt/Shift/Meta. Nhấn Escape để hủy.","helpLanguage":"Thay đổi ngôn ngữ bảng điều khiển.","helpLiveQuality":"Chất lượng ưu tiên cho phát trực tiếp. Tự động ghi nhớ lựa chọn gần nhất trong trình phát.","helpNotificationDuration":"Chọn thời gian hiển thị thông báo chất lượng.","helpNotificationSize":"Điều chỉnh cỡ chữ thông báo chất lượng.","helpNotifications":"Hiện hoặc ẩn thông báo về kết quả chất lượng. Kéo thông báo để di chuyển; vị trí sẽ được lưu.","helpPanelStyle":"Chọn giao diện của bảng.","helpSleepTimer":"Bắt đầu đếm ngược và tạm dừng video hiện tại khi hết giờ. Đóng menu không hủy hẹn giờ.","helpSoundVolume":"Điều chỉnh âm lượng. Các nút sẽ phát âm thanh mẫu.","helpSounds":"Bật hoặc tắt toàn bộ âm thanh của tiện ích. Chọn từng sự kiện trong phần cài đặt âm thanh.","helpTheme":"Thay đổi giao diện bảng điều khiển.","helpVodQuality":"Chất lượng ưu tiên cho bản ghi; độc lập với phát trực tiếp.","helpVolume":"Âm lượng từ 0–100%. Kéo thanh trượt hoặc dùng bánh xe chuột khi con trỏ ở trên thanh.","hideChatLabel":"Ẩn chat","highVolumeWarning":"Âm lượng trình phát trên {threshold}%.","hotkeyCancel":"Nhấn Escape để hủy","hotkeyWaiting":"Nhấn phím bất kỳ…","hoverAnimationLabel":"Hiệu ứng khi rê chuột","iconAnimationsLabel":"Hiệu ứng biểu tượng","importSettings":"Nhập","indicatorBreathe":"Nhịp thở nhẹ","indicatorGlow":"Phát sáng","indicatorOff":"Tắt","indicatorPulse":"Nhịp đập","indicatorTitle":"Chỉ báo","languageLabel":"Ngôn ngữ","lastResultLabel":"Kết quả gần nhất","layoutTitle":"Bố cục trang","layoutUnavailable":"Không khả dụng trên trang này.","logCleared":"Đã xóa nhật ký.","loudThresholdLabel":"Ngưỡng cảnh báo","loudWarningLabel":"Cảnh báo âm lượng cao","minutesUnit":"phút","muteLabel":"Tắt tiếng trình phát","noPlayerForReset":"Không tìm thấy trình phát video.","noSavedChannels":"Chưa có cài đặt kênh nào được lưu.","notificationApplied":"Đã áp dụng chất lượng: {q}.","notificationDurationLabel":"Thời lượng thông báo","notificationFailed":"Không thể áp dụng {q}; không tìm thấy điều khiển hoặc tùy chọn chất lượng.","notificationHistoryEmpty":"Chưa có thông báo.","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"Lịch sử thông báo","notificationIconLabel":"Hiện biểu tượng thông báo","notificationOpacityLabel":"Độ mờ thông báo","notificationSizeLabel":"Cỡ chữ thông báo","notificationVolumeLabel":"Đã khôi phục âm lượng","notificationsLabel":"Thông báo chất lượng","openAnimationLabel":"Hiệu ứng mở","openReleases":"Mở danh sách phiên bản","panelStyleKick":"Kick","panelStyleLabel":"Kiểu bảng","panelStyleMinimal":"Tối giản","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"Tốc độ phát","playerFrozenNotice":"Trình phát có vẻ bị treo. Hãy thử tải lại luồng phát.","preferredVolumeLabel":"Âm lượng ưa thích","presetApplied":"Đã áp dụng: {name}","presetsLabel":"Cài đặt nhanh","previewNotification":"Xem trước thông báo","qualityAuto":"Tự động (lần chọn thủ công gần nhất)","qualityAvailable":"Status","qualityCheckLabel":"Chất lượng phát trực tiếp","qualityFallbackLabel":"Nếu không khả dụng","qualityLiveLabel":"Chất lượng phát trực tiếp","qualityUnavailable":"Status","qualityVodLabel":"Chất lượng bản ghi (VOD)","quickActionsLabel":"Phát lại","quietFullscreenLabel":"Chế độ im lặng khi toàn màn hình","recoveryLabel":"Thử khôi phục phát lại bị treo","refreshDiagnostics":"Đã làm mới chẩn đoán.","removeChannelSettings":"Xóa","reportIssue":"Báo lỗi","resetNotificationPosition":"Đặt lại vị trí thông báo","resetPlayerLabel":"Áp dụng lại cài đặt trình phát","resetQuality":"Áp dụng lại cài đặt trình phát","resetSection":"Đặt lại mục","resetSettings":"Đặt lại","restoreReset":"Đặt lại","restoreVolume":"Tự động áp dụng âm lượng đã lưu","rewardClaimed":"Đã nhận phần thưởng.","rewardNone":"Hiện không có phần thưởng để nhận.","rewardsTitle":"Phần thưởng","safeModeHelp":"Áp dụng chất lượng đã lưu khi mở trình phát. Tự động dùng lựa chọn gần nhất trên Kick.","safeModeLabel":"Bố cục gọn","saveChannelButton":"Lưu kênh này","savedChannelsLabel":"Kênh đã lưu","secondsUnit":"giây","sectionAbout":"Giới thiệu tiện ích","sectionAppearance":"Giao diện","sectionData":"Dữ liệu & thông tin","sectionDiagnostics":"Chẩn đoán trình phát","sectionHotkey":"Phím tắt menu","sectionMotion":"Hiệu ứng","sectionNotifications":"Thông báo","sectionPlayback":"Phát lại","sectionShortcuts":"Phím tắt","sectionSounds":"Âm thanh","sectionTools":"Công cụ","settingsImportError":"Không thể nhập cài đặt. Hãy kiểm tra tệp.","settingsImportPrompt":"Nhập các cài đặt này và thay thế cấu hình hiện tại?","settingsImported":"Đã nhập cài đặt.","settingsReset":"Đặt lại","settingsResetPrompt":"Đặt lại toàn bộ cài đặt Kick Stream Tweaks?","clearSearch":"Xóa tìm kiếm","settingsSearch":"Tìm trong cài đặt…","shortcutChat":"Bật/tắt chat","shortcutFocus":"Toàn màn hình","shortcutNotifications":"Quality notifications","shortcutQuality":"Chất lượng phát trực tiếp","shortcutSidebar":"Bật/tắt menu bên trái","shortcutVolume":"Âm lượng ưa thích","silentHelp":"Tắt tiếng luồng phát mà không tắt tiếng trình phát, nên vẫn phát khi bạn chuyển tab. Có thể đặt riêng cho từng kênh.","silentLabel":"Phát không âm thanh (vẫn chạy ở nền)","silentTag":"Không âm thanh","silentUnavailable":"Trình phát này không hỗ trợ phát không âm thanh.","situationBandwidth":"Nếu không khả dụng","situationQuality":"Chất lượng ưa thích","situationQuiet":"Tắt tiếng trình phát","situationVod":"Bản ghi (VOD)","sleepCancelLabel":"Hủy hẹn giờ","sleepClock12":"AM/PM","sleepClock24":"định dạng 24 giờ","sleepEndsAt":"Kết thúc lúc","sleepExpired":"Hẹn giờ ngủ đã tạm dừng phát.","sleepHoursLabel":"Giờ","sleepMinutesLabel":"Phút","sleepStartLabel":"Bắt đầu hẹn giờ","sleepStarted":"Phát sẽ tạm dừng sau {minutes} phút.","sleepTimerLabel":"Hẹn giờ ngủ","soundConfigureLabel":"Cài đặt sự kiện âm thanh","soundEffectsLabel":"Hiệu ứng âm thanh","soundEventVolumeLabel":"Âm lượng sự kiện","soundMenuLabel":"Mở và đóng bảng","soundModalHint":"Mỗi công tắc chỉ điều khiển sự kiện tương ứng. Công tắc âm thanh chính cũng phải bật.","soundPreviewButton":"Nghe thử","soundQualityFailure":"Không thể áp dụng chất lượng","soundQualitySuccess":"Đã áp dụng chất lượng","soundSettingsLabel":"Thay đổi cài đặt","soundVolumeLabel":"Âm lượng hiệu ứng","soundVolumeRestored":"Đã khôi phục âm lượng","speedFast":"Nhanh","speedNormal":"Bình thường","speedSlow":"Chậm","statusLabel":"Trạng thái","textScaleLabel":"Bố cục gọn","textScaleLarge":"Bố cục gọn","textScaleSmall":"Bố cục gọn","textScaleXLarge":"Bố cục gọn","themeDark":"Tối","themeLabel":"Chủ đề","themeLight":"Sáng","titleQuality":"Chất lượng","titleVolume":"Âm lượng","undoChange":"Đặt lại","versionLabel":"Phiên bản","widgetAutoHideLabel":"Chỉ hiện khi có phần thưởng","widgetDesignLabel":"Kiểu nút","widgetDragHint":"Kéo để di chuyển · nhấp để nhận","widgetIconBolt":"Tia chớp","widgetIconCoin":"Đồng xu","widgetIconCrown":"Vương miện","widgetIconCustom":"Biểu tượng của bạn","widgetIconGift":"Quà","widgetIconLabel":"Biểu tượng","widgetIconStar":"Ngôi sao","widgetImageError":"Không thể dùng tệp này. Hãy chọn ảnh PNG, JPG, WebP, GIF hoặc SVG tối đa 2 MB.","widgetImageFill":"Lấp đầy toàn bộ nút bằng hình ảnh","widgetImageSaved":"Đã lưu biểu tượng tùy chỉnh.","widgetImageTip":"Ảnh vuông có nền trong suốt trông đẹp nhất. Ảnh chỉ được lưu trong trình duyệt của bạn.","widgetOpacityLabel":"Độ mờ của nút","widgetRemoveCustom":"Xóa biểu tượng của bạn","widgetResetPos":"Đặt lại vị trí nút","widgetSizeLabel":"Kích thước nút","widgetStyleFlat":"Phẳng","widgetStyleGlass":"Kính","widgetStyleOrb":"Hình cầu","widgetStylePill":"Viên thuốc","widgetUpload":"Tải lên biểu tượng của bạn"},"zh-cn":{"accentColorLabel":"强调色","actionHotkeysLabel":"操作快捷键","animFade":"淡入淡出","animGlow":"发光","animLift":"上浮","animNone":"无","animPop":"弹出","animScale":"缩放","animSlide":"滑动","animationFull":"完整","animationLabel":"面板动画","animationOff":"关闭","animationPreviewLabel":"预览","animationReduced":"减少","animationSpeedLabel":"动画速度","autoClaimHelp":"打开奖励窗口，领取可领取的奖励后再关闭。默认关闭。","autoClaimLabel":"自动领取奖励","autoQualityLabel":"自动应用已保存的画质","autoVolumeLabel":"自动应用已保存的音量","bindShortcut":"设置快捷键","blurLabel":"菜单背景模糊度","centerPanel":"居中面板","channelBackupExport":"备份所有频道","channelBackupImport":"恢复备份","channelCurrent":"当前","channelDoneLabel":"完成","channelEditLabel":"编辑","channelExcludedStatus":"已排除自动化","channelExport":"导出","channelExported":"频道设置已导出。","channelFavoritesOnly":"仅显示置顶项","channelGroupAll":"所有分组","channelGroupLabel":"分组","channelGroupPlaceholder":"分组名称","channelHowTitle":"已保存频道如何工作","channelImport":"导入配置","channelImportError":"无法导入此频道配置。","channelImportSuccess":"频道配置已导入。","channelMuted":"已静音","channelNoteLabel":"备注","channelNotePlaceholder":"添加备注…","channelNudge":"想只为此频道使用单独的设置吗？","channelOpenStreamHint":"打开一个直播即可保存其频道的设置。","channelPin":"置顶","channelPinned":"已置顶","channelProfileSummary":"记住此频道的设置","channelQualitySummary":"画质：直播 {live} · VOD {vod}","channelRemoveConfirm":"删除 {name} 的已保存设置？","channelSavedToast":"已保存 {name} 的设置。","channelSearchPlaceholder":"搜索已保存的频道…","channelSortName":"名称","channelSortRecent":"最近修改","channelSortUsed":"最近使用","channelSoundOn":"声音开启","channelSpeedSummary":"速度：{speed}×","channelStep1":"打开频道的直播。","channelStep2":"点击“保存此频道”。当前的画质、音量、速度和声音设置会为它保存。","channelStep3":"在下方微调。每次打开该频道时都会自动应用。","channelUnpin":"取消置顶","channelUseSaved":"在此频道上应用已保存的设置","channelVolumeSummary":"音量：{volume}% · {mute}","claimDelayLabel":"领取前等待","claimIntervalLabel":"检查间隔","claimModeInterval":"按计划领取","claimModeLabel":"领取奖励","claimModeNotify":"Kick 一显示奖励通知就领取","claimNowLabel":"立即领取","claimWidgetHelp":"显示一个可拖到直播画面任意位置的小按钮。点击即可一键领取奖励。位置会被记住。","claimWidgetLabel":"页面快速领取按钮","clearLog":"清除日志","clearNotificationHistory":"重置","collapseSidebarLabel":"折叠左侧菜单","compactLabel":"紧凑布局","confirmNo":"取消","confirmYes":"确认","conflictCheckLabel":"Search settings…","conflictsFound":"Last result","conflictsNone":"诊断已刷新。","contrastLabel":"高对比度","copyDiagnostics":"导出","currentChannelLabel":"当前","diagAvailableQualities":"检测到的画质","diagCurrentQuality":"当前画质","diagUnknown":"未检测到","diagVideoResolution":"视频分辨率","diagnosticsCopied":"设置已导入。","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"Last result","diagnosticsRefreshed":"诊断已刷新。","doNotDisturbLabel":"请勿打扰","dragPanelHint":"拖动标题栏移动面板；位置会自动保存。","excludeChannelLabel":"此频道跳过自动化","exportSettings":"导出","fallbackAuto":"切换为自动","fallbackLower":"选择最接近的较低画质","focusUnavailable":"此播放器不支持全屏。","focusViewLabel":"全屏视图","footerClose":"关闭","footerHint":"按 {key} 打开/关闭此菜单","freezeAlertLabel":"播放器卡住时提醒","freezeRecovered":"播放已恢复。","freezeSoundLabel":"播放警报声","freezeThresholdLabel":"卡住检测时间","groupFeedback":"提醒","groupInterface":"界面","groupPlayer":"播放器","groupSystem":"系统","helpAccentColor":"选择自定义强调色。","helpAutoQuality":"播放器打开时应用已保存的画质。自动模式使用你在 Kick 中最近选择的画质。","helpAutoVolume":"播放器启动或重新连接时恢复已保存的音量和静音状态。","helpBlur":"背景模糊范围为 0–12 px。拖动滑块或将光标移到滑块上；设为 0 可关闭。 拖动滑块，或将光标悬停在滑块上滚动鼠标滚轮。","helpButton":"帮助","helpChannelExclude":"停止对此频道自动调整画质、音量和延迟。手动控制仍可使用。","helpChannelSettings":"启用后，此频道的画质、音量、静音和速度会单独保存。请在播放器中调整。","helpCompact":"缩小间距和控件高度。","helpFallback":"当直播没有首选画质时，选择要执行的操作。","helpHotkey":"选择按键或 Ctrl、Alt、Shift、Meta 组合键。按 Escape 取消。","helpLanguage":"更改此面板的语言。","helpLiveQuality":"直播的首选画质。自动模式会记住播放器中的最近选择。","helpNotificationDuration":"选择画质通知的显示时间。","helpNotificationSize":"调整画质通知文字大小。","helpNotifications":"显示或隐藏画质设置结果通知。拖动通知即可移动，位置会自动保存。","helpPanelStyle":"选择面板的视觉样式。","helpSleepTimer":"开始倒计时，到时暂停当前视频。关闭菜单不会取消计时器。","helpSoundVolume":"调整扩展程序音效音量。试听按钮会播放示例。","helpSounds":"开启或关闭扩展程序的所有声音。可在声音设置中单独选择事件。","helpTheme":"更改此面板的外观。","helpVodQuality":"录像的首选画质，与直播画质设置分开。","helpVolume":"音量范围为 0–100%。拖动滑块或将光标移到滑块上即可更改，修改会立即生效。 拖动滑块，或将光标悬停在滑块上滚动鼠标滚轮。","hideChatLabel":"隐藏聊天","highVolumeWarning":"播放器音量高于 {threshold}%。","hotkeyCancel":"按 Escape 取消","hotkeyWaiting":"请按任意键…","hoverAnimationLabel":"悬停效果","iconAnimationsLabel":"图标动画","importSettings":"导入","indicatorBreathe":"轻柔呼吸","indicatorGlow":"发光","indicatorOff":"关闭","indicatorPulse":"脉冲","indicatorTitle":"指示灯","languageLabel":"语言","lastResultLabel":"上次结果","layoutTitle":"页面布局","layoutUnavailable":"此页面不可用。","logCleared":"日志已清除。","loudThresholdLabel":"提醒阈值","loudWarningLabel":"音量过高时提醒","minutesUnit":"分钟","muteLabel":"静音播放器","noPlayerForReset":"未找到视频播放器。","noSavedChannels":"尚未保存任何频道设置。","notificationApplied":"已应用画质：{q}。","notificationDurationLabel":"通知显示时长","notificationFailed":"无法应用 {q}：未找到播放器控件或该画质选项。","notificationHistoryEmpty":"暂无通知。","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"通知历史","notificationIconLabel":"显示通知图标","notificationOpacityLabel":"通知不透明度","notificationSizeLabel":"通知文字大小","notificationVolumeLabel":"音量已恢复","notificationsLabel":"画质通知","openAnimationLabel":"打开动画","openReleases":"打开版本列表","panelStyleKick":"Kick","panelStyleLabel":"面板样式","panelStyleMinimal":"极简","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"播放速度","playerFrozenNotice":"播放器似乎卡住了。请尝试重新加载直播。","preferredVolumeLabel":"首选音量","presetApplied":"已应用预设：{name}","presetsLabel":"快速预设","previewNotification":"通知预览","qualityAuto":"自动（使用上次手动选择）","qualityAvailable":"Status","qualityCheckLabel":"直播画质","qualityFallbackLabel":"如果不可用","qualityLiveLabel":"直播画质","qualityUnavailable":"Status","qualityVodLabel":"录像画质 (VOD)","quickActionsLabel":"快速操作","quietFullscreenLabel":"全屏静音模式","recoveryLabel":"尝试恢复卡住的播放","refreshDiagnostics":"诊断已刷新。","removeChannelSettings":"删除","reportIssue":"报告问题","resetNotificationPosition":"重置通知位置","resetPlayerLabel":"重新应用播放器设置","resetQuality":"重置画质","resetSection":"重置分区","resetSettings":"重置","restoreReset":"恢复重置前备份","restoreVolume":"恢复音量","rewardClaimed":"奖励已领取。","rewardNone":"目前没有可领取的奖励。","rewardsTitle":"奖励","safeModeHelp":"播放器打开时应用已保存的画质。自动模式使用你在 Kick 中最近选择的画质。","safeModeLabel":"紧凑布局","saveChannelButton":"保存此频道","savedChannelsLabel":"已保存的频道","secondsUnit":"秒","sectionAbout":"关于扩展","sectionAppearance":"外观","sectionData":"数据与关于","sectionDiagnostics":"播放器诊断","sectionHotkey":"菜单快捷键","sectionMotion":"动画","sectionNotifications":"通知","sectionPlayback":"播放设置","sectionShortcuts":"快捷键","sectionSounds":"声音","sectionTools":"工具","settingsImportError":"无法导入设置，请检查文件。","settingsImportPrompt":"导入这些设置并替换当前配置吗？","settingsImported":"设置已导入。","settingsReset":"重置","settingsResetPrompt":"重置 Kick Stream Tweaks 的所有设置吗？","clearSearch":"清除搜索","settingsSearch":"搜索设置…","shortcutChat":"切换聊天","shortcutFocus":"专注观看","shortcutNotifications":"切换通知","shortcutQuality":"重置画质","shortcutSidebar":"切换左侧菜单","shortcutVolume":"恢复音量","silentHelp":"让直播静音但不对播放器静音，因此切换标签页后仍会继续播放。可按频道设置。","silentLabel":"无声播放（切换标签页后继续播放）","silentTag":"无声","silentUnavailable":"此播放器不支持无声播放。","situationBandwidth":"节省流量","situationQuality":"最佳画质","situationQuiet":"安静观看","situationVod":"录像","sleepCancelLabel":"取消定时器","sleepClock12":"AM/PM","sleepClock24":"24小时制","sleepEndsAt":"结束时间","sleepExpired":"睡眠定时器已暂停播放。","sleepHoursLabel":"小时","sleepMinutesLabel":"分钟","sleepStartLabel":"启动定时器","sleepStarted":"将在 {minutes} 分钟后暂停播放。","sleepTimerLabel":"睡眠定时器","soundConfigureLabel":"声音事件设置","soundEffectsLabel":"音效","soundEventVolumeLabel":"事件音量","soundMenuLabel":"面板打开和关闭","soundModalHint":"每个开关只控制对应事件。还需开启总音效开关。","soundPreviewButton":"试听","soundQualityFailure":"画质无法应用","soundQualitySuccess":"画质已应用","soundSettingsLabel":"设置更改","soundVolumeLabel":"音效音量","soundVolumeRestored":"音量已恢复","speedFast":"快速","speedNormal":"正常","speedSlow":"慢速","statusLabel":"状态","textScaleLabel":"紧凑布局","textScaleLarge":"紧凑布局","textScaleSmall":"紧凑布局","textScaleXLarge":"紧凑布局","themeDark":"深色","themeLabel":"主题","themeLight":"浅色","titleQuality":"画质","titleVolume":"音量","undoChange":"撤销上次更改","versionLabel":"版本","widgetAutoHideLabel":"仅在有奖励时显示","widgetDesignLabel":"按钮样式","widgetDragHint":"拖动移动 · 点击领取","widgetIconBolt":"闪电","widgetIconCoin":"金币","widgetIconCrown":"皇冠","widgetIconCustom":"你自己的图标","widgetIconGift":"礼物","widgetIconLabel":"图标","widgetIconStar":"星星","widgetImageError":"无法使用此文件。请选择不超过 2 MB 的 PNG、JPG、WebP、GIF 或 SVG 图片。","widgetImageFill":"用图片填满整个按钮","widgetImageSaved":"自定义图标已保存。","widgetImageTip":"背景透明的方形图片效果最佳。图片只保存在你的浏览器中。","widgetOpacityLabel":"按钮透明度","widgetRemoveCustom":"移除你的图标","widgetResetPos":"重置按钮位置","widgetSizeLabel":"按钮大小","widgetStyleFlat":"扁平","widgetStyleGlass":"玻璃","widgetStyleOrb":"球形","widgetStylePill":"胶囊","widgetUpload":"上传你自己的图标"},"zh-tw":{"accentColorLabel":"強調色","actionHotkeysLabel":"操作快速鍵","animFade":"淡入淡出","animGlow":"發光","animLift":"上浮","animNone":"無","animPop":"彈出","animScale":"縮放","animSlide":"滑動","animationFull":"完整","animationLabel":"面板動畫","animationOff":"關閉","animationPreviewLabel":"預覽","animationReduced":"減少","animationSpeedLabel":"動畫速度","autoClaimHelp":"開啟獎勵視窗，領取可領取的獎勵後再關閉。預設為關閉。","autoClaimLabel":"自動領取獎勵","autoQualityLabel":"自动应用已保存的画质","autoVolumeLabel":"自动应用已保存的音量","bindShortcut":"設定快速鍵","blurLabel":"選單背景模糊度","centerPanel":"面板置中","channelBackupExport":"備份所有頻道","channelBackupImport":"還原備份","channelCurrent":"目前","channelDoneLabel":"完成","channelEditLabel":"編輯","channelExcludedStatus":"已排除自動化","channelExport":"匯出","channelExported":"頻道設定已匯出。","channelFavoritesOnly":"僅顯示釘選項目","channelGroupAll":"所有群組","channelGroupLabel":"群組","channelGroupPlaceholder":"群組名稱","channelHowTitle":"已儲存頻道如何運作","channelImport":"匯入設定檔","channelImportError":"無法匯入此頻道設定檔。","channelImportSuccess":"頻道設定檔已匯入。","channelMuted":"已靜音","channelNoteLabel":"備註","channelNotePlaceholder":"新增備註…","channelNudge":"想只為此頻道使用獨立設定嗎？","channelOpenStreamHint":"開啟直播即可儲存其頻道的設定。","channelPin":"釘選","channelPinned":"已釘選","channelProfileSummary":"記住此頻道的設定","channelQualitySummary":"畫質：直播 {live} · VOD {vod}","channelRemoveConfirm":"刪除 {name} 的已儲存設定？","channelSavedToast":"已儲存 {name} 的設定。","channelSearchPlaceholder":"搜尋已儲存的頻道…","channelSortName":"名稱","channelSortRecent":"最近修改","channelSortUsed":"最近使用","channelSoundOn":"聲音開啟","channelSpeedSummary":"速度：{speed}×","channelStep1":"開啟頻道的直播。","channelStep2":"按下「儲存此頻道」。目前的畫質、音量、速度和聲音設定會為它儲存。","channelStep3":"在下方微調。每次開啟該頻道時都會自動套用。","channelUnpin":"取消釘選","channelUseSaved":"在此頻道上套用已儲存的設定","channelVolumeSummary":"音量：{volume}% · {mute}","claimDelayLabel":"領取前等待","claimIntervalLabel":"檢查間隔","claimModeInterval":"依排程領取","claimModeLabel":"領取獎勵","claimModeNotify":"Kick 一顯示獎勵通知就領取","claimNowLabel":"立即領取","claimWidgetHelp":"顯示一個可拖到直播畫面任意位置的小按鈕。點擊即可一鍵領取獎勵。位置會被記住。","claimWidgetLabel":"頁面快速領取按鈕","clearLog":"清除記錄","clearNotificationHistory":"重設","collapseSidebarLabel":"收合左側選單","compactLabel":"精簡版面","confirmNo":"取消","confirmYes":"確認","conflictCheckLabel":"Search settings…","conflictsFound":"上次結果","conflictsNone":"診斷已更新。","contrastLabel":"高對比","copyDiagnostics":"匯出","currentChannelLabel":"目前","diagAvailableQualities":"偵測到的畫質","diagCurrentQuality":"目前畫質","diagUnknown":"未偵測到","diagVideoResolution":"影片解析度","diagnosticsCopied":"設定已匯入。","diagnosticsLogEmpty":"notificationHistoryEmpty","diagnosticsLogLabel":"上次結果","diagnosticsRefreshed":"診斷已更新。","doNotDisturbLabel":"請勿打擾","dragPanelHint":"拖曳標題列移動面板；位置會自動儲存。","excludeChannelLabel":"此頻道略過自動化","exportSettings":"匯出","fallbackAuto":"切換為自動","fallbackLower":"選擇最接近的較低畫質","focusUnavailable":"此播放器不支援全螢幕。","focusViewLabel":"全螢幕檢視","footerClose":"关闭","footerHint":"按 {key} 打开/关闭此菜单","freezeAlertLabel":"播放器卡住時提醒","freezeRecovered":"播放已恢復。","freezeSoundLabel":"播放警報聲","freezeThresholdLabel":"卡住偵測時間","groupFeedback":"提醒","groupInterface":"介面","groupPlayer":"播放器","groupSystem":"系統","helpAccentColor":"選擇自訂強調色。","helpAutoQuality":"播放器開啟時套用已儲存的畫質。自動模式使用你在 Kick 中最近選擇的畫質。","helpAutoVolume":"播放器啟動或重新連線時還原已儲存的音量和靜音狀態。","helpBlur":"背景模糊範圍為 0–12 px。拖曳滑桿或將游標移到滑桿上；設為 0 可關閉。 拖曳滑桿，或將游標移到滑桿上滾動滑鼠滾輪。","helpButton":"說明","helpChannelExclude":"停止對此頻道自動調整畫質、音量和延遲。仍可手動控制。","helpChannelSettings":"啟用後，此頻道的畫質、音量、靜音和速度會個別儲存。請在播放器中調整。","helpCompact":"縮小間距和控制項高度。","helpFallback":"當直播沒有首選畫質時，選擇要執行的動作。","helpHotkey":"選擇按鍵或 Ctrl、Alt、Shift、Meta 組合鍵。按 Escape 取消。","helpLanguage":"變更此面板的語言。","helpLiveQuality":"直播的首選畫質。自動模式會記住播放器中的最近選擇。","helpNotificationDuration":"選擇畫質通知的顯示時間。","helpNotificationSize":"調整畫質通知文字大小。","helpNotifications":"顯示或隱藏畫質設定結果通知。拖曳通知即可移動，位置會自動儲存。","helpPanelStyle":"選擇面板的視覺樣式。","helpSleepTimer":"開始倒數，時間到時暫停目前影片。關閉選單不會取消計時器。","helpSoundVolume":"調整擴充功能音效音量。試聽按鈕會播放範例。","helpSounds":"開啟或關閉擴充功能的所有音效。可在音效設定中個別選擇事件。","helpTheme":"變更此面板的外觀。","helpVodQuality":"錄影的首選畫質，與直播畫質設定分開。","helpVolume":"音量範圍為 0–100%。拖曳滑桿或將游標移到滑桿上即可變更，修改會立即生效。 拖曳滑桿，或將游標移到滑桿上滾動滑鼠滾輪。","hideChatLabel":"隱藏聊天","highVolumeWarning":"播放器音量高於 {threshold}%。","hotkeyCancel":"按 Escape 取消","hotkeyWaiting":"请按任意键…","hoverAnimationLabel":"游標懸停效果","iconAnimationsLabel":"圖示動畫","importSettings":"匯入","indicatorBreathe":"輕柔呼吸","indicatorGlow":"發光","indicatorOff":"關閉","indicatorPulse":"脈動","indicatorTitle":"指示燈","languageLabel":"語言","lastResultLabel":"上次結果","layoutTitle":"頁面版面","layoutUnavailable":"此頁面無法使用。","logCleared":"記錄已清除。","loudThresholdLabel":"提醒門檻","loudWarningLabel":"音量過高時提醒","minutesUnit":"分鐘","muteLabel":"將播放器靜音","noPlayerForReset":"找不到影片播放器。","noSavedChannels":"尚未儲存任何頻道設定。","notificationApplied":"已套用畫質：{q}。","notificationDurationLabel":"通知顯示時間","notificationFailed":"無法套用 {q}：找不到播放器控制項或該畫質選項。","notificationHistoryEmpty":"目前沒有通知。","notificationHistoryEnabledLabel":"Quality notifications","notificationHistoryLabel":"通知記錄","notificationIconLabel":"顯示通知圖示","notificationOpacityLabel":"通知不透明度","notificationSizeLabel":"通知文字大小","notificationVolumeLabel":"已恢復音量","notificationsLabel":"畫質通知","openAnimationLabel":"開啟動畫","openReleases":"開啟版本清單","panelStyleKick":"Kick","panelStyleLabel":"面板樣式","panelStyleMinimal":"極簡","panelTitle":"Kick Stream Tweaks","playbackSpeedLabel":"播放速度","playerFrozenNotice":"播放器似乎卡住了。請嘗試重新載入直播。","preferredVolumeLabel":"首选音量","presetApplied":"已套用預設：{name}","presetsLabel":"快速預設","previewNotification":"通知預覽","qualityAuto":"自动（使用上次手动选择）","qualityAvailable":"狀態","qualityCheckLabel":"直播畫質","qualityFallbackLabel":"若無法使用","qualityLiveLabel":"直播畫質","qualityUnavailable":"狀態","qualityVodLabel":"錄影畫質 (VOD)","quickActionsLabel":"快速操作","quietFullscreenLabel":"全螢幕靜音模式","recoveryLabel":"嘗試恢復卡住的播放","refreshDiagnostics":"診斷已更新。","removeChannelSettings":"刪除","reportIssue":"回報問題","resetNotificationPosition":"重設通知位置","resetPlayerLabel":"重新套用播放器設定","resetQuality":"重設畫質","resetSection":"重設區段","resetSettings":"重設","restoreReset":"還原重設前備份","restoreVolume":"恢復音量","rewardClaimed":"獎勵已領取。","rewardNone":"目前沒有可領取的獎勵。","rewardsTitle":"獎勵","safeModeHelp":"播放器開啟時套用已儲存的畫質。自動模式使用你在 Kick 中最近選擇的畫質。","safeModeLabel":"精簡版面","saveChannelButton":"儲存此頻道","savedChannelsLabel":"已儲存的頻道","secondsUnit":"秒","sectionAbout":"關於擴充功能","sectionAppearance":"外观","sectionData":"資料與關於","sectionDiagnostics":"播放器診斷","sectionHotkey":"菜单快捷键","sectionMotion":"動畫","sectionNotifications":"通知","sectionPlayback":"播放设置","sectionShortcuts":"快速鍵","sectionSounds":"音效","sectionTools":"工具","settingsImportError":"無法匯入設定，請檢查檔案。","settingsImportPrompt":"匯入這些設定並取代目前的設定嗎？","settingsImported":"設定已匯入。","settingsReset":"重設","settingsResetPrompt":"重設 Kick Stream Tweaks 的所有設定嗎？","clearSearch":"清除搜尋","settingsSearch":"搜尋設定…","shortcutChat":"切換聊天","shortcutFocus":"專注觀看","shortcutNotifications":"切換通知","shortcutQuality":"重設畫質","shortcutSidebar":"切換左側選單","shortcutVolume":"恢復音量","silentHelp":"讓直播靜音但不對播放器靜音，因此切換分頁後仍會繼續播放。可依頻道設定。","silentLabel":"無聲播放（切換分頁後繼續播放）","silentTag":"無聲","silentUnavailable":"此播放器不支援無聲播放。","situationBandwidth":"節省流量","situationQuality":"最佳畫質","situationQuiet":"安靜觀看","situationVod":"錄影","sleepCancelLabel":"取消計時器","sleepClock12":"AM/PM","sleepClock24":"24 小時制","sleepEndsAt":"結束時間","sleepExpired":"睡眠計時器已暫停播放。","sleepHoursLabel":"小時","sleepMinutesLabel":"分鐘","sleepStartLabel":"啟動計時器","sleepStarted":"將在 {minutes} 分鐘後暫停播放。","sleepTimerLabel":"睡眠計時器","soundConfigureLabel":"音效事件設定","soundEffectsLabel":"音效","soundEventVolumeLabel":"事件音量","soundMenuLabel":"面板開啟與關閉","soundModalHint":"每個開關只控制對應事件。也必須開啟總音效開關。","soundPreviewButton":"試聽","soundQualityFailure":"畫質無法套用","soundQualitySuccess":"畫質已套用","soundSettingsLabel":"設定變更","soundVolumeLabel":"音效音量","soundVolumeRestored":"音量已還原","speedFast":"快速","speedNormal":"一般","speedSlow":"慢速","statusLabel":"狀態","textScaleLabel":"精簡版面","textScaleLarge":"精簡版面","textScaleSmall":"精簡版面","textScaleXLarge":"精簡版面","themeDark":"深色","themeLabel":"主题","themeLight":"浅色","titleQuality":"畫質","titleVolume":"音量","undoChange":"復原上次變更","versionLabel":"版本","widgetAutoHideLabel":"僅在有獎勵時顯示","widgetDesignLabel":"按鈕樣式","widgetDragHint":"拖曳移動 · 點擊領取","widgetIconBolt":"閃電","widgetIconCoin":"金幣","widgetIconCrown":"皇冠","widgetIconCustom":"你自己的圖示","widgetIconGift":"禮物","widgetIconLabel":"圖示","widgetIconStar":"星星","widgetImageError":"無法使用此檔案。請選擇不超過 2 MB 的 PNG、JPG、WebP、GIF 或 SVG 圖片。","widgetImageFill":"用圖片填滿整個按鈕","widgetImageSaved":"自訂圖示已儲存。","widgetImageTip":"背景透明的方形圖片效果最佳。圖片只儲存在你的瀏覽器中。","widgetOpacityLabel":"按鈕透明度","widgetRemoveCustom":"移除你的圖示","widgetResetPos":"重設按鈕位置","widgetSizeLabel":"按鈕大小","widgetStyleFlat":"扁平","widgetStyleGlass":"玻璃","widgetStyleOrb":"球形","widgetStylePill":"膠囊","widgetUpload":"上傳你自己的圖示"}};
+  const DIAG = {"en":["Waiting for player","Ready","Applying quality","Needs attention","Paused","Player found","Player changed","No visible video element found.","Auto is on; no manual quality has been saved yet.","Stream source changed; syncing settings.","Automatic quality selection is disabled.","Checking saved quality…","Applied quality: {q}.","Applying quality: {q}…","Could not apply {q}; player controls or quality option were not found.","Manually selected quality: {q}."],"ar":["بانتظار المشغل","جاهز","جارٍ تطبيق الجودة","يتطلب الانتباه","متوقف مؤقتًا","تم العثور على المشغل","تغير المشغل","لم يتم العثور على فيديو ظاهر.","الوضع التلقائي مفعّل؛ لم يتم حفظ جودة يدوية بعد.","تغير مصدر البث؛ جارٍ مزامنة الإعدادات.","اختيار الجودة التلقائي متوقف.","جارٍ التحقق من الجودة المحفوظة…","تم تطبيق الجودة: {q}.","جارٍ تطبيق الجودة: {q}…","تعذر تطبيق {q}؛ لم يتم العثور على عناصر التحكم أو خيار الجودة.","تم اختيار الجودة يدويًا: {q}."],"be":["Чаканне плэера","Гатова","Ужываецца якасць","Патрабуецца ўвага","Прыпынена","Плэер знойдзены","Плэер змяніўся","Бачны відэаэлемент не знойдзены.","Аўтарэжым уключаны; якасць яшчэ не выбіралася ўручную.","Крыніца трансляцыі змянілася; налады сінхранізуюцца.","Аўтаматычны выбар якасці выключаны.","Правяраецца захаваная якасць…","Ужыта якасць: {q}.","Ужываецца якасць: {q}…","Не ўдалося ўжыць {q}: не знойдзены элементы кіравання або гэты варыянт якасці.","Уручную выбрана якасць: {q}."],"bg":["Изчакване на плейъра","Готово","Прилагане на качество","Нужно е внимание","На пауза","Плейърът е открит","Плейърът се промени","Не е открит видим видеоелемент.","Автоматичният режим е включен; още няма ръчно избрано качество.","Източникът на потока се промени; настройките се синхронизират.","Автоматичният избор на качество е изключен.","Проверка на запазеното качество…","Приложено качество: {q}.","Прилагане на качество: {q}…","Не може да се приложи {q}: липсват контролите на плейъра или тази опция за качество.","Ръчно избрано качество: {q}."],"cs":["Čekání na přehrávač","Připraveno","Používá se kvalita","Vyžaduje pozornost","Pozastaveno","Přehrávač nalezen","Přehrávač se změnil","Nebyl nalezen viditelný prvek videa.","Automatický režim je zapnutý; ruční kvalita zatím nebyla uložena.","Zdroj streamu se změnil; synchronizuji nastavení.","Automatický výběr kvality je vypnutý.","Kontroluji uloženou kvalitu…","Použita kvalita: {q}.","Používá se kvalita: {q}…","Nelze použít {q}: ovládací prvky přehrávače nebo tato možnost kvality nebyly nalezeny.","Ruční výběr kvality: {q}."],"da":["Venter på afspiller","Klar","Anvender kvalitet","Kræver opmærksomhed","Sat på pause","Afspiller fundet","Afspiller ændret","Intet synligt videoelement fundet.","Auto er slået til; ingen manuel kvalitet er gemt endnu.","Streamkilden er ændret; indstillinger synkroniseres.","Automatisk kvalitetsvalg er slået fra.","Kontrollerer gemt kvalitet…","Kvalitet anvendt: {q}.","Anvender kvalitet: {q}…","Kunne ikke anvende {q}; afspillerens kontrolelementer eller kvalitetsvalget blev ikke fundet.","Manuelt valgt kvalitet: {q}."],"de":["Warte auf Player","Bereit","Qualität wird angewendet","Aufmerksamkeit erforderlich","Pausiert","Player gefunden","Player geändert","Kein sichtbares Videoelement gefunden.","Automatik ist aktiv; noch wurde keine Qualität manuell gespeichert.","Streamquelle geändert; Einstellungen werden synchronisiert.","Automatische Qualitätsauswahl ist deaktiviert.","Gespeicherte Qualität wird geprüft…","Qualität angewendet: {q}.","Qualität wird angewendet: {q}…","{q} konnte nicht angewendet werden; Player-Steuerung oder Qualitätsoption wurde nicht gefunden.","Manuell gewählte Qualität: {q}."],"el":["Αναμονή για το πρόγραμμα αναπαραγωγής","Έτοιμο","Εφαρμογή ποιότητας","Απαιτείται προσοχή","Σε παύση","Το πρόγραμμα αναπαραγωγής βρέθηκε","Το πρόγραμμα αναπαραγωγής άλλαξε","Δεν βρέθηκε ορατό στοιχείο βίντεο.","Η αυτόματη λειτουργία είναι ενεργή· δεν έχει αποθηκευτεί χειροκίνητη ποιότητα.","Η πηγή της μετάδοσης άλλαξε· συγχρονίζονται οι ρυθμίσεις.","Η αυτόματη επιλογή ποιότητας είναι απενεργοποιημένη.","Έλεγχος αποθηκευμένης ποιότητας…","Εφαρμόστηκε ποιότητα: {q}.","Εφαρμογή ποιότητας: {q}…","Δεν ήταν δυνατή η εφαρμογή {q}· δεν βρέθηκαν τα χειριστήρια ή η επιλογή ποιότητας.","Χειροκίνητη επιλογή ποιότητας: {q}."],"es":["Esperando al reproductor","Listo","Aplicando calidad","Requiere atención","En pausa","Reproductor encontrado","Reproductor cambiado","No se encontró ningún vídeo visible.","El modo automático está activo; aún no se ha guardado una calidad manual.","Cambió la fuente del directo; sincronizando ajustes.","La selección automática de calidad está desactivada.","Comprobando la calidad guardada…","Calidad aplicada: {q}.","Aplicando calidad: {q}…","No se pudo aplicar {q}; no se encontraron los controles o esa opción de calidad.","Calidad seleccionada manualmente: {q}."],"fi":["Odotetaan soitinta","Valmis","Laatua käytetään","Vaatii huomiota","Keskeytetty","Soitin löytyi","Soitin vaihtui","Näkyvää videota ei löytynyt.","Automaattitila on käytössä; manuaalista laatua ei ole vielä tallennettu.","Suoratoiston lähde vaihtui; asetuksia synkronoidaan.","Automaattinen laadunvalinta ei ole käytössä.","Tarkistetaan tallennettua laatua…","Käytetty laatu: {q}.","Käytetään laatua: {q}…","Laatua {q} ei voitu käyttää; soittimen ohjaimia tai laatua ei löytynyt.","Manuaalisesti valittu laatu: {q}."],"fr":["En attente du lecteur","Prêt","Application de la qualité","Action requise","En pause","Lecteur détecté","Lecteur modifié","Aucun élément vidéo visible trouvé.","Le mode automatique est activé ; aucune qualité manuelle n’est encore enregistrée.","La source du direct a changé ; synchronisation des réglages.","La sélection automatique de qualité est désactivée.","Vérification de la qualité enregistrée…","Qualité appliquée : {q}.","Application de la qualité : {q}…","Impossible d’appliquer {q} ; commandes du lecteur ou option de qualité introuvables.","Qualité sélectionnée manuellement : {q}."],"hi":["प्लेयर की प्रतीक्षा","तैयार","क्वालिटी लागू हो रही है","ध्यान देने की आवश्यकता","रुका हुआ","प्लेयर मिला","प्लेयर बदल गया","कोई दिखाई देने वाला वीडियो नहीं मिला।","ऑटो चालू है; अभी तक कोई मैन्युअल क्वालिटी सेव नहीं हुई।","स्ट्रीम स्रोत बदला; सेटिंग सिंक हो रही हैं।","ऑटो क्वालिटी चयन बंद है।","सेव की गई क्वालिटी जाँची जा रही है…","क्वालिटी लागू: {q}।","क्वालिटी लागू हो रही है: {q}…","{q} लागू नहीं हो सकी; प्लेयर कंट्रोल या क्वालिटी विकल्प नहीं मिला।","मैन्युअल रूप से चुनी गई क्वालिटी: {q}।"],"en-in":["Waiting for player","Ready","Applying quality","Needs attention","Paused","Player found","Player changed","No visible video element found.","Auto is on; no manual quality has been saved yet.","Stream source changed; syncing settings.","Automatic quality selection is disabled.","Checking saved quality…","Applied quality: {q}.","Applying quality: {q}…","Could not apply {q}; player controls or quality option were not found.","Manually selected quality: {q}."],"hr":["Čekanje playera","Spremno","Primjena kvalitete","Potrebna je pažnja","Pauzirano","Player je pronađen","Player je promijenjen","Nije pronađen vidljiv videozapis.","Automatski način je uključen; ručna kvaliteta još nije spremljena.","Izvor prijenosa se promijenio; sinkronizacija postavki.","Automatski odabir kvalitete je isključen.","Provjera spremljene kvalitete…","Primijenjena kvaliteta: {q}.","Primjena kvalitete: {q}…","Nije moguće primijeniti {q}; kontrole playera ili ta kvaliteta nisu pronađene.","Ručno odabrana kvaliteta: {q}."],"hu":["Lejátszó keresése","Kész","Minőség alkalmazása","Figyelmet igényel","Szüneteltetve","Lejátszó megtalálva","Lejátszó megváltozott","Nem található látható videoelem.","Az automatikus mód be van kapcsolva; még nincs mentett kézi minőség.","A stream forrása megváltozott; beállítások szinkronizálása.","Az automatikus minőségválasztás ki van kapcsolva.","Mentett minőség ellenőrzése…","Alkalmazott minőség: {q}.","Minőség alkalmazása: {q}…","A(z) {q} nem alkalmazható; a lejátszó vezérlői vagy ez a minőség nem található.","Kézzel kiválasztott minőség: {q}."],"id":["Menunggu pemutar","Siap","Menerapkan kualitas","Perlu perhatian","Dijeda","Pemutar ditemukan","Pemutar berubah","Elemen video yang terlihat tidak ditemukan.","Otomatis aktif; belum ada kualitas manual yang disimpan.","Sumber streaming berubah; menyinkronkan pengaturan.","Pemilihan kualitas otomatis dinonaktifkan.","Memeriksa kualitas tersimpan…","Kualitas diterapkan: {q}.","Menerapkan kualitas: {q}…","Tidak dapat menerapkan {q}; kontrol pemutar atau opsi kualitas tidak ditemukan.","Kualitas dipilih manual: {q}."],"it":["In attesa del lettore","Pronto","Applicazione qualità","Richiede attenzione","In pausa","Lettore trovato","Lettore modificato","Nessun elemento video visibile trovato.","La modalità automatica è attiva; non è ancora stata salvata una qualità manuale.","La sorgente dello streaming è cambiata; sincronizzazione impostazioni.","La selezione automatica della qualità è disattivata.","Controllo della qualità salvata…","Qualità applicata: {q}.","Applicazione qualità: {q}…","Impossibile applicare {q}; controlli del lettore o opzione qualità non trovati.","Qualità selezionata manualmente: {q}."],"ja":["プレーヤーを待機中","準備完了","画質を適用中","要確認","一時停止中","プレーヤーを検出","プレーヤーが変更されました","表示中の動画が見つかりません。","自動は有効ですが、手動で選択した画質はまだ保存されていません。","配信ソースが変わりました。設定を同期しています。","画質の自動選択は無効です。","保存した画質を確認中…","画質を適用しました: {q}。","画質を適用中: {q}…","{q}を適用できません。プレーヤー操作部または画質設定が見つかりません。","手動で選択した画質: {q}。"],"ko":["플레이어 대기 중","준비됨","화질 적용 중","확인 필요","일시 정지됨","플레이어 찾음","플레이어 변경됨","표시되는 동영상 요소를 찾을 수 없습니다.","자동 모드가 켜져 있지만 수동으로 저장된 화질이 없습니다.","스트림 소스가 변경되어 설정을 동기화합니다.","자동 화질 선택이 꺼져 있습니다.","저장된 화질 확인 중…","화질 적용됨: {q}.","화질 적용 중: {q}…","{q}을(를) 적용하지 못했습니다. 플레이어 컨트롤 또는 화질 옵션을 찾지 못했습니다.","수동 선택 화질: {q}."],"lt":["Laukiama grotuvo","Paruošta","Taikoma kokybė","Reikia dėmesio","Pristabdyta","Grotuvas rastas","Grotuvas pasikeitė","Nerastas matomas vaizdo įrašas.","Automatinis režimas įjungtas; rankiniu būdu pasirinkta kokybė dar neišsaugota.","Pasikeitė srauto šaltinis; sinchronizuojami nustatymai.","Automatinis kokybės pasirinkimas išjungtas.","Tikrinama išsaugota kokybė…","Pritaikyta kokybė: {q}.","Taikoma kokybė: {q}…","Nepavyko pritaikyti {q}; nerasti grotuvo valdikliai arba ši kokybė.","Rankiniu būdu pasirinkta kokybė: {q}."],"lv":["Gaida atskaņotāju","Gatavs","Lieto kvalitāti","Nepieciešama uzmanība","Pauzēts","Atskaņotājs atrasts","Atskaņotājs mainīts","Nav atrasts redzams video elements.","Automātiskais režīms ir ieslēgts; manuāla kvalitāte vēl nav saglabāta.","Mainījās straumes avots; tiek sinhronizēti iestatījumi.","Automātiska kvalitātes izvēle ir izslēgta.","Pārbauda saglabāto kvalitāti…","Lietotā kvalitāte: {q}.","Lieto kvalitāti: {q}…","Neizdevās lietot {q}; nav atrastas atskaņotāja vadīklas vai šī kvalitāte.","Manuāli izvēlētā kvalitāte: {q}."],"mk":["Се чека плеерот","Подготвено","Се применува квалитет","Потребно е внимание","Паузирано","Пронајден е плеер","Плеерот е сменет","Не е пронајден видлив видеоелемент.","Автоматскиот режим е вклучен; сè уште нема рачно зачуван квалитет.","Изворот на преносот е сменет; поставките се синхронизираат.","Автоматскиот избор на квалитет е исклучен.","Се проверува зачуваниот квалитет…","Применет квалитет: {q}.","Се применува квалитет: {q}…","Не може да се примени {q}; не се пронајдени контролите или таа опција за квалитет.","Рачно избран квалитет: {q}."],"mn":["Тоглуулагчийг хүлээж байна","Бэлэн","Чанарыг тохируулж байна","Анхаарах шаардлагатай","Түр зогссон","Тоглуулагч олдлоо","Тоглуулагч өөрчлөгдлөө","Харагдах видео олдсонгүй.","Автомат горим асаалттай; гараар сонгосон чанар хадгалагдаагүй байна.","Дамжуулалтын эх үүсвэр өөрчлөгдлөө; тохиргоог синк хийж байна.","Автомат чанар сонголт унтраалттай.","Хадгалсан чанарыг шалгаж байна…","Чанар тохирууллаа: {q}.","Чанар тохируулж байна: {q}…","{q} чанарыг тохируулж чадсангүй; удирдлага эсвэл сонголт олдсонгүй.","Гараар сонгосон чанар: {q}."],"ms":["Menunggu pemain","Sedia","Menggunakan kualiti","Perlu perhatian","Dijeda","Pemain ditemui","Pemain berubah","Elemen video yang kelihatan tidak ditemui.","Auto dihidupkan; belum ada kualiti manual disimpan.","Sumber strim berubah; tetapan sedang disegerakkan.","Pilihan kualiti automatik dimatikan.","Menyemak kualiti tersimpan…","Kualiti digunakan: {q}.","Menggunakan kualiti: {q}…","Tidak dapat menggunakan {q}; kawalan pemain atau pilihan kualiti tidak ditemui.","Kualiti dipilih secara manual: {q}."],"nl":["Wachten op speler","Gereed","Kwaliteit toepassen","Aandacht vereist","Gepauzeerd","Speler gevonden","Speler gewijzigd","Geen zichtbaar video-element gevonden.","Auto staat aan; er is nog geen handmatige kwaliteit opgeslagen.","Streambron gewijzigd; instellingen worden gesynchroniseerd.","Automatische kwaliteitskeuze staat uit.","Opgeslagen kwaliteit controleren…","Kwaliteit toegepast: {q}.","Kwaliteit toepassen: {q}…","Kan {q} niet toepassen; spelerbediening of kwaliteitsoptie niet gevonden.","Handmatig gekozen kwaliteit: {q}."],"no":["Venter på spiller","Klar","Bruker kvalitet","Trenger oppmerksomhet","Satt på pause","Spiller funnet","Spiller endret","Fant ikke noe synlig videoelement.","Auto er på; ingen manuell kvalitet er lagret ennå.","Strømmekilden ble endret; synkroniserer innstillinger.","Automatisk kvalitetsvalg er deaktivert.","Sjekker lagret kvalitet…","Brukt kvalitet: {q}.","Bruker kvalitet: {q}…","Kunne ikke bruke {q}; fant ikke spillerkontroller eller kvalitetsvalget.","Manuelt valgt kvalitet: {q}."],"pl":["Oczekiwanie na odtwarzacz","Gotowe","Stosowanie jakości","Wymaga uwagi","Wstrzymano","Znaleziono odtwarzacz","Odtwarzacz się zmienił","Nie znaleziono widocznego elementu wideo.","Tryb automatyczny jest włączony; nie zapisano jeszcze jakości wybranej ręcznie.","Zmieniono źródło transmisji; synchronizowanie ustawień.","Automatyczny wybór jakości jest wyłączony.","Sprawdzanie zapisanej jakości…","Zastosowano jakość: {q}.","Stosowanie jakości: {q}…","Nie można zastosować {q}; nie znaleziono sterowania odtwarzaczem ani tej jakości.","Ręcznie wybrana jakość: {q}."],"pt":["A aguardar o leitor","Pronto","A aplicar qualidade","Requer atenção","Em pausa","Leitor encontrado","Leitor alterado","Não foi encontrado nenhum vídeo visível.","O modo automático está ativo; ainda não foi guardada uma qualidade manual.","A origem da transmissão mudou; a sincronizar definições.","A seleção automática de qualidade está desativada.","A verificar qualidade guardada…","Qualidade aplicada: {q}.","A aplicar qualidade: {q}…","Não foi possível aplicar {q}; controlos do leitor ou opção de qualidade não encontrados.","Qualidade escolhida manualmente: {q}."],"ro":["Se așteaptă playerul","Gata","Se aplică calitatea","Necesită atenție","În pauză","Player găsit","Player schimbat","Nu a fost găsit niciun element video vizibil.","Modul automat este activ; nu a fost salvată încă o calitate manuală.","Sursa transmisiunii s-a schimbat; se sincronizează setările.","Selectarea automată a calității este dezactivată.","Se verifică nivelul salvat…","Calitate aplicată: {q}.","Se aplică nivelul: {q}…","Nu s-a putut aplica {q}; comenzile playerului sau opțiunea de calitate nu au fost găsite.","Calitate selectată manual: {q}."],"ru":["Ожидание плеера","Готово","Применяется качество","Требуется внимание","Приостановлено","Плеер найден","Плеер изменился","Не найден видимый видеоэлемент.","Авто включено; ручное качество ещё не сохранено.","Источник трансляции изменился; настройки синхронизируются.","Автоматический выбор качества отключён.","Проверяется сохранённое качество…","Применено качество: {q}.","Применяется качество: {q}…","Не удалось применить {q}: не найдены элементы управления плеером или этот вариант качества.","Вручную выбрано качество: {q}."],"sk":["Čaká sa na prehrávač","Pripravené","Používa sa kvalita","Vyžaduje pozornosť","Pozastavené","Prehrávač nájdený","Prehrávač zmenený","Nenašiel sa viditeľný prvok videa.","Automatický režim je zapnutý; ručná kvalita ešte nie je uložená.","Zdroj streamu sa zmenil; synchronizujú sa nastavenia.","Automatický výber kvality je vypnutý.","Kontroluje sa uložená kvalita…","Použitá kvalita: {q}.","Používa sa kvalita: {q}…","Nedá sa použiť {q}; nenašli sa ovládacie prvky prehrávača ani táto kvalita.","Ručne zvolená kvalita: {q}."],"sr":["Čekanje plejera","Spremno","Primena kvaliteta","Potrebna je pažnja","Pauzirano","Plejer je pronađen","Plejer je promenjen","Nije pronađen vidljiv video-element.","Automatski režim je uključen; ručna kvaliteta još nije sačuvana.","Izvor prenosa je promenjen; sinhronizuju se podešavanja.","Automatski izbor kvaliteta je isključen.","Provera sačuvanog kvaliteta…","Primenjen kvalitet: {q}.","Primena kvaliteta: {q}…","Nije moguće primeniti {q}; kontrole plejera ili ta opcija kvaliteta nisu pronađene.","Ručno izabran kvalitet: {q}."],"sv":["Väntar på spelaren","Redo","Tillämpar kvalitet","Åtgärd krävs","Pausad","Spelare hittad","Spelaren ändrades","Ingen synlig video hittades.","Auto är aktiverat; ingen manuell kvalitet har sparats ännu.","Strömkällan ändrades; inställningarna synkroniseras.","Automatiskt kvalitetsval är inaktiverat.","Kontrollerar sparad kvalitet…","Kvalitet tillämpad: {q}.","Tillämpar kvalitet: {q}…","Kunde inte tillämpa {q}; spelarens kontroller eller kvalitetsalternativ hittades inte.","Manuellt vald kvalitet: {q}."],"th":["กำลังรอเครื่องเล่น","พร้อม","กำลังใช้คุณภาพ","ต้องดำเนินการ","หยุดชั่วคราว","พบเครื่องเล่นแล้ว","เครื่องเล่นเปลี่ยนแล้ว","ไม่พบวิดีโอที่มองเห็นได้","เปิดโหมดอัตโนมัติแล้ว แต่ยังไม่มีคุณภาพที่เลือกเอง","แหล่งสตรีมเปลี่ยน กำลังซิงค์การตั้งค่า","ปิดการเลือกคุณภาพอัตโนมัติ","กำลังตรวจสอบคุณภาพที่บันทึกไว้…","ใช้คุณภาพแล้ว: {q}","กำลังใช้คุณภาพ: {q}…","ใช้ {q} ไม่ได้ ไม่พบตัวควบคุมหรือระดับคุณภาพนี้","เลือกคุณภาพเอง: {q}"],"tr":["Oynatıcı bekleniyor","Hazır","Kalite uygulanıyor","Dikkat gerekiyor","Duraklatıldı","Oynatıcı bulundu","Oynatıcı değişti","Görünür video öğesi bulunamadı.","Otomatik açık; henüz elle seçilmiş kalite kaydedilmedi.","Yayın kaynağı değişti; ayarlar eşitleniyor.","Otomatik kalite seçimi kapalı.","Kaydedilen kalite denetleniyor…","Uygulanan kalite: {q}.","Uygulanan kalite: {q}…","{q} uygulanamadı; oynatıcı kontrolleri veya kalite seçeneği bulunamadı.","Elle seçilen kalite: {q}."],"vi":["Đang chờ trình phát","Sẵn sàng","Đang áp dụng chất lượng","Cần chú ý","Đã tạm dừng","Đã tìm thấy trình phát","Trình phát đã thay đổi","Không tìm thấy video đang hiển thị.","Tự động đang bật; chưa lưu chất lượng chọn thủ công.","Nguồn phát đã đổi; đang đồng bộ cài đặt.","Đã tắt tự động chọn chất lượng.","Đang kiểm tra chất lượng đã lưu…","Đã áp dụng chất lượng: {q}.","Đang áp dụng chất lượng: {q}…","Không thể áp dụng {q}; không tìm thấy điều khiển hoặc tùy chọn chất lượng.","Chất lượng chọn thủ công: {q}."],"zh-cn":["等待播放器","就绪","正在应用画质","需要处理","已暂停","已找到播放器","播放器已更改","未找到可见的视频元素。","自动模式已开启；尚未保存手动选择的画质。","直播源已更改，正在同步设置。","自动选择画质已关闭。","正在检查已保存的画质…","已应用画质：{q}。","正在应用画质：{q}…","无法应用 {q}：未找到播放器控件或该画质选项。","手动选择的画质：{q}。"],"zh-tw":["等待播放器","就緒","正在套用畫質","需要處理","已暫停","已找到播放器","播放器已變更","找不到可見的影片元素。","自動模式已開啟；尚未儲存手動選取的畫質。","直播來源已變更，正在同步設定。","自動選擇畫質已關閉。","正在檢查已儲存的畫質…","已套用畫質：{q}。","正在套用畫質：{q}…","無法套用 {q}：找不到播放器控制項或該畫質選項。","手動選取的畫質：{q}。"]};
+  const FLAGS = {"en":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#fff\"/><g fill=\"#B22234\"><rect y=\"0\" width=\"30\" height=\"1.54\"/><rect y=\"3.08\" width=\"30\" height=\"1.54\"/><rect y=\"6.15\" width=\"30\" height=\"1.54\"/><rect y=\"9.23\" width=\"30\" height=\"1.54\"/><rect y=\"12.31\" width=\"30\" height=\"1.54\"/><rect y=\"15.38\" width=\"30\" height=\"1.54\"/><rect y=\"18.46\" width=\"30\" height=\"1.54\"/></g><rect width=\"12\" height=\"10.77\" fill=\"#3C3B6E\"/></svg>","ar":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#006C35\"/><rect x=\"6\" y=\"14.5\" width=\"18\" height=\"1.2\" fill=\"#fff\"/></svg>","be":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"13\" fill=\"#D22730\"/><rect y=\"13\" width=\"30\" height=\"7\" fill=\"#007A33\"/><path d=\"M0 0h4v20H0z\" fill=\"#fff\"/></svg>","bg":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"6.67\" fill=\"#fff\"/><rect y=\"6.67\" width=\"30\" height=\"6.67\" fill=\"#00966E\"/><rect y=\"13.34\" width=\"30\" height=\"6.66\" fill=\"#D62612\"/></svg>","cs":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"10\" fill=\"#fff\"/><rect y=\"10\" width=\"30\" height=\"10\" fill=\"#D7141A\"/><polygon points=\"0,0 0,20 13,10\" fill=\"#11457E\"/></svg>","da":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#C60C30\"/><rect x=\"9\" width=\"4\" height=\"20\" fill=\"#fff\"/><rect y=\"8\" width=\"30\" height=\"4\" fill=\"#fff\"/></svg>","de":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"6.67\" fill=\"#000\"/><rect y=\"6.67\" width=\"30\" height=\"6.67\" fill=\"#DD0000\"/><rect y=\"13.34\" width=\"30\" height=\"6.66\" fill=\"#FFCE00\"/></svg>","el":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#0D5EAF\"/><rect y=\"2.22\" width=\"30\" height=\"2.22\" fill=\"#fff\"/><rect y=\"6.67\" width=\"30\" height=\"2.22\" fill=\"#fff\"/><rect y=\"11.11\" width=\"30\" height=\"2.22\" fill=\"#fff\"/><rect y=\"15.56\" width=\"30\" height=\"2.22\" fill=\"#fff\"/><rect width=\"11\" height=\"11\" fill=\"#0D5EAF\"/><rect x=\"4.2\" width=\"2.6\" height=\"11\" fill=\"#fff\"/><rect y=\"4.2\" width=\"11\" height=\"2.6\" fill=\"#fff\"/></svg>","es":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"5\" fill=\"#AA151B\"/><rect y=\"5\" width=\"30\" height=\"10\" fill=\"#F1BF00\"/><rect y=\"15\" width=\"30\" height=\"5\" fill=\"#AA151B\"/></svg>","fi":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#fff\"/><rect x=\"9\" width=\"4\" height=\"20\" fill=\"#003580\"/><rect y=\"8\" width=\"30\" height=\"4\" fill=\"#003580\"/></svg>","fr":"<svg viewBox=\"0 0 30 20\"><rect width=\"10\" height=\"20\" fill=\"#0055A4\"/><rect x=\"10\" width=\"10\" height=\"20\" fill=\"#fff\"/><rect x=\"20\" width=\"10\" height=\"20\" fill=\"#EF4135\"/></svg>","hi":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"6.67\" fill=\"#FF9933\"/><rect y=\"6.67\" width=\"30\" height=\"6.67\" fill=\"#fff\"/><rect y=\"13.34\" width=\"30\" height=\"6.66\" fill=\"#138808\"/><circle cx=\"15\" cy=\"10\" r=\"2.2\" fill=\"none\" stroke=\"#000080\" stroke-width=\"0.4\"/></svg>","en-in":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"6.67\" fill=\"#FF9933\"/><rect y=\"6.67\" width=\"30\" height=\"6.67\" fill=\"#fff\"/><rect y=\"13.34\" width=\"30\" height=\"6.66\" fill=\"#138808\"/><circle cx=\"15\" cy=\"10\" r=\"2\" fill=\"none\" stroke=\"#000080\" stroke-width=\".6\"/></svg>","hr":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"6.67\" fill=\"#FF0000\"/><rect y=\"6.67\" width=\"30\" height=\"6.67\" fill=\"#fff\"/><rect y=\"13.34\" width=\"30\" height=\"6.66\" fill=\"#171796\"/></svg>","hu":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"6.67\" fill=\"#CE2939\"/><rect y=\"6.67\" width=\"30\" height=\"6.67\" fill=\"#fff\"/><rect y=\"13.34\" width=\"30\" height=\"6.66\" fill=\"#477050\"/></svg>","id":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"10\" fill=\"#FF0000\"/><rect y=\"10\" width=\"30\" height=\"10\" fill=\"#fff\"/></svg>","it":"<svg viewBox=\"0 0 30 20\"><rect width=\"10\" height=\"20\" fill=\"#009246\"/><rect x=\"10\" width=\"10\" height=\"20\" fill=\"#fff\"/><rect x=\"20\" width=\"10\" height=\"20\" fill=\"#CE2B37\"/></svg>","ja":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#fff\"/><circle cx=\"15\" cy=\"10\" r=\"6\" fill=\"#BC002D\"/></svg>","ko":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#fff\"/><circle cx=\"15\" cy=\"10\" r=\"5\" fill=\"#fff\"/><path d=\"M15,5 A5,5 0 0,1 15,15 A2.5,2.5 0 0,1 15,10 A2.5,2.5 0 0,0 15,5 Z\" fill=\"#CD2E3A\"/><path d=\"M15,15 A5,5 0 0,1 15,5 A2.5,2.5 0 0,1 15,10 A2.5,2.5 0 0,0 15,15 Z\" fill=\"#0047A0\"/></svg>","lt":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"6.67\" fill=\"#FDB913\"/><rect y=\"6.67\" width=\"30\" height=\"6.67\" fill=\"#006A44\"/><rect y=\"13.34\" width=\"30\" height=\"6.66\" fill=\"#C1272D\"/></svg>","lv":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"8\" fill=\"#9E3039\"/><rect y=\"8\" width=\"30\" height=\"4\" fill=\"#fff\"/><rect y=\"12\" width=\"30\" height=\"8\" fill=\"#9E3039\"/></svg>","mk":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#D20000\"/><circle cx=\"15\" cy=\"10\" r=\"5\" fill=\"#FFE600\"/><circle cx=\"15\" cy=\"10\" r=\"2\" fill=\"#D20000\"/></svg>","mn":"<svg viewBox=\"0 0 30 20\"><rect width=\"10\" height=\"20\" fill=\"#C4272F\"/><rect x=\"10\" width=\"10\" height=\"20\" fill=\"#015197\"/><rect x=\"20\" width=\"10\" height=\"20\" fill=\"#C4272F\"/></svg>","ms":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#CC0001\"/><path d=\"M0 0h30v1.54H0zm0 3.08h30v1.54H0zm0 3.08h30V9.2H0zm0 3.08h30v1.54H0zm0 3.08h30v1.54H0zm0 3.08h30v1.54H0zm0 3.08h30V20H0z\" fill=\"#fff\"/><path d=\"M0 0h13v10H0z\" fill=\"#010066\"/><circle cx=\"6\" cy=\"5\" r=\"3\" fill=\"#FFCC00\"/></svg>","nl":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"6.67\" fill=\"#AE1C28\"/><rect y=\"6.67\" width=\"30\" height=\"6.67\" fill=\"#fff\"/><rect y=\"13.34\" width=\"30\" height=\"6.66\" fill=\"#21468B\"/></svg>","no":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#BA0C2F\"/><path d=\"M8 0h6v20H8zM0 7h30v6H0z\" fill=\"#fff\"/><path d=\"M9.5 0h3v20h-3zM0 8.5h30v3H0z\" fill=\"#00205B\"/></svg>","pl":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"10\" fill=\"#fff\"/><rect y=\"10\" width=\"30\" height=\"10\" fill=\"#DC143C\"/></svg>","pt":"<svg viewBox=\"0 0 30 20\"><rect width=\"12\" height=\"20\" fill=\"#006600\"/><rect x=\"12\" width=\"18\" height=\"20\" fill=\"#FF0000\"/></svg>","ro":"<svg viewBox=\"0 0 30 20\"><rect width=\"10\" height=\"20\" fill=\"#002B7F\"/><rect x=\"10\" width=\"10\" height=\"20\" fill=\"#FCD116\"/><rect x=\"20\" width=\"10\" height=\"20\" fill=\"#CE1126\"/></svg>","ru":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"6.67\" fill=\"#fff\"/><rect y=\"6.67\" width=\"30\" height=\"6.67\" fill=\"#0039A6\"/><rect y=\"13.34\" width=\"30\" height=\"6.66\" fill=\"#D52B1E\"/></svg>","sk":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"6.67\" fill=\"#fff\"/><rect y=\"6.67\" width=\"30\" height=\"6.67\" fill=\"#0B4EA2\"/><rect y=\"13.34\" width=\"30\" height=\"6.66\" fill=\"#EE1C25\"/></svg>","sr":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"6.67\" fill=\"#C6363C\"/><rect y=\"6.67\" width=\"30\" height=\"6.67\" fill=\"#0C4076\"/><rect y=\"13.34\" width=\"30\" height=\"6.66\" fill=\"#fff\"/></svg>","sv":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#006AA7\"/><rect x=\"9\" width=\"4\" height=\"20\" fill=\"#FECC00\"/><rect y=\"8\" width=\"30\" height=\"4\" fill=\"#FECC00\"/></svg>","th":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"3.33\" fill=\"#A51931\"/><rect y=\"3.33\" width=\"30\" height=\"3.33\" fill=\"#fff\"/><rect y=\"6.67\" width=\"30\" height=\"6.67\" fill=\"#2D2A4A\"/><rect y=\"13.33\" width=\"30\" height=\"3.33\" fill=\"#fff\"/><rect y=\"16.67\" width=\"30\" height=\"3.33\" fill=\"#A51931\"/></svg>","tr":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#E30A17\"/><circle cx=\"12\" cy=\"10\" r=\"5\" fill=\"#fff\"/><circle cx=\"13.5\" cy=\"10\" r=\"4\" fill=\"#E30A17\"/><polygon points=\"18,10 19.5,10.6 19,9 20,7.8 18.4,8 18,6.4 17.6,8 16,7.8 17,9 16.5,10.6\" fill=\"#fff\"/></svg>","vi":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#DA251D\"/><polygon points=\"15,4 16.3,8 20.5,8 17.1,10.5 18.4,14.5 15,12 11.6,14.5 12.9,10.5 9.5,8 13.7,8\" fill=\"#FFCD00\"/></svg>","zh-cn":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#DE2910\"/><g fill=\"#FFDE00\"><polygon points=\"5,3 6,6 9,6 6.5,8 7.5,11 5,9 2.5,11 3.5,8 1,6 4,6\"/><circle cx=\"11\" cy=\"2.2\" r=\"0.8\"/><circle cx=\"13\" cy=\"4.7\" r=\"0.8\"/><circle cx=\"13\" cy=\"7.7\" r=\"0.8\"/><circle cx=\"11\" cy=\"9.7\" r=\"0.8\"/></g></svg>","zh-tw":"<svg viewBox=\"0 0 30 20\"><rect width=\"30\" height=\"20\" fill=\"#FE0000\"/><rect width=\"13\" height=\"10\" fill=\"#000095\"/><circle cx=\"6.5\" cy=\"5\" r=\"3\" fill=\"#fff\"/><circle cx=\"6.5\" cy=\"5\" r=\"1.7\" fill=\"#000095\"/></svg>"};
+
+  /* ============================================================
    *  CONFIG
-   *  Centralised constants. If Kick.com changes its player DOM,
-   *  this is the first place to look — selectors are kept as
-   *  arrays of fallbacks and text-matching heuristics rather
-   *  than a single brittle class name.
    * ========================================================== */
   const CONFIG = {
+    VERSION: '1.3.1',
     LOG_PREFIX: '[KickTweaks]',
     STORAGE_KEY: 'kickTweaks.settings.v1',
-    DEFAULT_HOTKEY: { key: 'F2', code: 'F2' },
-    QUALITY_OPTIONS: ['auto', '1080p60', '1080p', '720p', '480p', '360p', '160p'],
-
-    // Kick's quality options render as ARIA radio-menu items. This is a
-    // much more stable hook than guessing at class names, since it's
-    // part of the accessibility contract of the menu component rather
-    // than a styling detail that changes with every redesign.
-    QUALITY_ITEM_SELECTOR: '[role="menuitemradio"]',
-
-    // The player's settings ("gear") button is exposed as a menu
-    // trigger. We narrow it down further by position (it sits over/near
-    // the video, unlike the account/profile menu button which also uses
-    // aria-haspopup="menu").
-    SETTINGS_BUTTON_SELECTOR: 'button[aria-haspopup="menu"]',
-
-    // How long (ms) / how many attempts to keep retrying DOM lookups
-    // before giving up for this stream/VOD.
-    RETRY_TIMEOUT_MS: 8000,
-    RETRY_INTERVAL_MS: 250,
-    MAX_FIND_ATTEMPTS: 20,
-    MAX_MENU_WAIT_TICKS: 12,
-
-    // Browsers (and Kick itself) often force a <video> to muted=true
-    // briefly to satisfy autoplay policies. We ignore volumechange
-    // events for this long after binding so that transient state never
-    // gets persisted as "the user's saved volume".
+    REPO: 'https://github.com/ebayybe/kick-stream-tweaks',
+    QUALITIES: ['auto', '1080p60', '1080p', '720p', '480p', '360p', '160p'],
+    ITEM_SELECTOR: '[role="menuitemradio"]',
+    BUTTON_SELECTOR: 'button[aria-haspopup="menu"]',
+    RETRY_MS: 250,
+    MAX_FIND: 20,
+    MAX_MENU_TICKS: 12,
     VOLUME_GRACE_MS: 1500,
-  };
-
-  const DEFAULT_SETTINGS = {
-    autoQualityEnabled: true,
-    autoVolumeEnabled: true,
-    preferredQuality: 'auto', // 'auto' = keep whatever the user last picked manually
-    lastKnownQuality: 'auto', // updated whenever the user changes quality by hand
-    volume: 1,
-    muted: false,
-    theme: 'dark',
-    language: 'en',
-    hotkey: { ...CONFIG.DEFAULT_HOTKEY },
-  };
-
-  /* ============================================================
-   *  I18N
-   * ========================================================== */
-  const TRANSLATIONS = {
-    en: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Playback',
-      autoQualityLabel: 'Auto-apply saved quality',
-      autoVolumeLabel: 'Auto-apply saved volume',
-      preferredQualityLabel: 'Preferred quality',
-      preferredVolumeLabel: 'Preferred volume',
-      qualityAuto: 'Auto (use last manually selected)',
-      sectionAppearance: 'Appearance',
-      themeLabel: 'Theme',
-      themeDark: 'Dark',
-      themeLight: 'Light',
-      languageLabel: 'Language',
-      sectionHotkey: 'Menu Hotkey',
-      hotkeyChange: 'Click to rebind',
-      hotkeyWaiting: 'Press any key…',
-      footerClose: 'Close',
-      footerHint: 'Press {key} to toggle this menu',
+    SPEEDS: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2],
+    PANEL_WIDTH: 680,
+    ACCENTS: ['#53fc18', '#a3e635', '#2dd4bf', '#00e5ff', '#4f8cff', '#818cf8', '#a78bfa', '#e879f9', '#ff6ad5', '#ff4d6d', '#ff7a1a', '#ffb020', '#facc15', '#e2e8f0'],
+    SECTIONS: [
+      { id: 'playback', icon: 'play', label: 'sectionPlayback', group: 'groupPlayer' },
+      { id: 'channels', icon: 'users', label: 'savedChannelsLabel' },
+      { id: 'tools', icon: 'sliders', label: 'sectionTools' },
+      { id: 'notifications', icon: 'bell', label: 'sectionNotifications', group: 'groupFeedback' },
+      { id: 'sounds', icon: 'music', label: 'sectionSounds' },
+      { id: 'appearance', icon: 'palette', label: 'sectionAppearance', group: 'groupInterface' },
+      { id: 'motion', icon: 'sparkles', label: 'sectionMotion' },
+      { id: 'shortcuts', icon: 'keyboard', label: 'sectionShortcuts' },
+      { id: 'diagnostics', icon: 'pulse', label: 'sectionDiagnostics', group: 'groupSystem' },
+      { id: 'about', icon: 'info', label: 'sectionData' },
+    ],
+    SOUND_EVENTS: [
+      ['menu', 'soundMenuLabel'], ['settingChanged', 'soundSettingsLabel'], ['qualityApplied', 'soundQualitySuccess'],
+      ['qualityFailed', 'soundQualityFailure'], ['volumeApplied', 'soundVolumeRestored'],
+    ],
+    ACTIONS: [
+      ['toggleNotifications', 'shortcutNotifications'], ['focusView', 'shortcutFocus'],
+      ['resetQuality', 'shortcutQuality'], ['restoreVolume', 'shortcutVolume'],
+      ['toggleChat', 'shortcutChat'], ['toggleSidebar', 'shortcutSidebar'],
+    ],
+    MOTION_PRESETS: {
+      full: { openEffect: 'pop', hoverEffect: 'lift', indicatorAnimation: 'glow', motionSpeed: 'normal', iconAnimations: true },
+      reduced: { openEffect: 'fade', hoverEffect: 'none', indicatorAnimation: 'off', motionSpeed: 'fast', iconAnimations: false },
+      off: { openEffect: 'none', hoverEffect: 'none', indicatorAnimation: 'off', motionSpeed: 'fast', iconAnimations: false },
     },
-    ru: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Воспроизведение',
-      autoQualityLabel: 'Автоприменение качества',
-      autoVolumeLabel: 'Автоприменение громкости',
-      preferredQualityLabel: 'Предпочитаемое качество',
-      preferredVolumeLabel: 'Предпочитаемая громкость',
-      qualityAuto: 'Авто (последнее выбранное вручную)',
-      sectionAppearance: 'Внешний вид',
-      themeLabel: 'Тема',
-      themeDark: 'Тёмная',
-      themeLight: 'Светлая',
-      languageLabel: 'Язык',
-      sectionHotkey: 'Горячая клавиша',
-      hotkeyChange: 'Нажмите, чтобы изменить',
-      hotkeyWaiting: 'Нажмите любую клавишу…',
-      footerClose: 'Закрыть',
-      footerHint: 'Нажмите {key}, чтобы открыть/закрыть меню',
-    },
-    uk: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Відтворення',
-      autoQualityLabel: 'Автозастосування якості',
-      autoVolumeLabel: 'Автозастосування гучності',
-      preferredQualityLabel: 'Бажана якість',
-      preferredVolumeLabel: 'Бажана гучність',
-      qualityAuto: 'Авто (останнє обране вручну)',
-      sectionAppearance: 'Вигляд',
-      themeLabel: 'Тема',
-      themeDark: 'Темна',
-      themeLight: 'Світла',
-      languageLabel: 'Мова',
-      sectionHotkey: 'Гаряча клавіша',
-      hotkeyChange: 'Натисніть, щоб змінити',
-      hotkeyWaiting: 'Натисніть будь-яку клавішу…',
-      footerClose: 'Закрити',
-      footerHint: 'Натисніть {key}, щоб відкрити/закрити меню',
-    },
-    de: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Wiedergabe',
-      autoQualityLabel: 'Gespeicherte Qualität automatisch anwenden',
-      autoVolumeLabel: 'Gespeicherte Lautstärke automatisch anwenden',
-      preferredQualityLabel: 'Bevorzugte Qualität',
-      preferredVolumeLabel: 'Bevorzugte Lautstärke',
-      qualityAuto: 'Auto (zuletzt manuell gewählt)',
-      sectionAppearance: 'Erscheinungsbild',
-      themeLabel: 'Design',
-      themeDark: 'Dunkel',
-      themeLight: 'Hell',
-      languageLabel: 'Sprache',
-      sectionHotkey: 'Menü-Tastenkürzel',
-      hotkeyChange: 'Klicken zum Ändern',
-      hotkeyWaiting: 'Beliebige Taste drücken…',
-      footerClose: 'Schließen',
-      footerHint: '{key} drücken, um dieses Menü umzuschalten',
-    },
-    es: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Reproducción',
-      autoQualityLabel: 'Aplicar calidad guardada automáticamente',
-      autoVolumeLabel: 'Aplicar volumen guardado automáticamente',
-      preferredQualityLabel: 'Calidad preferida',
-      preferredVolumeLabel: 'Volumen preferido',
-      qualityAuto: 'Auto (última seleccionada manualmente)',
-      sectionAppearance: 'Apariencia',
-      themeLabel: 'Tema',
-      themeDark: 'Oscuro',
-      themeLight: 'Claro',
-      languageLabel: 'Idioma',
-      sectionHotkey: 'Tecla de acceso rápido',
-      hotkeyChange: 'Haz clic para cambiar',
-      hotkeyWaiting: 'Presiona cualquier tecla…',
-      footerClose: 'Cerrar',
-      footerHint: 'Presiona {key} para mostrar/ocultar este menú',
-    },
-    fr: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Lecture',
-      autoQualityLabel: 'Appliquer automatiquement la qualité enregistrée',
-      autoVolumeLabel: 'Appliquer automatiquement le volume enregistré',
-      preferredQualityLabel: 'Qualité préférée',
-      preferredVolumeLabel: 'Volume préféré',
-      qualityAuto: 'Auto (dernier choix manuel)',
-      sectionAppearance: 'Apparence',
-      themeLabel: 'Thème',
-      themeDark: 'Sombre',
-      themeLight: 'Clair',
-      languageLabel: 'Langue',
-      sectionHotkey: 'Raccourci du menu',
-      hotkeyChange: 'Cliquez pour modifier',
-      hotkeyWaiting: 'Appuyez sur une touche…',
-      footerClose: 'Fermer',
-      footerHint: 'Appuyez sur {key} pour afficher/masquer ce menu',
-    },
-    pt: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Reprodução',
-      autoQualityLabel: 'Aplicar qualidade salva automaticamente',
-      autoVolumeLabel: 'Aplicar volume salvo automaticamente',
-      preferredQualityLabel: 'Qualidade preferida',
-      preferredVolumeLabel: 'Volume preferido',
-      qualityAuto: 'Auto (última escolha manual)',
-      sectionAppearance: 'Aparência',
-      themeLabel: 'Tema',
-      themeDark: 'Escuro',
-      themeLight: 'Claro',
-      languageLabel: 'Idioma',
-      sectionHotkey: 'Tecla de atalho',
-      hotkeyChange: 'Clique para alterar',
-      hotkeyWaiting: 'Pressione qualquer tecla…',
-      footerClose: 'Fechar',
-      footerHint: 'Pressione {key} para abrir/fechar este menu',
-    },
-    it: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Riproduzione',
-      autoQualityLabel: 'Applica automaticamente la qualità salvata',
-      autoVolumeLabel: 'Applica automaticamente il volume salvato',
-      preferredQualityLabel: 'Qualità preferita',
-      preferredVolumeLabel: 'Volume preferito',
-      qualityAuto: 'Auto (ultima scelta manuale)',
-      sectionAppearance: 'Aspetto',
-      themeLabel: 'Tema',
-      themeDark: 'Scuro',
-      themeLight: 'Chiaro',
-      languageLabel: 'Lingua',
-      sectionHotkey: 'Tasto di scelta rapida',
-      hotkeyChange: 'Clicca per cambiare',
-      hotkeyWaiting: 'Premi un tasto qualsiasi…',
-      footerClose: 'Chiudi',
-      footerHint: 'Premi {key} per aprire/chiudere questo menu',
-    },
-    zh: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: '播放设置',
-      autoQualityLabel: '自动应用已保存的画质',
-      autoVolumeLabel: '自动应用已保存的音量',
-      preferredQualityLabel: '首选画质',
-      preferredVolumeLabel: '首选音量',
-      qualityAuto: '自动（使用上次手动选择）',
-      sectionAppearance: '外观',
-      themeLabel: '主题',
-      themeDark: '深色',
-      themeLight: '浅色',
-      languageLabel: '语言',
-      sectionHotkey: '菜单快捷键',
-      hotkeyChange: '点击以更改',
-      hotkeyWaiting: '请按任意键…',
-      footerClose: '关闭',
-      footerHint: '按 {key} 打开/关闭此菜单',
-    },
-    ja: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: '再生設定',
-      autoQualityLabel: '保存した画質を自動適用',
-      autoVolumeLabel: '保存した音量を自動適用',
-      preferredQualityLabel: '優先画質',
-      preferredVolumeLabel: '優先音量',
-      qualityAuto: '自動（最後に手動選択したもの）',
-      sectionAppearance: '外観',
-      themeLabel: 'テーマ',
-      themeDark: 'ダーク',
-      themeLight: 'ライト',
-      languageLabel: '言語',
-      sectionHotkey: 'メニューのホットキー',
-      hotkeyChange: 'クリックして変更',
-      hotkeyWaiting: '任意のキーを押してください…',
-      footerClose: '閉じる',
-      footerHint: '{key} を押してこのメニューを開閉',
-    },
-    ko: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: '재생',
-      autoQualityLabel: '저장된 화질 자동 적용',
-      autoVolumeLabel: '저장된 볼륨 자동 적용',
-      preferredQualityLabel: '선호 화질',
-      preferredVolumeLabel: '선호 볼륨',
-      qualityAuto: '자동 (마지막으로 수동 선택한 값)',
-      sectionAppearance: '외형',
-      themeLabel: '테마',
-      themeDark: '다크',
-      themeLight: '라이트',
-      languageLabel: '언어',
-      sectionHotkey: '메뉴 단축키',
-      hotkeyChange: '클릭하여 변경',
-      hotkeyWaiting: '아무 키나 누르세요…',
-      footerClose: '닫기',
-      footerHint: '{key}를 눌러 이 메뉴를 열고 닫기',
-    },
-    pl: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Odtwarzanie',
-      autoQualityLabel: 'Automatycznie stosuj zapisaną jakość',
-      autoVolumeLabel: 'Automatycznie stosuj zapisaną głośność',
-      preferredQualityLabel: 'Preferowana jakość',
-      preferredVolumeLabel: 'Preferowana głośność',
-      qualityAuto: 'Auto (ostatnio wybrana ręcznie)',
-      sectionAppearance: 'Wygląd',
-      themeLabel: 'Motyw',
-      themeDark: 'Ciemny',
-      themeLight: 'Jasny',
-      languageLabel: 'Język',
-      sectionHotkey: 'Skrót menu',
-      hotkeyChange: 'Kliknij, aby zmienić',
-      hotkeyWaiting: 'Naciśnij dowolny klawisz…',
-      footerClose: 'Zamknij',
-      footerHint: 'Naciśnij {key}, aby otworzyć/zamknąć to menu',
-    },
-    tr: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Oynatma',
-      autoQualityLabel: 'Kaydedilen kaliteyi otomatik uygula',
-      autoVolumeLabel: 'Kaydedilen sesi otomatik uygula',
-      preferredQualityLabel: 'Tercih edilen kalite',
-      preferredVolumeLabel: 'Tercih edilen ses seviyesi',
-      qualityAuto: 'Otomatik (son manuel seçilen)',
-      sectionAppearance: 'Görünüm',
-      themeLabel: 'Tema',
-      themeDark: 'Koyu',
-      themeLight: 'Açık',
-      languageLabel: 'Dil',
-      sectionHotkey: 'Menü kısayolu',
-      hotkeyChange: 'Değiştirmek için tıklayın',
-      hotkeyWaiting: 'Herhangi bir tuşa basın…',
-      footerClose: 'Kapat',
-      footerHint: 'Bu menüyü açmak/kapatmak için {key} tuşuna basın',
-    },
-    ar: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'التشغيل',
-      autoQualityLabel: 'تطبيق الجودة المحفوظة تلقائيًا',
-      autoVolumeLabel: 'تطبيق مستوى الصوت المحفوظ تلقائيًا',
-      preferredQualityLabel: 'الجودة المفضلة',
-      preferredVolumeLabel: 'مستوى الصوت المفضل',
-      qualityAuto: 'تلقائي (آخر اختيار يدوي)',
-      sectionAppearance: 'المظهر',
-      themeLabel: 'السمة',
-      themeDark: 'داكن',
-      themeLight: 'فاتح',
-      languageLabel: 'اللغة',
-      sectionHotkey: 'اختصار القائمة',
-      hotkeyChange: 'انقر للتغيير',
-      hotkeyWaiting: 'اضغط أي مفتاح…',
-      footerClose: 'إغلاق',
-      footerHint: 'اضغط {key} لفتح/إغلاق هذه القائمة',
-    },
-    nl: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Afspelen',
-      autoQualityLabel: 'Opgeslagen kwaliteit automatisch toepassen',
-      autoVolumeLabel: 'Opgeslagen volume automatisch toepassen',
-      preferredQualityLabel: 'Voorkeurskwaliteit',
-      preferredVolumeLabel: 'Voorkeursvolume',
-      qualityAuto: 'Auto (laatst handmatig gekozen)',
-      sectionAppearance: 'Weergave',
-      themeLabel: 'Thema',
-      themeDark: 'Donker',
-      themeLight: 'Licht',
-      languageLabel: 'Taal',
-      sectionHotkey: 'Menu-sneltoets',
-      hotkeyChange: 'Klik om te wijzigen',
-      hotkeyWaiting: 'Druk op een willekeurige toets…',
-      footerClose: 'Sluiten',
-      footerHint: 'Druk op {key} om dit menu te openen/sluiten',
-    },
-    sv: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Uppspelning',
-      autoQualityLabel: 'Applicera sparad kvalitet automatiskt',
-      autoVolumeLabel: 'Applicera sparad volym automatiskt',
-      preferredQualityLabel: 'Föredragen kvalitet',
-      preferredVolumeLabel: 'Föredragen volym',
-      qualityAuto: 'Auto (senast manuellt vald)',
-      sectionAppearance: 'Utseende',
-      themeLabel: 'Tema',
-      themeDark: 'Mörkt',
-      themeLight: 'Ljust',
-      languageLabel: 'Språk',
-      sectionHotkey: 'Menygenväg',
-      hotkeyChange: 'Klicka för att ändra',
-      hotkeyWaiting: 'Tryck på valfri tangent…',
-      footerClose: 'Stäng',
-      footerHint: 'Tryck på {key} för att växla den här menyn',
-    },
-    cs: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Přehrávání',
-      autoQualityLabel: 'Automaticky použít uloženou kvalitu',
-      autoVolumeLabel: 'Automaticky použít uloženou hlasitost',
-      preferredQualityLabel: 'Preferovaná kvalita',
-      preferredVolumeLabel: 'Preferovaná hlasitost',
-      qualityAuto: 'Auto (naposledy ručně vybráno)',
-      sectionAppearance: 'Vzhled',
-      themeLabel: 'Motiv',
-      themeDark: 'Tmavý',
-      themeLight: 'Světlý',
-      languageLabel: 'Jazyk',
-      sectionHotkey: 'Klávesová zkratka nabídky',
-      hotkeyChange: 'Klikněte pro změnu',
-      hotkeyWaiting: 'Stiskněte libovolnou klávesu…',
-      footerClose: 'Zavřít',
-      footerHint: 'Stisknutím {key} přepnete toto menu',
-    },
-    el: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Αναπαραγωγή',
-      autoQualityLabel: 'Αυτόματη εφαρμογή αποθηκευμένης ποιότητας',
-      autoVolumeLabel: 'Αυτόματη εφαρμογή αποθηκευμένης έντασης',
-      preferredQualityLabel: 'Προτιμώμενη ποιότητα',
-      preferredVolumeLabel: 'Προτιμώμενη ένταση',
-      qualityAuto: 'Αυτόματο (τελευταία χειροκίνητη επιλογή)',
-      sectionAppearance: 'Εμφάνιση',
-      themeLabel: 'Θέμα',
-      themeDark: 'Σκούρο',
-      themeLight: 'Ανοιχτό',
-      languageLabel: 'Γλώσσα',
-      sectionHotkey: 'Συντόμευση μενού',
-      hotkeyChange: 'Κάντε κλικ για αλλαγή',
-      hotkeyWaiting: 'Πατήστε οποιοδήποτε πλήκτρο…',
-      footerClose: 'Κλείσιμο',
-      footerHint: 'Πατήστε {key} για εναλλαγή αυτού του μενού',
-    },
-    hi: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'प्लेबैक',
-      autoQualityLabel: 'सहेजी गई गुणवत्ता स्वतः लागू करें',
-      autoVolumeLabel: 'सहेजी गई वॉल्यूम स्वतः लागू करें',
-      preferredQualityLabel: 'पसंदीदा गुणवत्ता',
-      preferredVolumeLabel: 'पसंदीदा वॉल्यूम',
-      qualityAuto: 'ऑटो (अंतिम बार मैन्युअल रूप से चुना गया)',
-      sectionAppearance: 'दिखावट',
-      themeLabel: 'थीम',
-      themeDark: 'डार्क',
-      themeLight: 'लाइट',
-      languageLabel: 'भाषा',
-      sectionHotkey: 'मेनू हॉटकी',
-      hotkeyChange: 'बदलने के लिए क्लिक करें',
-      hotkeyWaiting: 'कोई भी कुंजी दबाएँ…',
-      footerClose: 'बंद करें',
-      footerHint: 'यह मेनू खोलने/बंद करने के लिए {key} दबाएँ',
-    },
-    vi: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Phát lại',
-      autoQualityLabel: 'Tự động áp dụng chất lượng đã lưu',
-      autoVolumeLabel: 'Tự động áp dụng âm lượng đã lưu',
-      preferredQualityLabel: 'Chất lượng ưa thích',
-      preferredVolumeLabel: 'Âm lượng ưa thích',
-      qualityAuto: 'Tự động (lần chọn thủ công gần nhất)',
-      sectionAppearance: 'Giao diện',
-      themeLabel: 'Chủ đề',
-      themeDark: 'Tối',
-      themeLight: 'Sáng',
-      languageLabel: 'Ngôn ngữ',
-      sectionHotkey: 'Phím tắt menu',
-      hotkeyChange: 'Nhấp để đổi',
-      hotkeyWaiting: 'Nhấn phím bất kỳ…',
-      footerClose: 'Đóng',
-      footerHint: 'Nhấn {key} để bật/tắt menu này',
-    },
-    id: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Pemutaran',
-      autoQualityLabel: 'Terapkan kualitas tersimpan secara otomatis',
-      autoVolumeLabel: 'Terapkan volume tersimpan secara otomatis',
-      preferredQualityLabel: 'Kualitas pilihan',
-      preferredVolumeLabel: 'Volume pilihan',
-      qualityAuto: 'Otomatis (terakhir dipilih manual)',
-      sectionAppearance: 'Tampilan',
-      themeLabel: 'Tema',
-      themeDark: 'Gelap',
-      themeLight: 'Terang',
-      languageLabel: 'Bahasa',
-      sectionHotkey: 'Pintasan menu',
-      hotkeyChange: 'Klik untuk mengubah',
-      hotkeyWaiting: 'Tekan tombol apa saja…',
-      footerClose: 'Tutup',
-      footerHint: 'Tekan {key} untuk membuka/menutup menu ini',
-    },
-    th: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'การเล่น',
-      autoQualityLabel: 'ใช้คุณภาพที่บันทึกไว้โดยอัตโนมัติ',
-      autoVolumeLabel: 'ใช้ระดับเสียงที่บันทึกไว้โดยอัตโนมัติ',
-      preferredQualityLabel: 'คุณภาพที่ต้องการ',
-      preferredVolumeLabel: 'ระดับเสียงที่ต้องการ',
-      qualityAuto: 'อัตโนมัติ (เลือกด้วยตนเองล่าสุด)',
-      sectionAppearance: 'ลักษณะที่ปรากฏ',
-      themeLabel: 'ธีม',
-      themeDark: 'มืด',
-      themeLight: 'สว่าง',
-      languageLabel: 'ภาษา',
-      sectionHotkey: 'ปุ่มลัดเมนู',
-      hotkeyChange: 'คลิกเพื่อเปลี่ยน',
-      hotkeyWaiting: 'กดปุ่มใดก็ได้…',
-      footerClose: 'ปิด',
-      footerHint: 'กด {key} เพื่อเปิด/ปิดเมนูนี้',
-    },
-    ro: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Redare',
-      autoQualityLabel: 'Aplică automat calitatea salvată',
-      autoVolumeLabel: 'Aplică automat volumul salvat',
-      preferredQualityLabel: 'Calitate preferată',
-      preferredVolumeLabel: 'Volum preferat',
-      qualityAuto: 'Auto (ultima selecție manuală)',
-      sectionAppearance: 'Aspect',
-      themeLabel: 'Temă',
-      themeDark: 'Întunecată',
-      themeLight: 'Deschisă',
-      languageLabel: 'Limbă',
-      sectionHotkey: 'Comandă rapidă meniu',
-      hotkeyChange: 'Clic pentru a schimba',
-      hotkeyWaiting: 'Apasă orice tastă…',
-      footerClose: 'Închide',
-      footerHint: 'Apasă {key} pentru a comuta acest meniu',
-    },
-    da: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Afspilning',
-      autoQualityLabel: 'Anvend gemt kvalitet automatisk',
-      autoVolumeLabel: 'Anvend gemt lydstyrke automatisk',
-      preferredQualityLabel: 'Foretrukken kvalitet',
-      preferredVolumeLabel: 'Foretrukken lydstyrke',
-      qualityAuto: 'Auto (senest valgt manuelt)',
-      sectionAppearance: 'Udseende',
-      themeLabel: 'Tema',
-      themeDark: 'Mørk',
-      themeLight: 'Lys',
-      languageLabel: 'Sprog',
-      sectionHotkey: 'Menugenvej',
-      hotkeyChange: 'Klik for at ændre',
-      hotkeyWaiting: 'Tryk på en vilkårlig tast…',
-      footerClose: 'Luk',
-      footerHint: 'Tryk på {key} for at åbne/lukke denne menu',
-    },
-    fi: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'Toisto',
-      autoQualityLabel: 'Käytä tallennettua laatua automaattisesti',
-      autoVolumeLabel: 'Käytä tallennettua äänenvoimakkuutta automaattisesti',
-      preferredQualityLabel: 'Ensisijainen laatu',
-      preferredVolumeLabel: 'Ensisijainen äänenvoimakkuus',
-      qualityAuto: 'Automaattinen (viimeksi valittu manuaalisesti)',
-      sectionAppearance: 'Ulkoasu',
-      themeLabel: 'Teema',
-      themeDark: 'Tumma',
-      themeLight: 'Vaalea',
-      languageLabel: 'Kieli',
-      sectionHotkey: 'Valikon pikanäppäin',
-      hotkeyChange: 'Napsauta vaihtaaksesi',
-      hotkeyWaiting: 'Paina mitä tahansa näppäintä…',
-      footerClose: 'Sulje',
-      footerHint: 'Paina {key} avataksesi/sulkeaksesi tämän valikon',
-    },
-    he: {
-      panelTitle: 'Kick Stream Tweaks',
-      sectionPlayback: 'ניגון',
-      autoQualityLabel: 'החל אוטומטית את האיכות השמורה',
-      autoVolumeLabel: 'החל אוטומטית את עוצמת הקול השמורה',
-      preferredQualityLabel: 'איכות מועדפת',
-      preferredVolumeLabel: 'עוצמת קול מועדפת',
-      qualityAuto: 'אוטומטי (הבחירה הידנית האחרונה)',
-      sectionAppearance: 'מראה',
-      themeLabel: 'ערכת נושא',
-      themeDark: 'כהה',
-      themeLight: 'בהיר',
-      languageLabel: 'שפה',
-      sectionHotkey: 'קיצור תפריט',
-      hotkeyChange: 'לחץ לשינוי',
-      hotkeyWaiting: 'לחץ על מקש כלשהו…',
-      footerClose: 'סגור',
-      footerHint: 'לחץ על {key} כדי לפתוח/לסגור תפריט זה',
+    PRESETS: {
+      bandwidth: { preferredLiveQuality: '480p', preferredVodQuality: '480p', qualityFallback: 'lower' },
+      quality: { preferredLiveQuality: '1080p60', preferredVodQuality: '1080p60', qualityFallback: 'lower' },
+      quiet: { autoVolumeEnabled: true, volume: 0.2, muted: false },
+      vod: { preferredVodQuality: '1080p', qualityFallback: 'lower' },
     },
   };
 
-  // Purely presentational metadata for the language picker: the
-  // language's own native name. Kept separate from TRANSLATIONS so the
-  // two concerns — "what the UI says" vs. "how to label the choice in
-  // the dropdown" — don't get tangled together.
-  const LANGUAGE_META = {
-    en: { name: 'English' },
-    ru: { name: 'Русский' },
-    uk: { name: 'Українська' },
-    de: { name: 'Deutsch' },
-    es: { name: 'Español' },
-    fr: { name: 'Français' },
-    pt: { name: 'Português' },
-    it: { name: 'Italiano' },
-    zh: { name: '中文' },
-    ja: { name: '日本語' },
-    ko: { name: '한국어' },
-    pl: { name: 'Polski' },
-    tr: { name: 'Türkçe' },
-    ar: { name: 'العربية' },
-    nl: { name: 'Nederlands' },
-    sv: { name: 'Svenska' },
-    cs: { name: 'Čeština' },
-    el: { name: 'Ελληνικά' },
-    hi: { name: 'हिन्दी' },
-    vi: { name: 'Tiếng Việt' },
-    id: { name: 'Bahasa Indonesia' },
-    th: { name: 'ไทย' },
-    ro: { name: 'Română' },
-    da: { name: 'Dansk' },
-    fi: { name: 'Suomi' },
-    he: { name: 'עברית' },
-  };
+  const LANGS = Object.keys(LANG_NAMES);
 
-  /**
-   * Inline SVG flags, keyed by language code. Chromium on Windows (Chrome,
-   * Brave, Edge) has no bundled color-emoji font, so Unicode flag emoji
-   * render as plain two-letter region codes instead of flags. Real vector
-   * flags sidestep that entirely — they're plain SVG shapes, not font
-   * glyphs, so they render identically everywhere. Deliberately simplified
-   * (no coats of arms, script, or fine detail) since these only ever show
-   * at ~20x14px.
-   */
-  const FLAG_SVGS = {
-    en: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><g fill="#B22234"><rect y="0" width="30" height="1.54"/><rect y="3.08" width="30" height="1.54"/><rect y="6.15" width="30" height="1.54"/><rect y="9.23" width="30" height="1.54"/><rect y="12.31" width="30" height="1.54"/><rect y="15.38" width="30" height="1.54"/><rect y="18.46" width="30" height="1.54"/></g><rect width="12" height="10.77" fill="#3C3B6E"/></svg>',
-    ru: '<svg viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#fff"/><rect y="6.67" width="30" height="6.67" fill="#0039A6"/><rect y="13.34" width="30" height="6.66" fill="#D52B1E"/></svg>',
-    uk: '<svg viewBox="0 0 30 20"><rect width="30" height="10" fill="#0057B7"/><rect y="10" width="30" height="10" fill="#FFD700"/></svg>',
-    de: '<svg viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#DD0000"/><rect y="13.34" width="30" height="6.66" fill="#FFCE00"/></svg>',
-    es: '<svg viewBox="0 0 30 20"><rect width="30" height="5" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/><rect y="15" width="30" height="5" fill="#AA151B"/></svg>',
-    fr: '<svg viewBox="0 0 30 20"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg>',
-    pt: '<svg viewBox="0 0 30 20"><rect width="12" height="20" fill="#006600"/><rect x="12" width="18" height="20" fill="#FF0000"/></svg>',
-    it: '<svg viewBox="0 0 30 20"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#CE2B37"/></svg>',
-    zh: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#DE2910"/><g fill="#FFDE00"><polygon points="5,3 6,6 9,6 6.5,8 7.5,11 5,9 2.5,11 3.5,8 1,6 4,6"/><circle cx="11" cy="2.2" r="0.8"/><circle cx="13" cy="4.7" r="0.8"/><circle cx="13" cy="7.7" r="0.8"/><circle cx="11" cy="9.7" r="0.8"/></g></svg>',
-    ja: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="6" fill="#BC002D"/></svg>',
-    ko: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="5" fill="#fff"/><path d="M15,5 A5,5 0 0,1 15,15 A2.5,2.5 0 0,1 15,10 A2.5,2.5 0 0,0 15,5 Z" fill="#CD2E3A"/><path d="M15,15 A5,5 0 0,1 15,5 A2.5,2.5 0 0,1 15,10 A2.5,2.5 0 0,0 15,15 Z" fill="#0047A0"/></svg>',
-    pl: '<svg viewBox="0 0 30 20"><rect width="30" height="10" fill="#fff"/><rect y="10" width="30" height="10" fill="#DC143C"/></svg>',
-    tr: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#E30A17"/><circle cx="12" cy="10" r="5" fill="#fff"/><circle cx="13.5" cy="10" r="4" fill="#E30A17"/><polygon points="18,10 19.5,10.6 19,9 20,7.8 18.4,8 18,6.4 17.6,8 16,7.8 17,9 16.5,10.6" fill="#fff"/></svg>',
-    ar: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#006C35"/><rect x="6" y="14.5" width="18" height="1.2" fill="#fff"/></svg>',
-    nl: '<svg viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#AE1C28"/><rect y="6.67" width="30" height="6.67" fill="#fff"/><rect y="13.34" width="30" height="6.66" fill="#21468B"/></svg>',
-    sv: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#006AA7"/><rect x="9" width="4" height="20" fill="#FECC00"/><rect y="8" width="30" height="4" fill="#FECC00"/></svg>',
-    cs: '<svg viewBox="0 0 30 20"><rect width="30" height="10" fill="#fff"/><rect y="10" width="30" height="10" fill="#D7141A"/><polygon points="0,0 0,20 13,10" fill="#11457E"/></svg>',
-    el: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#0D5EAF"/><rect y="2.22" width="30" height="2.22" fill="#fff"/><rect y="6.67" width="30" height="2.22" fill="#fff"/><rect y="11.11" width="30" height="2.22" fill="#fff"/><rect y="15.56" width="30" height="2.22" fill="#fff"/><rect width="11" height="11" fill="#0D5EAF"/><rect x="4.2" width="2.6" height="11" fill="#fff"/><rect y="4.2" width="11" height="2.6" fill="#fff"/></svg>',
-    hi: '<svg viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#FF9933"/><rect y="6.67" width="30" height="6.67" fill="#fff"/><rect y="13.34" width="30" height="6.66" fill="#138808"/><circle cx="15" cy="10" r="2.2" fill="none" stroke="#000080" stroke-width="0.4"/></svg>',
-    vi: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#DA251D"/><polygon points="15,4 16.3,8 20.5,8 17.1,10.5 18.4,14.5 15,12 11.6,14.5 12.9,10.5 9.5,8 13.7,8" fill="#FFCD00"/></svg>',
-    id: '<svg viewBox="0 0 30 20"><rect width="30" height="10" fill="#FF0000"/><rect y="10" width="30" height="10" fill="#fff"/></svg>',
-    th: '<svg viewBox="0 0 30 20"><rect width="30" height="3.33" fill="#A51931"/><rect y="3.33" width="30" height="3.33" fill="#fff"/><rect y="6.67" width="30" height="6.67" fill="#2D2A4A"/><rect y="13.33" width="30" height="3.33" fill="#fff"/><rect y="16.67" width="30" height="3.33" fill="#A51931"/></svg>',
-    ro: '<svg viewBox="0 0 30 20"><rect width="10" height="20" fill="#002B7F"/><rect x="10" width="10" height="20" fill="#FCD116"/><rect x="20" width="10" height="20" fill="#CE1126"/></svg>',
-    da: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#C60C30"/><rect x="9" width="4" height="20" fill="#fff"/><rect y="8" width="30" height="4" fill="#fff"/></svg>',
-    fi: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><rect x="9" width="4" height="20" fill="#003580"/><rect y="8" width="30" height="4" fill="#003580"/></svg>',
-    he: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><rect y="2.5" width="30" height="2" fill="#0038B8"/><rect y="15.5" width="30" height="2" fill="#0038B8"/><polygon points="15,6 19,13 11,13" fill="none" stroke="#0038B8" stroke-width="0.5"/><polygon points="15,14 11,7 19,7" fill="none" stroke="#0038B8" stroke-width="0.5"/></svg>',
-  };
-
-  function t(lang, key, vars) {
-    const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
-    let str = dict[key] || TRANSLATIONS.en[key] || key;
-    if (vars) {
-      for (const [k, v] of Object.entries(vars)) {
-        str = str.replace(`{${k}}`, v);
-      }
+  function detectLanguage() {
+    const list = [...(navigator.languages || []), navigator.language || 'en'];
+    for (const raw of list) {
+      const wanted = String(raw || '').toLowerCase().replace(/_/g, '-');
+      if (LANGS.includes(wanted)) return wanted;
+      const base = wanted.split('-')[0];
+      if (wanted === 'zh-hk' || wanted === 'zh-mo') return 'zh-tw';
+      if (base === 'zh') return 'zh-cn';
+      if (base === 'nb' || base === 'nn') return 'no';
+      if (LANGS.includes(base)) return base;
     }
-    return str;
+    return 'en';
   }
 
-  /* ============================================================
-   *  STORE — persistence layer (localStorage)
-   * ========================================================== */
-  const Store = {
-    load() {
-      try {
-        const raw = localStorage.getItem(CONFIG.STORAGE_KEY);
-        if (!raw) return { ...DEFAULT_SETTINGS };
-        const parsed = JSON.parse(raw);
-        // Merge with defaults so newly-added settings don't end up undefined
-        // for users upgrading from an older version of the script.
-        return {
-          ...DEFAULT_SETTINGS,
-          ...parsed,
-          hotkey: { ...DEFAULT_SETTINGS.hotkey, ...(parsed.hotkey || {}) },
-        };
-      } catch (err) {
-        console.warn(CONFIG.LOG_PREFIX, 'Failed to load settings, using defaults.', err);
-        return { ...DEFAULT_SETTINGS };
-      }
-    },
-    save(settings) {
-      try {
-        localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(settings));
-      } catch (err) {
-        console.error(CONFIG.LOG_PREFIX, 'Failed to save settings.', err);
-      }
-    },
+  const DEFAULTS = {
+    autoQualityEnabled: true, autoVolumeEnabled: true,
+    preferredLiveQuality: 'auto', preferredVodQuality: 'auto', lastLiveQuality: 'auto', lastVodQuality: 'auto',
+    qualityFallback: 'lower', volume: 1, muted: false, playbackRate: 1,
+    autoRecoverStall: false, warnLoudVolume: true, loudVolumeThreshold: 85, safeMode: false,
+    channelProfiles: {},
+    notificationsEnabled: true, notificationPosition: null, notificationScale: 1, notificationDuration: 3500,
+    notificationOpacity: 0.95, notificationShowIcon: true, doNotDisturb: false, quietFullscreen: true,
+    notificationHistoryEnabled: true, notificationHistory: [],
+    soundEffectsEnabled: false, soundVolume: 0.35,
+    soundEvents: { menu: true, settingChanged: true, qualityApplied: true, qualityFailed: true, volumeApplied: true },
+    soundEventVolumes: { menu: 0.35, settingChanged: 0.35, qualityApplied: 0.35, qualityFailed: 0.35, volumeApplied: 0.35 },
+    theme: 'dark', accentColor: '#53fc18', panelStyle: 'kick', compactMode: false,
+    backdropBlur: 6, textScale: 1, highContrast: false, language: 'en', languageChosen: false, panelPosition: null,
+    motionPreset: 'full', motionSpeed: 'normal', openEffect: 'scale', hoverEffect: 'lift', indicatorAnimation: 'glow', iconAnimations: true,
+    silent: false, claimWidget: false, claimWidgetIcon: 'gift', claimWidgetCustomIcon: '', claimWidgetImageFill: false, claimWidgetStyle: 'orb', claimWidgetSize: 'm', claimWidgetOpacity: 0.9, claimWidgetAutoHide: false, claimWidgetPos: null,
+    autoClaimRewards: false, claimMode: 'notify', claimIntervalMin: 10, claimDelaySec: 5, layoutHideChat: false, layoutCollapseSidebar: false,
+    freezeAlertEnabled: true, freezeSound: true, freezeSeconds: 10,
+    hotkey: 'F2',
+    actionHotkeys: { toggleNotifications: 'Alt+N', focusView: 'Alt+F', resetQuality: 'Alt+Q', restoreVolume: 'Alt+V', toggleChat: 'Alt+C', toggleSidebar: 'Alt+S' },
+    diagnosticsLogEnabled: true, diagnosticsLog: [],
+    activeSection: 'playback', resetBackup: null,
   };
 
-  // In-memory settings, kept in sync with localStorage.
-  let settings = Store.load();
-  function persist(patch) {
-    settings = { ...settings, ...patch };
-    Store.save(settings);
+  /* ============================================================
+   *  I18N helpers
+   * ========================================================== */
+  function dictFor(lang) {
+    const code = String(lang || 'en').toLowerCase().replace(/_/g, '-');
+    return TR[code] || TR[code.split('-')[0]] || TR.en;
+  }
+  function t(lang, key, vars) {
+    let str = dictFor(lang)[key] ?? TR.en[key] ?? key;
+    if (vars) for (const [k, v] of Object.entries(vars)) str = str.split(`{${k}}`).join(String(v));
+    if (vars && vars.quality !== undefined) str = str.split('{q}').join(String(vars.quality));
+    if (vars && vars.q !== undefined) str = str.split('{quality}').join(String(vars.q));
+    return str;
+  }
+  const T = (key, vars) => t(settings.language, key, vars);
+  function diagText(index, q) {
+    const code = String(settings.language || 'en').toLowerCase();
+    const copy = DIAG[code] || DIAG[code.split('-')[0]] || DIAG.en;
+    return String(copy[index] || DIAG.en[index] || '').replace('{q}', q ?? '');
   }
 
   /* ============================================================
    *  UTILS
    * ========================================================== */
-  function log(...args) {
-    console.log(CONFIG.LOG_PREFIX, ...args);
-  }
-
+  const log = (...args) => console.log(CONFIG.LOG_PREFIX, ...args);
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, Number.isFinite(value) ? value : min));
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const esc = (value) => String(value ?? '').replace(/[&<>'"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[c]);
+  const normalizeQuality = (str) => String(str || '').trim().replace(/\s+/g, '').toLowerCase();
   function debounce(fn, wait) {
     let handle;
-    return (...args) => {
-      clearTimeout(handle);
-      handle = setTimeout(() => fn(...args), wait);
-    };
+    const wrapped = (...args) => { clearTimeout(handle); handle = setTimeout(() => fn(...args), wait); };
+    wrapped.flush = (...args) => { clearTimeout(handle); fn(...args); };
+    return wrapped;
   }
-
-  function normalizeQualityText(str) {
-    return (str || '').trim().replace(/\s+/g, '').toLowerCase();
-  }
-
-  function clamp(value, min, max) {
-    return Math.min(max, Math.max(min, Number.isFinite(value) ? value : min));
-  }
-
-  function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-
-  /**
-   * Notifies listeners whenever the SPA changes "page" (Kick is built
-   * as a single-page app, so a full document reload does not happen
-   * when navigating between streams/VODs).
-   */
   function onLocationChange(callback) {
-    let lastHref = location.href;
-
-    const check = () => {
-      if (location.href !== lastHref) {
-        lastHref = location.href;
-        callback();
-      }
-    };
-
-    const wrap = (method) => {
+    let last = location.href;
+    const check = () => { if (location.href !== last) { last = location.href; callback(); } };
+    for (const method of ['pushState', 'replaceState']) {
       const original = history[method];
-      history[method] = function (...args) {
-        const result = original.apply(this, args);
-        check();
-        return result;
-      };
-    };
-    wrap('pushState');
-    wrap('replaceState');
+      history[method] = function (...args) { const result = original.apply(this, args); check(); return result; };
+    }
     window.addEventListener('popstate', check);
-
-    // Fallback poll in case something navigates without touching the
-    // History API (rare, but cheap to guard against).
     setInterval(check, 1000);
   }
 
+  /* Hotkeys are stored as strings ("F2", "Alt+Q") and matched by physical key
+   * code so they keep working on non-Latin keyboard layouts. */
+  function keyLabelFromEvent(e) {
+    const code = e.code || '';
+    let key;
+    if (/^Key[A-Z]$/.test(code)) key = code.slice(3);
+    else if (/^Digit\d$/.test(code)) key = code.slice(5);
+    else if (code.startsWith('Numpad') && code.length === 7) key = 'Num' + code.slice(6);
+    else key = e.key && e.key.length === 1 ? e.key.toUpperCase() : (e.key === ' ' ? 'Space' : e.key);
+    return key;
+  }
+  function comboFromEvent(e) {
+    if (['Control', 'Alt', 'Shift', 'Meta'].includes(e.key)) return null;
+    const parts = [];
+    if (e.ctrlKey) parts.push('Ctrl');
+    if (e.altKey) parts.push('Alt');
+    if (e.shiftKey) parts.push('Shift');
+    if (e.metaKey) parts.push('Meta');
+    parts.push(keyLabelFromEvent(e));
+    return parts.join('+');
+  }
+  const matchesCombo = (e, combo) => !!combo && comboFromEvent(e) === combo;
+
   /* ============================================================
-   *  PLAYER SYNC — quality & volume persistence
-   *
-   *  Kick's menu is built on ARIA primitives rather than descriptive
-   *  class names, and it does not respond to a plain `.click()` call
-   *  (its menu component listens for real pointer events). Both facts
-   *  were confirmed against Kick's actual rendered markup, and drive
-   *  the approach below:
-   *    - quality options are `[role="menuitemradio"]` elements
-   *    - the settings trigger is a `button[aria-haspopup="menu"]`
-   *      positioned over the video (there's more than one such button
-   *      on the page, e.g. the account menu, so we pick the one
-   *      closest to the video's bottom-right corner)
-   *    - clicks are simulated as a full pointer-event sequence
+   *  STORE
    * ========================================================== */
+  const isObj = (v) => v && typeof v === 'object' && !Array.isArray(v);
+  const num = (v, d, min, max, step) => {
+    let n = Number(v);
+    if (!Number.isFinite(n)) return d;
+    n = clamp(n, min, max);
+    return step ? Number((Math.round(n / step) * step).toFixed(6)) : n;
+  };
+  const bool = (v, d) => (typeof v === 'boolean' ? v : d);
+  const pick = (v, list, d) => (list.includes(v) ? v : d);
+  const quality = (v, d) => (CONFIG.QUALITIES.includes(v) ? v : d);
+  const comboOk = (v, d) => (typeof v === 'string' && /^[\w+\-. ]{1,32}$/.test(v) ? v : d);
+
+  function legacyHotkey(h) {
+    if (typeof h === 'string') return h;
+    if (!isObj(h)) return null;
+    const parts = [];
+    if (h.ctrl) parts.push('Ctrl'); if (h.alt) parts.push('Alt'); if (h.shift) parts.push('Shift'); if (h.meta) parts.push('Meta');
+    const code = String(h.code || '');
+    const key = /^Key[A-Z]$/.test(code) ? code.slice(3) : /^Digit\d$/.test(code) ? code.slice(5) : (h.key && h.key.length === 1 ? h.key.toUpperCase() : h.key || code);
+    parts.push(key);
+    return parts.join('+');
+  }
+
+  function sanitizeProfiles(input) {
+    if (!isObj(input)) return {};
+    const out = {};
+    for (const [key, item] of Object.entries(input).slice(0, 200)) {
+      if (!/^[\p{L}\p{N}._:-]{1,120}$/u.test(key) || !isObj(item)) continue;
+      out[key] = {
+        enabled: item.enabled === true, excluded: item.excluded === true,
+        liveQuality: quality(item.liveQuality, 'auto'), vodQuality: quality(item.vodQuality, 'auto'),
+        volume: num(item.volume, 1, 0, 1), muted: item.muted === true, silent: item.silent === true, playbackRate: num(item.playbackRate, 1, 0.25, 2.5),
+        displayName: typeof item.displayName === 'string' ? item.displayName.slice(0, 80) : '',
+        pinned: item.pinned === true,
+        avatar: typeof item.avatar === 'string' && /^https:\/\/[a-z0-9.-]*kick\.com\/images\/user\/[\w\/.\-]+$/i.test(item.avatar) ? item.avatar.slice(0, 300) : '',
+        note: typeof item.note === 'string' ? item.note.slice(0, 240) : '',
+        group: typeof item.group === 'string' ? item.group.slice(0, 40) : '',
+        updatedAt: num(item.updatedAt, 0, 0, 8.64e15), lastUsed: num(item.lastUsed, 0, 0, 8.64e15),
+      };
+    }
+    return out;
+  }
+
+  function sanitizeSettings(input, withBackup = true) {
+    const s = isObj(input) ? input : {};
+    const D = DEFAULTS;
+    const out = {};
+    for (const key of ['autoQualityEnabled', 'autoVolumeEnabled', 'muted', 'autoRecoverStall', 'warnLoudVolume', 'safeMode',
+      'notificationsEnabled', 'notificationShowIcon', 'doNotDisturb', 'quietFullscreen', 'notificationHistoryEnabled',
+      'soundEffectsEnabled', 'compactMode', 'highContrast', 'diagnosticsLogEnabled', 'languageChosen', 'iconAnimations', 'autoClaimRewards',
+      'layoutHideChat', 'layoutCollapseSidebar', 'freezeAlertEnabled', 'freezeSound', 'silent', 'claimWidget', 'claimWidgetAutoHide', 'claimWidgetImageFill']) out[key] = bool(s[key], D[key]);
+    // A user-supplied icon is stored as a small data URL (re-encoded from a canvas, so only png/webp/jpeg ever get in).
+    out.claimWidgetCustomIcon = typeof s.claimWidgetCustomIcon === 'string' && s.claimWidgetCustomIcon.length <= 90000 && /^data:image\/(png|webp|jpeg);base64,[A-Za-z0-9+/=]+$/.test(s.claimWidgetCustomIcon) ? s.claimWidgetCustomIcon : '';
+    out.claimWidgetIcon = pick(s.claimWidgetIcon, ['gift', 'crown', 'star', 'bolt', 'coin', 'custom'], 'gift');
+    if (out.claimWidgetIcon === 'custom' && !out.claimWidgetCustomIcon) out.claimWidgetIcon = 'gift';
+    out.claimWidgetStyle = pick(s.claimWidgetStyle, ['orb', 'pill', 'glass', 'flat'], 'orb');
+    out.claimWidgetSize = pick(s.claimWidgetSize, ['s', 'm', 'l'], 'm');
+    out.claimWidgetOpacity = num(s.claimWidgetOpacity, 0.9, 0.3, 1, 0.05);
+    out.claimWidgetPos = isObj(s.claimWidgetPos) && Number.isFinite(Number(s.claimWidgetPos.x)) && Number.isFinite(Number(s.claimWidgetPos.y))
+      ? { x: clamp(Number(s.claimWidgetPos.x), -500, 10000), y: clamp(Number(s.claimWidgetPos.y), -100, 10000) } : null;
+    out.claimMode = pick(s.claimMode, ['notify', 'interval'], 'notify');
+    out.claimIntervalMin = num(s.claimIntervalMin, 10, 5, 120, 5);
+    out.claimDelaySec = num(s.claimDelaySec, 5, 0, 120, 5);
+    const legacyQuality = s.preferredQuality;
+    out.preferredLiveQuality = quality(s.preferredLiveQuality || legacyQuality, 'auto');
+    out.preferredVodQuality = quality(s.preferredVodQuality || legacyQuality, 'auto');
+    out.lastLiveQuality = quality(s.lastLiveQuality || s.lastKnownQuality, 'auto');
+    out.lastVodQuality = quality(s.lastVodQuality || s.lastKnownQuality, 'auto');
+    out.qualityFallback = pick(s.qualityFallback, ['lower', 'auto'], 'lower');
+    out.volume = num(s.volume, 1, 0, 1);
+    out.playbackRate = num(s.playbackRate, 1, 0.25, 2.5);
+    out.loudVolumeThreshold = num(s.loudVolumeThreshold, 85, 60, 100, 5);
+    out.channelProfiles = sanitizeProfiles(s.channelProfiles);
+    out.notificationPosition = isObj(s.notificationPosition) && Number.isFinite(Number(s.notificationPosition.x)) && Number.isFinite(Number(s.notificationPosition.y))
+      ? { x: Math.max(0, Number(s.notificationPosition.x)), y: Math.max(0, Number(s.notificationPosition.y)) } : null;
+    out.notificationScale = num(s.notificationScale, 1, 0.8, 1.4, 0.05);
+    out.notificationDuration = num(s.notificationDuration, 3500, 1500, 12000, 500);
+    out.notificationOpacity = num(s.notificationOpacity, 0.95, 0.35, 1, 0.05);
+    out.notificationHistory = Array.isArray(s.notificationHistory)
+      ? s.notificationHistory.filter((e) => isObj(e) && typeof e.message === 'string').slice(0, 30)
+        .map((e) => ({ at: num(e.at, 0, 0, 8.64e15), message: e.message.slice(0, 240), kind: e.kind === 'error' ? 'error' : 'success' })) : [];
+    out.soundVolume = num(s.soundVolume, 0.35, 0, 1);
+    out.soundEvents = Object.fromEntries(Object.keys(D.soundEvents).map((k) => [k, bool(s.soundEvents?.[k], true)]));
+    out.soundEventVolumes = Object.fromEntries(Object.keys(D.soundEventVolumes).map((k) => [k, num(s.soundEventVolumes?.[k], 0.35, 0, 1)]));
+    out.theme = pick(s.theme, ['dark', 'light'], 'dark');
+    out.accentColor = /^#[\da-f]{6}$/i.test(String(s.accentColor || '')) ? s.accentColor.toLowerCase() : D.accentColor;
+    out.panelStyle = pick(s.panelStyle, ['kick', 'minimal'], 'kick');
+    out.backdropBlur = num(s.backdropBlur, D.backdropBlur, 0, 12, 1);
+    out.textScale = num(s.textScale, 1, 0.9, 1.3, 0.05);
+    // The UI follows the browser language until the user picks one explicitly; that choice is then remembered.
+    out.language = out.languageChosen && LANGS.includes(String(s.language || '').toLowerCase()) ? String(s.language).toLowerCase() : detectLanguage();
+    out.freezeSeconds = num(s.freezeSeconds, 10, 5, 60, 5);
+    out.panelPosition = isObj(s.panelPosition) && Number.isFinite(Number(s.panelPosition.x)) && Number.isFinite(Number(s.panelPosition.y))
+      ? { x: clamp(Number(s.panelPosition.x), -2000, 10000), y: clamp(Number(s.panelPosition.y), -2000, 10000) } : null;
+    // Motion (migrates the 1.2.x animation settings)
+    const legacyOpen = { none: 'none', fade: 'fade', slide: 'slide', scale: 'scale' }[s.panelOpenAnimation];
+    out.motionPreset = pick(s.motionPreset || s.animationMode, ['full', 'reduced', 'off'], 'full');
+    out.motionSpeed = pick(s.motionSpeed || s.animationSpeed, ['fast', 'normal', 'slow'], 'normal');
+    out.openEffect = pick(s.openEffect || legacyOpen, ['none', 'fade', 'slide', 'scale', 'pop'], 'scale');
+    out.hoverEffect = pick(s.hoverEffect || s.hoverAnimation, ['none', 'lift', 'glow'], 'lift');
+    out.indicatorAnimation = pick(s.indicatorAnimation, ['glow', 'pulse', 'breathe', 'off'], 'glow');
+    out.hotkey = comboOk(legacyHotkey(s.hotkey), D.hotkey);
+    out.actionHotkeys = Object.fromEntries(Object.keys(D.actionHotkeys).map((k) => [k, comboOk(s.actionHotkeys?.[k] ?? D.actionHotkeys[k], D.actionHotkeys[k])]));
+    out.diagnosticsLog = Array.isArray(s.diagnosticsLog)
+      ? s.diagnosticsLog.filter((e) => isObj(e) && typeof e.message === 'string').slice(0, 60)
+        .map((e) => ({ at: num(e.at, 0, 0, 8.64e15), message: e.message.slice(0, 240), level: e.level === 'error' ? 'error' : 'info' })) : [];
+    const sectionIds = CONFIG.SECTIONS.map((x) => x.id);
+    const legacySection = { hotkey: 'shortcuts' }[s.activeSection || s.activePanelSection] || s.activeSection || s.activePanelSection;
+    out.activeSection = pick(legacySection, sectionIds, 'playback');
+    out.resetBackup = withBackup && isObj(s.resetBackup) ? sanitizeSettings(s.resetBackup, false) : null;
+    return out;
+  }
+
+  const Store = {
+    load() {
+      try {
+        const raw = localStorage.getItem(CONFIG.STORAGE_KEY);
+        return sanitizeSettings(raw ? JSON.parse(raw) : {});
+      } catch (err) {
+        console.warn(CONFIG.LOG_PREFIX, 'Failed to load settings, using defaults.', err);
+        return sanitizeSettings({});
+      }
+    },
+    save(value) {
+      try { localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(value)); }
+      catch (err) { console.error(CONFIG.LOG_PREFIX, 'Failed to save settings.', err); }
+    },
+  };
+
+  let settings = Store.load();
+  const undoStack = []; // in memory only: keeps the stored data small
+  let lastUndoAt = 0;
+  const saveSoon = debounce(() => Store.save(settings), 120);
+  function persist(patch, { undo = false } = {}) {
+    if (undo && Date.now() - lastUndoAt > 700) {
+      undoStack.push({ ...settings, resetBackup: null });
+      if (undoStack.length > 15) undoStack.shift();
+    }
+    if (undo) lastUndoAt = Date.now();
+    settings = sanitizeSettings({ ...settings, ...patch });
+    saveSoon();
+  }
+  window.addEventListener('storage', (event) => {
+    if (event.key !== CONFIG.STORAGE_KEY) return;
+    settings = Store.load();
+    if (typeof GUI !== 'undefined' && GUI.shadow) GUI.onExternalChange();
+  });
+  window.addEventListener('pagehide', () => saveSoon.flush());
+
+  /* ============================================================
+   *  PLAYER SYNC — quality, volume and speed persistence
+   *  Kick's menu is made from ARIA primitives and ignores a plain
+   *  .click(); a full pointer-event sequence is simulated instead.
+   * ========================================================== */
+  const mkPointer = (type, extra = {}) => {
+    const init = { bubbles: true, cancelable: true, composed: true, pointerId: 1, pointerType: 'mouse', isPrimary: true, ...extra };
+    return typeof PointerEvent === 'function' ? new PointerEvent(type, init) : new MouseEvent(type, init);
+  };
+
   const PlayerSync = {
-    appliedStreamKeys: new Set(), // one-shot guard: "pathname::src" we've already forced
-    manualPickDelegated: false,
+    appliedKey: null, failedKey: null, observedKey: null, rateKey: null,
+    busy: false, manualDelegated: false,
+    statusIdx: 0, result: { i: 7 },
+    currentQuality: null, availableQualities: [],
+    boundVideos: new WeakSet(), freezeState: new WeakMap(), loudShown: false,
+    _chan: { path: '', at: 0, key: '' },
 
-    /** Picks the largest visible <video> on the page (main stream player). */
+    isVod() { return /\/(?:video|videos)\//i.test(location.pathname); },
+
+    channelKey() {
+      const now = Date.now();
+      if (this._chan.path === location.pathname && now - this._chan.at < 3000) return this._chan.key;
+      const segments = location.pathname.split('/').filter(Boolean);
+      let key = 'kick:home';
+      if (segments.length) {
+        const videoIndex = segments.findIndex((part) => /^videos?$/i.test(part));
+        let channel = '';
+        if (videoIndex >= 0) {
+          const video = this.findMainVideo();
+          const scope = video?.closest('main') || document;
+          const rect = video?.getBoundingClientRect();
+          const links = [...scope.querySelectorAll('a[href]')].filter((a) => {
+            try { return new URL(a.href, location.href).pathname.split('/').filter(Boolean).length === 1 && a.textContent.trim() && a.getClientRects().length; } catch (_) { return false; }
+          });
+          const dist = (a) => { const r = a.getBoundingClientRect(); return rect ? Math.hypot(r.left - rect.left, r.top - rect.bottom) : r.top; };
+          links.sort((a, b) => dist(a) - dist(b));
+          if (links[0]) channel = new URL(links[0].href, location.href).pathname.split('/').filter(Boolean)[0];
+        }
+        key = channel ? `channel:${channel}` : videoIndex >= 0 ? `vod:${segments[videoIndex + 1] || 'unknown'}` : `channel:${segments[0]}`;
+      }
+      key = key.toLowerCase().replace(/[^\p{L}\p{N}._:-]/gu, '').slice(0, 120) || 'kick:unknown';
+      this._chan = { path: location.pathname, at: now, key };
+      return key;
+    },
+    channelSlug() { const k = this.channelKey(); return k.startsWith('channel:') ? k.slice(8) : ''; },
+    profile(key = this.channelKey()) { return settings.channelProfiles[key] || null; },
+    profileActive() { const p = this.profile(); return p && p.enabled && !p.excluded ? p : null; },
+    isExcluded() { return this.profile()?.excluded === true; },
+
+    updateProfile(patch, key = this.channelKey()) {
+      const base = { enabled: false, excluded: false, liveQuality: 'auto', vodQuality: 'auto', volume: settings.volume, muted: settings.muted, silent: settings.silent, playbackRate: settings.playbackRate, displayName: key.startsWith('channel:') ? key.slice(8) : '', pinned: false, avatar: '', note: '', group: '', updatedAt: 0, lastUsed: 0 };
+      persist({ channelProfiles: { ...settings.channelProfiles, [key]: { ...base, ...settings.channelProfiles[key], ...patch, updatedAt: Date.now() } } }, { undo: true });
+    },
+
+    effective() {
+      const p = this.profileActive();
+      return {
+        volume: p ? p.volume : settings.volume, muted: p ? p.muted : settings.muted, silent: p ? p.silent : settings.silent, rate: p ? p.playbackRate : settings.playbackRate,
+        live: p ? p.liveQuality : settings.preferredLiveQuality, vod: p ? p.vodQuality : settings.preferredVodQuality,
+      };
+    },
+
+    setStatus(statusIdx, result = this.result) {
+      this.statusIdx = statusIdx; this.result = result;
+      if (typeof GUI !== 'undefined') GUI.syncDiagnostics();
+    },
+
     findMainVideo() {
-      const videos = Array.from(document.querySelectorAll('video')).filter(
-        (v) => v.offsetParent !== null && v.clientWidth * v.clientHeight > 0
-      );
-      videos.sort((a, b) => b.clientWidth * b.clientHeight - a.clientWidth * a.clientHeight);
-      return videos[0] || null;
+      let best = null; let area = 0;
+      for (const v of document.querySelectorAll('video')) {
+        if (!v.isConnected) continue;
+        const a = v.clientWidth * v.clientHeight;
+        if (a <= area) continue;
+        const style = getComputedStyle(v);
+        if (style.visibility === 'hidden' || style.display === 'none') continue;
+        best = v; area = a;
+      }
+      return best;
     },
 
-    /** A key that changes whenever the stream/VOD actually changes. */
-    getStreamKey(video) {
-      const src = (video.currentSrc || video.src || '').split('?')[0];
-      return `${location.pathname}::${src || 'no-src'}`;
-    },
+    streamKey() { return location.pathname; },
 
-    isLikelyAccountButton(btn) {
-      if (btn.closest('header')) return true;
+    isAccountButton(btn) {
+      if (btn.closest('header, nav')) return true;
       if (btn.querySelector('img, [data-testid*="avatar" i]')) return true;
       return /\b(profile|account|avatar|user)\b/i.test(btn.getAttribute('aria-label') || '');
     },
 
     findSettingsButton(video) {
-      const videoRect = video.getBoundingClientRect();
-      const candidates = Array.from(
-        document.querySelectorAll(CONFIG.SETTINGS_BUTTON_SELECTOR)
-      ).filter((btn) => !this.isLikelyAccountButton(btn));
-
-      // Prefer an explicit "Settings" label if present.
-      const explicit = candidates.find((btn) => /settings/i.test(btn.getAttribute('aria-label') || ''));
+      const player = video.closest('video-player') || video.parentElement;
+      const vr = video.getBoundingClientRect();
+      const candidates = [...(player || document).querySelectorAll(CONFIG.BUTTON_SELECTOR)]
+        .filter((b) => !this.isAccountButton(b) && b.getClientRects().length > 0);
+      const explicit = candidates.find((b) => /settings/i.test(b.getAttribute('aria-label') || ''));
       if (explicit) return explicit;
-
-      // Otherwise pick whichever candidate sits closest to the video's
-      // bottom-right corner — that's where Kick (and most players)
-      // place the gear icon.
-      const withDistance = candidates
-        .map((btn) => {
-          const r = btn.getBoundingClientRect();
-          const cx = r.left + r.width / 2;
-          const cy = r.top + r.height / 2;
-          const insideOrNearVideo =
-            cx >= videoRect.left && cx <= videoRect.right && cy >= videoRect.top && cy <= videoRect.bottom + 60;
-          const dist = Math.hypot(videoRect.right - cx, videoRect.bottom - cy);
-          return { btn, dist, insideOrNearVideo };
-        })
-        .filter((c) => c.insideOrNearVideo)
-        .sort((a, b) => a.dist - b.dist);
-
-      return withDistance.length ? withDistance[0].btn : null;
+      const scored = candidates.map((b) => {
+        const r = b.getBoundingClientRect(); const cx = r.left + r.width / 2; const cy = r.top + r.height / 2;
+        return { b, d: Math.hypot(vr.right - cx, vr.bottom - cy), ok: cx >= vr.left && cx <= vr.right && cy >= vr.top && cy <= vr.bottom + 60 };
+      }).filter((c) => c.ok).sort((a, b) => a.d - b.d);
+      return scored[0]?.b || null;
     },
 
-    /** Dispatches a realistic pointer-event sequence (plain .click() is ignored by Kick's menu). */
+    revealControls(video) {
+      const player = video.closest('video-player') || video.parentElement || video;
+      const r = video.getBoundingClientRect(); const x = r.left + r.width / 2; const y = r.top + r.height / 2;
+      for (const target of new Set([video, player])) {
+        target.dispatchEvent(mkPointer('pointerover', { clientX: x, clientY: y }));
+        target.dispatchEvent(new MouseEvent('mouseover', { bubbles: true, composed: true, clientX: x, clientY: y }));
+        target.dispatchEvent(mkPointer('pointermove', { clientX: x, clientY: y }));
+        target.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, composed: true, clientX: x, clientY: y }));
+      }
+    },
+
     simulateClick(el) {
       if (!el) return;
-      el.focus({ preventScroll: true });
-      ['pointerover', 'pointerenter', 'pointerdown', 'mousedown', 'pointerup', 'mouseup', 'click'].forEach(
-        (type) =>
-          el.dispatchEvent(
-            new PointerEvent(type, {
-              bubbles: true,
-              cancelable: true,
-              composed: true,
-              pointerId: 1,
-              pointerType: 'mouse',
-              isPrimary: true,
-            })
-          )
-      );
+      try { el.focus({ preventScroll: true }); } catch (_) {}
+      for (const type of ['pointerover', 'pointerenter', 'pointerdown', 'mousedown', 'pointerup', 'mouseup', 'click']) el.dispatchEvent(mkPointer(type));
     },
 
-    getQualityMenuItems() {
-      return Array.from(document.querySelectorAll(CONFIG.QUALITY_ITEM_SELECTOR));
+    menuItems() {
+      return [...document.querySelectorAll(CONFIG.ITEM_SELECTOR)].filter((i) => i.getClientRects().length > 0);
     },
 
-    /** Attempts to select `desired` among the currently-open quality menu items. Returns true on success. */
-    selectQualityItem(desired) {
-      const items = this.getQualityMenuItems();
-      if (!items.length) return false;
+    /** Closes the player menu only if it is still open (a blind second click could re-open it). */
+    async closeMenu(cog) {
+      await sleep(80);
+      if (!this.menuItems().length) return;
+      this.simulateClick(cog);
+      await sleep(120);
+      if (this.menuItems().length) document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', code: 'Escape', bubbles: true }));
+    },
 
-      const wanted = normalizeQualityText(desired);
-      const exact = items.find((i) => normalizeQualityText(i.textContent) === wanted);
-      if (exact) {
-        this.simulateClick(exact);
-        return true;
+    /** Opens the gear menu and waits for quality radios; returns the cog or null. */
+    async openQualityMenu() {
+      for (let attempt = 0; attempt < CONFIG.MAX_FIND; attempt++) {
+        const video = this.findMainVideo();
+        if (!video) { await sleep(CONFIG.RETRY_MS); continue; }
+        this.revealControls(video);
+        await sleep(100);
+        const cog = this.findSettingsButton(video);
+        if (!cog) { await sleep(CONFIG.RETRY_MS); continue; }
+        this.simulateClick(cog);
+        for (let tick = 0; tick < CONFIG.MAX_MENU_TICKS; tick++) {
+          await sleep(CONFIG.RETRY_MS);
+          if (this.menuItems().length) return cog;
+          // Some layouts show a top-level menu first; step into the quality entry.
+          const entry = [...document.querySelectorAll('[role="menuitem"]')].find((n) => n.getClientRects().length && /quality|качество|якасць|якість/i.test(n.textContent));
+          if (entry && tick === 2) this.simulateClick(entry);
+        }
+        this.simulateClick(cog);
+        await sleep(CONFIG.RETRY_MS);
       }
+      return null;
+    },
 
-      // Fall back down the quality ladder (e.g. saved "1080p60" isn't
-      // offered on this stream, so try "1080p", then "720p", etc.).
-      const ladder = CONFIG.QUALITY_OPTIONS.filter((q) => q !== 'auto');
-      const startIdx = ladder.indexOf(wanted);
-      if (startIdx >= 0) {
-        for (let i = startIdx; i < ladder.length; i++) {
-          const node = items.find((it) => normalizeQualityText(it.textContent) === ladder[i]);
-          if (node) {
-            this.simulateClick(node);
-            log(`Exact quality "${desired}" unavailable on this stream; used closest match "${ladder[i]}".`);
-            return true;
-          }
+    readMenu() {
+      const items = this.menuItems();
+      this.availableQualities = [...new Set(items.map((i) => normalizeQuality(i.textContent)).filter(Boolean))];
+      const checked = items.find((i) => i.getAttribute('aria-checked') === 'true');
+      if (checked) this.currentQuality = normalizeQuality(checked.textContent);
+      GUI.syncDiagnostics();
+      return items;
+    },
+
+    /** Opens the menu, records the qualities on offer and closes it again (used by diagnostics). */
+    async scanQualities() {
+      if (this.busy) return false;
+      this.busy = true;
+      try {
+        const cog = await this.openQualityMenu();
+        if (!cog) return false;
+        this.readMenu();
+        await this.closeMenu(cog);
+        return true;
+      } finally { this.busy = false; }
+    },
+
+    async activate(item) {
+      const label = normalizeQuality(item.textContent);
+      this._synthetic = true;
+      this.simulateClick(item);
+      this._synthetic = false;
+      for (let tick = 0; tick < CONFIG.MAX_MENU_TICKS; tick++) {
+        await sleep(CONFIG.RETRY_MS);
+        if (item.getAttribute('aria-checked') === 'true' || !item.isConnected || !item.getClientRects().length) {
+          this.currentQuality = label; GUI.syncDiagnostics(); return label;
         }
       }
       return false;
     },
 
-    /**
-     * Runs the full one-shot sequence for the current stream: find the
-     * video, find the settings button, open it, open the quality menu
-     * if needed, and click the desired option. Retries with backoff
-     * since the player can take a moment to mount after navigation.
-     */
-    async applyQualityOnce(streamKey) {
-      const desired =
-        settings.preferredQuality && settings.preferredQuality !== 'auto'
-          ? settings.preferredQuality
-          : settings.lastKnownQuality;
-
-      if (!desired || desired === 'auto') {
-        log('No specific quality to enforce (Auto is fine as-is).');
-        this.appliedStreamKeys.add(streamKey);
-        return;
+    async selectQuality(desired, fallback) {
+      const items = this.readMenu();
+      if (!items.length) return false;
+      const wanted = normalizeQuality(desired);
+      const byText = (text) => items.find((i) => normalizeQuality(i.textContent) === text);
+      if (byText(wanted)) return this.activate(byText(wanted));
+      if (fallback === 'auto') { const auto = byText('auto'); return auto ? this.activate(auto) : false; }
+      const ladder = CONFIG.QUALITIES.filter((q) => q !== 'auto');
+      const start = ladder.indexOf(wanted);
+      for (let i = Math.max(0, start); start >= 0 && i < ladder.length; i++) {
+        const node = byText(ladder[i]);
+        if (node) { log(`"${desired}" unavailable; using "${ladder[i]}".`); return this.activate(node); }
       }
+      return false;
+    },
 
-      for (let attempt = 0; attempt < CONFIG.MAX_FIND_ATTEMPTS; attempt++) {
-        const video = this.findMainVideo();
-        if (!video) {
-          await sleep(CONFIG.RETRY_INTERVAL_MS);
-          continue;
+    desiredQuality() {
+      const p = this.profileActive();
+      const live = !this.isVod();
+      if (p) return live ? p.liveQuality : p.vodQuality;
+      const preferred = live ? settings.preferredLiveQuality : settings.preferredVodQuality;
+      return preferred !== 'auto' ? preferred : (live ? settings.lastLiveQuality : settings.lastVodQuality);
+    },
+
+    async applyQualityOnce(streamKey) {
+      if (this.busy) return;
+      this.busy = true;
+      try {
+        const desired = this.desiredQuality();
+        if (!desired || desired === 'auto') {
+          this.setStatus(1, { i: 8 }); this.appliedKey = streamKey; return;
         }
-
-        const cog = this.findSettingsButton(video);
-        if (!cog) {
-          await sleep(CONFIG.RETRY_INTERVAL_MS);
-          continue;
-        }
-
-        this.simulateClick(cog); // open the menu
-
-        let success = false;
-        for (let tick = 0; tick < CONFIG.MAX_MENU_WAIT_TICKS; tick++) {
-          await sleep(CONFIG.RETRY_INTERVAL_MS);
-          if (this.selectQualityItem(desired)) {
-            success = true;
-            break;
-          }
-        }
-
-        if (success) {
-          this.simulateClick(cog); // close the menu again
-          this.appliedStreamKeys.add(streamKey);
-          log(`Applied saved quality "${desired}" for ${streamKey}`);
+        this.setStatus(2, { i: 13, q: desired });
+        const cog = await this.openQualityMenu();
+        let selected = false;
+        if (cog) selected = await this.selectQuality(desired, settings.qualityFallback);
+        if (cog) await this.closeMenu(cog);
+        if (selected) {
+          this.appliedKey = streamKey; this.currentQuality = selected;
+          this.setStatus(1, { i: 12, q: selected });
+          GUI.notifyQuality(true, selected);
           return;
         }
-
-        // Close whatever we opened and try the whole sequence again.
-        this.simulateClick(cog);
-        await sleep(CONFIG.RETRY_INTERVAL_MS);
-      }
-
-      log(
-        `Could not locate a "${desired}" option in Kick's quality menu after several attempts. ` +
-          'Open devtools and check the console for [KickTweaks] logs, or Kick may have changed its menu markup.'
-      );
+        this.failedKey = streamKey;
+        this.setStatus(3, { i: 14, q: desired });
+        GUI.notifyQuality(false, desired);
+      } finally { this.busy = false; }
     },
 
-    applyVolume(video) {
-      if (!settings.autoVolumeEnabled) return;
+    applyVolume(video, quiet = false) {
+      if (!settings.autoVolumeEnabled || this.isExcluded()) return;
       try {
-        video.volume = clamp(settings.volume, 0, 1);
-        video.muted = !!settings.muted;
-      } catch (err) {
-        console.error(CONFIG.LOG_PREFIX, 'Failed to apply saved volume:', err);
-      }
+        const e = this.effective();
+        this._self = Date.now();
+        video.volume = clamp(e.volume, 0, 1);
+        video.muted = !!e.muted;
+        if (!quiet) GUI.playSound('volumeApplied');
+      } catch (err) { console.error(CONFIG.LOG_PREFIX, 'Failed to apply volume', err); }
     },
 
-    watchVolumeChanges(video) {
+    /* ---- silent playback: gain 0 on a Web Audio graph instead of muting the element ----
+     * A muted <video> is often paused by the site once the tab is hidden; a silent graph keeps it playing.
+     * Note: an element can only be wired into one graph, so after the first use the graph stays and
+     * "sound on" simply means gain 1 (the context is resumed from the existing user activation). */
+    audioGraphs: new WeakMap(),
+    buildGraph(video) {
+      try {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        const ctx = new AC();
+        const src = ctx.createMediaElementSource(video);
+        const gain = ctx.createGain();
+        src.connect(gain); gain.connect(ctx.destination);
+        const graph = { ctx, gain };
+        this.audioGraphs.set(video, graph);
+        return graph;
+      } catch (err) {
+        if (!this._silentWarned) { this._silentWarned = true; GUI.notify(T('silentUnavailable'), 'error', undefined, true); }
+        console.warn(CONFIG.LOG_PREFIX, 'Silent playback unavailable', err);
+        return null;
+      }
+    },
+    applySilent(video) {
+      const want = !!this.effective().silent && !this.isExcluded() && !settings.safeMode;
+      let graph = this.audioGraphs.get(video);
+      if (!graph && want) graph = this.buildGraph(video);
+      if (!graph) return;
+      graph.gain.gain.value = want ? 0 : 1;
+      if (graph.ctx.state !== 'running') graph.ctx.resume().catch(() => {});
+    },
+
+    lastInput: 0,
+    trackInput() {
+      if (this._inputBound) return;
+      this._inputBound = true;
+      const mark = (e) => { if (e.isTrusted && (e.type !== 'pointermove' || e.buttons > 0)) this.lastInput = Date.now(); };
+      for (const name of ['pointerdown', 'pointermove', 'pointerup', 'keydown', 'wheel', 'touchstart']) window.addEventListener(name, mark, { capture: true, passive: true });
+    },
+    /** Puts the saved volume back when the page (not the user) changed it, e.g. Kick restoring its own 50%. */
+    reassertVolume(video) {
+      const e = this.effective();
+      if (Math.abs(video.volume - e.volume) < 0.005 && video.muted === !!e.muted) return;
+      const now = Date.now();
+      this._reverts = (this._reverts || []).filter((t) => now - t < 10000);
+      if (this._reverts.length >= 8) return;
+      this._reverts.push(now);
+      setTimeout(() => this.applyVolume(video, true), 120);
+    },
+
+    applyRate(video, force = false) {
+      if (this.isExcluded()) return;
+      const rate = clamp(Number(this.effective().rate) || 1, 0.25, 2.5);
+      // Never force 1x: Kick uses playbackRate itself to catch up with the live edge.
+      if (rate === 1 && !force) return;
+      try { video.playbackRate = rate; } catch (_) {}
+    },
+
+    watchVolume(video) {
       if (video.dataset.kickTweaksVolumeBound) return;
       video.dataset.kickTweaksVolumeBound = 'true';
-      const boundAt = Date.now();
-
-      const handler = debounce(() => {
-        // Ignore changes in the first moments after we attach: this is
-        // almost always the browser/Kick forcing muted=true to satisfy
-        // autoplay policy, not a deliberate user action. Persisting it
-        // would permanently lock future streams to muted.
-        if (Date.now() - boundAt < CONFIG.VOLUME_GRACE_MS) return;
-        persist({ volume: video.volume, muted: video.muted });
+      this.trackInput();
+      const save = debounce(() => {
+        const patch = { volume: video.volume, muted: video.muted };
+        if (this.profileActive()) this.updateProfile(patch); else persist(patch);
+        this.checkLoud(video.volume, video.muted);
         GUI.syncVolumeControls();
       }, 250);
-      video.addEventListener('volumechange', handler);
+      video.addEventListener('volumechange', () => {
+        const now = Date.now();
+        if (now - (this._self || 0) < 400) return;
+        const userDriven = now - this.lastInput < 1500;
+        const auto = settings.autoVolumeEnabled && !this.isExcluded() && !settings.safeMode;
+        if (!userDriven && auto) { this.reassertVolume(video); return; }
+        save();
+      });
     },
 
-    /**
-     * One global, capture-phase click listener that recognises clicks on
-     * quality menu items regardless of when they were added to the DOM
-     * (Kick's menu may stay mounted and only toggle visibility, which
-     * means a MutationObserver watching for *new* nodes can miss it
-     * entirely — this delegation approach works either way).
-     */
-    watchManualQualityChanges() {
-      if (this.manualPickDelegated) return;
-      this.manualPickDelegated = true;
-
-      document.addEventListener(
-        'click',
-        (e) => {
-          const item = e.target.closest(CONFIG.QUALITY_ITEM_SELECTOR);
-          if (!item) return;
-          const text = normalizeQualityText(item.textContent);
-          if (!text) return;
-          persist({ lastKnownQuality: text });
-          log(`Detected manual quality change: ${text}`);
-        },
-        true
-      );
+    checkLoud(volume, muted) {
+      const percent = muted ? 0 : Math.round(Number(volume) * 100);
+      if (percent < settings.loudVolumeThreshold) this.loudShown = false;
+      else if (settings.warnLoudVolume && !this.loudShown) {
+        this.loudShown = true;
+        GUI.notify(T('highVolumeWarning', { threshold: settings.loudVolumeThreshold }), 'error');
+      }
     },
 
-    /** Main tick: called on init and whenever the SPA navigates or the player remounts. */
-    async syncCurrentStream() {
+    /** Detects a frozen player (time stuck, or time moving while no frames are decoded = black screen). */
+    monitorFreeze(video) {
+      const now = Date.now();
+      const active = !video.paused && !video.ended && !video.seeking && (video.currentSrc || video.src);
+      if (!active || (!settings.freezeAlertEnabled && !settings.autoRecoverStall)) { this.freezeState.delete(video); return; }
+      const t = video.currentTime;
+      const frames = video.getVideoPlaybackQuality ? video.getVideoPlaybackQuality().totalVideoFrames : NaN;
+      const st = this.freezeState.get(video);
+      const timeMoved = !st || Math.abs(t - st.time) > 0.05;
+      const frameMoved = !st || document.hidden || !Number.isFinite(frames) || frames !== st.frames;
+      if (timeMoved && frameMoved) {
+        if (st?.alerted) GUI.record(T('freezeRecovered'));
+        this.freezeState.set(video, { time: t, frames, since: now, last: 0, alerts: 0, alerted: false });
+        return;
+      }
+      st.time = t; st.frames = frames;
+      if (now - st.since < settings.freezeSeconds * 1000 || now - st.last < 30000 || st.alerts >= 4) return;
+      st.last = now; st.alerts += 1; st.alerted = true;
+      if (settings.autoRecoverStall) { try { const r = video.play(); if (r?.catch) r.catch(() => {}); } catch (_) {} }
+      if (settings.freezeAlertEnabled) GUI.alertFrozen();
+    },
+
+    /** Only genuine user clicks teach the script a new "last used" quality. */
+    watchManualQuality() {
+      if (this.manualDelegated) return;
+      this.manualDelegated = true;
+      document.addEventListener('click', (e) => {
+        if (!e.isTrusted || this._synthetic) return;
+        const item = e.target?.closest?.(CONFIG.ITEM_SELECTOR);
+        if (!item) return;
+        const text = normalizeQuality(item.textContent);
+        if (!CONFIG.QUALITIES.includes(text)) return;
+        const vod = this.isVod();
+        if (this.profileActive()) this.updateProfile({ [vod ? 'vodQuality' : 'liveQuality']: text });
+        else persist({ [vod ? 'lastVodQuality' : 'lastLiveQuality']: text });
+        this.currentQuality = text;
+        this.failedKey = null; this.appliedKey = this.streamKey();
+        this.setStatus(1, { i: 15, q: text });
+      }, true);
+    },
+
+    async sync() {
       const video = this.findMainVideo();
-      if (!video) return;
+      if (video) this.monitorFreeze(video);
+      if (document.hidden) return;
+      if (!video) { this.setStatus(0, { i: 7 }); return; }
+      this.watchVolume(video);
+      this.watchManualQuality();
+      this.applySilent(video);
+      const key = this.streamKey();
 
-      // Apply the saved volume once per <video> element only. Re-running
-      // this on every 1.5s poll would otherwise fight any manual
-      // adjustment made via Kick's own controls in between ticks.
+      if (settings.safeMode) { this.setStatus(4, { k: 'safeModeHelp' }); this.observedKey = key; return; }
+      if (this.isExcluded()) { this.setStatus(4, { k: 'channelExcludedStatus' }); this.observedKey = key; return; }
+
+      if (this.observedKey && this.observedKey !== key) {
+        this.appliedKey = null; this.failedKey = null; this.currentQuality = null; this.availableQualities = [];
+        video.dataset.kickTweaksVolumeApplied = ''; this.rateKey = null;
+        this.setStatus(6, { i: 9 });
+      }
+      this.observedKey = key;
+
       if (!video.dataset.kickTweaksVolumeApplied) {
         video.dataset.kickTweaksVolumeApplied = 'true';
         this.applyVolume(video);
-        // Kick sometimes re-asserts muted=true a moment after we set it
-        // (autoplay policy re-check); a single delayed follow-up beats
-        // that without becoming an ongoing fight with the user.
         setTimeout(() => this.applyVolume(video), 1000);
       }
+      if (this.rateKey !== key) { this.rateKey = key; this.applyRate(video); }
 
-      this.watchVolumeChanges(video);
-      this.watchManualQualityChanges();
+      if (!this.boundVideos.has(video)) {
+        this.boundVideos.add(video);
+        const resync = debounce(() => {
+          const v = this.findMainVideo();
+          if (!v || this.streamKey() === this.appliedKey) return;
+          this.appliedKey = null; this.failedKey = null; this.sync();
+        }, 500);
+        ['loadedmetadata', 'emptied'].forEach((name) => video.addEventListener(name, resync));
+      }
 
-      const streamKey = this.getStreamKey(video);
-      if (settings.autoQualityEnabled && !this.appliedStreamKeys.has(streamKey)) {
-        await this.applyQualityOnce(streamKey);
+      const profile = this.profile();
+      if (profile && Date.now() - (profile.lastUsed || 0) > 60000) {
+        persist({ channelProfiles: { ...settings.channelProfiles, [this.channelKey()]: { ...profile, lastUsed: Date.now() } } });
+      }
+      Extras.tick(key);
+      if (!settings.autoQualityEnabled) this.setStatus(4, { i: 10 });
+      else if (key !== this.appliedKey && key !== this.failedKey) {
+        this.setStatus(5, { i: 11 });
+        await this.applyQualityOnce(key);
       }
     },
 
-    init() {
-      this.syncCurrentStream();
+    /** Re-applies volume, mute, silent mode and (optionally) speed WITHOUT touching quality. */
+    applyMedia(video, { rate = false } = {}) {
+      if (!video) return;
+      this.applyVolume(video, true);
+      this.applySilent(video);
+      if (rate) this.applyRate(video, true);
+    },
 
-      // Re-check whenever the SPA navigates, and periodically in case
-      // the player remounts a new <video> without a URL change (e.g.
-      // recovering from an ad break or a stream reconnect).
-      onLocationChange(debounce(() => this.syncCurrentStream(), 400));
-      setInterval(() => this.syncCurrentStream(), 1500);
+    /** Stores what the viewer has right now (quality, volume, speed, sound) as this channel's saved profile. */
+    saveCurrentChannel() {
+      const key = this.channelKey();
+      if (key === 'kick:home') return null;
+      const video = this.findMainVideo(); const e = this.effective();
+      const shown = this.currentQuality && CONFIG.QUALITIES.includes(this.currentQuality) ? this.currentQuality : null;
+      const vod = this.isVod();
+      this.updateProfile({
+        enabled: true, excluded: false,
+        liveQuality: !vod && shown ? shown : e.live, vodQuality: vod && shown ? shown : e.vod,
+        volume: video ? clamp(video.volume, 0, 1) : e.volume, muted: video ? video.muted : e.muted,
+        playbackRate: e.rate, silent: e.silent,
+      }, key);
+      Extras.scanAvatars();
+      return this.profile(key);
+    },
+
+    /** Forces a fresh pass: used by presets, quick actions and "reapply". */
+    resync() {
+      const video = this.findMainVideo();
+      if (video) { video.dataset.kickTweaksVolumeApplied = ''; this.rateKey = null; }
+      this.appliedKey = null; this.failedKey = null;
+      return this.sync();
+    },
+
+    init() {
+      this.sync();
+      onLocationChange(debounce(() => this.sync(), 400));
+      setInterval(() => this.sync(), 1500);
+    },
+  };
+
+  /* ============================================================
+   *  EXTRAS — page layout, reward claiming, channel avatars
+   *  Selectors are based on Kick's current markup and avoid
+   *  language-dependent text wherever possible.
+   * ========================================================== */
+  const waitFor = async (probe, timeout = 2500, step = 100) => {
+    const end = Date.now() + timeout;
+    while (Date.now() < end) { const v = probe(); if (v) return v; await sleep(step); }
+    return null;
+  };
+
+  const Extras = {
+    claimBusy: false, nextClaim: 0, nextDrops: 0, nextAvatar: 0, layoutKey: null, tickKey: null, availSince: 0, cooldownUntil: 0,
+
+    /* ---------- layout ---------- */
+    root() { return document.querySelector('[data-sidebar][data-chat]'); },
+    layoutState() {
+      const r = this.root();
+      return r ? { chat: r.dataset.chat === 'true', sidebar: r.dataset.sidebar === 'true' } : null;
+    },
+    isDesktop() { return !window.matchMedia || window.matchMedia('(min-width: 1024px)').matches; },
+    click(el) { if (el) PlayerSync.simulateClick(el); return !!el; },
+    chatHideButton() {
+      return [...document.querySelectorAll('svg[data-ds-icon="CollapseRight"]')].map((s) => s.closest('button')).find((b) => b && b.closest('#channel-chatroom')) || null;
+    },
+    chatShowButton() {
+      return [...document.querySelectorAll('svg[data-ds-icon="MessagesOutline"]')].map((s) => s.closest('button')).find((b) => b && !b.closest('#channel-chatroom')) || null;
+    },
+    setChat(show) {
+      const st = this.layoutState(); if (!st) return false;
+      if (st.chat === show) return true;
+      return this.click(show ? this.chatShowButton() : this.chatHideButton());
+    },
+    setSidebar(show) {
+      const st = this.layoutState(); if (!st) return false;
+      if (st.sidebar === show) return true;
+      return this.click(document.querySelector(`[data-testid="sidebar-${show ? 'expand' : 'collapse'}"]`));
+    },
+    /** Applies the remembered layout once per page (not continuously, so manual changes are never fought). */
+    applyLayout() {
+      if (!this.isDesktop() || !this.layoutState()) return;
+      if (settings.layoutHideChat) this.setChat(false);
+      if (settings.layoutCollapseSidebar) this.setSidebar(false);
+    },
+
+    /* ---------- rewards ---------- */
+    isTyping() {
+      const a = document.activeElement;
+      return !!a && (a.tagName === 'INPUT' || a.tagName === 'TEXTAREA' || a.isContentEditable) && String(a.value ?? a.textContent ?? '').trim().length > 0;
+    },
+    rewardTrigger() {
+      const re = /reward|награ|нагород|belohn|récompens|recompens|ricompens|ödül|奖励|獎勵|報酬|보상|hadiah|phần thưởng|รางวัล/i;
+      return [...document.querySelectorAll('button[aria-haspopup="dialog"][aria-controls]')]
+        .find((b) => b.querySelector('video[src*="rewards/"], svg path[d^="M6 7.33301"]') || re.test(b.getAttribute('aria-label') || '')) || null;
+    },
+    /** Kick's own "reward available" signal: the animated call-to-action on the gift button and its popover card. */
+    rewardAvailable() {
+      return !!document.querySelector('button video[src*="reward-available"], [role="group"] video[src*="daily-rewards"]');
+    },
+    popoverCard() {
+      const v = document.querySelector('[role="group"] video[src*="daily-rewards"]');
+      return v ? v.closest('button') : null;
+    },
+    isEnabled(b) { return b && !b.disabled && b.getAttribute('aria-disabled') !== 'true' && b.getClientRects().length > 0; },
+    /** Drops listed in the rewards panel: a finished progress bar plus an enabled action button. */
+    async claimDrops() {
+      const panel = document.getElementById('rewards-panel'); let n = 0;
+      if (!panel) return 0;
+      for (const li of panel.querySelectorAll('li')) {
+        if (!li.querySelector('[role="progressbar"][data-state="complete"]')) continue;
+        const b = [...li.querySelectorAll('button')].find((x) => this.isEnabled(x) && x.querySelector('.contents'));
+        if (b) { PlayerSync.simulateClick(b); n += 1; await sleep(900); }
+      }
+      return n;
+    },
+    /** Opens the rewards dialog, presses every enabled claim button, then closes it again. */
+    async claimDaily(trigger) {
+      const id = trigger.getAttribute('aria-controls');
+      const dialogOf = () => (id ? document.getElementById(id) : null) || document.querySelector('[role="dialog"][data-state="open"]');
+      if (dialogOf()?.getAttribute('data-state') !== 'open') PlayerSync.simulateClick(trigger);
+      const dlg = await waitFor(() => { const d = dialogOf(); return d && d.getAttribute('data-state') === 'open' ? d : null; });
+      if (!dlg) return 0;
+      let n = 0; const pressed = new Set();
+      for (let i = 0; i < 6; i++) {
+        await sleep(600);
+        // Never press the same button twice: if a claim fails silently we must not spam the server.
+        const b = [...dlg.querySelectorAll('button')].find((x) => !pressed.has(x) && this.isEnabled(x) && x.querySelector('.contents'));
+        if (!b) break;
+        pressed.add(b); PlayerSync.simulateClick(b); n += 1; await sleep(1800);
+      }
+      const close = [...dlg.querySelectorAll('button')].find((x) => x.querySelector('.sr-only'));
+      if (close) PlayerSync.simulateClick(close);
+      await sleep(350);
+      if (dlg.getAttribute('data-state') === 'open') document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', code: 'Escape', bubbles: true }));
+      return n;
+    },
+    async claimRewards({ manual = false } = {}) {
+      if (this.claimBusy) return 0;
+      this.claimBusy = true; let n = 0;
+      try {
+        n += await this.claimDrops();
+        const trigger = this.rewardTrigger() || this.popoverCard();
+        if (trigger && !document.fullscreenElement && (manual || !this.isTyping())) n += await this.claimDaily(trigger);
+      } catch (err) { console.warn(CONFIG.LOG_PREFIX, 'Reward claim failed', err); }
+      finally { this.claimBusy = false; }
+      if (n > 0) { GUI.playSound('qualityApplied'); GUI.record(T('rewardClaimed')); GUI.notify(T('rewardClaimed'), 'success', undefined, manual); }
+      else if (manual) GUI.notify(T('rewardNone'), 'error', undefined, true);
+      return n;
+    },
+
+    /* ---------- avatars ---------- */
+    normName(v) { return String(v || '').toLowerCase().replace(/[\s_]+/g, '-'); },
+    /** Avatar of a channel visible on the page right now (used before the channel is saved). */
+    findAvatar(slug) {
+      if (!slug) return '';
+      const want = this.normName(slug);
+      for (const img of document.querySelectorAll('img[alt][src*="/images/user/"]')) {
+        const src = img.currentSrc || img.src;
+        if (/^https:\/\/files\.kick\.com\/images\/user\/\d+\/profile_image\//.test(src) && this.normName(img.alt) === want) return src;
+      }
+      return '';
+    },
+    scanAvatars() {
+      const found = new Map();
+      for (const img of document.querySelectorAll('img[alt][src*="/images/user/"]')) {
+        const src = img.currentSrc || img.src;
+        if (/^https:\/\/files\.kick\.com\/images\/user\/\d+\/profile_image\//.test(src) && img.alt) found.set(this.normName(img.alt), src);
+      }
+      const patch = {};
+      for (const [key, p] of Object.entries(settings.channelProfiles)) {
+        if (p.avatar || !key.startsWith('channel:')) continue;
+        const src = found.get(this.normName(key.slice(8)));
+        if (src) patch[key] = { ...p, avatar: src };
+      }
+      if (Object.keys(patch).length) { persist({ channelProfiles: { ...settings.channelProfiles, ...patch } }); GUI.onAvatars(); }
+    },
+
+    /* ---------- scheduler (called from PlayerSync.sync) ---------- */
+    tick(streamKey) {
+      const now = Date.now();
+      if (this.tickKey !== streamKey) {
+        this.tickKey = streamKey; this.nextClaim = now + 15000; this.nextDrops = now + 5000; this.layoutKey = null;
+      }
+      if (this.layoutKey !== streamKey && this.layoutState()) { this.layoutKey = streamKey; setTimeout(() => this.applyLayout(), 800); }
+      if (now >= this.nextAvatar) { this.nextAvatar = now + 20000; this.scanAvatars(); }
+      if (!settings.autoClaimRewards || this.claimBusy || PlayerSync.isVod() || settings.safeMode) return;
+      if (settings.claimMode === 'notify') {
+        // Wait for Kick's own notification; claim after the configured delay, then cool down so a stuck banner cannot loop.
+        if (this.rewardAvailable()) {
+          if (!this.availSince) this.availSince = now;
+          if (now - this.availSince >= settings.claimDelaySec * 1000 && now >= this.cooldownUntil && !this.isTyping()) {
+            this.cooldownUntil = now + 120000;
+            this.claimRewards();
+          }
+        } else this.availSince = 0;
+      } else if (now >= this.nextClaim) {
+        this.nextClaim = now + settings.claimIntervalMin * 60000;
+        if (!this.isTyping()) this.claimRewards();
+      }
+      if (now >= this.nextDrops) {
+        this.nextDrops = now + 5000;
+        if (document.getElementById('rewards-panel')) {
+          this.claimBusy = true;
+          this.claimDrops().then((n) => { if (n > 0) { GUI.playSound('qualityApplied'); GUI.record(T('rewardClaimed')); GUI.notify(T('rewardClaimed'), 'success'); } }).finally(() => { this.claimBusy = false; });
+        }
+      }
+    },
+  };
+
+  /* ============================================================
+   *  STYLES (scoped inside the Shadow Root)
+   * ========================================================== */
+  const PANEL_CSS = `
+:host{all:initial;--kt-accent:#53fc18;--kt-accent-ink:#071003;--kt-dur:.22s;--kt-ease:cubic-bezier(.2,.8,.2,1);--kt-blur:6px;--kt-text-scale:1;--kt-in:kt-in-scale;--kt-out:kt-out-scale}
+*{box-sizing:border-box;font-family:Inter,"Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+:host([data-theme=dark]){--bg:#0d1014;--bg2:#12161c;--card:#171c24;--card2:#1e242e;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);--text:#eef1f5;--muted:#8d97a6;--shadow:0 30px 90px rgba(0,0,0,.65),0 4px 20px rgba(0,0,0,.4);--scrim:rgba(4,6,8,.55)}
+:host([data-theme=light]){--bg:#f6f8fa;--bg2:#eef1f5;--card:#fff;--card2:#f1f4f8;--line:rgba(15,23,35,.10);--line2:rgba(15,23,35,.18);--text:#141a22;--muted:#5d6877;--shadow:0 30px 80px rgba(20,30,45,.28),0 4px 16px rgba(20,30,45,.14);--scrim:rgba(220,226,234,.55)}
+:host([data-contrast]){--line:currentColor;--line2:currentColor;--muted:var(--text)}
+:host([data-theme=light][data-contrast]){--line:#000;--line2:#000}
+:host([data-theme=dark][data-contrast]){--line:#fff;--line2:#fff}
+:host([data-speed=fast]){--kt-dur:.14s}:host([data-speed=slow]){--kt-dur:.42s}
+:host([data-motion=off]){--kt-dur:0s}
+@media (prefers-reduced-motion:reduce){:host{--kt-dur:0s !important}}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--kt-accent);outline-offset:2px}
+.kt-i{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.kt-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* overlay + panel */
+.kt-scrim{position:fixed;inset:0;z-index:2147483640;background:var(--scrim);backdrop-filter:blur(var(--kt-blur));-webkit-backdrop-filter:blur(var(--kt-blur));display:none}
+:host([data-state=open]) .kt-scrim,:host([data-state=closing]) .kt-scrim{display:block;animation:kt-fade var(--kt-dur) linear both}
+:host([data-state=closing]) .kt-scrim{animation-direction:reverse}
+.kt-panel{position:fixed;z-index:2147483641;display:none;width:var(--kt-panel-width,680px);max-width:calc(100vw - 16px);height:min(var(--kt-panel-h,680px),calc(100vh - 16px));flex-direction:column;background:var(--bg);color:var(--text);border:1px solid var(--line2);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;font-size:calc(14px * var(--kt-text-scale))}
+:host([data-state=open]) .kt-panel,:host([data-state=closing]) .kt-panel{display:flex}
+:host([data-state=open]) .kt-panel{animation:var(--kt-in) var(--kt-dur) var(--kt-ease) both}
+:host([data-state=closing]) .kt-panel{animation:var(--kt-out) var(--kt-dur) var(--kt-ease) both}
+:host([data-style=kick]) .kt-panel::before{content:"";position:absolute;inset:0 0 auto 0;height:140px;background:radial-gradient(120% 100% at 0% 0%,color-mix(in srgb,var(--kt-accent) 22%,transparent),transparent 70%);pointer-events:none}
+:host([data-compact]) .kt-card{padding:10px 12px}:host([data-compact]) .kt-row{padding:6px 0}
+
+/* minimal style: flat, square, no glow, dividers instead of cards */
+:host([data-style=minimal]) .kt-panel{border-radius:8px;box-shadow:0 10px 32px rgba(0,0,0,.32)}
+:host([data-style=minimal]) .kt-panel::before{display:none}
+:host([data-style=minimal]) .kt-logo{border-radius:4px;animation:none !important;box-shadow:none}
+:host([data-style=minimal]) .kt-head{padding-bottom:10px}
+:host([data-style=minimal]) .kt-ib,:host([data-style=minimal]) .kt-btn,:host([data-style=minimal]) .kt-input,:host([data-style=minimal]) .kt-dd-btn,:host([data-style=minimal]) .kt-search input{border-radius:5px}
+:host([data-style=minimal]) .kt-rail{background:transparent}
+:host([data-style=minimal]) .kt-nav{border-radius:4px}
+:host([data-style=minimal]) .kt-nav[aria-current=page]{background:transparent;box-shadow:none;color:var(--kt-accent)}
+:host([data-style=minimal]) .kt-nav[aria-current=page]::before{left:-8px;top:4px;bottom:4px}
+:host([data-style=minimal]) .kt-card{background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:12px 2px}
+:host([data-style=minimal]) .kt-card:hover{transform:none;box-shadow:none}
+:host([data-style=minimal]) .kt-card h3{color:var(--text);text-transform:none;letter-spacing:0;font-size:.95em;font-weight:700}
+:host([data-style=minimal]) .kt-group{letter-spacing:.04em}
+:host([data-style=minimal]) .kt-chip,:host([data-style=minimal]) .kt-fxb,:host([data-style=minimal]) .kt-preset{border-radius:5px;background:transparent}
+:host([data-style=minimal]) .kt-chip[aria-pressed=true],:host([data-style=minimal]) .kt-fxb[aria-pressed=true],:host([data-style=minimal]) .kt-preset[aria-pressed=true]{background:transparent;color:var(--kt-accent);border-color:var(--kt-accent);box-shadow:none}
+:host([data-style=minimal]) .kt-seg{border-radius:5px;background:transparent}
+:host([data-style=minimal]) .kt-seg button{border-radius:3px}
+:host([data-style=minimal]) .kt-seg button[aria-pressed=true]{background:transparent;color:var(--kt-accent);box-shadow:inset 0 -2px 0 var(--kt-accent)}
+:host([data-style=minimal]) .kt-switch{border-radius:5px}
+:host([data-style=minimal]) .kt-switch i{border-radius:3px}
+:host([data-style=minimal]) .kt-item,:host([data-style=minimal]) .kt-stage,:host([data-style=minimal]) .kt-mock,:host([data-style=minimal]) .kt-dialog{border-radius:6px}
+:host([data-style=minimal]) .kt-stage{background:var(--card)}
+:host([data-style=minimal]) .kt-av{border-radius:6px}
+:host([data-style=minimal]) .kt-toast{border-radius:6px}
+:host([data-style=minimal]) .kt-range::-webkit-slider-thumb{border-radius:3px}
+
+/* header */
+.kt-head{position:relative;display:flex;align-items:center;gap:12px;padding:14px 14px 12px 16px;cursor:grab;user-select:none;touch-action:none}
+.kt-head.kt-dragging{cursor:grabbing}
+.kt-logo{width:34px;height:34px;border-radius:10px;background:var(--kt-accent);color:var(--kt-accent-ink);display:grid;place-items:center;font-weight:900;font-size:18px;flex:none;position:relative}
+:host([data-indicator=glow]) .kt-logo{animation:kt-glow 2.8s ease-in-out infinite}
+:host([data-indicator=pulse]) .kt-logo{animation:kt-pulse 1.8s ease-in-out infinite}
+:host([data-indicator=breathe]) .kt-logo{animation:kt-breathe 4s ease-in-out infinite}
+.kt-titlebox{min-width:0;flex:1}
+.kt-title{font-weight:800;font-size:1.05em;letter-spacing:-.01em;overflow-wrap:anywhere;line-height:1.2}
+.kt-sub{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:.82em;margin-top:2px;min-width:0}
+.kt-sub span{overflow-wrap:anywhere;line-height:1.25}
+.kt-dot{width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+.kt-dot[data-s=ok]{background:var(--kt-accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--kt-accent) 25%,transparent)}
+.kt-dot[data-s=busy]{background:#ffb020;animation:kt-pulse 1s infinite}
+.kt-dot[data-s=bad]{background:#ff4d6d}
+.kt-ver{font-size:.72em;font-weight:700;padding:2px 7px;border-radius:99px;background:var(--card2);border:1px solid var(--line);color:var(--muted)}
+.kt-ib{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;padding:0;flex:none;color:var(--muted);transition:all var(--kt-dur) var(--kt-ease)}
+.kt-ib:hover{color:var(--text);border-color:var(--line2)}
+.kt-ib[aria-pressed=true]{background:color-mix(in srgb,#ffb020 20%,var(--card));color:#ffb020;border-color:#ffb020}
+.kt-ib.kt-danger:hover{color:#ff4d6d;border-color:#ff4d6d}
+
+/* search */
+.kt-search{position:relative;margin:0 14px 10px}
+.kt-search .kt-i{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.kt-search input{width:100%;height:36px;padding:0 12px 0 34px;border-radius:11px;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:.95em}
+.kt-search .kt-search-clear{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:26px;height:26px;padding:0;border:0;border-radius:7px;background:transparent;color:var(--muted);font-size:18px;line-height:1;cursor:pointer}
+.kt-search .kt-search-clear:hover{background:var(--line);color:var(--text)}
+.kt-search .kt-search-clear[hidden]{display:none}
+.kt-search:has(.kt-search-clear:not([hidden])) input{padding-right:38px}
+.kt-search input::placeholder{color:var(--muted)}
+
+/* body */
+.kt-main{position:relative;flex:1;min-height:0;display:flex;border-top:1px solid var(--line)}
+.kt-rail{width:clamp(184px,36%,232px);flex:none;padding:10px 8px;overflow:auto;border-right:1px solid var(--line);background:var(--bg2);scrollbar-width:thin}
+.kt-group{overflow-wrap:anywhere;font-size:.68em;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding:12px 10px 5px}
+.kt-group:first-child{padding-top:4px}
+.kt-nav{position:relative;display:flex;align-items:center;gap:8px;width:100%;padding:8px 8px;border:0;border-radius:10px;background:transparent;color:var(--muted);text-align:left;font-weight:600;font-size:.85em;transition:background var(--kt-dur),color var(--kt-dur)}
+.kt-nav:hover{background:var(--card);color:var(--text)}
+.kt-nav[aria-current=page]{background:var(--card);color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}
+.kt-nav[aria-current=page]::before{content:"";position:absolute;left:-8px;top:8px;bottom:8px;width:3px;border-radius:3px;background:var(--kt-accent)}
+.kt-nav[aria-current=page] .kt-i{color:var(--kt-accent)}
+.kt-nav span{min-width:0;overflow-wrap:break-word;word-break:normal;hyphens:auto;line-height:1.2}
+.kt-content{flex:1;min-width:0;overflow:auto;padding:14px;scrollbar-width:thin;scroll-behavior:smooth}
+:host([data-motion=off]) .kt-content{scroll-behavior:auto}
+.kt-page{display:flex;flex-direction:column;gap:12px}
+.kt-content[data-enter=true] .kt-page>.kt-card{animation:kt-rise var(--kt-dur) var(--kt-ease) both}
+.kt-content[data-enter=true] .kt-page>.kt-card:nth-child(3){animation-delay:.04s}.kt-content[data-enter=true] .kt-page>.kt-card:nth-child(4){animation-delay:.08s}.kt-content[data-enter=true] .kt-page>.kt-card:nth-child(n+5){animation-delay:.12s}
+:host([data-motion=off]) .kt-card,:host([data-motion=reduced]) .kt-card{animation:none !important}
+.kt-pagehead{display:flex;align-items:center;gap:8px;margin:0 2px 2px}
+.kt-pagehead h2{overflow-wrap:anywhere;margin:0;font-size:1.15em;font-weight:800;letter-spacing:-.01em;flex:1}
+
+/* cards & rows */
+.kt-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.kt-card[hidden],.kt-row[hidden],.kt-page[hidden]{display:none}
+.kt-card h3{overflow-wrap:anywhere;margin:0 0 4px;display:flex;align-items:center;gap:8px;font-size:.78em;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.kt-card h3 .kt-i{color:var(--kt-accent)}
+.kt-card h3 .kt-grow{flex:1}
+.kt-row{display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:10px 0;position:relative;min-width:0}
+.kt-row+.kt-row{border-top:1px solid var(--line)}
+.kt-row.kt-inline{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px}
+.kt-row-head{display:flex;align-items:center;gap:7px;min-width:0;flex:1 1 0}
+.kt-label{font-weight:600;line-height:1.3;overflow-wrap:anywhere;min-width:0}
+.kt-row>*{min-width:0;max-width:100%}
+.kt-hint{color:var(--muted);font-size:.84em;line-height:1.45;margin:2px 0 0}
+.kt-help{width:18px;height:18px;border-radius:50%;border:1px solid var(--line2);background:transparent;color:var(--muted);font-size:11px;font-weight:800;padding:0;display:grid;place-items:center;flex:none}
+.kt-help:hover,.kt-help[aria-expanded=true]{color:var(--kt-accent);border-color:var(--kt-accent)}
+.kt-helptext{flex-basis:100%;margin:0;overflow-wrap:anywhere;padding:8px 10px;border-radius:9px;background:var(--card2);color:var(--muted);font-size:.84em;line-height:1.45}
+.kt-helptext:not([hidden]){animation:kt-rise var(--kt-dur) var(--kt-ease) both}
+.kt-flash{animation:kt-flash .7s ease-out}
+:host([data-motion=off]) .kt-flash,:host([data-motion=reduced]) .kt-flash{animation:none}
+.kt-disabled{opacity:.45;pointer-events:none}
+
+/* controls */
+.kt-switch{position:relative;width:42px;height:24px;border-radius:99px;border:1px solid var(--line2);background:var(--card2);padding:0;flex:none;transition:background var(--kt-dur),border-color var(--kt-dur)}
+.kt-switch i{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:var(--muted);transition:transform var(--kt-dur) var(--kt-ease),background var(--kt-dur)}
+.kt-switch[aria-checked=true]{background:color-mix(in srgb,var(--kt-accent) 30%,var(--card2));border-color:var(--kt-accent)}
+.kt-switch[aria-checked=true] i{transform:translateX(18px);background:var(--kt-accent)}
+.kt-chips{display:flex;flex-wrap:wrap;gap:6px}
+.kt-chip{max-width:100%;text-align:center;overflow-wrap:anywhere;line-height:1.2;padding:6px 11px;border-radius:99px;border:1px solid var(--line);background:var(--card2);color:var(--muted);font-weight:700;font-size:.88em;display:inline-flex;align-items:center;gap:6px;transition:all var(--kt-dur) var(--kt-ease)}
+.kt-chip:hover{color:var(--text);border-color:var(--line2)}
+.kt-chip[aria-pressed=true]{background:var(--kt-accent);color:var(--kt-accent-ink);border-color:var(--kt-accent)}
+.kt-seg{display:flex;width:100%;padding:3px;border-radius:11px;background:var(--card2);border:1px solid var(--line);gap:2px;flex-wrap:wrap}
+.kt-seg button{flex:1 1 auto;min-width:0;text-align:center;overflow-wrap:anywhere;line-height:1.2;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;font-weight:700;font-size:.88em;transition:all var(--kt-dur)}
+.kt-seg button[aria-pressed=true]{background:var(--kt-accent);color:var(--kt-accent-ink)}
+.kt-btn{max-width:100%;text-align:center;overflow-wrap:anywhere;line-height:1.2;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:8px 13px;border-radius:10px;border:1px solid var(--line2);background:var(--card2);color:var(--text);font-weight:700;font-size:.9em;transition:all var(--kt-dur) var(--kt-ease)}
+.kt-btn:hover{border-color:var(--kt-accent);color:var(--kt-accent)}
+.kt-btn.kt-primary{background:var(--kt-accent);border-color:var(--kt-accent);color:var(--kt-accent-ink)}
+.kt-btn.kt-primary:hover{filter:brightness(1.08);color:var(--kt-accent-ink)}
+.kt-btn.kt-danger:hover{border-color:#ff4d6d;color:#ff4d6d}
+.kt-btn:disabled{opacity:.4;pointer-events:none}
+.kt-btns{display:flex;flex-wrap:wrap;gap:8px}
+.kt-sm{padding:5px 9px;font-size:.82em}
+.kt-input{height:34px;padding:0 10px;border-radius:9px;border:1px solid var(--line2);background:var(--card2);color:var(--text);min-width:0;width:100%}
+.kt-input.kt-n{width:64px;text-align:center}
+kbd{flex:none;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85em;padding:4px 8px;border-radius:7px;background:var(--card2);border:1px solid var(--line2);border-bottom-width:2px;white-space:nowrap}
+kbd[data-capturing=true]{border-color:var(--kt-accent);color:var(--kt-accent);animation:kt-pulse 1s infinite}
+.kt-rangebox{display:flex;align-items:center;gap:12px;width:100%}
+.kt-rangebox output{min-width:54px;text-align:right;font-variant-numeric:tabular-nums;font-weight:700;font-size:.9em}
+.kt-range{-webkit-appearance:none;appearance:none;flex:1;height:6px;border-radius:99px;background:linear-gradient(90deg,var(--kt-accent) var(--p,50%),var(--card2) var(--p,50%));border:1px solid var(--line);outline-offset:6px}
+.kt-range::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--kt-accent);box-shadow:0 2px 6px rgba(0,0,0,.4);cursor:pointer;transition:transform var(--kt-dur)}
+.kt-range:active::-webkit-slider-thumb{transform:scale(1.18)}
+.kt-range::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--kt-accent);cursor:pointer}
+.kt-swatches{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.kt-keyrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.kt-sw{width:26px;height:26px;border-radius:50%;border:2px solid transparent;padding:0;background:var(--c);box-shadow:inset 0 0 0 2px var(--card)}
+.kt-sw[aria-pressed=true]{border-color:var(--text)}
+.kt-color{width:34px;height:26px;padding:0;border:1px solid var(--line2);border-radius:8px;background:none;cursor:pointer}
+
+/* quality grid */
+.kt-q{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:6px;width:100%}
+.kt-q .kt-chip{justify-content:center;border-radius:10px;padding:8px 6px}
+
+/* dropdown */
+.kt-dd{position:relative;width:100%}
+.kt-dd-btn{width:100%;text-align:left;display:flex;align-items:center;gap:9px;min-width:0;padding:7px 11px;border-radius:10px;border:1px solid var(--line2);background:var(--card2);font-weight:600}
+.kt-dd-btn .kt-chev{margin-left:auto;color:var(--muted)}
+.kt-flag{width:22px;height:15px;border-radius:3px;overflow:hidden;display:inline-block;flex:none;box-shadow:0 0 0 1px var(--line2)}
+.kt-flag svg{width:100%;height:100%;display:block}
+.kt-dd-list{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:5;max-height:240px;overflow:auto;margin:0;padding:5px;list-style:none;border-radius:12px;border:1px solid var(--line2);background:var(--card);box-shadow:var(--shadow);display:none}
+.kt-dd[data-open=true] .kt-dd-list{display:block;animation:kt-rise var(--kt-dur) var(--kt-ease) both}
+.kt-dd-item{display:flex;align-items:center;gap:9px;padding:7px 9px;border-radius:8px;cursor:pointer;font-weight:600;overflow-wrap:anywhere}
+.kt-dd-item:hover,.kt-dd-item[aria-selected=true]{background:var(--card2)}
+.kt-dd-item[aria-selected=true]{color:var(--kt-accent)}
+
+/* hover effects */
+:host([data-hover=lift]) .kt-card:hover{transform:translateY(-1px);border-color:var(--line2)}
+:host([data-hover=glow]) .kt-card:hover{border-color:var(--kt-accent);box-shadow:0 0 0 1px var(--kt-accent),0 0 22px -6px var(--kt-accent)}
+:host([data-hover=lift]) .kt-chip:hover,:host([data-hover=lift]) .kt-btn:hover{transform:translateY(-1px)}
+:host([data-hover=glow]) .kt-chip:hover,:host([data-hover=glow]) .kt-btn:hover{box-shadow:0 0 14px -3px var(--kt-accent)}
+.kt-card{transition:transform var(--kt-dur) var(--kt-ease),border-color var(--kt-dur),box-shadow var(--kt-dur)}
+
+/* lists */
+.kt-list{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.kt-item{border:1px solid var(--line);border-radius:12px;background:var(--card2);padding:10px 12px}
+.kt-item-top{display:flex;align-items:center;gap:10px}
+.kt-av{position:relative;overflow:hidden;width:34px;height:34px;border-radius:50%;background:var(--kt-accent);color:var(--kt-accent-ink);display:grid;place-items:center;font-weight:800;flex:none}
+.kt-av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kt-item-main{flex:1;min-width:0}
+.kt-item-name{font-weight:700;display:flex;gap:6px;align-items:center;flex-wrap:wrap;min-width:0}
+.kt-item-name a{color:inherit;text-decoration:none;overflow-wrap:anywhere}
+.kt-item-name a:hover{color:var(--kt-accent)}
+.kt-item-meta{color:var(--muted);font-size:.82em;margin-top:2px;overflow-wrap:anywhere}
+.kt-tag{font-size:.7em;font-weight:800;padding:2px 7px;border-radius:99px;background:color-mix(in srgb,var(--kt-accent) 18%,transparent);color:var(--kt-accent);white-space:nowrap}
+.kt-tag.kt-bad{background:rgba(255,77,109,.16);color:#ff4d6d}
+.kt-item-actions{display:flex;gap:5px;flex:none}
+.kt-edit{margin-top:10px;padding-top:6px;border-top:1px dashed var(--line2)}
+.kt-empty{color:var(--muted);text-align:center;padding:16px 8px;font-size:.9em}
+.kt-log{max-height:190px;overflow:auto;margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px}
+.kt-log li{display:flex;gap:9px;font-size:.84em;padding:6px 9px;border-radius:8px;background:var(--card2)}
+.kt-log time{color:var(--muted);flex:none;font-variant-numeric:tabular-nums}
+.kt-log li[data-k=error]{color:#ff8296}
+.kt-kv{display:grid;grid-template-columns:auto 1fr;gap:7px 14px;font-size:.9em;margin:6px 0 2px}
+.kt-kv dt{color:var(--muted)}.kt-kv dd{margin:0;font-weight:600;word-break:break-word}
+.kt-prog{height:6px;border-radius:99px;background:var(--card2);overflow:hidden;margin-top:8px}
+.kt-prog i{display:block;height:100%;width:var(--w,0%);background:var(--kt-accent);transition:width 1s linear}
+.kt-timer{font-size:1.7em;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+
+/* motion page */
+.kt-stage{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:radial-gradient(90% 120% at 50% 0%,color-mix(in srgb,var(--kt-accent) 18%,var(--card)),var(--card));padding:16px;display:flex;flex-direction:column;align-items:center;gap:12px;min-height:170px}
+.kt-mock{width:min(100%,300px);border-radius:14px;border:1px solid var(--line2);background:var(--bg);box-shadow:var(--shadow);padding:12px;display:flex;flex-direction:column;gap:10px}
+.kt-mock.kt-replay{animation:var(--kt-in) var(--kt-dur) var(--kt-ease) both}
+.kt-mock-top{display:flex;align-items:center;gap:8px}
+.kt-mock-top b{flex:1;height:8px;border-radius:4px;background:var(--line2)}
+.kt-mock-dot{width:14px;height:14px;border-radius:50%;background:var(--kt-accent)}
+:host([data-indicator=glow]) .kt-mock-dot{animation:kt-glow 2.8s infinite}
+:host([data-indicator=pulse]) .kt-mock-dot{animation:kt-pulse 1.8s infinite}
+:host([data-indicator=breathe]) .kt-mock-dot{animation:kt-breathe 4s infinite}
+.kt-mock-row{display:flex;gap:6px;align-items:center}
+.kt-mock-bar{height:6px;flex:1;border-radius:99px;background:var(--card2);overflow:hidden}
+.kt-mock-bar i{display:block;height:100%;width:62%;background:var(--kt-accent);border-radius:99px}
+.kt-presets{display:grid;grid-template-columns:1fr;gap:8px}
+.kt-preset{min-width:0;text-align:left;overflow-wrap:break-word;line-height:1.2;position:relative;border:1px solid var(--line);background:var(--card2);border-radius:14px;padding:8px 14px;display:flex;flex-direction:row;align-items:center;gap:12px;font-weight:700;font-size:.9em;color:var(--muted);transition:all var(--kt-dur) var(--kt-ease)}
+.kt-preset:hover{color:var(--text);border-color:var(--line2)}
+.kt-preset[aria-pressed=true]{color:var(--text);border-color:var(--kt-accent);background:color-mix(in srgb,var(--kt-accent) 14%,var(--card2));box-shadow:0 0 0 1px var(--kt-accent)}
+.kt-glyph{width:54px;height:32px;display:flex;align-items:center;justify-content:center;gap:5px}
+.kt-glyph i{width:9px;height:9px;border-radius:50%;background:var(--kt-accent)}
+.kt-glyph[data-g=full] i{animation:kt-bounce 1s ease-in-out infinite}
+.kt-glyph[data-g=full] i:nth-child(2){animation-delay:.12s}.kt-glyph[data-g=full] i:nth-child(3){animation-delay:.24s}
+.kt-glyph[data-g=reduced] i{animation:kt-breathe 2.6s ease-in-out infinite}
+.kt-glyph[data-g=off] i{opacity:.5;background:var(--muted)}
+.kt-fx{display:grid;grid-template-columns:1fr;gap:6px;width:100%}
+.kt-fxb{min-width:0;text-align:left;overflow-wrap:break-word;hyphens:auto;line-height:1.2;border:1px solid var(--line);background:var(--card2);border-radius:12px;padding:7px 12px;display:flex;flex-direction:row;align-items:center;gap:12px;font-weight:700;font-size:.88em;color:var(--muted);transition:all var(--kt-dur)}
+.kt-fxb:hover{color:var(--text);border-color:var(--line2)}
+.kt-fxb[aria-pressed=true]{color:var(--text);border-color:var(--kt-accent);background:color-mix(in srgb,var(--kt-accent) 14%,var(--card2))}
+.kt-fxb svg{width:34px;height:24px;overflow:visible;flex:none}
+.kt-fxb .a{fill:var(--kt-accent);stroke:none}.kt-fxb .b{fill:none;stroke:var(--muted);stroke-width:1.5}
+
+.kt-steps{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.kt-steps li{display:flex;gap:10px;align-items:flex-start;line-height:1.4;overflow-wrap:anywhere}
+.kt-steps b{flex:none;width:22px;height:22px;border-radius:50%;background:var(--kt-accent);color:var(--kt-accent-ink);display:grid;place-items:center;font-size:.8em}
+:host([data-style=minimal]) .kt-steps b{border-radius:4px}
+
+/* icon animations (switchable) */
+:host([data-icons]) .kt-nav.kt-pop .kt-i{animation:kt-iconpop .55s var(--kt-ease)}
+:host([data-icons]) .kt-ib.kt-spin .kt-i{animation:kt-spin .65s var(--kt-ease)}
+:host([data-icons]) .kt-help.kt-wiggle{animation:kt-wiggle .55s var(--kt-ease)}
+:host([data-icons]) .kt-nav:hover .kt-i{transform:scale(1.12);transition:transform var(--kt-dur) var(--kt-ease)}
+:host([data-icons]) .kt-ib:hover .kt-i{transform:scale(1.15)}
+.kt-nav .kt-i,.kt-ib .kt-i{transition:transform var(--kt-dur) var(--kt-ease)}
+
+/* confirm dialog */
+.kt-modal{position:absolute;inset:0;z-index:20;background:var(--scrim);backdrop-filter:blur(4px);display:grid;place-items:center;padding:20px;animation:kt-fade var(--kt-dur) linear both}
+.kt-dialog{width:min(100%,380px);background:var(--card);color:var(--text);border:1px solid var(--line2);border-radius:16px;padding:18px;box-shadow:var(--shadow);animation:kt-in-pop var(--kt-dur) var(--kt-ease) both}
+.kt-dialog p{margin:0 0 16px;line-height:1.5;overflow-wrap:anywhere;font-weight:600}
+.kt-dialog .kt-btns{justify-content:flex-end}
+
+/* floating quick-claim button */
+.kt-cw{--cw:48px;position:fixed;z-index:2147483639;display:flex;opacity:var(--cw-opacity,.9);transition:opacity var(--kt-dur),transform var(--kt-dur) var(--kt-ease);touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}
+.kt-cw[data-size=s]{--cw:38px}.kt-cw[data-size=l]{--cw:60px}
+.kt-cw:hover,.kt-cw[data-available=true],.kt-cw[data-busy=true]{opacity:1}
+.kt-cw[hidden]{display:none !important}
+.kt-cw:hover{transform:translateY(-2px)}
+.kt-cw.kt-dragging{cursor:grabbing;transform:scale(1.07);transition:none}
+.kt-cw-static{position:relative;z-index:auto;cursor:default;opacity:var(--cw-opacity,.9) !important}
+.kt-cw-static:hover{transform:none}
+.kt-cw-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:var(--cw);min-width:var(--cw);padding:0;border:1px solid transparent;color:var(--kt-accent-ink);background:var(--kt-accent);font-weight:800;font-size:calc(var(--cw) * .27);cursor:inherit;box-shadow:0 8px 22px rgba(0,0,0,.42)}
+.kt-cw-btn .kt-i{width:calc(var(--cw) * .5);height:calc(var(--cw) * .5);stroke-width:1.9}
+.kt-cw[data-design=orb] .kt-cw-btn{border-radius:50%;background:radial-gradient(circle at 30% 25%,color-mix(in srgb,var(--kt-accent) 62%,#fff),var(--kt-accent) 62%);box-shadow:0 8px 22px rgba(0,0,0,.42),0 0 18px -4px var(--kt-accent)}
+.kt-cw[data-design=pill] .kt-cw-btn{border-radius:99px;padding:0 calc(var(--cw) * .42) 0 calc(var(--cw) * .3)}
+.kt-cw[data-design=glass] .kt-cw-btn{border-radius:calc(var(--cw) * .34);background:color-mix(in srgb,var(--bg) 50%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--kt-accent);border-color:color-mix(in srgb,var(--kt-accent) 55%,transparent)}
+.kt-cw[data-design=flat] .kt-cw-btn{border-radius:calc(var(--cw) * .2);background:var(--kt-accent);color:var(--kt-accent-ink);box-shadow:none}
+.kt-cw-label{white-space:nowrap;line-height:1}
+.kt-cw-img{width:calc(var(--cw) * .6);height:calc(var(--cw) * .6);object-fit:contain;pointer-events:none;-webkit-user-drag:none}
+.kt-cw[data-fill=true] .kt-cw-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.kt-cw[data-fill=true] .kt-cw-check{z-index:1;background:var(--kt-accent);color:var(--kt-accent-ink);border-radius:50%;padding:3px}
+.kt-thumb{width:1.35em;height:1.35em;object-fit:contain;border-radius:4px;display:block}
+.kt-cw-ring{position:absolute;inset:-4px;border-radius:inherit;border:2px solid var(--kt-accent);opacity:0;pointer-events:none}
+.kt-cw[data-available=true] .kt-cw-ring{opacity:1;animation:kt-ring 1.6s ease-out infinite}
+.kt-cw-dot{position:absolute;top:-3px;right:-3px;width:13px;height:13px;border-radius:50%;background:#ff4d6d;border:2px solid var(--bg);display:none}
+.kt-cw[data-available=true] .kt-cw-dot{display:block}
+.kt-cw-check{position:absolute;opacity:0;transform:scale(.4);transition:opacity var(--kt-dur),transform var(--kt-dur) var(--kt-ease)}
+.kt-cw[data-flash=ok] .kt-cw-btn>.kt-i:not(.kt-cw-check),.kt-cw[data-flash=ok] .kt-cw-img{opacity:0}
+.kt-cw[data-flash=ok] .kt-cw-check{opacity:1;transform:scale(1)}
+.kt-cw[data-flash=none] .kt-cw-btn{animation:kt-shake .4s}
+.kt-cw[data-busy=true] .kt-cw-btn>.kt-i:not(.kt-cw-check),.kt-cw[data-busy=true] .kt-cw-img{animation:kt-spin2 .9s linear infinite}
+.kt-cw-stage{display:flex;justify-content:center;padding:20px;margin:8px 0 2px;border-radius:12px;border:1px solid var(--line);background:radial-gradient(90% 140% at 50% 0%,color-mix(in srgb,var(--kt-accent) 14%,var(--card2)),var(--card2))}
+.kt-iconchip{padding:8px 11px}.kt-iconchip .kt-i{width:1.35em;height:1.35em}
+:host([data-motion=off]) .kt-cw-ring,:host([data-motion=reduced]) .kt-cw-ring{animation:none}
+@media (prefers-reduced-motion:reduce){.kt-cw-ring,.kt-cw-btn .kt-i,.kt-cw-btn{animation:none !important}}
+
+/* toast */
+.kt-toast{position:fixed;z-index:2147483647;top:20px;right:20px;max-width:min(420px,calc(100vw - 24px));display:flex;gap:10px;align-items:flex-start;padding:11px 14px;border-radius:13px;background:var(--bg);color:var(--text);border:1px solid var(--line2);border-left:4px solid var(--kt-accent);box-shadow:var(--shadow);font-size:calc(14px * var(--kt-toast-scale,1));font-weight:600;line-height:1.4;opacity:0;pointer-events:none;transform:translateY(-8px) scale(.98);transition:opacity var(--kt-dur),transform var(--kt-dur) var(--kt-ease);cursor:grab;user-select:none;touch-action:none}
+.kt-toast[data-visible=true]{opacity:var(--kt-toast-opacity,.95);pointer-events:auto;transform:none}
+.kt-toast[data-kind=error]{border-left-color:#ff4d6d}
+.kt-toast[data-kind=error] .kt-i{color:#ff4d6d}.kt-toast .kt-i{color:var(--kt-accent);margin-top:2px}
+.kt-toast[data-dragging=true]{cursor:grabbing}
+:host([data-theme=dark]) .kt-toast,:host([data-theme=light]) .kt-toast{--shadow:0 12px 40px rgba(0,0,0,.45)}
+
+.kt-foot{padding:8px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:.8em;display:flex;justify-content:space-between;gap:10px;background:var(--bg2)}
+
+@media (max-width:640px){
+  .kt-main{flex-direction:column}
+  .kt-rail{width:auto;display:flex;gap:4px;overflow-x:auto;padding:6px;border-right:0;border-bottom:1px solid var(--line)}
+  .kt-group{display:none}.kt-nav{width:auto;flex:none}.kt-nav[aria-current=page]::before{display:none}
+}
+
+@keyframes kt-fade{from{opacity:0}to{opacity:1}}
+@keyframes kt-in-none{from{opacity:1}to{opacity:1}}@keyframes kt-out-none{from{opacity:1}to{opacity:1}}
+@keyframes kt-in-fade{from{opacity:0}to{opacity:1}}@keyframes kt-out-fade{from{opacity:1}to{opacity:0}}
+@keyframes kt-in-slide{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}@keyframes kt-out-slide{from{opacity:1;transform:none}to{opacity:0;transform:translateY(22px)}}
+@keyframes kt-in-scale{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}@keyframes kt-out-scale{from{opacity:1;transform:none}to{opacity:0;transform:scale(.94)}}
+@keyframes kt-in-pop{0%{opacity:0;transform:scale(.82) translateY(10px)}60%{opacity:1;transform:scale(1.035)}100%{transform:none}}@keyframes kt-out-pop{from{opacity:1;transform:none}to{opacity:0;transform:scale(.9) translateY(8px)}}
+@keyframes kt-iconpop{0%{transform:scale(1) rotate(0)}35%{transform:scale(1.5) rotate(-14deg)}70%{transform:scale(.88) rotate(8deg)}100%{transform:none}}
+@keyframes kt-spin{to{transform:rotate(-360deg)}}
+@keyframes kt-wiggle{0%,100%{transform:rotate(0) scale(1)}25%{transform:rotate(-22deg) scale(1.25)}75%{transform:rotate(22deg) scale(1.25)}}
+@keyframes kt-ring{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.3);opacity:0}}
+@keyframes kt-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@keyframes kt-spin2{to{transform:rotate(360deg)}}
+@keyframes kt-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes kt-flash{0%{background:color-mix(in srgb,var(--kt-accent) 24%,transparent)}100%{background:transparent}}
+@keyframes kt-glow{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--kt-accent) 0%,transparent)}50%{box-shadow:0 0 18px 2px color-mix(in srgb,var(--kt-accent) 65%,transparent)}}
+@keyframes kt-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+@keyframes kt-breathe{0%,100%{opacity:1}50%{opacity:.55}}
+@keyframes kt-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+`;
+
+  /* ============================================================
+   *  ICONS
+   * ========================================================== */
+  const ICONS = {
+    play: '<path d="M8 5.5v13l11-6.5z"/>',
+    users: '<circle cx="9" cy="8" r="3.2"/><path d="M3 19c.6-3.3 3-5 6-5s5.4 1.7 6 5"/><path d="M16 5.4a3.2 3.2 0 0 1 0 5.2M17.5 14.4c2 .6 3.1 2.2 3.5 4.6"/>',
+    sliders: '<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',
+    bell: '<path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 21h4"/>',
+    music: '<path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/>',
+    palette: '<path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-1 1.4-2-.7-1.2 0-2.6 1.6-2.6H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="8" r="1"/>',
+    sparkles: '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
+    keyboard: '<rect x="2.5" y="6" width="19" height="12" rx="2.5"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/>',
+    pulse: '<path d="M3 12h4l2.5-6 4 12 2.5-6H21"/>',
+    info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
+    search: '<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4-4"/>',
+    close: '<path d="M6 6l12 12M18 6L6 18"/>',
+    pause: '<path d="M8 5v14M16 5v14"/>',
+    pin: '<path d="M9 4h6l-1 5 3 3v2H7v-2l3-3z"/><path d="M12 14v6"/>',
+    trash: '<path d="M4 7h16M10 4h4M6 7l1 13h10l1-13M10 11v6M14 11v6"/>',
+    edit: '<path d="M4 20h4L19 9l-4-4L4 16z"/>',
+    ext: '<path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/>',
+    check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+    alert: '<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h.01"/>',
+    reset: '<path d="M4 12a8 8 0 1 0 2.6-5.9L4 8.5"/><path d="M4 4v4.5h4.5"/>',
+    undo: '<path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+    copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>',
+    expand: '<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>',
+    clock: '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 3h6"/>',
+    download: '<path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 20h14"/>',
+    upload: '<path d="M12 15V4M7.5 8.5L12 4l4.5 4.5M5 20h14"/>',
+    volume: '<path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/>',
+    hd: '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7.5 9.5v5M11 9.5v5M7.5 12H11M14 9.5v5h1.8a2.5 2.5 0 0 0 0-5z"/>',
+    gauge: '<path d="M4 17a8 8 0 1 1 16 0"/><path d="M12 17l4-5"/>',
+    bolt: '<path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/>',
+    chev: '<path d="M6 9l6 6 6-6"/>',
+    link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/>',
+    play2: '<path d="M7 5l12 7-12 7z"/>',
+    gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8"/><path d="M12 8C10.5 4 6 4 6 6.8 6 8.6 9 8 12 8zm0 0c1.5-4 6-4 6-1.2C18 8.6 15 8 12 8z"/>',
+    crown: '<path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/>',
+    star: '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+    coin: '<circle cx="12" cy="12" r="9"/><path d="M14.5 9.2C14 8.4 13.1 8 12 8c-1.4 0-2.5.7-2.5 1.8 0 2.7 5 1.2 5 4 0 1.5-1.1 2.2-2.5 2.2-1.2 0-2.2-.5-2.6-1.4M12 6.5V8m0 8v1.5"/>',
+  };
+  const I = (name) => `<svg class="kt-i" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name] || ''}</svg>`;
+
+  /* ============================================================
+   *  UI BUILDING BLOCKS
+   * ========================================================== */
+  const fmtValue = (fmt, raw) => {
+    const n = Number(raw);
+    if (fmt === 'pct') return `${Math.round(n)}%`;
+    if (fmt === 'px') return `${Math.round(n)}px`;
+    if (fmt === 'sec') return `${(n / 1000).toFixed(1)}s`;
+    return String(raw);
+  };
+  const helpBtn = (key) => `<button type="button" class="kt-help" data-help="${esc(key)}" aria-expanded="false" aria-label="${esc(T('helpButton'))}">?</button>`;
+  /** Search helpers: accent-insensitive, and every label is also indexed under its English text,
+   *  so "volume" finds the setting even when the interface is in another language. */
+  const normSearch = (s) => String(s ?? '').toLowerCase().normalize('NFD').replace(/\p{M}/gu, '');
+  let reverseDict = null;
+  function englishOf(label) {
+    if (String(settings.language).startsWith('en')) return '';
+    if (!reverseDict || reverseDict.lang !== settings.language) {
+      const map = new Map(); for (const [k, v] of Object.entries(dictFor(settings.language))) map.set(v, k);
+      reverseDict = { lang: settings.language, map };
+    }
+    const plain = String(label).replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+    const key = reverseDict.map.get(plain);
+    return key ? (TR.en[key] || '') : '';
+  }
+  const searchText = (label, helpKey) => normSearch(`${label} ${englishOf(label)} ${helpKey ? `${T(helpKey)} ${t('en', helpKey)}` : ''}`);
+
+  /** Rows are stacked (label above control) so nothing can overlap or clip; only switches sit inline. */
+  function row(key, label, control, { help, inline } = {}) {
+    const helpText = help ? T(help) : '';
+    const isInline = inline ?? /^\s*<button type="button" class="kt-switch"/.test(control);
+    return `<div class="kt-row${isInline ? ' kt-inline' : ''}" data-k="${esc(key)}" data-s="${esc(searchText(label, help))}">
+      <div class="kt-row-head"><span class="kt-label">${label}</span>${help ? helpBtn(key) : ''}</div>${control}${help ? `<p class="kt-helptext" hidden>${esc(helpText)}</p>` : ''}</div>`;
+  }
+  const sw = (attr, key, on, label, extra = '') => `<button type="button" class="kt-switch" role="switch" aria-checked="${!!on}" aria-label="${esc(label)}" ${attr}="${esc(key)}" ${extra}><i></i></button>`;
+  const toggleRow = (key, labelKey, helpKey) => row(key, T(labelKey), sw('data-toggle', key, settings[key], T(labelKey)), { help: helpKey });
+  const chip = (attr, key, value, label, on, extra = '', title = '') => `<button type="button" class="kt-chip" aria-pressed="${on}" ${attr}="${esc(key)}" data-value="${esc(value)}" ${extra} ${title ? `title="${esc(title)}"` : ''}>${label}</button>`;
+  const seg = (attr, key, options, current, extra = '') => `<div class="kt-seg" role="group">${options.map(([v, l]) => `<button type="button" aria-pressed="${String(current) === String(v)}" ${attr}="${esc(key)}" data-value="${esc(v)}" ${extra}>${l}</button>`).join('')}</div>`;
+  const qualityChips = (attr, key, current, extra = '') => `<div class="kt-q">${CONFIG.QUALITIES.map((q) => chip(attr, key, q, q === 'auto' ? 'Auto' : q, current === q, extra, q === 'auto' ? T('qualityAuto') : '')).join('')}</div>`;
+  function range(attr, key, { min, max, step, value, fmt = 'pct', scale = 1, extra = '', label }) {
+    const p = ((value - min) / (max - min)) * 100;
+    return `<div class="kt-rangebox"><input type="range" class="kt-range" ${attr}="${esc(key)}" data-scale="${scale}" data-fmt="${fmt}" min="${min}" max="${max}" step="${step}" value="${value}" style="--p:${p}%" aria-label="${esc(label || key)}" ${extra}><output>${fmtValue(fmt, value)}</output></div>`;
+  }
+  const card = (title, icon, body, tools = '') => `<section class="kt-card" data-s="${esc(searchText(title))}"><h3>${icon ? I(icon) : ''}<span class="kt-grow">${title}</span>${tools}</h3>${body}</section>`;
+  const btn = (act, label, { icon, cls = '', data = '', disabled = false } = {}) => `<button type="button" class="kt-btn ${cls}" data-act="${act}" ${data} ${disabled ? 'disabled' : ''}>${icon ? I(icon) : ''}${label}</button>`;
+  const ib = (act, title, icon, { cls = '', data = '', pressed } = {}) => `<button type="button" class="kt-ib ${cls}" data-act="${act}" ${data} title="${esc(title)}" aria-label="${esc(title)}" ${pressed !== undefined ? `aria-pressed="${pressed}"` : ''}>${I(icon)}</button>`;
+  const timeStr = (at) => { try { return new Date(at).toLocaleTimeString(settings.language, { hour: '2-digit', minute: '2-digit' }); } catch (_) { return ''; } };
+
+  const SECTION_KEYS = {
+    playback: ['autoQualityEnabled', 'autoVolumeEnabled', 'preferredLiveQuality', 'preferredVodQuality', 'qualityFallback', 'volume', 'muted', 'silent', 'playbackRate', 'warnLoudVolume', 'loudVolumeThreshold'],
+    tools: ['autoRecoverStall', 'autoClaimRewards', 'claimWidget', 'claimWidgetIcon', 'claimWidgetStyle', 'claimWidgetSize', 'claimWidgetOpacity', 'claimWidgetAutoHide', 'claimWidgetPos', 'claimMode', 'claimIntervalMin', 'claimDelaySec', 'layoutHideChat', 'layoutCollapseSidebar', 'freezeAlertEnabled', 'freezeSound', 'freezeSeconds'],
+    notifications: ['notificationsEnabled', 'notificationPosition', 'notificationScale', 'notificationDuration', 'notificationOpacity', 'notificationShowIcon', 'doNotDisturb', 'quietFullscreen', 'notificationHistoryEnabled'],
+    sounds: ['soundEffectsEnabled', 'soundVolume', 'soundEvents', 'soundEventVolumes'],
+    appearance: ['theme', 'accentColor', 'panelStyle', 'compactMode', 'backdropBlur', 'textScale', 'highContrast', 'panelPosition'],
+    motion: ['motionPreset', 'motionSpeed', 'openEffect', 'hoverEffect', 'indicatorAnimation', 'iconAnimations'],
+    shortcuts: ['hotkey', 'actionHotkeys'],
+    diagnostics: ['safeMode', 'diagnosticsLogEnabled'],
+  };
+  const PROFILE_FIELD = { preferredLiveQuality: 'liveQuality', preferredVodQuality: 'vodQuality', volume: 'volume', muted: 'muted', silent: 'silent', playbackRate: 'playbackRate' };
+  const QUALITY_KEYS = new Set(['autoQualityEnabled', 'preferredLiveQuality', 'preferredVodQuality', 'qualityFallback', 'safeMode']);
+  const PLAYER_KEYS = new Set(['silent', 'autoQualityEnabled', 'preferredLiveQuality', 'preferredVodQuality', 'qualityFallback', 'autoVolumeEnabled', 'autoRecoverStall', 'safeMode', 'playbackRate']);
+  const LOOK_KEYS = new Set(['theme', 'accentColor', 'panelStyle', 'compactMode', 'backdropBlur', 'textScale', 'highContrast', 'motionPreset', 'motionSpeed', 'openEffect', 'hoverEffect', 'indicatorAnimation', 'iconAnimations', 'notificationScale', 'notificationOpacity']);
+  const WIDGET_ICONS = { gift: 'widgetIconGift', crown: 'widgetIconCrown', star: 'widgetIconStar', bolt: 'widgetIconBolt', coin: 'widgetIconCoin' };
+  const hasCustomIcon = () => settings.claimWidgetIcon === 'custom' && !!settings.claimWidgetCustomIcon;
+  const cwAttrs = () => `data-design="${settings.claimWidgetStyle}" data-size="${settings.claimWidgetSize}" data-fill="${hasCustomIcon() && settings.claimWidgetImageFill && settings.claimWidgetStyle !== 'pill'}"`;
+  const cwIcon = () => (hasCustomIcon() ? `<img class="kt-cw-img" src="${esc(settings.claimWidgetCustomIcon)}" alt="" draggable="false">` : I(settings.claimWidgetIcon === 'custom' ? 'gift' : settings.claimWidgetIcon));
+  const claimWidgetInner = () => `<span class="kt-cw-ring"></span>${cwIcon()}${I('check').replace('kt-i', 'kt-i kt-cw-check')}${settings.claimWidgetStyle === 'pill' ? `<span class="kt-cw-label">${esc(T('claimNowLabel'))}</span>` : ''}<span class="kt-cw-dot"></span>`;
+
+  /** Writes a player preference to the active channel profile (if any) or to the global settings. */
+  function setPref(key, value) {
+    const field = PROFILE_FIELD[key];
+    if (field && PlayerSync.profileActive()) PlayerSync.updateProfile({ [field]: value });
+    else persist({ [key]: value }, { undo: true });
+  }
+
+  const FX_ICONS = {
+    none: '<rect class="b" x="6" y="4" width="22" height="16" rx="4"/>',
+    fade: '<rect class="b" x="6" y="4" width="22" height="16" rx="4" stroke-dasharray="3 3"/><rect class="a" x="10" y="8" width="14" height="8" rx="2" opacity=".55"/>',
+    slide: '<rect class="b" x="6" y="9" width="22" height="13" rx="4" stroke-dasharray="3 3"/><rect class="a" x="8" y="3" width="18" height="12" rx="3"/>',
+    scale: '<rect class="b" x="9" y="6" width="16" height="12" rx="3" stroke-dasharray="3 3"/><rect class="a" x="4" y="2" width="26" height="20" rx="4" opacity=".6"/>',
+    pop: '<rect class="b" x="9" y="7" width="16" height="11" rx="3" stroke-dasharray="3 3"/><rect class="a" x="3" y="1" width="28" height="22" rx="5"/>',
+    lift: '<rect class="b" x="6" y="12" width="22" height="10" rx="3"/><rect class="a" x="6" y="5" width="22" height="10" rx="3"/>',
+    glow: '<rect class="a" x="8" y="6" width="18" height="12" rx="4"/><rect class="b" x="4" y="2" width="26" height="20" rx="7" opacity=".6"/>',
+    pulse: '<circle class="a" cx="17" cy="12" r="5"/><circle class="b" cx="17" cy="12" r="9"/>',
+    breathe: '<circle class="a" cx="17" cy="12" r="6" opacity=".55"/><circle class="b" cx="17" cy="12" r="9" stroke-dasharray="2 3"/>',
+    off: '<circle class="b" cx="17" cy="12" r="6"/>',
+  };
+  const fxBtn = (key, value, label, on) => `<button type="button" class="kt-fxb" aria-pressed="${on}" data-set="${key}" data-value="${value}"><svg viewBox="0 0 34 24" aria-hidden="true">${FX_ICONS[value === 'glow' && key === 'indicatorAnimation' ? 'glow' : value] || ''}</svg>${label}</button>`;
+
+  const avatarHtml = (name, url) => `<div class="kt-av">${url ? `<img src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ''}<span>${esc((name || '?')[0].toUpperCase())}</span></div>`;
+
+  /* ============================================================
+   *  PAGES — one function per settings section
+   * ========================================================== */
+  const PAGES = {
+    playback() {
+      const e = PlayerSync.effective();
+      const p = PlayerSync.profileActive();
+      const presetOn = (name) => Object.entries(CONFIG.PRESETS[name]).every(([k, v]) => settings[k] === v);
+      const presetLabels = { bandwidth: 'situationBandwidth', quality: 'situationQuality', quiet: 'situationQuiet', vod: 'situationVod' };
+      const video = PlayerSync.findMainVideo();
+      const volumePercent = Math.round(((video && settings.autoVolumeEnabled === false) ? (video.muted ? 0 : video.volume) : e.volume) * 100);
+      return [
+        !p && !PlayerSync.profile() && PlayerSync.channelKey().startsWith('channel:') ? `<section class="kt-card"><div class="kt-row" style="padding:0"><div class="kt-row-head">${I('users')}<span class="kt-label">${esc(T('channelNudge'))}</span></div>${btn('saveChannel', T('saveChannelButton'), { cls: 'kt-sm kt-primary' })}</div></section>` : '',
+        p ? `<section class="kt-card"><div class="kt-row" style="padding:0"><div class="kt-row-head">${I('users')}<span class="kt-label">${esc(T('channelProfileSummary'))}: ${esc(PlayerSync.channelSlug())}</span></div>${btn('nav', T('savedChannelsLabel'), { cls: 'kt-sm', data: 'data-nav="channels"' })}</div></section>` : '',
+        card(T('presetsLabel'), 'bolt', `<div class="kt-chips" style="margin-top:8px">${Object.keys(CONFIG.PRESETS).map((n) => `<button type="button" class="kt-chip" aria-pressed="${presetOn(n)}" data-act="preset" data-preset="${n}">${esc(T(presetLabels[n]))}</button>`).join('')}</div>`),
+        card(T('titleQuality'), 'hd', [
+          toggleRow('autoQualityEnabled', 'autoQualityLabel', 'helpAutoQuality'),
+          row('preferredLiveQuality', T('qualityLiveLabel'), qualityChips('data-set', 'preferredLiveQuality', e.live), { stack: true, help: 'helpLiveQuality' }),
+          row('preferredVodQuality', T('qualityVodLabel'), qualityChips('data-set', 'preferredVodQuality', e.vod), { stack: true, help: 'helpVodQuality' }),
+          row('qualityFallback', T('qualityFallbackLabel'), seg('data-set', 'qualityFallback', [['lower', T('fallbackLower')], ['auto', T('fallbackAuto')]], settings.qualityFallback), { stack: true, help: 'helpFallback' }),
+        ].join('')),
+        card(T('titleVolume'), 'volume', [
+          toggleRow('autoVolumeEnabled', 'autoVolumeLabel', 'helpAutoVolume'),
+          row('volume', T('preferredVolumeLabel'), range('data-range', 'volume', { min: 0, max: 100, step: 1, value: volumePercent, scale: 0.01, label: T('preferredVolumeLabel') }), { stack: true, help: 'helpVolume' }),
+          row('muted', T('muteLabel'), sw('data-toggle', 'muted', e.muted, T('muteLabel'))),
+          row('silent', T('silentLabel'), sw('data-toggle', 'silent', e.silent, T('silentLabel')), { help: 'silentHelp' }),
+          toggleRow('warnLoudVolume', 'loudWarningLabel'),
+          row('loudVolumeThreshold', T('loudThresholdLabel'), range('data-range', 'loudVolumeThreshold', { min: 60, max: 100, step: 5, value: settings.loudVolumeThreshold, label: T('loudThresholdLabel') }), { stack: true }),
+        ].join('')),
+        card(T('playbackSpeedLabel'), 'gauge', row('playbackRate', T('playbackSpeedLabel'), `<div class="kt-chips">${CONFIG.SPEEDS.map((r) => chip('data-set', 'playbackRate', r, `${r}×`, Number(e.rate) === r)).join('')}</div>`, { stack: true })),
+      ].join('');
+    },
+
+    channels() {
+      const key = PlayerSync.channelKey();
+      const slug = PlayerSync.channelSlug();
+      const p = PlayerSync.profile(key);
+      const f = GUI.channelFilter;
+      const saveBtn = btn('saveChannel', T('saveChannelButton'), { icon: 'check', cls: 'kt-primary' });
+      const profileCount = Object.keys(settings.channelProfiles).length;
+      const steps = `<ol class="kt-steps"><li><b>1</b><span>${esc(T('channelStep1'))}</span></li><li><b>2</b><span>${esc(T('channelStep2'))}</span></li><li><b>3</b><span>${esc(T('channelStep3'))}</span></li></ol>`;
+      let currentBody;
+      if (key === 'kick:home') currentBody = `<p class="kt-hint">${esc(T('channelOpenStreamHint'))}</p>`;
+      else if (!p) currentBody = `<div class="kt-btns" style="margin-top:8px">${saveBtn}</div>` + row('c-excluded', T('excludeChannelLabel'), sw('data-ctoggle', 'excluded', false, T('excludeChannelLabel'), `data-ckey="${esc(key)}"`), { help: 'helpChannelExclude' });
+      else currentBody = [
+        `<div class="kt-row" style="padding-top:4px"><div class="kt-row-head"><span class="kt-tag">${esc(T('channelProfileSummary'))}</span></div><div class="kt-btns">${btn('saveChannel', T('saveChannelButton'), { icon: 'check', cls: 'kt-sm' })}${btn('channelRemove', T('removeChannelSettings'), { icon: 'trash', cls: 'kt-sm kt-danger', data: `data-ckey="${esc(key)}"` })}</div></div>`,
+        row('c-enabled', T('channelUseSaved'), sw('data-ctoggle', 'enabled', p.enabled, T('channelUseSaved'), `data-ckey="${esc(key)}"`), { help: 'helpChannelSettings' }),
+        row('c-excluded', T('excludeChannelLabel'), sw('data-ctoggle', 'excluded', p.excluded, T('excludeChannelLabel'), `data-ckey="${esc(key)}"`), { help: 'helpChannelExclude' }),
+        p.enabled && !p.excluded ? `<div class="kt-edit">${GUI.channelEditor(key, p)}</div>` : '',
+      ].join('');
+      const current = (profileCount === 0 || GUI.showHow ? card(T('channelHowTitle'), 'info', steps) : '') + card(T('currentChannelLabel'), 'users', `<div class="kt-row" data-k="channelNow" data-s="${esc(normSearch(T('currentChannelLabel')))}"><div class="kt-row-head">${avatarHtml(slug, p?.avatar || Extras.findAvatar(slug))}${slug ? `<a class="kt-label" style="color:inherit" href="/${encodeURIComponent(slug)}">${esc(slug)}</a>` : `<span class="kt-label">${esc(T('diagUnknown'))}</span>`}</div></div>` + currentBody);
+
+      let entries = Object.entries(settings.channelProfiles).map(([k, v]) => ({ k, v }));
+      const groups = [...new Set(entries.map((x) => x.v.group).filter(Boolean))];
+      const q = f.q.trim().toLowerCase();
+      entries = entries.filter(({ k, v }) => (!q || `${k} ${v.displayName} ${v.note} ${v.group}`.toLowerCase().includes(q)) && (!f.pinned || v.pinned) && (!f.group || v.group === f.group));
+      entries.sort((a, b) => (b.v.pinned - a.v.pinned) || (f.sort === 'name' ? a.k.localeCompare(b.k) : f.sort === 'used' ? b.v.lastUsed - a.v.lastUsed : b.v.updatedAt - a.v.updatedAt));
+      const items = entries.map(({ k, v }) => {
+        const name = v.displayName || (k.startsWith('channel:') ? k.slice(8) : k);
+        const meta = [T('channelQualitySummary', { live: v.liveQuality, vod: v.vodQuality }), T('channelVolumeSummary', { volume: Math.round(v.volume * 100), mute: v.muted ? T('channelMuted') : T('channelSoundOn') }), T('channelSpeedSummary', { speed: v.playbackRate })];
+        return `<div class="kt-item" data-ckey="${esc(k)}"><div class="kt-item-top">${avatarHtml(name, v.avatar)}
+          <div class="kt-item-main"><div class="kt-item-name">${k.startsWith('channel:') ? `<a href="/${encodeURIComponent(k.slice(8))}">${esc(name)}</a>` : esc(name)}${v.pinned ? `<span class="kt-tag">${esc(T('channelPinned'))}</span>` : ''}${v.silent ? `<span class="kt-tag">${esc(T('silentTag'))}</span>` : ''}${v.excluded ? `<span class="kt-tag kt-bad">${esc(T('channelExcludedStatus'))}</span>` : ''}${v.group ? `<span class="kt-tag">${esc(v.group)}</span>` : ''}${k === key ? `<span class="kt-tag">${esc(T('channelCurrent'))}</span>` : ''}</div>
+          <div class="kt-item-meta">${esc(meta.join(' · '))}</div>${v.note ? `<div class="kt-item-meta">${esc(v.note)}</div>` : ''}</div>
+          <div class="kt-item-actions">${ib('channelPin', v.pinned ? T('channelUnpin') : T('channelPin'), 'pin', { data: `data-ckey="${esc(k)}"`, pressed: v.pinned })}${btn('channelEdit', GUI.editing === k ? T('channelDoneLabel') : T('channelEditLabel'), { icon: 'edit', cls: 'kt-sm', data: `data-ckey="${esc(k)}"` })}${ib('channelRemove', T('removeChannelSettings'), 'trash', { cls: 'kt-danger', data: `data-ckey="${esc(k)}"` })}</div></div>
+          ${GUI.editing === k ? `<div class="kt-edit">${GUI.channelEditor(k, v)}</div>` : ''}</div>`;
+      }).join('');
+      const list = card(T('savedChannelsLabel'), 'users', `
+        <div class="kt-search" style="margin:8px 0 0"><input class="kt-input" style="padding-left:34px" type="search" data-filter="q" value="${esc(f.q)}" placeholder="${esc(T('channelSearchPlaceholder'))}" aria-label="${esc(T('channelSearchPlaceholder'))}">${I('search')}</div>
+        <div class="kt-chips" style="margin-top:10px">${[['recent', 'channelSortRecent'], ['used', 'channelSortUsed'], ['name', 'channelSortName']].map(([v, l]) => `<button type="button" class="kt-chip" aria-pressed="${f.sort === v}" data-fsort="${v}">${esc(T(l))}</button>`).join('')}<button type="button" class="kt-chip" aria-pressed="${f.pinned}" data-fpin="1">${I('pin')}${esc(T('channelFavoritesOnly'))}</button></div>
+        ${groups.length ? `<div class="kt-chips" style="margin-top:8px"><button type="button" class="kt-chip" aria-pressed="${!f.group}" data-fgroup="">${esc(T('channelGroupAll'))}</button>${groups.map((g) => `<button type="button" class="kt-chip" aria-pressed="${f.group === g}" data-fgroup="${esc(g)}">${esc(g)}</button>`).join('')}</div>` : ''}
+        <div class="kt-list">${items || `<div class="kt-empty">${esc(T('noSavedChannels'))}</div>`}</div>
+        <div class="kt-btns" style="margin-top:12px">${btn('channelExport', T('channelBackupExport'), { icon: 'download' })}${btn('channelImport', T('channelBackupImport'), { icon: 'upload' })}</div>`, ib('toggleHow', T('channelHowTitle'), 'info'));
+      return current + list;
+    },
+
+    tools() {
+      const s = GUI.sleep;
+      const sleepBody = s.deadline
+        ? `<div class="kt-row kt-stack" data-k="sleep" data-s="${esc(T('sleepTimerLabel').toLowerCase())}"><div class="kt-timer" id="kt-sleep-time">–</div><div class="kt-hint" id="kt-sleep-end"></div><div class="kt-prog"><i id="kt-sleep-bar"></i></div><div class="kt-btns">${btn('sleepCancel', T('sleepCancelLabel'), { icon: 'close', cls: 'kt-danger' })}</div></div>`
+        : row('sleep', T('sleepTimerLabel'), `<div class="kt-chips">${[15, 30, 45, 60, 90, 120].map((m) => `<button type="button" class="kt-chip" data-act="sleepStart" data-minutes="${m}">${m} ${esc(T('minutesUnit'))}</button>`).join('')}</div>
+            <div class="kt-btns" style="align-items:flex-end"><label class="kt-hint">${esc(T('sleepHoursLabel'))}<br><input class="kt-input kt-n" id="kt-sleep-h" type="number" min="0" max="12" value="1"></label><label class="kt-hint">${esc(T('sleepMinutesLabel'))}<br><input class="kt-input kt-n" id="kt-sleep-m" type="number" min="0" max="59" value="0"></label>${btn('sleepCustom', T('sleepStartLabel'), { icon: 'clock', cls: 'kt-primary' })}</div>`, { stack: true, help: 'helpSleepTimer' });
+      const lay = Extras.layoutState();
+      const layoutSwitch = (key, on, label, which) => row(key, label, sw('data-layout', which, on, label, lay ? '' : 'disabled'));
+      return [
+        card(T('sleepTimerLabel'), 'clock', sleepBody),
+        card(T('layoutTitle'), 'expand', [
+          layoutSwitch('layoutHideChat', lay ? !lay.chat : settings.layoutHideChat, T('hideChatLabel'), 'chat'),
+          layoutSwitch('layoutCollapseSidebar', lay ? !lay.sidebar : settings.layoutCollapseSidebar, T('collapseSidebarLabel'), 'sidebar'),
+        ].join('') + (lay ? '' : `<p class="kt-hint">${esc(T('layoutUnavailable'))}</p>`)),
+        card(T('rewardsTitle'), 'bolt', [
+          toggleRow('autoClaimRewards', 'autoClaimLabel', 'autoClaimHelp'),
+          row('claimMode', T('claimModeLabel'), seg('data-set', 'claimMode', [['notify', T('claimModeNotify')], ['interval', T('claimModeInterval')]], settings.claimMode)),
+          settings.claimMode === 'interval'
+            ? row('claimIntervalMin', T('claimIntervalLabel'), `<div class="kt-chips">${[5, 10, 15, 30, 60].map((n) => chip('data-set', 'claimIntervalMin', n, `${n} ${esc(T('minutesUnit'))}`, settings.claimIntervalMin === n)).join('')}</div>`)
+            : row('claimDelaySec', T('claimDelayLabel'), `<div class="kt-chips">${[0, 5, 15, 30, 60].map((n) => chip('data-set', 'claimDelaySec', n, `${n} ${esc(T('secondsUnit'))}`, settings.claimDelaySec === n)).join('')}</div>`),
+          `<div class="kt-btns" style="margin-top:4px">${btn('claimNow', T('claimNowLabel'), { icon: 'check' })}</div>`,
+        ].join('')),
+        card(T('claimWidgetLabel'), 'gift', [
+          toggleRow('claimWidget', 'claimWidgetLabel', 'claimWidgetHelp'),
+          settings.claimWidget ? [
+            `<div class="kt-cw-stage"><div class="kt-cw kt-cw-static" ${cwAttrs()} data-available="true" style="--cw-opacity:${settings.claimWidgetOpacity}"><button type="button" class="kt-cw-btn" tabindex="-1" aria-hidden="true">${claimWidgetInner()}</button></div></div>`,
+            row('claimWidgetStyle', T('widgetDesignLabel'), seg('data-set', 'claimWidgetStyle', [['orb', T('widgetStyleOrb')], ['pill', T('widgetStylePill')], ['glass', T('widgetStyleGlass')], ['flat', T('widgetStyleFlat')]], settings.claimWidgetStyle)),
+            row('claimWidgetIcon', T('widgetIconLabel'), `<div class="kt-chips">${Object.entries(WIDGET_ICONS).map(([id, k]) => `<button type="button" class="kt-chip kt-iconchip" aria-pressed="${settings.claimWidgetIcon === id}" data-set="claimWidgetIcon" data-value="${id}" title="${esc(T(k))}" aria-label="${esc(T(k))}">${I(id)}</button>`).join('')}${settings.claimWidgetCustomIcon ? `<button type="button" class="kt-chip kt-iconchip" aria-pressed="${settings.claimWidgetIcon === 'custom'}" data-set="claimWidgetIcon" data-value="custom" title="${esc(T('widgetIconCustom'))}" aria-label="${esc(T('widgetIconCustom'))}"><img class="kt-thumb" src="${esc(settings.claimWidgetCustomIcon)}" alt=""></button>` : ''}</div>
+              <div class="kt-btns" style="margin-top:8px">${btn('widgetUpload', T('widgetUpload'), { icon: 'upload' })}${settings.claimWidgetCustomIcon ? btn('widgetRemoveIcon', T('widgetRemoveCustom'), { icon: 'trash', cls: 'kt-danger' }) : ''}</div>
+              <p class="kt-hint">${esc(T('widgetImageTip'))}</p>`),
+            hasCustomIcon() ? toggleRow('claimWidgetImageFill', 'widgetImageFill') : '',
+            row('claimWidgetSize', T('widgetSizeLabel'), seg('data-set', 'claimWidgetSize', [['s', 'S'], ['m', 'M'], ['l', 'L']], settings.claimWidgetSize)),
+            row('claimWidgetOpacity', T('widgetOpacityLabel'), range('data-range', 'claimWidgetOpacity', { min: 30, max: 100, step: 5, value: Math.round(settings.claimWidgetOpacity * 100), scale: 0.01, label: T('widgetOpacityLabel') })),
+            toggleRow('claimWidgetAutoHide', 'widgetAutoHideLabel'),
+            `<p class="kt-hint">${esc(T('widgetDragHint'))}</p><div class="kt-btns" style="margin-top:4px">${btn('widgetReset', T('widgetResetPos'), { icon: 'reset' })}</div>`,
+          ].join('') : '',
+        ].join('')),
+        card(T('freezeAlertLabel'), 'alert', [
+          toggleRow('freezeAlertEnabled', 'freezeAlertLabel'),
+          toggleRow('freezeSound', 'freezeSoundLabel'),
+          row('freezeSeconds', T('freezeThresholdLabel'), `<div class="kt-chips">${[5, 10, 15, 30, 60].map((n) => chip('data-set', 'freezeSeconds', n, `${n} ${esc(T('secondsUnit'))}`, settings.freezeSeconds === n)).join('')}</div>`),
+          toggleRow('autoRecoverStall', 'recoveryLabel'),
+          `<div class="kt-btns" style="margin-top:4px">${btn('freezeTest', T('soundPreviewButton'), { icon: 'play2' })}</div>`,
+        ].join('')),
+        card(T('quickActionsLabel'), 'bolt', `<div class="kt-btns" style="margin-top:8px">${btn('resetQuality', T('resetQuality'), { icon: 'hd' })}${btn('restoreVolume', T('restoreVolume'), { icon: 'volume' })}${btn('reapply', T('resetPlayerLabel'), { icon: 'reset' })}${btn('focusView', T('focusViewLabel'), { icon: 'expand' })}</div>`),
+      ].join('');
+    },
+
+    notifications() {
+      const hist = settings.notificationHistory.slice(0, 8).map((n) => `<li data-k="${n.kind}"><time>${esc(timeStr(n.at))}</time><span>${esc(n.message)}</span></li>`).join('');
+      return [
+        card(T('sectionNotifications'), 'bell', [
+          toggleRow('notificationsEnabled', 'notificationsLabel', 'helpNotifications'),
+          toggleRow('doNotDisturb', 'doNotDisturbLabel'),
+          toggleRow('quietFullscreen', 'quietFullscreenLabel'),
+          toggleRow('notificationShowIcon', 'notificationIconLabel'),
+        ].join('')),
+        card(T('sectionAppearance'), 'palette', [
+          row('notificationScale', T('notificationSizeLabel'), range('data-range', 'notificationScale', { min: 80, max: 140, step: 5, value: Math.round(settings.notificationScale * 100), scale: 0.01, label: T('notificationSizeLabel') }), { stack: true, help: 'helpNotificationSize' }),
+          row('notificationDuration', T('notificationDurationLabel'), range('data-range', 'notificationDuration', { min: 1500, max: 12000, step: 500, value: settings.notificationDuration, fmt: 'sec', label: T('notificationDurationLabel') }), { stack: true, help: 'helpNotificationDuration' }),
+          row('notificationOpacity', T('notificationOpacityLabel'), range('data-range', 'notificationOpacity', { min: 35, max: 100, step: 5, value: Math.round(settings.notificationOpacity * 100), scale: 0.01, label: T('notificationOpacityLabel') }), { stack: true }),
+          `<div class="kt-btns" style="margin-top:6px">${btn('previewToast', T('previewNotification'), { icon: 'play2', cls: 'kt-primary' })}${btn('resetToastPos', T('resetNotificationPosition'), { icon: 'reset' })}</div><p class="kt-hint">${esc(T('helpNotifications'))}</p>`,
+        ].join('')),
+        card(T('notificationHistoryLabel'), 'clock', [
+          toggleRow('notificationHistoryEnabled', 'notificationHistoryEnabledLabel'),
+          hist ? `<ul class="kt-log">${hist}</ul>` : `<div class="kt-empty">${esc(T('notificationHistoryEmpty'))}</div>`,
+          `<div class="kt-btns" style="margin-top:10px">${btn('clearHistory', T('clearNotificationHistory'), { icon: 'trash', disabled: !settings.notificationHistory.length })}</div>`,
+        ].join('')),
+      ].join('');
+    },
+
+    sounds() {
+      const off = !settings.soundEffectsEnabled;
+      const events = CONFIG.SOUND_EVENTS.map(([ev, labelKey]) => `<div class="kt-row ${off ? 'kt-disabled' : ''}" data-k="snd-${ev}" data-s="${esc(T(labelKey).toLowerCase())}">
+        <div class="kt-row-head"><span class="kt-label">${esc(T(labelKey))}</span>${ib('soundPreview', T('soundPreviewButton'), 'play2', { data: `data-event="${ev}"` })}${sw('data-sevent', ev, settings.soundEvents[ev], T(labelKey))}</div>
+        ${range('data-srange', ev, { min: 0, max: 100, step: 5, value: Math.round(settings.soundEventVolumes[ev] * 100), scale: 0.01, label: T('soundEventVolumeLabel') })}</div>`).join('');
+      return [
+        card(T('sectionSounds'), 'music', [
+          toggleRow('soundEffectsEnabled', 'soundEffectsLabel', 'helpSounds'),
+          `<div class="${off ? 'kt-disabled' : ''}">${row('soundVolume', T('soundVolumeLabel'), range('data-range', 'soundVolume', { min: 0, max: 100, step: 5, value: Math.round(settings.soundVolume * 100), scale: 0.01, label: T('soundVolumeLabel') }), { stack: true, help: 'helpSoundVolume' })}</div>`,
+        ].join('')),
+        card(T('soundConfigureLabel'), 'bell', `${events}<p class="kt-hint">${esc(T('soundModalHint'))}</p>`),
+      ].join('');
+    },
+
+    appearance() {
+      const cur = settings.accentColor;
+      const lang = settings.language;
+      return [
+        card(T('themeLabel'), 'palette', [
+          row('theme', T('themeLabel'), seg('data-set', 'theme', [['dark', T('themeDark')], ['light', T('themeLight')]], settings.theme), { help: 'helpTheme' }),
+          row('panelStyle', T('panelStyleLabel'), seg('data-set', 'panelStyle', [['kick', T('panelStyleKick')], ['minimal', T('panelStyleMinimal')]], settings.panelStyle), { help: 'helpPanelStyle' }),
+          row('accentColor', T('accentColorLabel'), `<div class="kt-swatches">${CONFIG.ACCENTS.map((c) => `<button type="button" class="kt-sw" style="--c:${c}" data-set="accentColor" data-value="${c}" aria-pressed="${cur === c}" aria-label="${c}"></button>`).join('')}<input type="color" class="kt-color" data-color="accentColor" value="${esc(cur)}" aria-label="${esc(T('accentColorLabel'))}"></div>`, { help: 'helpAccentColor' }),
+        ].join('')),
+        card(T('sectionAppearance'), 'sliders', [
+          toggleRow('compactMode', 'compactLabel', 'helpCompact'),
+          toggleRow('highContrast', 'contrastLabel'),
+          row('textScale', T('textScaleLabel'), seg('data-set', 'textScale', [[0.9, T('textScaleSmall')], [1, '100%'], [1.1, T('textScaleLarge')], [1.3, T('textScaleXLarge')]], settings.textScale)),
+          row('backdropBlur', T('blurLabel'), range('data-range', 'backdropBlur', { min: 0, max: 12, step: 1, value: settings.backdropBlur, fmt: 'px', label: T('blurLabel') }), { stack: true, help: 'helpBlur' }),
+          `<div class="kt-btns" style="margin-top:6px">${btn('centerPanel', T('centerPanel'), { icon: 'expand' })}</div>`,
+        ].join('')),
+        card(T('languageLabel'), '', row('language', T('languageLabel'), `<div class="kt-dd" data-open="false"><button type="button" class="kt-dd-btn" data-dd aria-haspopup="listbox" aria-expanded="false"><span class="kt-flag">${FLAGS[lang] || ''}</span><span>${esc(LANG_NAMES[lang] || lang)}</span>${I('chev').replace('kt-i', 'kt-i kt-chev')}</button><ul class="kt-dd-list" role="listbox">${LANGS.map((c) => `<li class="kt-dd-item" role="option" data-lang="${c}" aria-selected="${c === lang}"><span class="kt-flag">${FLAGS[c] || ''}</span>${esc(LANG_NAMES[c])}</li>`).join('')}</ul></div>`, { help: 'helpLanguage' })),
+      ].join('');
+    },
+
+    motion() {
+      const presetNames = { full: T('animationFull'), reduced: T('animationReduced'), off: T('animationOff') };
+      const match = Object.keys(CONFIG.MOTION_PRESETS).find((n) => Object.entries(CONFIG.MOTION_PRESETS[n]).every(([k, v]) => settings[k] === v));
+      const effects = [['none', 'animNone'], ['fade', 'animFade'], ['slide', 'animSlide'], ['scale', 'animScale'], ['pop', 'animPop']];
+      const hovers = [['none', 'animNone'], ['lift', 'animLift'], ['glow', 'animGlow']];
+      const inds = [['glow', 'indicatorGlow'], ['pulse', 'indicatorPulse'], ['breathe', 'indicatorBreathe'], ['off', 'indicatorOff']];
+      return [
+        `<section class="kt-card" style="padding:0;border:0;background:none"><div class="kt-stage"><div class="kt-mock" id="kt-mock" aria-hidden="true"><div class="kt-mock-top"><span class="kt-mock-dot"></span><b></b><b style="flex:.4"></b></div><div class="kt-mock-row"><button type="button" class="kt-switch" role="switch" aria-checked="true" tabindex="-1"><i></i></button><span class="kt-chip" aria-pressed="true">1080p</span><span class="kt-chip" aria-pressed="false">720p</span></div><div class="kt-mock-bar"><i></i></div></div>${btn('previewMotion', T('animationPreviewLabel'), { icon: 'play2', cls: 'kt-primary' })}</div></section>`,
+        card(T('animationLabel'), 'sparkles', `<div class="kt-presets" style="margin-top:8px">${Object.keys(CONFIG.MOTION_PRESETS).map((n) => `<button type="button" class="kt-preset" aria-pressed="${match === n}" data-act="motionPreset" data-preset="${n}"><span class="kt-glyph" data-g="${n}"><i></i><i></i><i></i></span>${esc(presetNames[n])}</button>`).join('')}</div>`),
+        card(T('openAnimationLabel'), 'play2', `<div class="kt-fx" style="margin-top:8px">${effects.map(([v, l]) => fxBtn('openEffect', v, esc(T(l)), settings.openEffect === v)).join('')}</div>`),
+        card(T('hoverAnimationLabel'), 'pin', `<div class="kt-fx" style="margin-top:8px">${hovers.map(([v, l]) => fxBtn('hoverEffect', v, esc(T(l)), settings.hoverEffect === v)).join('')}</div>`),
+        card(T('indicatorTitle'), 'pulse', `<div class="kt-fx" style="margin-top:8px">${inds.map(([v, l]) => fxBtn('indicatorAnimation', v, esc(T(l)), settings.indicatorAnimation === v)).join('')}</div>`),
+        card(T('animationSpeedLabel'), 'gauge', `<div style="margin-top:8px">${seg('data-set', 'motionSpeed', [['fast', T('speedFast')], ['normal', T('speedNormal')], ['slow', T('speedSlow')]], settings.motionSpeed)}</div>`),
+        card(T('iconAnimationsLabel'), 'sparkles', toggleRow('iconAnimations', 'iconAnimationsLabel')),
+      ].join('');
+    },
+
+    shortcuts() {
+      const kbd = (id) => `<kbd data-kbd="${id}" data-capturing="${GUI.capture?.id === id}">${esc(GUI.capture?.id === id ? T('hotkeyWaiting') : (id === 'menu' ? settings.hotkey : settings.actionHotkeys[id]))}</kbd>`;
+      const bindRow = (id, label) => row(`hk-${id}`, esc(label), `<div class="kt-keyrow">${kbd(id)}${btn('rebind', T('bindShortcut'), { cls: 'kt-sm', data: `data-id="${id}"` })}</div>`);
+      return [
+        card(T('sectionHotkey'), 'keyboard', bindRow('menu', T('sectionHotkey')) + `<p class="kt-hint">${esc(T('helpHotkey'))}</p>`),
+        card(T('actionHotkeysLabel'), 'bolt', CONFIG.ACTIONS.map(([id, labelKey]) => bindRow(id, T(labelKey))).join('') + `<p class="kt-hint">${esc(T('hotkeyCancel'))}</p>`),
+      ].join('');
+    },
+
+    diagnostics() {
+      const log = settings.diagnosticsLog.slice(0, 20).map((n) => `<li data-k="${n.level}"><time>${esc(timeStr(n.at))}</time><span>${esc(n.message)}</span></li>`).join('');
+      return [
+        card(T('statusLabel'), 'pulse', `<dl class="kt-kv"><dt>${esc(T('statusLabel'))}</dt><dd id="kt-d-status"></dd><dt>${esc(T('lastResultLabel'))}</dt><dd id="kt-d-result"></dd><dt>${esc(T('diagCurrentQuality'))}</dt><dd id="kt-d-quality"></dd><dt>${esc(T('diagAvailableQualities'))}</dt><dd id="kt-d-qualities"></dd><dt>${esc(T('diagVideoResolution'))}</dt><dd id="kt-d-res"></dd></dl>
+          <div class="kt-btns" style="margin-top:10px">${btn('refreshDiag', T('refreshDiagnostics'), { icon: 'reset' })}${btn('copyDiag', T('copyDiagnostics'), { icon: 'copy' })}${btn('checkQuality', T('qualityCheckLabel'), { icon: 'hd' })}${btn('checkConflicts', T('conflictCheckLabel'), { icon: 'check' })}</div>`),
+        card(T('safeModeLabel'), 'pause', toggleRow('safeMode', 'safeModeLabel') + `<p class="kt-hint">${esc(T('safeModeHelp'))}</p>`),
+        card(T('diagnosticsLogLabel'), 'clock', [
+          toggleRow('diagnosticsLogEnabled', 'diagnosticsLogLabel'),
+          log ? `<ul class="kt-log">${log}</ul>` : `<div class="kt-empty">${esc(T('diagnosticsLogEmpty'))}</div>`,
+          `<div class="kt-btns" style="margin-top:10px">${btn('clearLog', T('clearLog'), { icon: 'trash', disabled: !settings.diagnosticsLog.length })}</div>`,
+        ].join('')),
+      ].join('');
+    },
+
+    about() {
+      return [
+        card(T('sectionAbout'), 'info', `<div class="kt-row" style="padding-bottom:4px"><div class="kt-row-head"><div class="kt-logo">K</div><div><div class="kt-label">Kick Stream Tweaks</div><div class="kt-hint">${esc(T('versionLabel'))} ${CONFIG.VERSION} · MIT</div></div></div></div>
+          <div class="kt-btns" style="margin-top:8px"><a class="kt-btn" href="${CONFIG.REPO}" target="_blank" rel="noopener noreferrer">${I('link')}GitHub</a><a class="kt-btn" href="${CONFIG.REPO}/releases" target="_blank" rel="noopener noreferrer">${I('ext')}${esc(T('openReleases'))}</a><a class="kt-btn" href="${CONFIG.REPO}/issues" target="_blank" rel="noopener noreferrer">${I('alert')}${esc(T('reportIssue'))}</a></div>`),
+        card(T('sectionData'), 'download', `<div class="kt-btns" style="margin-top:8px">${btn('exportSettings', T('exportSettings'), { icon: 'download' })}${btn('importSettings', T('importSettings'), { icon: 'upload' })}${btn('undo', T('undoChange'), { icon: 'undo', disabled: !undoStack.length })}${btn('restoreBackup', T('restoreReset'), { icon: 'reset', disabled: !settings.resetBackup })}${btn('resetSettings', T('resetSettings'), { icon: 'trash', cls: 'kt-danger' })}</div>`),
+      ].join('');
     },
   };
 
   /* ============================================================
    *  GUI — Shadow-DOM control panel
    * ========================================================== */
+  /** Scales an image into a square canvas (keeping its proportions) and returns a compact data URL. */
+  function imageToDataUrl(img) {
+    const iw = img.naturalWidth || img.width || 128; const ih = img.naturalHeight || img.height || 128;
+    for (const size of [128, 96, 64]) {
+      const canvas = document.createElement('canvas'); canvas.width = size; canvas.height = size;
+      const ctx = canvas.getContext('2d', { willReadFrequently: true }); if (!ctx) throw new Error('canvas');
+      const k = Math.min(size / iw, size / ih); const w = iw * k; const h = ih * k;
+      ctx.drawImage(img, (size - w) / 2, (size - h) / 2, w, h);
+      const data = canvas.toDataURL('image/png');
+      if (data.length <= 70000) return data;
+    }
+    throw new Error('too large');
+  }
+
   const GUI = {
-    host: null,
-    shadow: null,
-    isOpen: false,
-    capturingHotkey: false,
-    volumePollHandle: null,
+    host: null, shadow: null, state: 'closed', isOpen: false, capture: null, editing: null, query: '',
+    channelFilter: { q: '', sort: 'recent', pinned: false, group: '' },
+    sleep: { deadline: 0, total: 0, handle: null, tick: null },
+    audio: null, soundNodes: new Set(), toastTimer: null, pollHandle: null, closeTimer: null, lastFocus: null, modal: null, popNav: false, spinReset: false, showHow: false,
+
+    $(sel) { return this.shadow.querySelector(sel); },
+    $$(sel) { return [...this.shadow.querySelectorAll(sel)]; },
 
     build() {
+      if (this.host) return;
       this.host = document.createElement('div');
-      this.host.id = 'kick-tweaks-host';
-      document.body.appendChild(this.host);
+      this.host.id = 'kick-stream-tweaks-root';
+      this.host.setAttribute('data-state', 'closed');
+      (document.body || document.documentElement).appendChild(this.host);
       this.shadow = this.host.attachShadow({ mode: 'open' });
-      this.shadow.innerHTML = `
-        <style>${this.css()}</style>
-        <div class="kt-backdrop" part="backdrop"></div>
-        <div class="kt-panel" role="dialog" aria-modal="true">
-          <header class="kt-header">
-            <h2 class="kt-title"></h2>
-            <button class="kt-close" aria-label="Close">✕</button>
-          </header>
-          <div class="kt-body"></div>
-          <footer class="kt-footer"></footer>
-        </div>
-      `;
-
-      this.shadow.querySelector('.kt-backdrop').addEventListener('click', () => this.close());
-      this.shadow.querySelector('.kt-close').addEventListener('click', () => this.close());
-
-      this.render();
+      this.shadow.innerHTML = `<style>${PANEL_CSS}</style>
+        <div class="kt-scrim" data-act="close"></div>
+        <section class="kt-panel" role="dialog" aria-modal="true" tabindex="-1">
+          <header class="kt-head"><div class="kt-logo" aria-hidden="true">K</div>
+            <div class="kt-titlebox"><div class="kt-title"></div><div class="kt-sub"><i class="kt-dot"></i><span class="kt-substatus"></span></div></div>
+            <span class="kt-ver">v${CONFIG.VERSION}</span><span class="kt-pausebox"></span><span class="kt-closebox"></span></header>
+          <div class="kt-search">${I('search')}<input type="search" class="kt-search-input" autocomplete="off"><button class="kt-search-clear" type="button" data-act="clear-settings-search" aria-label="${esc(T('clearSearch'))}" title="${esc(T('clearSearch'))}" hidden>×</button></div>
+          <div class="kt-main"><nav class="kt-rail"></nav><div class="kt-content" tabindex="-1"></div></div>
+          <footer class="kt-foot"><span class="kt-foot-hint"></span></footer>
+        </section>
+        <div class="kt-toast" role="status" data-visible="false"></div><div class="kt-sr" aria-live="polite"></div>`;
+      this.wire();
+      this.applyLook();
+      this.renderChrome();
+      this.renderNav();
+      this.renderPage();
     },
 
-    css() {
-      // All styles are scoped inside the Shadow Root, so Kick's global
-      // Tailwind classes can never leak in (and vice versa).
-      return `
-        :host { all: initial; }
-        * { box-sizing: border-box; font-family: 'Inter', 'Segoe UI', Roboto, sans-serif; }
-
-        :host([data-theme="dark"]) {
-          --kt-bg: #17181c;
-          --kt-bg-elevated: #1f2127;
-          --kt-border: #2c2e35;
-          --kt-text: #f2f3f5;
-          --kt-text-muted: #9a9ca3;
-          --kt-accent: #53fc18;
-          --kt-accent-text: #0d0f0a;
-        }
-        :host([data-theme="light"]) {
-          --kt-bg: #ffffff;
-          --kt-bg-elevated: #f4f5f7;
-          --kt-border: #e2e4e8;
-          --kt-text: #17181c;
-          --kt-text-muted: #6b6e76;
-          --kt-accent: #17b90a;
-          --kt-accent-text: #ffffff;
-        }
-
-        .kt-backdrop {
-          position: fixed; inset: 0;
-          background: rgba(0,0,0,0.55);
-          backdrop-filter: blur(3px);
-          opacity: 0; pointer-events: none;
-          transition: opacity 0.2s ease;
-          z-index: 2147483000;
-        }
-        .kt-panel {
-          position: fixed; top: 50%; left: 50%;
-          width: min(440px, 92vw);
-          max-height: 85vh; overflow-y: auto; overflow-x: hidden;
-          background: var(--kt-bg);
-          color: var(--kt-text);
-          border: 1px solid var(--kt-border);
-          border-radius: 14px;
-          box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-          transform: translate(-50%, -48%) scale(0.96);
-          opacity: 0;
-          pointer-events: none;
-          transition: transform 0.22s cubic-bezier(.2,.8,.25,1), opacity 0.18s ease;
-          z-index: 2147483001;
-        }
-        :host([data-open="true"]) .kt-backdrop { opacity: 1; pointer-events: auto; }
-        :host([data-open="true"]) .kt-panel {
-          opacity: 1; pointer-events: auto;
-          transform: translate(-50%, -50%) scale(1);
-        }
-
-        .kt-header {
-          display: flex; align-items: center; justify-content: space-between;
-          padding: 18px 20px; border-bottom: 1px solid var(--kt-border);
-        }
-        .kt-title { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: .2px; }
-        .kt-close {
-          background: transparent; border: none; color: var(--kt-text-muted);
-          font-size: 15px; cursor: pointer; padding: 6px; border-radius: 8px;
-          line-height: 1; transition: background 0.15s ease, color 0.15s ease;
-        }
-        .kt-close:hover { background: var(--kt-bg-elevated); color: var(--kt-text); }
-
-        .kt-body { padding: 16px 20px 6px; }
-        .kt-section { margin-bottom: 18px; }
-        .kt-section-title {
-          font-size: 11px; text-transform: uppercase; letter-spacing: .08em;
-          color: var(--kt-text-muted); margin: 0 0 10px;
-          font-weight: 600;
-        }
-        .kt-row {
-          display: flex; align-items: center; justify-content: space-between;
-          padding: 10px 12px; background: var(--kt-bg-elevated);
-          border: 1px solid var(--kt-border); border-radius: 10px; margin-bottom: 8px;
-          min-width: 0;
-        }
-        .kt-row-label {
-          font-size: 13.5px;
-          overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-          margin-right: 10px;
-        }
-
-        /* Rows that stack a label above a wider control, e.g. the
-           quality/volume group directly beneath their toggles, so the
-           control never has to squeeze into half the panel width. */
-        .kt-row-column { flex-direction: column; align-items: stretch; }
-        .kt-row-column .kt-row-label { margin: 0 0 10px; white-space: normal; }
-        .kt-row-column select.kt-select { width: 100%; max-width: none; }
-
-        select.kt-select, button.kt-hotkey-btn {
-          background: var(--kt-bg);
-          color: var(--kt-text);
-          border: 1px solid var(--kt-border);
-          border-radius: 8px;
-          padding: 6px 10px;
-          font-size: 13px;
-          cursor: pointer;
-          max-width: 170px;
-          overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-          flex-shrink: 0;
-        }
-        select.kt-select:focus, button.kt-hotkey-btn:focus { outline: 2px solid var(--kt-accent); }
-
-        .kt-volume-control {
-          display: flex; align-items: center; gap: 10px; min-width: 0;
-        }
-        .kt-slider {
-          flex: 1; min-width: 0; height: 4px; border-radius: 999px;
-          accent-color: var(--kt-accent); cursor: pointer;
-        }
-        .kt-number-wrap {
-          display: flex; align-items: center; gap: 4px; flex-shrink: 0;
-        }
-        .kt-number {
-          width: 52px; text-align: center; padding: 5px 4px;
-          background: var(--kt-bg); color: var(--kt-text);
-          border: 1px solid var(--kt-border); border-radius: 8px; font-size: 13px;
-        }
-        .kt-number:focus { outline: 2px solid var(--kt-accent); }
-        .kt-percent-sign { color: var(--kt-text-muted); font-size: 12px; }
-
-        .kt-flag {
-          display: inline-flex; flex-shrink: 0;
-          width: 20px; height: 14px; border-radius: 3px;
-          overflow: hidden; box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
-        }
-        .kt-flag svg { width: 100%; height: 100%; display: block; }
-
-        .kt-dropdown { position: relative; flex-shrink: 0; max-width: 190px; }
-        .kt-dropdown-trigger {
-          display: flex; align-items: center; gap: 8px;
-          background: var(--kt-bg); color: var(--kt-text);
-          border: 1px solid var(--kt-border); border-radius: 8px;
-          padding: 6px 8px; font-size: 13px; cursor: pointer; width: 100%;
-        }
-        .kt-dropdown-trigger:focus { outline: 2px solid var(--kt-accent); }
-        .kt-dropdown-trigger-text {
-          flex: 1; text-align: left;
-          overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-        }
-        .kt-chevron {
-          font-size: 10px; color: var(--kt-text-muted); flex-shrink: 0;
-          transition: transform 0.15s ease;
-        }
-        .kt-dropdown[data-open="true"] .kt-chevron { transform: rotate(180deg); }
-
-        .kt-dropdown-list {
-          position: absolute; top: calc(100% + 6px); right: 0;
-          width: 210px; max-height: 220px; overflow-y: auto;
-          background: var(--kt-bg-elevated); border: 1px solid var(--kt-border);
-          border-radius: 10px; box-shadow: 0 14px 34px rgba(0,0,0,0.4);
-          padding: 6px; margin: 0; list-style: none;
-          z-index: 5; display: none;
-        }
-        .kt-dropdown[data-open="true"] .kt-dropdown-list { display: block; }
-        .kt-dropdown-item {
-          display: flex; align-items: center; gap: 9px;
-          padding: 7px 8px; border-radius: 7px; cursor: pointer; font-size: 13px;
-        }
-        .kt-dropdown-item-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .kt-dropdown-item:hover, .kt-dropdown-item[data-active="true"] { background: var(--kt-bg); }
-        .kt-dropdown-item[data-active="true"] { font-weight: 600; }
-
-        .kt-switch {
-          position: relative; width: 38px; height: 22px;
-          background: var(--kt-border); border-radius: 999px;
-          cursor: pointer; transition: background 0.15s ease; flex-shrink: 0;
-          border: none;
-        }
-        .kt-switch::after {
-          content: ''; position: absolute; top: 2px; left: 2px;
-          width: 18px; height: 18px; border-radius: 50%;
-          background: #fff; transition: transform 0.18s ease;
-        }
-        .kt-switch[data-on="true"] { background: var(--kt-accent); }
-        .kt-switch[data-on="true"]::after { transform: translateX(16px); }
-
-        .kt-theme-toggle { display: flex; gap: 6px; }
-        .kt-theme-btn {
-          flex: 1; padding: 8px; border-radius: 8px; border: 1px solid var(--kt-border);
-          background: var(--kt-bg); color: var(--kt-text); cursor: pointer; font-size: 13px;
-          transition: all 0.15s ease;
-        }
-        .kt-theme-btn[data-active="true"] {
-          background: var(--kt-accent); color: var(--kt-accent-text);
-          border-color: var(--kt-accent); font-weight: 600;
-        }
-
-        .kt-footer {
-          padding: 14px 20px 18px; border-top: 1px solid var(--kt-border);
-          font-size: 11.5px; color: var(--kt-text-muted); text-align: center;
-        }
-
-        .kt-hotkey-btn.capturing { color: var(--kt-accent); border-color: var(--kt-accent); }
-      `;
+    /* ---------- look & feel ---------- */
+    applyLook() {
+      const h = this.host; const s = settings;
+      h.setAttribute('lang', s.language);
+      h.setAttribute('data-theme', s.theme);
+      h.setAttribute('data-style', s.panelStyle);
+      const matched = Object.keys(CONFIG.MOTION_PRESETS).find((n) => Object.entries(CONFIG.MOTION_PRESETS[n]).every(([k, v]) => s[k] === v));
+      h.setAttribute('data-motion', matched || 'custom');
+      h.toggleAttribute('data-icons', s.iconAnimations && matched !== 'off');
+      h.setAttribute('data-speed', s.motionSpeed);
+      h.setAttribute('data-hover', s.hoverEffect);
+      h.setAttribute('data-indicator', s.indicatorAnimation);
+      h.toggleAttribute('data-compact', s.compactMode);
+      h.toggleAttribute('data-contrast', s.highContrast);
+      const hex = s.accentColor.slice(1);
+      const lum = (0.299 * parseInt(hex.slice(0, 2), 16) + 0.587 * parseInt(hex.slice(2, 4), 16) + 0.114 * parseInt(hex.slice(4, 6), 16)) / 255;
+      const st = h.style;
+      st.setProperty('--kt-accent', s.accentColor);
+      st.setProperty('--kt-accent-ink', lum > 0.55 ? '#071003' : '#ffffff');
+      st.setProperty('--kt-blur', `${s.backdropBlur}px`);
+      st.setProperty('--kt-panel-width', `${CONFIG.PANEL_WIDTH}px`);
+      st.setProperty('--kt-text-scale', String(s.textScale));
+      st.setProperty('--kt-in', `kt-in-${s.openEffect}`);
+      st.setProperty('--kt-out', `kt-out-${s.openEffect}`);
+      st.setProperty('--kt-toast-scale', String(s.notificationScale));
+      st.setProperty('--kt-toast-opacity', String(s.notificationOpacity));
+      this.initToastPosition();
     },
 
-    render() {
-      const lang = settings.language;
-      this.host.setAttribute('data-theme', settings.theme);
-      this.shadow.querySelector('.kt-title').textContent = t(lang, 'panelTitle');
-
-      const body = this.shadow.querySelector('.kt-body');
-      body.innerHTML = `
-        <div class="kt-section">
-          <p class="kt-section-title">${t(lang, 'sectionPlayback')}</p>
-
-          <div class="kt-row">
-            <span class="kt-row-label">${t(lang, 'autoQualityLabel')}</span>
-            <button class="kt-switch" data-key="autoQualityEnabled" data-on="${settings.autoQualityEnabled}"></button>
-          </div>
-
-          <div class="kt-row kt-row-column">
-            <span class="kt-row-label">${t(lang, 'preferredQualityLabel')}</span>
-            <select class="kt-select" data-key="preferredQuality">
-              ${CONFIG.QUALITY_OPTIONS.map(
-                (q) =>
-                  `<option value="${q}" ${settings.preferredQuality === q ? 'selected' : ''}>${
-                    q === 'auto' ? t(lang, 'qualityAuto') : q
-                  }</option>`
-              ).join('')}
-            </select>
-          </div>
-
-          <div class="kt-row">
-            <span class="kt-row-label">${t(lang, 'autoVolumeLabel')}</span>
-            <button class="kt-switch" data-key="autoVolumeEnabled" data-on="${settings.autoVolumeEnabled}"></button>
-          </div>
-
-          <div class="kt-row kt-row-column">
-            <span class="kt-row-label">${t(lang, 'preferredVolumeLabel')}</span>
-            <div class="kt-volume-control">
-              <input type="range" class="kt-slider" min="0" max="100" step="1"
-                     value="${Math.round(settings.volume * 100)}" aria-label="${t(lang, 'preferredVolumeLabel')}" />
-              <div class="kt-number-wrap">
-                <input type="number" class="kt-number" min="0" max="100"
-                       value="${Math.round(settings.volume * 100)}" aria-label="${t(lang, 'preferredVolumeLabel')}" />
-                <span class="kt-percent-sign">%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="kt-section">
-          <p class="kt-section-title">${t(lang, 'sectionAppearance')}</p>
-
-          <div class="kt-row">
-            <span class="kt-row-label">${t(lang, 'themeLabel')}</span>
-            <div class="kt-theme-toggle">
-              <button class="kt-theme-btn" data-theme-choice="dark" data-active="${settings.theme === 'dark'}">${t(lang, 'themeDark')}</button>
-              <button class="kt-theme-btn" data-theme-choice="light" data-active="${settings.theme === 'light'}">${t(lang, 'themeLight')}</button>
-            </div>
-          </div>
-
-          <div class="kt-row">
-            <span class="kt-row-label">${t(lang, 'languageLabel')}</span>
-            <div class="kt-dropdown" id="kt-lang-dropdown" data-open="false">
-              <button type="button" class="kt-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
-                <span class="kt-flag">${FLAG_SVGS[settings.language] || ''}</span>
-                <span class="kt-dropdown-trigger-text">${(LANGUAGE_META[settings.language] || {}).name || settings.language}</span>
-                <span class="kt-chevron">▾</span>
-              </button>
-              <ul class="kt-dropdown-list" role="listbox">
-                ${Object.keys(TRANSLATIONS)
-                  .map((code) => {
-                    const meta = LANGUAGE_META[code] || { name: code.toUpperCase() };
-                    const active = settings.language === code;
-                    return `<li class="kt-dropdown-item" role="option" data-lang="${code}" data-active="${active}" aria-selected="${active}">
-                      <span class="kt-flag">${FLAG_SVGS[code] || ''}</span>
-                      <span class="kt-dropdown-item-text">${meta.name}</span>
-                    </li>`;
-                  })
-                  .join('')}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="kt-section">
-          <p class="kt-section-title">${t(lang, 'sectionHotkey')}</p>
-          <div class="kt-row">
-            <span class="kt-row-label">${describeHotkey(settings.hotkey)}</span>
-            <button class="kt-hotkey-btn" id="kt-rebind-btn">${t(lang, 'hotkeyChange')}</button>
-          </div>
-        </div>
-      `;
-
-      this.shadow.querySelector('.kt-footer').textContent = t(lang, 'footerHint', {
-        key: describeHotkey(settings.hotkey),
-      });
-
-      const closeBtn = this.shadow.querySelector('.kt-close');
-      closeBtn.setAttribute('aria-label', t(lang, 'footerClose'));
-      closeBtn.title = t(lang, 'footerClose');
-
-      this.wireEvents(lang);
+    renderChrome() {
+      const panel = this.$('.kt-panel');
+      panel.setAttribute('aria-label', T('panelTitle'));
+      this.$('.kt-title').textContent = T('panelTitle');
+      this.$('.kt-search-input').placeholder = T('settingsSearch');
+      this.$('.kt-search-input').setAttribute('aria-label', T('settingsSearch'));
+      this.$('.kt-search-clear').setAttribute('aria-label', T('clearSearch'));
+      this.$('.kt-search-clear').title = T('clearSearch');
+      this.$('.kt-pausebox').innerHTML = ib('togglePause', T('safeModeLabel'), 'pause', { pressed: settings.safeMode });
+      this.$('.kt-closebox').innerHTML = ib('close', T('footerClose'), 'close', { cls: 'kt-danger' });
+      this.$('.kt-foot-hint').textContent = T('footerHint', { key: settings.hotkey });
+      this.$('.kt-head').title = T('dragPanelHint');
+      document.documentElement.lang === '' && false;
+      this.renderClaimWidget();
+      this.syncDiagnostics();
     },
 
-    wireEvents(lang) {
-      const shadow = this.shadow;
-
-      shadow.querySelectorAll('.kt-switch').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const key = btn.dataset.key;
-          const next = !(settings[key]);
-          persist({ [key]: next });
-          btn.dataset.on = String(next);
-        });
-      });
-
-      shadow.querySelectorAll('select[data-key]').forEach((select) => {
-        select.addEventListener('change', () => {
-          persist({ [select.dataset.key]: select.value });
-        });
-      });
-
-      const langDropdown = shadow.querySelector('#kt-lang-dropdown');
-      if (langDropdown) {
-        const trigger = langDropdown.querySelector('.kt-dropdown-trigger');
-        const list = langDropdown.querySelector('.kt-dropdown-list');
-
-        const closeLangDropdown = () => {
-          langDropdown.setAttribute('data-open', 'false');
-          trigger.setAttribute('aria-expanded', 'false');
-          document.removeEventListener('click', outsideClickHandler, true);
-        };
-        const outsideClickHandler = (e) => {
-          const path = typeof e.composedPath === 'function' ? e.composedPath() : [e.target];
-          if (!path.includes(langDropdown)) closeLangDropdown();
-        };
-
-        trigger.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const isOpen = langDropdown.getAttribute('data-open') === 'true';
-          if (isOpen) {
-            closeLangDropdown();
-            return;
-          }
-          langDropdown.setAttribute('data-open', 'true');
-          trigger.setAttribute('aria-expanded', 'true');
-          document.addEventListener('click', outsideClickHandler, true);
-        });
-
-        list.querySelectorAll('.kt-dropdown-item').forEach((item) => {
-          item.addEventListener('click', (e) => {
-            e.stopPropagation();
-            persist({ language: item.dataset.lang });
-            closeLangDropdown();
-            this.render();
-          });
-        });
+    renderNav() {
+      let html = '';
+      for (const sec of CONFIG.SECTIONS) {
+        if (sec.group) html += `<div class="kt-group">${esc(T(sec.group))}</div>`;
+        html += `<button type="button" class="kt-nav" data-nav="${sec.id}" aria-current="${settings.activeSection === sec.id && !this.query ? 'page' : 'false'}">${I(sec.icon)}<span>${esc(T(sec.label))}</span></button>`;
       }
+      this.$('.kt-rail').innerHTML = html;
+      if (this.popNav) { this.popNav = false; this.$('.kt-nav[aria-current=page]')?.classList.add('kt-pop'); }
+    },
 
-      shadow.querySelectorAll('.kt-theme-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const theme = btn.dataset.themeChoice;
-          persist({ theme });
-          this.host.setAttribute('data-theme', theme);
-          shadow.querySelectorAll('.kt-theme-btn').forEach((b) => {
-            b.dataset.active = String(b.dataset.themeChoice === theme);
-          });
-        });
+    renderPage({ keepScroll = true, flash } = {}) {
+      const content = this.$('.kt-content');
+      if (!keepScroll) { content.dataset.enter = 'true'; clearTimeout(this._enter); this._enter = setTimeout(() => { content.dataset.enter = 'false'; }, 700); }
+      const scroll = keepScroll ? content.scrollTop : 0;
+      const active = this.shadow.activeElement;
+      const sig = active ? ['data-toggle', 'data-set', 'data-act', 'data-cset', 'data-ctoggle', 'data-nav', 'data-sevent', 'data-fsort', 'data-fgroup', 'data-fpin'].map((a) => active.hasAttribute?.(a) ? `[${a}="${active.getAttribute(a)}"]${active.hasAttribute('data-value') ? `[data-value="${active.getAttribute('data-value')}"]` : ''}${active.hasAttribute('data-id') ? `[data-id="${active.getAttribute('data-id')}"]` : ''}` : '').find(Boolean) : '';
+      const ids = this.query ? CONFIG.SECTIONS.map((s) => s.id) : [settings.activeSection];
+      content.innerHTML = ids.map((id) => {
+        const sec = CONFIG.SECTIONS.find((x) => x.id === id);
+        const reset = SECTION_KEYS[id] ? ib('resetSection', T('resetSection'), 'reset', { data: `data-section="${id}"` }) : '';
+        return `<div class="kt-page" data-page="${id}" data-s="${esc(searchText(T(sec.label)))}"><div class="kt-pagehead">${I(sec.icon)}<h2>${esc(T(sec.label))}</h2>${reset}</div>${PAGES[id]()}</div>`;
+      }).join('');
+      if (this.query) this.filterRows();
+      content.scrollTop = scroll;
+      if (sig) { try { this.shadow.querySelector(sig)?.focus({ preventScroll: true }); } catch (_) {} }
+      if (flash) { const el = this.shadow.querySelector(`.kt-row[data-k="${CSS.escape(flash)}"]`); if (el) el.classList.add('kt-flash'); }
+      if (this.spinReset) { this.spinReset = false; this.$('.kt-pagehead .kt-ib')?.classList.add('kt-spin'); }
+      this.syncDiagnostics();
+      this.syncSleep();
+    },
+
+    filterRows() {
+      const q = normSearch(this.query.trim());
+      this.$$('.kt-card').forEach((c) => {
+        const whole = (c.dataset.s || '').includes(q) || (c.closest('.kt-page')?.dataset.s || '').includes(q);
+        const rows = [...c.querySelectorAll('.kt-row')];
+        rows.forEach((r) => { r.hidden = !whole && !(r.dataset.s || '').includes(q); });
+        c.hidden = !whole && !rows.some((r) => !r.hidden);
       });
+      this.$$('.kt-page').forEach((p) => { p.hidden = !p.querySelector('.kt-card:not([hidden])'); });
+    },
 
-      const slider = shadow.querySelector('.kt-slider');
-      const numberInput = shadow.querySelector('.kt-number');
+    channelEditor(key, p) {
+      const a = `data-ckey="${esc(key)}"`;
+      return [
+        row(`ce-live-${key}`, T('qualityLiveLabel'), qualityChips('data-cset', 'liveQuality', p.liveQuality, a), { stack: true }),
+        row(`ce-vod-${key}`, T('qualityVodLabel'), qualityChips('data-cset', 'vodQuality', p.vodQuality, a), { stack: true }),
+        row(`ce-vol-${key}`, T('preferredVolumeLabel'), range('data-crange', 'volume', { min: 0, max: 100, step: 1, value: Math.round(p.volume * 100), scale: 0.01, extra: a, label: T('preferredVolumeLabel') }), { stack: true }),
+        row(`ce-mute-${key}`, T('muteLabel'), sw('data-ctoggle', 'muted', p.muted, T('muteLabel'), a)),
+        row(`ce-silent-${key}`, T('silentLabel'), sw('data-ctoggle', 'silent', p.silent, T('silentLabel'), a), { help: 'silentHelp' }),
+        row(`ce-rate-${key}`, T('playbackSpeedLabel'), `<div class="kt-chips">${CONFIG.SPEEDS.map((r) => chip('data-cset', 'playbackRate', r, `${r}×`, Number(p.playbackRate) === r, a)).join('')}</div>`, { stack: true }),
+        row(`ce-group-${key}`, T('channelGroupLabel'), `<input class="kt-input" data-ctext="group" ${a} maxlength="40" value="${esc(p.group)}" placeholder="${esc(T('channelGroupPlaceholder'))}">`, { stack: true }),
+        row(`ce-note-${key}`, T('channelNoteLabel'), `<input class="kt-input" data-ctext="note" ${a} maxlength="240" value="${esc(p.note)}" placeholder="${esc(T('channelNotePlaceholder'))}">`, { stack: true }),
+      ].join('');
+    },
 
-      const applyVolumeFromUI = (rawPercent) => {
-        const percent = Math.min(100, Math.max(0, Math.round(Number(rawPercent) || 0)));
-        slider.value = String(percent);
-        numberInput.value = String(percent);
+    /* ---------- events ---------- */
+    wire() {
+      const sh = this.shadow;
+      sh.addEventListener('click', (e) => this.onClick(e));
+      sh.addEventListener('input', (e) => this.onInput(e));
+      // Mouse wheel over any slider nudges it by one step (and does not scroll the panel while hovering it).
+      // The slider under the cursor is remembered on pointer movement, so it still works when the browser has
+      // already started scrolling by the time the wheel event reaches us.
+      const isRange = (el) => el && el.tagName === 'INPUT' && el.type === 'range' && !el.disabled;
+      sh.addEventListener('pointermove', (e) => { const el = e.composedPath ? e.composedPath()[0] : e.target; this._hoverRange = isRange(el) ? el : null; });
+      this.$('.kt-panel').addEventListener('pointerleave', () => { this._hoverRange = null; });
+      sh.addEventListener('wheel', (e) => {
+        const target = e.composedPath ? e.composedPath()[0] : e.target;
+        const el = isRange(target) ? target : (this._hoverRange && this._hoverRange.isConnected ? this._hoverRange : null);
+        if (!el || el.disabled) return;
+        e.preventDefault();
+        const content = this.$('.kt-content');
+        this._lock = { top: this._scrollTop ?? content.scrollTop, until: performance.now() + 350 };
+        content.style.scrollBehavior = 'auto';
+        if (content.scrollTop !== this._lock.top) content.scrollTop = this._lock.top;
+        const step = Number(el.step) || 1; const min = Number(el.min); const max = Number(el.max);
+        const next = clamp(Number(el.value) + (e.deltaY < 0 ? step : -step), min, max);
+        if (next === Number(el.value)) return;
+        el.value = String(next);
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+      }, { passive: false });
+      sh.addEventListener('change', (e) => this.onChange(e));
+      this.$('.kt-content').addEventListener('scroll', (e) => {
+        const lock = this._lock; const c = e.currentTarget;
+        if (!lock) { this._scrollTop = c.scrollTop; return; }
+        if (performance.now() < lock.until) { if (c.scrollTop !== lock.top) c.scrollTop = lock.top; }
+        else { this._lock = null; c.style.scrollBehavior = ''; this._scrollTop = c.scrollTop; }
+      });
+      this.$('.kt-search-input').addEventListener('input', debounce(() => { this.query = this.$('.kt-search-input').value; this.renderNav(); this.renderPage({ keepScroll: false }); }, 90));
+      this.$('.kt-search-input').addEventListener('input', (e) => { this.$('.kt-search-clear').hidden = !e.currentTarget.value; });
+      sh.addEventListener('error', (e) => { if (e.target?.tagName === 'IMG') e.target.remove(); }, true);
+      sh.addEventListener('animationend', (e) => e.target.classList?.remove('kt-pop', 'kt-spin', 'kt-wiggle'), true);
+      const unlock = () => { this.ensureAudio(); window.removeEventListener('pointerdown', unlock, true); window.removeEventListener('keydown', unlock, true); };
+      window.addEventListener('pointerdown', unlock, true); window.addEventListener('keydown', unlock, true);
+      this.wirePanelDrag();
+      this.wireToastDrag();
+      window.addEventListener('resize', () => { if (this.isOpen) this.placePanel(settings.panelPosition); this.initToastPosition(); this.placeClaimWidget(); });
+    },
 
-        const fraction = percent / 100;
-        persist({ volume: fraction, muted: percent === 0 ? settings.muted : false });
+    onClick(e) {
+      const el = e.target.closest('[data-nav],[data-toggle],[data-set],[data-act],[data-cset],[data-ctoggle],[data-help],[data-lang],[data-dd],[data-sevent],[data-fsort],[data-fpin],[data-fgroup],[data-layout],[data-mact]');
+      const dd = this.$('.kt-dd');
+      if (dd && dd.dataset.open === 'true' && !e.target.closest('.kt-dd')) dd.dataset.open = 'false';
+      if (!el) return;
+      const d = el.dataset;
+      if (d.act === 'clear-settings-search') {
+        const input = this.$('.kt-search-input');
+        input.value = ''; this.$('.kt-search-clear').hidden = true;
+        input.dispatchEvent(new Event('input', { bubbles: true })); input.focus(); return;
+      }
+      if (d.nav) {
+        this.query = ''; this.$('.kt-search-input').value = ''; this.$('.kt-search-clear').hidden = true;
+        this.popNav = true;
+        persist({ activeSection: d.nav }); this.renderNav(); this.renderPage({ keepScroll: false });
+        this.$('.kt-content').scrollTop = 0; return;
+      }
+      if (d.help !== undefined) {
+        const t = el.closest('.kt-row').querySelector('.kt-helptext');
+        const open = t.hidden; t.hidden = !open; el.setAttribute('aria-expanded', String(open));
+        el.classList.remove('kt-wiggle'); void el.offsetWidth; el.classList.add('kt-wiggle'); return;
+      }
+      if (d.dd !== undefined) { const box = el.closest('.kt-dd'); const open = box.dataset.open !== 'true'; box.dataset.open = String(open); el.setAttribute('aria-expanded', String(open)); return; }
+      if (d.lang) { persist({ language: d.lang, languageChosen: true }, { undo: true }); this.renderChrome(); this.renderNav(); this.renderPage(); this.playSound('settingChanged'); return; }
+      if (d.toggle) { this.setSetting(d.toggle, !(PROFILE_FIELD[d.toggle] && PlayerSync.profileActive() ? PlayerSync.effective()[d.toggle] : settings[d.toggle])); return; }
+      if (d.set) { const raw = d.value; const v = ['playbackRate', 'textScale', 'freezeSeconds', 'claimIntervalMin', 'claimDelaySec'].includes(d.set) ? Number(raw) : raw; this.setSetting(d.set, v); return; }
+      if (d.sevent) { persist({ soundEvents: { ...settings.soundEvents, [d.sevent]: !settings.soundEvents[d.sevent] } }, { undo: true }); this.renderPage({ flash: `snd-${d.sevent}` }); this.playSound('settingChanged'); return; }
+      if (d.ctoggle) { const key = el.dataset.ckey; const cur = PlayerSync.profile(key)?.[d.ctoggle]; this.setChannel(key, { [d.ctoggle]: !cur }); return; }
+      if (d.cset) { const v = d.cset === 'playbackRate' ? Number(d.value) : d.value; this.setChannel(el.dataset.ckey, { [d.cset]: v }); return; }
+      if (d.mact) { this.closeModal(d.mact === 'yes'); return; }
+      if (d.layout) { this.toggleLayout(d.layout); return; }
+      if (d.fsort) { this.channelFilter.sort = d.fsort; this.renderPage(); return; }
+      if (d.fpin) { this.channelFilter.pinned = !this.channelFilter.pinned; this.renderPage(); return; }
+      if (d.fgroup !== undefined && el.hasAttribute('data-fgroup')) { this.channelFilter.group = d.fgroup; this.renderPage(); return; }
+      if (d.act) { if (d.act === 'resetSection') this.spinReset = true; this.act(d.act, el); }
+    },
 
-        // Reflect the change on the live video immediately, the same
-        // way Kick's own volume slider would.
+    onInput(e) {
+      const el = e.target;
+      if (el.dataset.filter === 'q') { this.channelFilter.q = el.value; clearTimeout(this._fq); this._fq = setTimeout(() => { this.renderPage(); const i = this.$('[data-filter=q]'); i?.focus(); i?.setSelectionRange(i.value.length, i.value.length); }, 220); return; }
+      if (el.type !== 'range') return;
+      const raw = Number(el.value); const scale = Number(el.dataset.scale) || 1; const value = Math.round(raw * scale * 1000) / 1000;
+      el.style.setProperty('--p', `${((raw - el.min) / (el.max - el.min)) * 100}%`);
+      el.nextElementSibling.textContent = fmtValue(el.dataset.fmt, raw);
+      if (el.dataset.range) this.applyRange(el.dataset.range, value);
+      else if (el.dataset.srange) { persist({ soundEventVolumes: { ...settings.soundEventVolumes, [el.dataset.srange]: value } }); clearTimeout(this._sp); this._sp = setTimeout(() => this.playSound(el.dataset.srange, true), 160); }
+      else if (el.dataset.crange) { PlayerSync.updateProfile({ [el.dataset.crange]: value }, el.dataset.ckey); if (el.dataset.ckey === PlayerSync.channelKey()) this.pushToPlayer('media'); }
+    },
+
+    onChange(e) {
+      const el = e.target;
+      if (el.dataset.color) { this.setSetting(el.dataset.color, el.value); return; }
+      if (el.dataset.ctext) { PlayerSync.updateProfile({ [el.dataset.ctext]: el.value.trim() }, el.dataset.ckey); this.renderPage(); }
+    },
+
+    applyRange(key, value) {
+      if (key === 'volume') {
+        setPref('volume', value);
+        const v = PlayerSync.findMainVideo();
+        if (v) { v.volume = clamp(value, 0, 1); if (value > 0 && v.muted) { v.muted = false; setPref('muted', false); } }
+        return;
+      }
+      persist({ [key]: value }, { undo: true });
+      if (LOOK_KEYS.has(key)) this.applyLook();
+      if (key.startsWith('claimWidget')) {
+        this.renderClaimWidget();
+        const prev = this.$('.kt-cw-static'); if (prev && key === 'claimWidgetOpacity') prev.style.setProperty('--cw-opacity', String(value));
+      }
+      if (key === 'soundVolume') { clearTimeout(this._sp); this._sp = setTimeout(() => this.playSound('settingChanged', true), 160); }
+    },
+
+    /** Central place for any single-value setting change coming from the UI. */
+    setSetting(key, value) {
+      if (key === 'muted') {
+        setPref('muted', value);
+        const v = PlayerSync.findMainVideo(); if (v) v.muted = !!value;
+      } else if (PROFILE_FIELD[key]) setPref(key, value);
+      else persist({ [key]: value }, { undo: true });
+      if (LOOK_KEYS.has(key)) this.applyLook();
+      if (key.startsWith('claimWidget')) this.renderClaimWidget();
+      if (key === 'safeMode') this.renderChrome();
+      if (key === 'autoClaimRewards' || key.startsWith('claim')) { Extras.nextClaim = 0; Extras.availSince = 0; }
+      if (key === 'playbackRate' || PLAYER_KEYS.has(key)) this.pushToPlayer(QUALITY_KEYS.has(key) ? 'all' : 'media', key);
+      this.playSound('settingChanged');
+      this.renderPage({ flash: key });
+    },
+
+    setChannel(key, patch) {
+      PlayerSync.updateProfile(patch, key);
+      if (key === PlayerSync.channelKey()) this.pushToPlayer(['enabled', 'excluded', 'liveQuality', 'vodQuality'].some((f) => f in patch) ? 'all' : 'media', 'playbackRate' in patch ? 'playbackRate' : undefined);
+      this.playSound('settingChanged');
+      this.renderPage();
+    },
+
+    /** scope 'media' = volume/mute/silent/speed only (never reopens the quality menu); 'all' also re-applies quality. */
+    pushToPlayer(scope = 'media', key) {
+      clearTimeout(this._push);
+      this._push = setTimeout(() => {
         const video = PlayerSync.findMainVideo();
-        if (video) {
-          video.volume = fraction;
-          if (percent > 0) video.muted = false;
+        PlayerSync.applyMedia(video, { rate: key === 'playbackRate' });
+        if (scope === 'all') PlayerSync.resync();
+      }, 250);
+    },
+
+    async act(name, el) {
+      const d = el.dataset;
+      switch (name) {
+        case 'close': this.close(); break;
+        case 'nav': this.query = ''; persist({ activeSection: d.nav }); this.renderNav(); this.renderPage({ keepScroll: false }); break;
+        case 'togglePause': this.setSetting('safeMode', !settings.safeMode); break;
+        case 'preset': {
+          const patch = CONFIG.PRESETS[d.preset];
+          persist(patch, { undo: true });
+          if (PlayerSync.profileActive()) PlayerSync.updateProfile({ ...(patch.preferredLiveQuality ? { liveQuality: patch.preferredLiveQuality } : {}), ...(patch.preferredVodQuality ? { vodQuality: patch.preferredVodQuality } : {}), ...(patch.volume !== undefined ? { volume: patch.volume, muted: false } : {}) });
+          this.notify(T('presetApplied', { name: el.textContent.trim() }), 'success', undefined, true);
+          if (patch.volume !== undefined) { const v = PlayerSync.findMainVideo(); if (v) { v.volume = patch.volume; v.muted = false; } }
+          this.playSound('settingChanged'); this.renderPage(); this.pushToPlayer(patch.preferredLiveQuality || patch.preferredVodQuality ? 'all' : 'media'); break;
+        }
+        case 'motionPreset': persist({ motionPreset: d.preset, ...CONFIG.MOTION_PRESETS[d.preset] }, { undo: true }); this.applyLook(); this.renderPage(); this.replayMock(); break;
+        case 'previewMotion': this.replayMock(); break;
+        case 'previewToast': { const qs = CONFIG.QUALITIES.filter((q) => q !== 'auto'); this.playSound('qualityApplied'); this.notify(T('notificationApplied', { q: qs[Math.floor(Math.random() * qs.length)] }), 'success', settings.notificationDuration, true); break; }
+        case 'resetToastPos': persist({ notificationPosition: null }); this.$('.kt-toast').style.left = ''; this.$('.kt-toast').style.top = ''; this.$('.kt-toast').style.right = '20px'; break;
+        case 'centerPanel': persist({ panelPosition: null }); this.placePanel(null); break;
+        case 'clearHistory': persist({ notificationHistory: [] }); this.renderPage(); break;
+        case 'clearLog': persist({ diagnosticsLog: [] }); this.renderPage(); this.notify(T('logCleared'), 'success', undefined, true); break;
+        case 'resetSection': this.resetSection(d.section); break;
+        case 'soundPreview': this.playSound(d.event, true); break;
+        case 'resetQuality': persist({ preferredLiveQuality: 'auto', preferredVodQuality: 'auto', lastLiveQuality: 'auto', lastVodQuality: 'auto' }, { undo: true }); if (PlayerSync.profile()) PlayerSync.updateProfile({ liveQuality: 'auto', vodQuality: 'auto' }); PlayerSync.resync(); this.notify(T('resetQuality'), 'success', undefined, true); break;
+        case 'restoreVolume': this.restoreVolume(); break;
+        case 'reapply': if (!PlayerSync.findMainVideo()) this.notify(T('noPlayerForReset'), 'error', undefined, true); else { PlayerSync.resync(); this.notify(T('resetPlayerLabel'), 'success', undefined, true); } break;
+        case 'focusView': this.toggleFocusView(); break;
+        case 'sleepStart': this.startSleep(Number(d.minutes)); break;
+        case 'sleepCustom': this.startSleep((Number(this.$('#kt-sleep-h')?.value) || 0) * 60 + (Number(this.$('#kt-sleep-m')?.value) || 0)); break;
+        case 'sleepCancel': this.cancelSleep(); this.renderPage(); break;
+        case 'rebind': this.startCapture(d.id); break;
+        case 'saveChannel': {
+          const p = PlayerSync.saveCurrentChannel();
+          if (!p) { this.notify(T('channelOpenStreamHint'), 'error', undefined, true); break; }
+          this.editing = null; this.playSound('qualityApplied');
+          this.notify(T('channelSavedToast', { name: PlayerSync.channelSlug() || PlayerSync.channelKey() }), 'success', undefined, true);
+          this.renderPage(); break;
+        }
+        case 'toggleHow': this.showHow = !this.showHow; this.renderPage(); break;
+        case 'widgetUpload': this.pickImage(); break;
+        case 'widgetRemoveIcon': persist({ claimWidgetCustomIcon: '', claimWidgetIcon: 'gift', claimWidgetImageFill: false }, { undo: true }); this.renderClaimWidget(); this.renderPage(); break;
+        case 'widgetReset': persist({ claimWidgetPos: null }); this.placeClaimWidget(); break;
+        case 'claimNow': { el.disabled = true; await Extras.claimRewards({ manual: true }); el.disabled = false; break; }
+        case 'freezeTest': this.playFreezeAlarm(true); this.notify(T('playerFrozenNotice'), 'error', undefined, true); break;
+        case 'refreshDiag': { PlayerSync.sync(); const ok = await PlayerSync.scanQualities(); this.notify(ok ? T('diagnosticsRefreshed') : T('noPlayerForReset'), ok ? 'success' : 'error', undefined, true); break; }
+        case 'copyDiag': this.copyDiagnostics(); break;
+        case 'checkQuality': await this.checkQuality(); break;
+        case 'checkConflicts': this.checkConflicts(); break;
+        case 'exportSettings': this.download('kick-stream-tweaks-settings.json', { ...settings, notificationHistory: [], diagnosticsLog: [], resetBackup: null, _app: 'kick-stream-tweaks', _version: CONFIG.VERSION }); break;
+        case 'importSettings': this.pickFile(async (data) => { if (!(await this.confirm(T('settingsImportPrompt')))) return; settings = sanitizeSettings({ ...data, resetBackup: { ...settings, resetBackup: null } }); Store.save(settings); this.refreshAll(); this.notify(T('settingsImported'), 'success', undefined, true); PlayerSync.resync(); }); break;
+        case 'resetSettings': if (await this.confirm(T('settingsResetPrompt'), { danger: true })) { const keep = { channelProfiles: settings.channelProfiles, language: settings.language, languageChosen: settings.languageChosen, activeSection: settings.activeSection }; const backup = { ...settings, resetBackup: null }; settings = sanitizeSettings({ ...keep, resetBackup: backup }); Store.save(settings); this.refreshAll(); PlayerSync.resync(); this.notify(T('settingsReset'), 'success', undefined, true); } break;
+        case 'undo': if (undoStack.length) { const snap = undoStack.pop(); settings = sanitizeSettings({ ...snap, resetBackup: settings.resetBackup }); Store.save(settings); this.refreshAll(); PlayerSync.resync(); } break;
+        case 'restoreBackup': if (settings.resetBackup) { settings = sanitizeSettings({ ...settings.resetBackup, resetBackup: null }); Store.save(settings); this.refreshAll(); PlayerSync.resync(); } break;
+        case 'channelPin': PlayerSync.updateProfile({ pinned: !PlayerSync.profile(d.ckey)?.pinned }, d.ckey); this.renderPage(); break;
+        case 'channelEdit': this.editing = this.editing === d.ckey ? null : d.ckey; this.renderPage(); break;
+        case 'channelRemove': { const p = PlayerSync.profile(d.ckey); if (await this.confirm(T('channelRemoveConfirm', { name: p?.displayName || d.ckey }), { danger: true })) { const next = { ...settings.channelProfiles }; delete next[d.ckey]; persist({ channelProfiles: next }, { undo: true }); if (this.editing === d.ckey) this.editing = null; this.renderPage(); PlayerSync.resync(); } break; }
+        case 'channelExport': this.download('kick-stream-tweaks-channels.json', { _app: 'kick-stream-tweaks', channelProfiles: settings.channelProfiles }); this.notify(T('channelExported'), 'success', undefined, true); break;
+        case 'channelImport': this.pickFile((data) => { const incoming = sanitizeProfiles(data?.channelProfiles); if (!Object.keys(incoming).length) { this.notify(T('channelImportError'), 'error', undefined, true); return; } persist({ channelProfiles: { ...settings.channelProfiles, ...incoming } }, { undo: true }); this.renderPage(); this.notify(T('channelImportSuccess'), 'success', undefined, true); PlayerSync.resync(); }, () => this.notify(T('channelImportError'), 'error', undefined, true)); break;
+        default: break;
+      }
+    },
+
+    /** In-panel confirmation dialog: looks identical in every browser (replaces window.confirm). */
+    confirm(message, { danger = false } = {}) {
+      return new Promise((resolve) => {
+        this.closeModal(false);
+        const wrap = document.createElement('div'); wrap.className = 'kt-modal';
+        wrap.innerHTML = `<div class="kt-dialog" role="alertdialog" aria-modal="true" aria-label="${esc(message)}"><p></p><div class="kt-btns"><button type="button" class="kt-btn" data-mact="no">${esc(T('confirmNo'))}</button><button type="button" class="kt-btn ${danger ? 'kt-danger' : 'kt-primary'}" data-mact="yes">${esc(T('confirmYes'))}</button></div></div>`;
+        wrap.querySelector('p').textContent = message;
+        this.$('.kt-panel').appendChild(wrap);
+        this.modal = { wrap, resolve };
+        wrap.querySelector('[data-mact="no"]').focus?.();
+      });
+    },
+    closeModal(result) {
+      if (!this.modal) return;
+      const { wrap, resolve } = this.modal; this.modal = null;
+      wrap.remove(); resolve(!!result);
+    },
+    toggleLayout(which) {
+      const st = Extras.layoutState(); if (!st) { this.notify(T('layoutUnavailable'), 'error', undefined, true); return; }
+      if (which === 'chat') { const hide = st.chat; persist({ layoutHideChat: hide }, { undo: true }); Extras.setChat(!hide); }
+      else { const hide = st.sidebar; persist({ layoutCollapseSidebar: hide }, { undo: true }); Extras.setSidebar(!hide); }
+      this.playSound('settingChanged');
+      setTimeout(() => this.renderPage(), 450);
+    },
+    onAvatars() { if (this.isOpen && ['channels', 'tools'].includes(settings.activeSection) && !this.modal) this.renderPage(); },
+
+    refreshAll() { this.applyLook(); this.renderChrome(); this.renderNav(); this.renderPage(); },
+    onExternalChange() { this.refreshAll(); },
+
+    resetSection(id) {
+      const keys = SECTION_KEYS[id]; if (!keys) return;
+      persist(Object.fromEntries(keys.map((k) => [k, DEFAULTS[k]])), { undo: true });
+      this.refreshAll(); PlayerSync.resync();
+    },
+
+    restoreVolume() {
+      const v = PlayerSync.findMainVideo(); if (!v) { this.notify(T('noPlayerForReset'), 'error', undefined, true); return; }
+      const e = PlayerSync.effective(); v.volume = clamp(e.volume, 0, 1); v.muted = !!e.muted;
+      this.playSound('volumeApplied'); this.notify(T('notificationVolumeLabel'), 'success', undefined, true);
+    },
+
+    download(name, data) {
+      const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
+      const a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+    },
+    pickFile(onData, onError) {
+      const input = document.createElement('input'); input.type = 'file'; input.accept = 'application/json,.json';
+      input.addEventListener('change', async () => {
+        try { onData(JSON.parse(await input.files[0].text())); } catch (_) { (onError || (() => this.notify(T('settingsImportError'), 'error', undefined, true)))(); }
+      });
+      input.click();
+    },
+
+    replayMock() {
+      const m = this.$('#kt-mock'); if (!m) return;
+      m.classList.remove('kt-replay'); void m.offsetWidth; m.classList.add('kt-replay');
+    },
+
+    /* ---------- hotkey capture ---------- */
+    startCapture(id) { this.capture = { id }; this.renderPage(); },
+    finishCapture(combo) {
+      const id = this.capture.id; this.capture = null;
+      if (combo) {
+        const taken = [['menu', settings.hotkey], ...Object.entries(settings.actionHotkeys)].find(([k, v]) => k !== id && v === combo);
+        if (taken) this.notify(T('conflictsFound', { items: combo }), 'error', undefined, true);
+        else if (id === 'menu') { persist({ hotkey: combo }, { undo: true }); this.renderChrome(); }
+        else persist({ actionHotkeys: { ...settings.actionHotkeys, [id]: combo } }, { undo: true });
+      }
+      this.renderPage();
+    },
+
+    /* ---------- tools ---------- */
+    startSleep(minutes) {
+      if (!(minutes > 0)) return;
+      this.cancelSleep();
+      const total = clamp(minutes, 1, 720) * 60000;
+      this.sleep = { deadline: Date.now() + total, total, handle: null, tick: null };
+      this.sleep.handle = setTimeout(() => { PlayerSync.findMainVideo()?.pause(); this.cancelSleep(); this.renderPage(); this.notify(T('sleepExpired'), 'success', undefined, true); }, total);
+      this.sleep.tick = setInterval(() => this.syncSleep(), 1000);
+      this.notify(T('sleepStarted', { minutes: Math.ceil(total / 60000) }), 'success', undefined, true);
+      this.renderPage();
+    },
+    cancelSleep() { clearTimeout(this.sleep.handle); clearInterval(this.sleep.tick); this.sleep = { deadline: 0, total: 0, handle: null, tick: null }; },
+    syncSleep() {
+      const box = this.$?.('#kt-sleep-time'); if (!box || !this.sleep.deadline) return;
+      const left = Math.max(0, this.sleep.deadline - Date.now()); const s = Math.ceil(left / 1000);
+      const h = Math.floor(s / 3600); const m = Math.floor((s % 3600) / 60);
+      box.textContent = `${h ? h + ':' : ''}${String(m).padStart(h ? 2 : 1, '0')}:${String(s % 60).padStart(2, '0')}`;
+      const twelve = ['en', 'en-in'].includes(settings.language);
+      let end = ''; try { end = new Intl.DateTimeFormat(settings.language, { hour: 'numeric', minute: '2-digit', hour12: twelve }).format(new Date(this.sleep.deadline)); } catch (_) {}
+      this.$('#kt-sleep-end').textContent = `${T('sleepEndsAt')}: ${end} (${T(twelve ? 'sleepClock12' : 'sleepClock24')})`;
+      this.$('#kt-sleep-bar').style.setProperty('--w', `${100 - (left / this.sleep.total) * 100}%`);
+      this.$('#kt-sleep-bar').style.width = `${100 - (left / this.sleep.total) * 100}%`;
+    },
+    async toggleFocusView() {
+      try {
+        if (document.fullscreenElement) { await document.exitFullscreen(); return; }
+        const v = PlayerSync.findMainVideo();
+        const target = v?.closest('video-player,[data-testid*="player" i]') || v?.parentElement?.parentElement || v;
+        if (!target?.requestFullscreen) throw new Error('unavailable');
+        await target.requestFullscreen();
+      } catch (_) { this.notify(T('focusUnavailable'), 'error', undefined, true); }
+    },
+
+    /* ---------- diagnostics ---------- */
+    statusText() { return diagText(PlayerSync.statusIdx); },
+    resultText() { const r = PlayerSync.result || {}; return r.k ? T(r.k) : diagText(r.i ?? 7, r.q); },
+    syncDiagnostics() {
+      if (!this.shadow) return;
+      const dot = this.$('.kt-dot'); const sub = this.$('.kt-substatus');
+      if (dot) { dot.dataset.s = ({ 1: 'ok', 2: 'busy', 5: 'busy', 6: 'busy', 3: 'bad' })[PlayerSync.statusIdx] || ''; }
+      if (sub) sub.textContent = this.statusText();
+      const set = (id, v) => { const n = this.$(id); if (n) n.textContent = v; };
+      const unknown = T('diagUnknown'); const v = PlayerSync.findMainVideo();
+      set('#kt-d-status', this.statusText()); set('#kt-d-result', this.resultText());
+      set('#kt-d-quality', PlayerSync.currentQuality || unknown);
+      set('#kt-d-qualities', PlayerSync.availableQualities.join(', ') || unknown);
+      set('#kt-d-res', v?.videoWidth ? `${v.videoWidth} × ${v.videoHeight}` : unknown);
+    },
+    record(message, level = 'info') {
+      if (!settings.diagnosticsLogEnabled) return;
+      persist({ diagnosticsLog: [{ at: Date.now(), message: String(message).slice(0, 240), level }, ...settings.diagnosticsLog].slice(0, 60) });
+    },
+    async copyDiagnostics() {
+      const report = [`Kick Stream Tweaks ${CONFIG.VERSION}`, `Status: ${this.statusText()}`, `Result: ${this.resultText()}`, `Quality: ${PlayerSync.currentQuality || '-'}`, `Available: ${PlayerSync.availableQualities.join(', ') || '-'}`, `Page: ${PlayerSync.isVod() ? 'VOD' : 'live'} ${PlayerSync.channelKey()}`, `UA: ${navigator.userAgent}`].join('\n');
+      try { await navigator.clipboard.writeText(report); this.notify(T('diagnosticsCopied'), 'success', undefined, true); }
+      catch (_) { this.notify(report, 'error', 8000, true); }
+    },
+    async checkQuality() {
+      const e = PlayerSync.effective(); const wanted = PlayerSync.isVod() ? e.vod : e.live;
+      if (!PlayerSync.availableQualities.length) await PlayerSync.scanQualities();
+      if (wanted === 'auto') { this.notify(T('qualityAvailable'), 'success', undefined, true); return; }
+      const ok = PlayerSync.availableQualities.includes(wanted);
+      this.notify(`${wanted}: ${T(ok ? 'qualityAvailable' : 'qualityUnavailable')}`, ok ? 'success' : 'error', undefined, true);
+    },
+    checkConflicts() {
+      const items = [];
+      if (!settings.autoQualityEnabled && (settings.preferredLiveQuality !== 'auto' || settings.preferredVodQuality !== 'auto')) items.push(T('autoQualityLabel'));
+      if (!settings.autoVolumeEnabled && Object.values(settings.channelProfiles).some((p) => p.enabled)) items.push(T('autoVolumeLabel'));
+      if (settings.notificationsEnabled && settings.doNotDisturb) items.push(T('doNotDisturbLabel'));
+      if (settings.soundEffectsEnabled && !Object.values(settings.soundEvents).some(Boolean)) items.push(T('soundEffectsLabel'));
+      if (settings.safeMode) items.push(T('safeModeLabel'));
+      const p = PlayerSync.profile(); if (p?.excluded && p.enabled) items.push(T('excludeChannelLabel'));
+      this.notify(items.length ? T('conflictsFound', { items: items.join(', ') }) : T('conflictsNone'), items.length ? 'error' : 'success', 6000, true);
+    },
+
+    /** Lets the user pick any image and stores a small re-encoded copy as the quick-claim button icon. */
+    pickImage() {
+      const input = document.createElement('input'); input.type = 'file'; input.accept = 'image/png,image/jpeg,image/webp,image/gif,image/svg+xml';
+      input.addEventListener('change', async () => {
+        const file = input.files && input.files[0]; if (!file) return;
+        let url = '';
+        try {
+          if (!/^image\//.test(file.type) || file.size > 2 * 1024 * 1024) throw new Error('unsupported');
+          url = URL.createObjectURL(file);
+          const img = await new Promise((resolve, reject) => { const i = new Image(); i.onload = () => resolve(i); i.onerror = () => reject(new Error('decode')); i.src = url; });
+          const data = imageToDataUrl(img);
+          persist({ claimWidgetCustomIcon: data, claimWidgetIcon: 'custom' }, { undo: true });
+          this.renderClaimWidget(); this.renderPage();
+          this.notify(T('widgetImageSaved'), 'success', undefined, true);
+        } catch (_) { this.notify(T('widgetImageError'), 'error', undefined, true); }
+        finally { if (url) URL.revokeObjectURL(url); }
+      });
+      input.click();
+    },
+
+    /* ---------- floating quick-claim button ---------- */
+    renderClaimWidget() {
+      if (!this.shadow) return;
+      let el = this.$('.kt-cw:not(.kt-cw-static)');
+      if (!settings.claimWidget) { el?.remove(); clearInterval(this._cwTimer); this._cwTimer = null; return; }
+      if (!el) { el = document.createElement('div'); el.className = 'kt-cw'; this.shadow.appendChild(el); this.wireClaimWidget(el); }
+      el.dataset.design = settings.claimWidgetStyle; el.dataset.size = settings.claimWidgetSize;
+      el.dataset.fill = String(hasCustomIcon() && settings.claimWidgetImageFill && settings.claimWidgetStyle !== 'pill');
+      el.style.setProperty('--cw-opacity', String(settings.claimWidgetOpacity));
+      el.innerHTML = `<button type="button" class="kt-cw-btn" title="${esc(`${T('claimNowLabel')} · ${T('widgetDragHint')}`)}" aria-label="${esc(T('claimNowLabel'))}">${claimWidgetInner()}</button>`;
+      this.placeClaimWidget();
+      if (!this._cwTimer) this._cwTimer = setInterval(() => this.syncClaimWidget(), 1000);
+      this.syncClaimWidget();
+    },
+    syncClaimWidget() {
+      const el = this.shadow?.querySelector('.kt-cw:not(.kt-cw-static)'); if (!el) return;
+      const available = Extras.rewardAvailable();
+      el.dataset.available = String(available); el.dataset.busy = String(Extras.claimBusy);
+      el.hidden = settings.claimWidgetAutoHide && !available && !Extras.claimBusy;
+      if (!el.hidden && !el.dataset.placed) this.placeClaimWidget();
+    },
+    placeClaimWidget() {
+      const el = this.shadow?.querySelector('.kt-cw:not(.kt-cw-static)'); if (!el) return;
+      const w = el.offsetWidth || 64; const h = el.offsetHeight || 64;
+      const pos = settings.claimWidgetPos || { x: window.innerWidth - w - 28, y: 150 };
+      el.style.left = `${clamp(pos.x, 4, Math.max(4, window.innerWidth - w - 4))}px`;
+      el.style.top = `${clamp(pos.y, 4, Math.max(4, window.innerHeight - h - 4))}px`;
+      if (el.offsetWidth) el.dataset.placed = 'true';
+    },
+    wireClaimWidget(el) {
+      let start = null;
+      el.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0) return;
+        const r = el.getBoundingClientRect();
+        start = { x: e.clientX, y: e.clientY, left: r.left, top: r.top, moved: false };
+        try { el.setPointerCapture(e.pointerId); } catch (_) {}
+      });
+      el.addEventListener('pointermove', (e) => {
+        if (!start) return;
+        if (!start.moved && Math.hypot(e.clientX - start.x, e.clientY - start.y) < 5) return;
+        start.moved = true; el.classList.add('kt-dragging');
+        const w = el.offsetWidth; const h = el.offsetHeight;
+        el.style.left = `${clamp(start.left + e.clientX - start.x, 4, Math.max(4, window.innerWidth - w - 4))}px`;
+        el.style.top = `${clamp(start.top + e.clientY - start.y, 4, Math.max(4, window.innerHeight - h - 4))}px`;
+      });
+      const end = () => {
+        if (!start) return;
+        el.classList.remove('kt-dragging');
+        if (start.moved) { this._cwMoved = true; persist({ claimWidgetPos: { x: parseFloat(el.style.left), y: parseFloat(el.style.top) } }); setTimeout(() => { this._cwMoved = false; }, 80); }
+        start = null;
+      };
+      el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end);
+      el.addEventListener('click', async () => {
+        if (this._cwMoved || Extras.claimBusy) return;
+        el.dataset.busy = 'true';
+        const n = await Extras.claimRewards({ manual: true });
+        el.dataset.busy = 'false'; el.dataset.flash = n > 0 ? 'ok' : 'none';
+        setTimeout(() => { delete el.dataset.flash; }, 1500);
+        this.syncClaimWidget();
+      });
+    },
+
+    /* ---------- notifications ---------- */
+    notifyQuality(applied, q) {
+      const key = applied ? 'notificationApplied' : 'notificationFailed';
+      this.playSound(applied ? 'qualityApplied' : 'qualityFailed');
+      const msg = T(key, { q });
+      this.record(msg, applied ? 'info' : 'error');
+      this.notify(msg, applied ? 'success' : 'error', applied ? settings.notificationDuration : settings.notificationDuration * 1.4);
+    },
+    initToastPosition() {
+      const toast = this.shadow?.querySelector('.kt-toast'); const pos = settings.notificationPosition;
+      if (!toast || !pos) return;
+      toast.style.left = `${clamp(pos.x, 0, Math.max(0, window.innerWidth - toast.offsetWidth))}px`;
+      toast.style.top = `${clamp(pos.y, 0, Math.max(0, window.innerHeight - toast.offsetHeight))}px`;
+      toast.style.right = 'auto';
+    },
+    notify(message, kind = 'success', duration = settings.notificationDuration, force = false) {
+      if (!this.shadow) return;
+      const text = String(message ?? '').trim();
+      if (!text) return;
+      if (settings.notificationHistoryEnabled && !force) persist({ notificationHistory: [{ at: Date.now(), message: text, kind }, ...settings.notificationHistory].slice(0, 30) });
+      const live = this.$('.kt-sr'); if (live) live.textContent = text;
+      const muted = settings.doNotDisturb || (settings.quietFullscreen && document.fullscreenElement);
+      if (!force && (!settings.notificationsEnabled || muted)) return;
+      if (force && muted && !this.isOpen) return;
+      const toast = this.$('.kt-toast');
+      toast.innerHTML = `${settings.notificationShowIcon ? I(kind === 'error' ? 'alert' : 'check') : ''}<span></span>`;
+      toast.lastElementChild.textContent = text;
+      toast.dataset.kind = kind; toast.dataset.visible = 'true';
+      this.initToastPosition();
+      clearTimeout(this.toastTimer);
+      this.toastTimer = setTimeout(() => { toast.dataset.visible = 'false'; }, duration);
+    },
+    wireToastDrag() {
+      const toast = this.$('.kt-toast'); let sx = 0; let sy = 0; let ox = 0; let oy = 0;
+      const move = (e) => {
+        toast.style.left = `${clamp(ox + e.clientX - sx, 0, Math.max(0, innerWidth - toast.offsetWidth))}px`;
+        toast.style.top = `${clamp(oy + e.clientY - sy, 0, Math.max(0, innerHeight - toast.offsetHeight))}px`; toast.style.right = 'auto';
+      };
+      const up = (e) => {
+        toast.dataset.dragging = 'false'; toast.removeEventListener('pointermove', move); toast.removeEventListener('pointerup', up);
+        try { toast.releasePointerCapture(e.pointerId); } catch (_) {}
+        const r = toast.getBoundingClientRect(); persist({ notificationPosition: { x: r.left, y: r.top } });
+        this.toastTimer = setTimeout(() => { toast.dataset.visible = 'false'; }, 5000);
+      };
+      toast.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0) return; e.preventDefault(); clearTimeout(this.toastTimer);
+        const r = toast.getBoundingClientRect(); sx = e.clientX; sy = e.clientY; ox = r.left; oy = r.top;
+        toast.style.left = `${ox}px`; toast.style.top = `${oy}px`; toast.style.right = 'auto'; toast.dataset.dragging = 'true';
+        toast.setPointerCapture(e.pointerId); toast.addEventListener('pointermove', move); toast.addEventListener('pointerup', up);
+      });
+    },
+
+    /* ---------- sound ---------- */
+    ensureAudio() {
+      const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
+      try {
+        if (!this.audio) { this.audio = new AC(); this.audio.addEventListener('statechange', () => { if (this.audio.state !== 'running') this.stopSounds(); }); }
+        if (this.audio.state === 'suspended') this.audio.resume().catch(() => {});
+        return this.audio;
+      } catch (_) { return null; }
+    },
+    /** Loud, unmistakable three-note alarm. Works in a hidden tab and ignores the master sound switch. */
+    playFreezeAlarm(force = false) {
+      if (!force && (!settings.freezeSound || settings.doNotDisturb)) return;
+      const ctx = this.ensureAudio(); if (!ctx) return;
+      const run = () => {
+        const vol = clamp(Math.max(settings.soundVolume, 0.6), 0, 1);
+        const notes = [[880, 0], [660, 0.2], [880, 0.4], [660, 0.6], [880, 0.8]];
+        for (const [freq, off] of notes) {
+          const osc = ctx.createOscillator(); const gain = ctx.createGain(); const at = ctx.currentTime + off;
+          osc.type = 'square'; osc.frequency.setValueAtTime(freq, at);
+          gain.gain.setValueAtTime(0.0001, at); gain.gain.exponentialRampToValueAtTime(0.06 * vol, at + 0.015); gain.gain.exponentialRampToValueAtTime(0.0001, at + 0.16);
+          osc.connect(gain); gain.connect(ctx.destination);
+          const node = { osc, gain }; this.soundNodes.add(node);
+          osc.onended = () => { this.soundNodes.delete(node); try { osc.disconnect(); gain.disconnect(); } catch (_) {} };
+          osc.start(at); osc.stop(at + 0.18);
         }
       };
-
-      if (slider && numberInput) {
-        slider.addEventListener('input', () => applyVolumeFromUI(slider.value));
-        numberInput.addEventListener('input', () => applyVolumeFromUI(numberInput.value));
-      }
-
-      const rebindBtn = shadow.querySelector('#kt-rebind-btn');
-      rebindBtn.addEventListener('click', () => {
-        if (this.capturingHotkey) return;
-        this.capturingHotkey = true;
-        rebindBtn.classList.add('capturing');
-        rebindBtn.textContent = t(lang, 'hotkeyWaiting');
-
-        const captureHandler = (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          persist({ hotkey: { key: e.key, code: e.code } });
-          window.removeEventListener('keydown', captureHandler, true);
-          this.capturingHotkey = false;
-          this.render();
+      if (ctx.state === 'running') run(); else ctx.resume().then(run).catch(() => {});
+    },
+    alertFrozen() {
+      this.record(T('playerFrozenNotice'), 'error');
+      this.playFreezeAlarm();
+      if (!settings.doNotDisturb) this.notify(T('playerFrozenNotice'), 'error', 9000, true);
+    },
+    playSound(name, preview = false) {
+      const cat = name === 'menuOpen' || name === 'menuClose' ? 'menu' : name;
+      if (!preview && (settings.doNotDisturb || (settings.quietFullscreen && document.fullscreenElement) || !settings.soundEffectsEnabled || settings.soundEvents[cat] === false)) return;
+      if (settings.soundVolume <= 0) return;
+      if (cat === 'settingChanged') { const now = performance.now(); if (now - (this._lastSnd || 0) < 90) return; this._lastSnd = now; }
+      try {
+        const ctx = this.ensureAudio(); if (!ctx) return;
+        const play = () => {
+          if (ctx.state !== 'running' || document.hidden) return;
+          const spec = { qualityApplied: { n: [[523, 0], [659, .085]], g: .032, d: .065 }, qualityFailed: { n: [[330, 0], [247, .095]], g: .024, d: .075 }, volumeApplied: { n: [[440, 0], [554, .07]], g: .024, d: .055 }, menuOpen: { n: [[494, 0]], g: .019, d: .055 }, menuClose: { n: [[392, 0]], g: .019, d: .055 } }[name] || { n: [[587, 0]], g: .014, d: .035 };
+          const vol = clamp(settings.soundVolume * (settings.soundEventVolumes[cat] ?? 1), 0, 1);
+          for (const [freq, off] of spec.n) {
+            const osc = ctx.createOscillator(); const gain = ctx.createGain(); const at = ctx.currentTime + off;
+            osc.type = name === 'qualityFailed' ? 'triangle' : 'sine'; osc.frequency.setValueAtTime(freq, at);
+            gain.gain.setValueAtTime(0.0001, at); gain.gain.exponentialRampToValueAtTime(Math.max(0.0002, spec.g * vol), at + 0.012); gain.gain.exponentialRampToValueAtTime(0.0001, at + spec.d);
+            osc.connect(gain); gain.connect(ctx.destination);
+            const node = { osc, gain }; this.soundNodes.add(node);
+            osc.onended = () => { this.soundNodes.delete(node); try { osc.disconnect(); gain.disconnect(); } catch (_) {} };
+            osc.start(at); osc.stop(at + spec.d + 0.025);
+          }
         };
-        window.addEventListener('keydown', captureHandler, true);
+        if (ctx.state === 'suspended') ctx.resume().then(play).catch(() => {}); else play();
+      } catch (_) { /* audio is optional */ }
+    },
+    stopSounds() { for (const { osc, gain } of this.soundNodes) { try { osc.stop(); osc.disconnect(); gain.disconnect(); } catch (_) {} } this.soundNodes.clear(); },
+
+    /* ---------- panel position / drag / resize ---------- */
+    placePanel(pos) {
+      const panel = this.$('.kt-panel'); const w = panel.offsetWidth; const h = panel.offsetHeight;
+      const x = pos ? pos.x : (innerWidth - w) / 2; const y = pos ? pos.y : (innerHeight - h) / 2;
+      panel.style.left = `${clamp(x, 8 - w + 80, Math.max(8, innerWidth - 80))}px`;
+      panel.style.top = `${clamp(y, 8, Math.max(8, innerHeight - 60))}px`;
+    },
+    wirePanelDrag() {
+      const panel = this.$('.kt-panel'); const head = this.$('.kt-head');
+      head.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0 || e.target.closest('button,a,input')) return;
+        const r = panel.getBoundingClientRect(); const ox = e.clientX; const oy = e.clientY; let moved = false;
+        head.classList.add('kt-dragging'); head.setPointerCapture(e.pointerId);
+        const move = (m) => { if (Math.hypot(m.clientX - ox, m.clientY - oy) > 3) moved = true; if (moved) this.placePanel({ x: r.left + m.clientX - ox, y: r.top + m.clientY - oy }); };
+        const up = () => { head.classList.remove('kt-dragging'); head.removeEventListener('pointermove', move); head.removeEventListener('pointerup', up); if (moved) persist({ panelPosition: { x: parseFloat(panel.style.left), y: parseFloat(panel.style.top) } }); };
+        head.addEventListener('pointermove', move); head.addEventListener('pointerup', up);
       });
     },
 
-    /**
-     * Keeps the slider/number inputs in sync with the actual video.
-     * Reads the live <video> element directly rather than trusting only
-     * the `volumechange` event — some players adjust audio through a
-     * separate gain node instead of the element's native volume, in
-     * which case that event never fires and `settings.volume` would
-     * silently go stale. Skips updating while the user has a finger on
-     * either control, so it never fights a drag or an in-progress type.
-     */
-    syncVolumeControls() {
-      if (!this.shadow) return;
-      const slider = this.shadow.querySelector('.kt-slider');
-      const numberInput = this.shadow.querySelector('.kt-number');
-      if (!slider || !numberInput) return;
-
-      const active = this.shadow.activeElement;
-      if (active === slider || active === numberInput) return;
-
-      const video = PlayerSync.findMainVideo();
-      const fraction = video ? (video.muted ? 0 : video.volume) : settings.volume;
-      const percent = String(Math.round(fraction * 100));
-      if (slider.value !== percent) slider.value = percent;
-      if (numberInput.value !== percent) numberInput.value = percent;
-    },
-
-    /** Starts a lightweight poll that keeps the volume controls live while the panel is visible; stops the moment it's closed. */
-    startVolumePolling() {
-      if (this.volumePollHandle) return;
-      this.syncVolumeControls();
-      this.volumePollHandle = setInterval(() => this.syncVolumeControls(), 400);
-    },
-    stopVolumePolling() {
-      if (!this.volumePollHandle) return;
-      clearInterval(this.volumePollHandle);
-      this.volumePollHandle = null;
-    },
-
+    /* ---------- open / close ---------- */
     open() {
-      this.isOpen = true;
-      this.host.setAttribute('data-open', 'true');
-      this.startVolumePolling();
+      if (this.isOpen) return;
+      clearTimeout(this.closeTimer);
+      this.isOpen = true; this.lastFocus = document.activeElement;
+      this.state = 'open'; this.host.setAttribute('data-state', 'open');
+      this.refreshAll(); this.renderPage({ keepScroll: false }); this.placePanel(settings.panelPosition);
+      this.$('.kt-panel').focus({ preventScroll: true });
+      this.pollHandle = setInterval(() => { this.syncVolumeControls(); this.syncDiagnostics(); }, 500);
+      this.playSound('menuOpen');
     },
     close() {
-      this.isOpen = false;
-      this.host.setAttribute('data-open', 'false');
-      this.stopVolumePolling();
+      if (!this.isOpen) return;
+      this.isOpen = false; this.capture = null; clearInterval(this.pollHandle);
+      const dur = matchMedia('(prefers-reduced-motion: reduce)').matches || settings.openEffect === 'none' ? 0 : ({ fast: 140, normal: 220, slow: 420 })[settings.motionSpeed];
+      this.state = 'closing'; this.host.setAttribute('data-state', 'closing');
+      this.closeTimer = setTimeout(() => { this.state = 'closed'; this.host.setAttribute('data-state', 'closed'); }, dur + 20);
+      this.playSound('menuClose');
+      try { this.lastFocus?.focus?.({ preventScroll: true }); } catch (_) {}
     },
-    toggle() {
-      if (this.isOpen) this.close();
-      else this.open();
+    toggle() { this.isOpen ? this.close() : this.open(); },
+
+    syncVolumeControls() {
+      if (!this.shadow || settings.activeSection !== 'playback' || this.query) return;
+      const input = this.$('[data-range="volume"]'); if (!input || this.shadow.activeElement === input) return;
+      const v = PlayerSync.findMainVideo(); if (!v) return;
+      const pct = String(Math.round((v.muted ? 0 : v.volume) * 100));
+      if (input.value !== pct) { input.value = pct; input.style.setProperty('--p', `${pct}%`); input.nextElementSibling.textContent = `${pct}%`; }
     },
   };
 
-  function describeHotkey(hotkey) {
-    if (!hotkey) return CONFIG.DEFAULT_HOTKEY.key;
-    return hotkey.key && hotkey.key.length === 1 ? hotkey.key.toUpperCase() : hotkey.key || hotkey.code;
-  }
-
   /* ============================================================
-   *  HOTKEY — global listener that opens/closes the panel
+   *  HOTKEYS
    * ========================================================== */
-  function setupHotkeyListener() {
+  /** Keystrokes typed inside the panel must never reach Kick (Space = fullscreen, F, M, arrows...).
+   *  Registered at document-start so it runs before the page's own capture listeners. */
+  function isolateKeys() {
+    const insidePanel = (e) => !!GUI.host && (e.composedPath ? e.composedPath().includes(GUI.host) : false);
+    for (const type of ['keydown', 'keyup', 'keypress']) {
+      window.addEventListener(type, (e) => {
+        if (!insidePanel(e)) return;
+        e.stopPropagation();
+        if (type === 'keydown' && e.key === 'Tab' && GUI.isOpen) {
+          const f = GUI.$$('.kt-panel button:not([disabled]),.kt-panel input:not([disabled]),.kt-panel a[href]').filter((el) => el.getClientRects().length);
+          if (!f.length) return;
+          const cur = GUI.shadow.activeElement;
+          if (e.shiftKey && cur === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+          else if (!e.shiftKey && cur === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+        }
+      }, true);
+    }
+  }
+  isolateKeys();
+
+  function setupHotkeys() {
     window.addEventListener('keydown', (e) => {
-      // Ignore keystrokes while the user is typing in an input/textarea
-      // on the actual page (e.g. chat box) to avoid accidental toggles,
-      // unless the configured hotkey is a function key (F1-F12), which
-      // rarely conflicts with typing.
-      const target = e.target;
-      const isTyping =
-        target &&
-        (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable);
-      const isFunctionKey = /^F\d{1,2}$/.test(settings.hotkey.code || '');
-
-      if (isTyping && !isFunctionKey) return;
-
-      const matches =
-        e.code === settings.hotkey.code || e.key === settings.hotkey.key;
-      if (matches) {
-        e.preventDefault();
-        GUI.toggle();
+      if (GUI.capture) {
+        e.preventDefault(); e.stopPropagation();
+        if (e.key === 'Escape') { GUI.finishCapture(null); return; }
+        const combo = comboFromEvent(e); if (combo) GUI.finishCapture(combo);
+        return;
       }
-    });
+      if (e.key === 'Escape' && GUI.modal) { GUI.closeModal(false); e.preventDefault(); return; }
+      if (e.key === 'Escape' && GUI.isOpen) {
+        const dd = GUI.$('.kt-dd[data-open="true"]');
+        if (dd) dd.dataset.open = 'false'; else GUI.close();
+        e.preventDefault(); return;
+      }
+      if (e.repeat) return;
+      const origin = e.composedPath?.()[0] || e.target;
+      const typing = origin && (origin.tagName === 'INPUT' || origin.tagName === 'TEXTAREA' || origin.isContentEditable);
+      const combo = comboFromEvent(e); if (!combo) return;
+      const safeWhileTyping = /^(Ctrl|Alt|Meta)\+/.test(combo) || /^F\d{1,2}$/.test(combo);
+      if (typing && !safeWhileTyping) return;
+      if (combo === settings.hotkey) { e.preventDefault(); GUI.toggle(); return; }
+      const a = settings.actionHotkeys;
+      if (combo === a.toggleNotifications) { persist({ notificationsEnabled: !settings.notificationsEnabled }); GUI.renderPage(); GUI.notify(`${T('notificationsLabel')}: ${settings.notificationsEnabled ? 'ON' : 'OFF'}`, 'success', 2000, true); e.preventDefault(); }
+      else if (combo === a.focusView) { GUI.toggleFocusView(); e.preventDefault(); }
+      else if (combo === a.resetQuality) { GUI.act('resetQuality', document.createElement('i')); e.preventDefault(); }
+      else if (combo === a.restoreVolume) { GUI.restoreVolume(); e.preventDefault(); }
+      else if (combo === a.toggleChat) { GUI.toggleLayout('chat'); e.preventDefault(); }
+      else if (combo === a.toggleSidebar) { GUI.toggleLayout('sidebar'); e.preventDefault(); }
+    }, true);
   }
 
   /* ============================================================
    *  INIT
    * ========================================================== */
   function init() {
+    if (window.__kickStreamTweaksLoaded) return;
+    window.__kickStreamTweaksLoaded = true;
     try {
       GUI.build();
-      setupHotkeyListener();
+      setupHotkeys();
       PlayerSync.init();
-
-      log('Initialized.');
-    } catch (err) {
-      console.error(CONFIG.LOG_PREFIX, 'Initialization failed:', err);
-    }
+      log(`v${CONFIG.VERSION} initialized.`);
+    } catch (err) { console.error(CONFIG.LOG_PREFIX, 'Initialization failed:', err); }
   }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
 })();
+
