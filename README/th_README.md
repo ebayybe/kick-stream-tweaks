@@ -1,0 +1,124 @@
+<div align="center">
+
+[English](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/en_README.md) · [العربية](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/ar_README.md) · [Беларуская](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/be_README.md) · [Български](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/bg_README.md) · [Čeština](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/cs_README.md) · [Dansk](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/da_README.md) · [Deutsch](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/de_README.md) · [Ελληνικά](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/el_README.md) · [Español](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/es_README.md) · [Suomi](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/fi_README.md) · [Français](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/fr_README.md) · [हिन्दी](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/hi_README.md) · [English (India)](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/en-in_README.md) · [Hrvatski](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/hr_README.md) · [Magyar](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/hu_README.md) · [Bahasa Indonesia](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/id_README.md) · [Italiano](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/it_README.md) · [日本語](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/ja_README.md) · [한국어](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/ko_README.md) · [Lietuvių](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/lt_README.md) · [Latviešu](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/lv_README.md) · [Македонски](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/mk_README.md) · [Монгол](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/mn_README.md) · [Bahasa Melayu](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/ms_README.md) · [Nederlands](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/nl_README.md) · [Norsk](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/no_README.md) · [Polski](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/pl_README.md) · [Português](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/pt_README.md) · [Română](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/ro_README.md) · [Русский](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/ru_README.md) · [Slovenčina](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/sk_README.md) · [Srpski](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/sr_README.md) · [Svenska](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/sv_README.md) · **ไทย** · [Türkçe](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/tr_README.md) · [Tiếng Việt](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/vi_README.md) · [简体中文](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/zh-cn_README.md) · [繁體中文](https://github.com/ebayybe/kick-stream-tweaks/blob/main/README/zh-tw_README.md)
+
+# Kick Stream Tweaks
+
+**ผู้เล่น Kick ของคุณ จำไว้** คุณภาพ ระดับเสียง และความเร็วจะได้รับการกู้คืนโดยอัตโนมัติในทุกสตรีม ด้วยแผงควบคุมที่รวดเร็วและแปลเป็นภาษาท้องถิ่นอย่างสมบูรณ์
+
+[![Kick Stream Tweaks preview](https://raw.githubusercontent.com/ebayybe/kick-stream-tweaks/main/Photo/kick-stream.png)](https://github.com/ebayybe/kick-stream-tweaks/blob/main/Photo/kick-stream.png)
+
+
+[![Version](https://img.shields.io/badge/version-1.3.1-53fc18?style=flat-square)](https://github.com/ebayybe/kick-stream-tweaks/releases)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)
+[![Languages](https://img.shields.io/badge/languages-38-8a5cf6?style=flat-square)](#languages)
+[![Userscript](https://img.shields.io/badge/Tampermonkey%20%7C%20Violentmonkey-supported-orange?style=flat-square)](#installation)
+
+[ติดตั้ง](#installation) · [คุณสมบัติ](#features) · [แผนที่การตั้งค่า](#settings-map) · [ทางลัด](#shortcuts) · [การอ้างอิงฟังก์ชัน](../docs/th_FUNCTIONS.md) · [บันทึกการเปลี่ยนแปลง](../CHANGELOG/th_CHANGELOG.md) · [ข่าวประชาสัมพันธ์](https://github.com/ebayybe/kick-stream-tweaks/releases)
+
+</div>
+
+<a id="features"></a>
+## คุณสมบัติ
+
+- **คุณภาพที่เหนียวแน่น** เลือกคุณภาพการถ่ายทอดสดและ VOD หนึ่งครั้ง มันถูกนำไปใช้กับทุกสตรีมใหม่ หากไม่มีคุณภาพที่แน่นอน สคริปต์จะย้อนกลับไปที่คุณภาพที่ต่ำกว่าถัดไป (หรือเป็นอัตโนมัติ)
+- **ระดับเสียงที่ดัง** ระดับเสียงและการปิดเสียงจะถูกคืนค่าต่อการสตรีม โดยมีคำเตือนระดับเสียงที่ดังและแถบเลื่อนสดที่ซิงค์กับเครื่องเล่น
+- **โปรไฟล์ต่อช่อง** เปิดสตรีม กด **บันทึกช่องนี้** จากนั้นช่องนั้นจะจดจำคุณภาพ ระดับเสียง ความเร็ว และเสียงของตัวเอง เพิ่มกลุ่มและบันทึก หยุดการตั้งค่าที่บันทึกไว้ชั่วคราว หรือยกเว้นช่องจากการทำงานอัตโนมัติทั้งหมด
+- **ตั้งค่าล่วงหน้าด่วน** ประหยัดแบนด์วิธ คุณภาพดีที่สุด การรับชมแบบเงียบๆ และ VOD ได้ในคลิกเดียว
+- **เครื่องมือ** ตัวตั้งเวลาปิดเครื่อง มุมมองโฟกัส การซิงค์โปรแกรมเล่นอีกครั้ง การควบคุมเค้าโครงหน้า (ซ่อนแชท ยุบเมนูด้านซ้าย) และโหมดปลอดภัยที่หยุดการเปลี่ยนแปลงอัตโนมัติทั้งหมดชั่วคราว
+- **หยุดการปลุก** เล่นเสียงปลุกดังและแสดงการแจ้งเตือนเมื่อโปรแกรมเล่นค้างหรือแสดงหน้าจอสีดำ แม้ว่าแท็บจะถูกย่อเล็กสุดก็ตาม
+- **ปุ่มรับสิทธิ์ด่วน** ปุ่มลอยแบบลากได้ที่จะรับรางวัลได้ในคลิกเดียว ดีไซน์สี่แบบ ห้าไอคอนหรือรูปภาพของคุณเอง ปรับขนาดและความทึบได้
+- **รับรางวัลอัตโนมัติ** ตัวเลือก: รอการแจ้งเตือนรางวัลของ Kick (หรือตรวจสอบกำหนดการ) อ้างสิทธิ์สิ่งที่มีอยู่และปิดหน้าต่างอีกครั้ง (ปิดโดยค่าเริ่มต้น)
+- **เล่นแบบเงียบ** ปิดเสียงสตรีมโดยไม่ปิดเสียงโปรแกรมเล่น จึงเล่นต่อไปในแท็บเบื้องหลัง ตั้งค่าเป็นสากลหรือต่อช่องที่บันทึกไว้
+- **การแจ้งเตือน** การแจ้งเตือนที่คุณสามารถลาก ปรับขนาด และปิดเสียง รวมถึงเอฟเฟกต์เสียงเสริมพร้อมระดับเสียงต่อเหตุการณ์
+- **อินเทอร์เฟซที่ออกแบบใหม่** แถบด้านข้างที่จัดกลุ่ม การค้นหาการตั้งค่า ธีมสว่างและมืด สีเฉพาะจุด โหมดกะทัดรัด การปรับขนาดข้อความ และคอนทราสต์สูง
+- **แอนิเมชั่นที่คุณควบคุม** การแสดงตัวอย่างสด ค่าที่ตั้งไว้ล่วงหน้า 3 ค่า และเอฟเฟกต์การเปิด โฮเวอร์ และตัวบ่งชี้แยกกัน เคารพการตั้งค่า "ลดการเคลื่อนไหว" ของระบบ
+- **38 ภาษา** พร้อมธง อินเทอร์เฟซจะเป็นไปตามภาษาของเบราว์เซอร์ของคุณในการเรียกใช้ครั้งแรก และจดจำตัวเลือกของคุณในภายหลัง
+- **ส่วนตัวตามการออกแบบ** ทุกอย่างจะยังคงอยู่ในเบราว์เซอร์ของคุณ ไม่มีการตรวจวัดระยะไกล ไม่มีการร้องขอเครือข่าย
+
+<a id="installation"></a>
+## การติดตั้ง
+
+1. ติดตั้งตัวจัดการ userscript: [Tampermonkey](https://www.tampermonkey.net/) หรือ [Violentmonkey](https://violentmonkey.github.io/).
+2. เปิด [`kick-stream-tweaks.user.js`](https://github.com/ebayybe/kick-stream-tweaks/raw/main/kick-stream-tweaks.user.js) และยืนยันการติดตั้ง
+3. เปิดสตรีมใดก็ได้ [kick.com](https://kick.com) แล้วกด **F2**
+
+การอัปเดตจะถูกส่งโดยผู้จัดการสคริปต์ผู้ใช้ของคุณ คุณยังสามารถรับชม [Releases](https://github.com/ebayybe/kick-stream-tweaks/releases) หน้าหนังสือ.
+
+## การบันทึกการตั้งค่าสำหรับช่อง
+
+1. เปิดสตรีมของช่องที่คุณต้องการปรับแต่ง
+2. เปิดแผง (`F2`) แล้วกด **บันทึกช่องนี้** (บนหน้า **ช่อง** หรือจากคำใบ้ในหน้า **การเล่น**) การตั้งค่าคุณภาพ ระดับเสียง ความเร็ว และเสียงในปัจจุบันจะถูกเก็บไว้สำหรับช่องนั้น
+3. ปรับแต่งอย่างละเอียดในตัวแก้ไขด้านล่างปุ่ม จะถูกนำไปใช้โดยอัตโนมัติทุกครั้งที่คุณเปิดช่องนั้น
+
+ใช้สวิตช์ **ใช้การตั้งค่าที่บันทึกไว้ในช่องนี้** เพื่อหยุดโปรไฟล์ชั่วคราวโดยไม่ลบออก หรือ **ลบ** เพื่อลบโปรไฟล์ ช่องที่บันทึกไว้ทั้งหมดจะแสดงอยู่ภายใต้ **ช่อง → ช่องที่บันทึกไว้** ซึ่งคุณสามารถค้นหา จัดเรียง ปักหมุด จัดกลุ่ม เพิ่มบันทึก สำรองและกู้คืนช่องเหล่านั้นได้
+
+<a id="settings-map"></a>
+## แผนที่การตั้งค่า
+
+| กลุ่ม | หน้าหนังสือ | อะไรอยู่ข้างใน |
+| --- | --- | --- |
+| ผู้เล่น | **การเล่น** | ค่าที่ตั้งล่วงหน้า, คุณภาพการถ่ายทอดสด/VOD, ทางเลือก, ระดับเสียง, ปิดเสียง, การเตือนระดับเสียงที่ดัง, ความเร็ว |
+| ผู้เล่น | **ช่องทาง** | โปรไฟล์ช่องปัจจุบัน ช่องที่บันทึกไว้ ค้นหา กลุ่ม บันทึกย่อ สำรองข้อมูล |
+| ผู้เล่น | **เครื่องมือ** | ตัวตั้งเวลาปิดเครื่อง, เค้าโครงหน้า, รางวัลรับรางวัลอัตโนมัติ, ปุ่มรับสิทธิ์ด่วน, หยุดการเตือน, การดำเนินการด่วน, มุมมองโฟกัส |
+| การแจ้งเตือน | **การแจ้งเตือน** | ห้ามรบกวน ขนาด ระยะเวลา ความทึบ ตำแหน่ง ประวัติ |
+| การแจ้งเตือน | **เสียง** | สวิตช์หลักและระดับเสียง สวิตช์ตามเหตุการณ์ ระดับเสียงและดูตัวอย่าง |
+| อินเทอร์เฟซ | **รูปร่าง** | ธีม รูปแบบแผง สีเฉพาะจุด ความหนาแน่น คอนทราสต์ ความเบลอ ขนาดข้อความ ภาษา |
+| อินเทอร์เฟซ | **แอนิเมชั่น** | การแสดงตัวอย่างสด การตั้งค่าล่วงหน้า การเปิด/โฮเวอร์/ตัวบ่งชี้ ความเร็ว |
+| อินเทอร์เฟซ | **ทางลัด** | ปุ่มลัดเมนูและปุ่มลัดการดำเนินการ |
+| ระบบ | **การวินิจฉัย** | สถานะปัจจุบัน, การสแกนคุณภาพ, การตรวจสอบข้อขัดแย้ง, เซฟโหมด, บันทึกการดำเนินการ |
+| ระบบ | **ข้อมูลและเกี่ยวกับ** | ส่งออก นำเข้า เลิกทำ รีเซ็ต กู้คืนข้อมูลสำรอง ลิงก์ |
+
+แถบเลื่อนทุกอันยังตอบสนองต่อล้อเลื่อนของเมาส์ในขณะที่คุณเลื่อนเมาส์ไว้ ใช้ช่องค้นหาที่ด้านบนของแผงเพื่อค้นหาการตั้งค่าตามชื่อ การค้นหายังเข้าใจชื่อภาษาอังกฤษด้วย ดังนั้นจึงทำงานเหมือนกันในทุกภาษาของอินเทอร์เฟซ และคีย์ที่พิมพ์ที่นั่นจะไม่ไปถึงหน้านั้น
+
+## ปุ่มรับสิทธิ์ด่วน
+
+เปิดใช้งานได้ใน **เครื่องมือ → ปุ่มอ้างสิทธิ์ด่วนบนหน้า** ปุ่มเล็กๆ ปรากฏขึ้นบนสตรีม:
+
+- **ลาก** ไปที่ไหนก็ได้ ตำแหน่งของมันถูกจดจำ
+- **คลิก** เพื่อรับรางวัลของคุณ (จะเปิดหน้าต่างรางวัล กด *Claim* ปิดหน้าต่างและกลับสู่สตรีม)
+- มัน **เรืองแสงและแสดงจุดสีแดง** เมื่อการแจ้งเตือนรางวัลของ Kick ปรากฏขึ้น เปิด *แสดงเฉพาะเมื่อมีรางวัล* เพื่อซ่อนไว้ตลอดเวลาที่เหลือ
+- เลือก **สไตล์** (ลูกกลม เม็ดยา แก้ว แบน) **ไอคอน** ในตัว หรือ **รูปภาพของคุณเอง** (PNG, JPG, WebP, GIF หรือ SVG สูงสุด 2 MB รูปภาพสี่เหลี่ยมจัตุรัสที่มีพื้นหลังโปร่งใสจะดูดีที่สุด) **ขนาด** และ **ความทึบ** การแสดงตัวอย่างสดจะแสดงทุกการเปลี่ยนแปลง
+
+ปุ่มนี้แยกจาก *รับรางวัลอัตโนมัติ* ดังนั้นคุณสามารถรับด้วยตนเอง โดยอัตโนมัติ หรือทั้งสองอย่าง
+
+<a id="shortcuts"></a>
+## ทางลัด
+
+| การกระทำ | ค่าเริ่มต้น |
+| --- | --- |
+| เปิด/ปิดแผง | `F2` |
+| สลับการแจ้งเตือน | `Alt+N` |
+| สลับการแชท | `Alt+C` |
+| สลับเมนูด้านซ้าย | `Alt+S` |
+| โฟกัสมุมมอง | `Alt+F` |
+| รีเซ็ตคุณภาพ | `Alt+Q` |
+| คืนค่าระดับเสียง | `Alt+V` |
+
+ทุกทางลัดสามารถเด้งกลับได้ใน **ทางลัด** การผูกเป็นไปตามคีย์จริง ดังนั้นจึงใช้งานได้กับรูปแบบแป้นพิมพ์ใดๆ
+
+<a id="languages"></a>
+## ภาษา
+
+อารบิค เบลารุส บัลแกเรีย จีน (ประยุกต์) จีน (ดั้งเดิม) โครเอเชีย เช็ก เดนมาร์ก ดัตช์ อังกฤษ อังกฤษ (อินเดีย) ฟินแลนด์ ฝรั่งเศส เยอรมัน กรีก ฮินดี ฮังการี อินโดนีเซีย อิตาลี ญี่ปุ่น เกาหลี ลัตเวีย ลิทัวเนีย มาซิโดเนีย มาเลย์ มองโกเลีย นอร์เวย์ โปแลนด์ โปรตุเกส โรมาเนีย รัสเซีย เซอร์เบีย สโลวาเกีย สเปน สวีเดน ไทย ตุรกี และเวียดนาม
+
+## การแก้ไขปัญหา
+
+- **ไม่ได้ใช้คุณภาพ** เปิด **การวินิจฉัย** กด *รีเฟรชการวินิจฉัย* เพื่อสแกนคุณภาพข้อเสนอ Kick จากนั้น *ตรวจสอบคุณภาพที่เลือก* หากช่องถูกแยกออกหรือเปิดเซฟโหมดอยู่ บรรทัดสถานะจะแจ้งเช่นนั้น
+- **ไม่มีการรับรางวัล** การอ้างสิทธิ์อัตโนมัติปิดอยู่ตามค่าเริ่มต้น เปิดใช้งานได้ใน **เครื่องมือ → รางวัล** และลอง *รับเลยตอนนี้* ใช้งานได้เฉพาะในช่องถ่ายทอดสดเท่านั้น โดยที่แท็บจะมองเห็นได้และคุณไม่ได้พิมพ์ในแชท ในโหมด *การแจ้งเตือน* สคริปต์จะตอบสนองต่อแบนเนอร์รางวัลของ Kick
+- **การเล่นและเสียงแบบเงียบ** การเล่นแบบเงียบจะกำหนดเส้นทางวิดีโอผ่านระบบเสียงของเบราว์เซอร์โดยไม่มีอัตราขยายเป็นศูนย์ หากไซต์บล็อกสิ่งนั้น แผงจะแจ้งให้คุณทราบและเสียงปกติจะไม่ถูกแตะต้อง
+- **มีบางอย่างทำงานผิดปกติ** เรียกใช้ *ตรวจสอบข้อขัดแย้ง* หรือใช้ *รีเซ็ตส่วน* บนหน้าที่เป็นปัญหา
+- **การตั้งค่าดูผิดปกติหลังจากการอัพเดต** ใช้ **ข้อมูลและเกี่ยวกับ → เลิกทำ** หรือ **กู้คืนข้อมูลสำรอง**
+- **พบข้อบกพร่องใช่ไหม** กด *คัดลอกการวินิจฉัย* แล้วแนบไปกับ [new issue](https://github.com/ebayybe/kick-stream-tweaks/issues).
+
+## ความเป็นส่วนตัว
+
+การตั้งค่าและโปรไฟล์ช่องจะถูกจัดเก็บไว้ในที่เก็บข้อมูลในเครื่องของเบราว์เซอร์ของคุณบน kick.com สคริปต์จะไม่ส่งข้อมูลไปที่ใดและไม่มีการร้องขอการอนุญาตเพิ่มเติม (`@grant none`).
+
+## มีส่วนร่วม
+
+ยินดีรับประเด็นและคำขอดึง สคริปต์เป็นไฟล์เดียวในตัวเอง ดังนั้นจึงไม่จำเป็นต้องมีขั้นตอนการสร้างเพื่อลองเปลี่ยนแปลง: แก้ไข `kick-stream-tweaks.user.js` และโหลดหน้าซ้ำ
+
+## ใบอนุญาต
+
+[MIT](./LICENSE)
