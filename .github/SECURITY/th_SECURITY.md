@@ -1,0 +1,27 @@
+[English](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY.md) · [Arabic](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/ar_SECURITY.md) · [Belarusian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/be_SECURITY.md) · [Bulgarian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/bg_SECURITY.md) · [Czech](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/cs_SECURITY.md) · [Danish](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/da_SECURITY.md) · [German](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/de_SECURITY.md) · [Greek](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/el_SECURITY.md) · [Spanish](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/es_SECURITY.md) · [Finnish](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/fi_SECURITY.md) · [French](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/fr_SECURITY.md) · [Hindi](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/hi_SECURITY.md) · [English (India)](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/en-in_SECURITY.md) · [Croatian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/hr_SECURITY.md) · [Hungarian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/hu_SECURITY.md) · [Indonesian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/id_SECURITY.md) · [Italian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/it_SECURITY.md) · [Japanese](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/ja_SECURITY.md) · [Korean](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/ko_SECURITY.md) · [Lithuanian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/lt_SECURITY.md) · [Latvian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/lv_SECURITY.md) · [Macedonian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/mk_SECURITY.md) · [Mongolian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/mn_SECURITY.md) · [Malay](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/ms_SECURITY.md) · [Dutch](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/nl_SECURITY.md) · [Norwegian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/no_SECURITY.md) · [Polish](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/pl_SECURITY.md) · [Portuguese](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/pt_SECURITY.md) · [Romanian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/ro_SECURITY.md) · [Russian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/ru_SECURITY.md) · [Slovak](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/sk_SECURITY.md) · [Serbian](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/sr_SECURITY.md) · [Swedish](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/sv_SECURITY.md) · **Thai** · [Turkish](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/tr_SECURITY.md) · [Vietnamese](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/vi_SECURITY.md) · [Chinese (China)](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/zh-cn_SECURITY.md) · [Chinese (Taiwan)](https://github.com/ebayybe/kick-stream-tweaks/blob/main/.github/SECURITY/zh-tw_SECURITY.md)
+
+---
+
+# นโยบายความปลอดภัย
+
+## เวอร์ชันที่รองรับ
+
+ปัญหาด้านความปลอดภัยจะได้รับการพิจารณาสำหรับ Kick Stream Tweaks ที่เสถียรล่าสุดเท่านั้น เวอร์ชันปัจจุบันคือ 1.3.1 โปรดอัปเดตเป็นรุ่นล่าสุดก่อนที่จะรายงานปัญหา
+
+## รายงานช่องโหว่
+
+อย่าเปิดเผยช่องโหว่ด้านความปลอดภัยที่น่าสงสัยในปัญหา GitHub สาธารณะ การสนทนา การดึงคำขอ หรือความคิดเห็น
+
+หากเปิดใช้งานการรายงานช่องโหว่ส่วนตัวของ GitHub สำหรับพื้นที่เก็บข้อมูลนี้ ให้ส่งรายงานส่วนตัวผ่าน [Security Advisories](https://github.com/ebayybe/kick-stream-tweaks/security/advisories) หากไม่พร้อมใช้งาน ให้ใช้ [GitHub Issues](https://github.com/ebayybe/kick-stream-tweaks/issues) เพื่อขอวิธีการติดต่อส่วนตัวเท่านั้น อย่าใส่รายละเอียดช่องโหว่ในประเด็นสาธารณะ
+
+โปรดระบุเวอร์ชันของสคริปต์ที่ได้รับผลกระทบ เวอร์ชันของเบราว์เซอร์และตัวจัดการสคริปต์ผู้ใช้ คำอธิบายผลกระทบที่ชัดเจน และขั้นตอนการทำซ้ำ ใช้ข้อมูลสังเคราะห์และการพิสูจน์แนวคิดให้น้อยที่สุดหากเป็นไปได้
+
+ห้ามใส่รหัสผ่าน คุกกี้เซสชัน โทเค็นการเข้าถึง ข้อมูลบัญชีส่วนตัว หรือข้อมูลส่วนบุคคลที่ยังไม่ได้แก้ไข ให้เวลาในการสอบสวนและแก้ไขก่อนที่จะเปิดเผยต่อสาธารณะ รายงานได้รับการจัดการบนพื้นฐานความพยายามอย่างดีที่สุด ไม่รับประกันไทม์ไลน์การตอบกลับหรือการแก้ไข
+
+## ขอบเขตและการทดสอบที่ปลอดภัย
+
+นโยบายนี้ครอบคลุมถึงปัญหาด้านความปลอดภัยที่เกิดจาก Kick Stream Tweaks เช่น การทำงานของสคริปต์ที่ไม่คาดคิด การจัดการการตั้งค่าที่ไม่ปลอดภัยในเบราว์เซอร์ หรือการโต้ตอบกับ Kick Player โดยไม่ได้ตั้งใจ
+
+ทดสอบเฉพาะบัญชี ระบบ และข้อมูลที่คุณเป็นเจ้าของหรือได้รับอนุญาตอย่างชัดเจนให้ใช้ ห้ามตรวจสอบหรือโจมตี Kick.com โครงสร้างพื้นฐาน GitHub เบราว์เซอร์ ตัวจัดการสคริปต์ผู้ใช้ หรือบริการของบุคคลที่สามอื่น ๆ รายงานปัญหาในบริการเหล่านั้นไปยังผู้ดูแลที่เกี่ยวข้อง
+
+สำหรับข้อบกพร่องทั่วไปและการร้องขอคุณสมบัติ ให้ใช้ [GitHub Issues](https://github.com/ebayybe/kick-stream-tweaks/issues)
