@@ -9,7 +9,7 @@
 [![Kick Stream Tweaks preview](https://raw.githubusercontent.com/ebayybe/kick-stream-tweaks/main/Photo/kick-stream.png)](https://github.com/ebayybe/kick-stream-tweaks/blob/main/Photo/kick-stream.png)
 
 
-[![Version](https://img.shields.io/badge/version-1.3.1-53fc18?style=flat-square)](https://github.com/ebayybe/kick-stream-tweaks/releases)
+[![Version](https://img.shields.io/badge/version-1.3.2-53fc18?style=flat-square)](https://github.com/ebayybe/kick-stream-tweaks/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)
 [![Languages](https://img.shields.io/badge/languages-38-8a5cf6?style=flat-square)](#languages)
 [![Userscript](https://img.shields.io/badge/Tampermonkey%20%7C%20Violentmonkey-supported-orange?style=flat-square)](#installation)
