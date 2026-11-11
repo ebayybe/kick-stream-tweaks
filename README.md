@@ -14,7 +14,7 @@
 [![Languages](https://img.shields.io/badge/languages-38-8a5cf6?style=flat-square)](#languages)
 [![Userscript](https://img.shields.io/badge/Tampermonkey%20%7C%20Violentmonkey-supported-orange?style=flat-square)](#installation)
 
-[Install](#installation) · [Features](#features) · [Settings map](#settings-map) · [Shortcuts](#shortcuts) · [Function reference](../docs/en_FUNCTIONS.md) · [Changelog](../CHANGELOG/en_CHANGELOG.md) · [Releases](https://github.com/ebayybe/kick-stream-tweaks/releases)
+[Install](#installation) · [Features](#features) · [Settings map](#settings-map) · [Shortcuts](#shortcuts) · [Function reference](https://github.com/ebayybe/kick-stream-tweaks/blob/main/docs/en_FUNCTIONS.md) · [Changelog](https://github.com/ebayybe/kick-stream-tweaks/blob/main/CHANGELOG/en_CHANGELOG.md) · [Releases](https://github.com/ebayybe/kick-stream-tweaks/releases)
 
 </div>
 
